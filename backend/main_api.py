@@ -1,7 +1,14 @@
 import argparse
+import logging
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
+from .api.pipeline_routes import router as pipeline_router
+from .api.settings_routes import router as settings_router
+from .api.history_routes import router as history_router
+
+logging.basicConfig(level=logging.INFO)
 
 app = FastAPI(title="AutoEmbed Backend")
 
@@ -12,9 +19,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Register route modules
+app.include_router(pipeline_router)
+app.include_router(settings_router)
+app.include_router(history_router)
+
+
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
