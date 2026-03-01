@@ -81,7 +81,7 @@ function SimpleView() {
         <Text style={{ color: '#a6adc8' }}>
           All {stages.length} stages completed successfully.
         </Text>
-        {result.code && (
+        {(result.code_debug || result.code_clean) && (
           <pre
             style={{
               marginTop: 12,
@@ -94,7 +94,7 @@ function SimpleView() {
               overflow: 'auto',
             }}
           >
-            {result.code}
+            {result.code_clean || result.code_debug}
           </pre>
         )}
       </Card>

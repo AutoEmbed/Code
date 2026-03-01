@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Layout, Menu, Typography } from 'antd';
 import {
   SettingOutlined,
@@ -14,11 +13,12 @@ import Pipeline from '../pages/Pipeline';
 import CodeView from '../pages/CodeView';
 import History from '../pages/History';
 import Settings from '../pages/Settings';
+import { useNavigationStore } from '../stores/navigationStore';
+import type { PageKey } from '../stores/navigationStore';
+import { useState } from 'react';
 
 const { Sider, Content, Footer } = Layout;
 const { Title } = Typography;
-
-type PageKey = 'task-config' | 'pipeline' | 'code-view' | 'history' | 'settings';
 
 const pageComponents: Record<PageKey, React.ComponentType> = {
   'task-config': TaskConfig,
@@ -57,13 +57,13 @@ const menuItems: MenuProps['items'] = [
 ];
 
 export default function AppLayout() {
-  const [currentPage, setCurrentPage] = useState<PageKey>('task-config');
+  const { currentPage, navigate } = useNavigationStore();
   const [collapsed, setCollapsed] = useState(false);
 
   const PageComponent = pageComponents[currentPage];
 
   const handleMenuClick: MenuProps['onClick'] = ({ key }) => {
-    setCurrentPage(key as PageKey);
+    navigate(key as PageKey);
   };
 
   return (

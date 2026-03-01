@@ -3,8 +3,10 @@ import {
   PlayCircleOutlined,
   StopOutlined,
   ReloadOutlined,
+  CodeOutlined,
 } from '@ant-design/icons';
 import { usePipelineStore } from '../stores/pipelineStore';
+import { useNavigationStore } from '../stores/navigationStore';
 import { usePipelineWS } from '../hooks/useWebSocket';
 import StageTimeline from '../components/StageTimeline';
 import StageDetail from '../components/StageDetail';
@@ -19,6 +21,7 @@ function formatElapsed(ms: number): string {
 export default function Pipeline() {
   const { taskId, isRunning, stages, currentStage, error, result, reset } =
     usePipelineStore();
+  const { navigate } = useNavigationStore();
 
   usePipelineWS(taskId);
 
@@ -149,9 +152,17 @@ export default function Pipeline() {
               <Button
                 danger
                 icon={<StopOutlined />}
-                onClick={() => {
-                  // Cancel pipeline: close WS and reset.
-                  // In a full implementation this would also call POST /api/pipeline/cancel
+                onClick={async () => {
+                  if (taskId) {
+                    const port = (await window.electronAPI?.getBackendPort()) ?? 8765;
+                    try {
+                      await fetch(`http://localhost:${port}/api/pipeline/${taskId}/cancel`, {
+                        method: 'POST',
+                      });
+                    } catch (e) {
+                      console.error('Failed to cancel pipeline:', e);
+                    }
+                  }
                   reset();
                 }}
               >
@@ -159,9 +170,20 @@ export default function Pipeline() {
               </Button>
             )}
             {hasFinished && (
-              <Button icon={<ReloadOutlined />} onClick={reset}>
-                Reset
-              </Button>
+              <>
+                {result && (
+                  <Button
+                    type="primary"
+                    icon={<CodeOutlined />}
+                    onClick={() => navigate('code-view')}
+                  >
+                    View Code
+                  </Button>
+                )}
+                <Button icon={<ReloadOutlined />} onClick={reset}>
+                  Reset
+                </Button>
+              </>
             )}
           </Space>
         </div>

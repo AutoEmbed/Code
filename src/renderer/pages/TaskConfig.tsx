@@ -9,6 +9,7 @@ import {
   Divider,
   Drawer,
   List,
+  message,
 } from 'antd';
 import {
   ExperimentOutlined,
@@ -18,6 +19,9 @@ import {
   PlayCircleOutlined,
 } from '@ant-design/icons';
 import { useTaskStore } from '../stores/taskStore';
+import { usePipelineStore } from '../stores/pipelineStore';
+import { useConfigStore } from '../stores/configStore';
+import { useNavigationStore } from '../stores/navigationStore';
 import ComponentSelector from '../components/ComponentSelector';
 import PinMappingTable from '../components/PinMappingTable';
 
@@ -71,14 +75,22 @@ export default function TaskConfig() {
   const {
     components,
     taskDescription,
+    pinConnections,
     boardFqbn,
+    boardName,
     setComponents,
     setTaskDescription,
     setBoardName,
     setBoardFqbn,
   } = useTaskStore();
 
+  const { reset: resetPipeline, setTaskId, setIsRunning } = usePipelineStore();
+  const { config } = useConfigStore();
+  const { navigate } = useNavigationStore();
+
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [starting, setStarting] = useState(false);
+  const [messageApi, contextHolder] = message.useMessage();
 
   const handleBoardChange = (value: string) => {
     setBoardFqbn(value);
@@ -91,17 +103,70 @@ export default function TaskConfig() {
     setDrawerOpen(false);
   };
 
-  const handleStart = () => {
-    // Will be connected to the pipeline engine in a later task
-    console.log('Starting pipeline with:', {
-      components,
-      taskDescription,
-      boardFqbn,
-    });
+  const handleStart = async () => {
+    // Validate settings
+    if (!config.apiKey) {
+      messageApi.warning('Please set your API key in Settings first.');
+      return;
+    }
+
+    setStarting(true);
+
+    // Reset any previous pipeline state
+    resetPipeline();
+
+    const backendPort = (await window.electronAPI?.getBackendPort()) ?? 8765;
+
+    const body = {
+      task_config: {
+        components,
+        task_description: taskDescription,
+        pin_connections: pinConnections,
+        board_name: boardName,
+        board_fqbn: boardFqbn,
+      },
+      app_config: {
+        api_key: config.apiKey,
+        api_base_url: config.apiBaseUrl,
+        model: config.model,
+        arduino_cli_path: config.arduinoCliPath,
+        serial_port: config.serialPort,
+        board_fqbn: boardFqbn,
+        board_name: boardName,
+        libraries_dir: config.librariesDir,
+      },
+    };
+
+    try {
+      const res = await fetch(`http://localhost:${backendPort}/api/pipeline/start`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.detail ?? `HTTP ${res.status}`);
+      }
+
+      const data = await res.json();
+      const taskId = data.task_id;
+
+      // Update pipeline store and navigate
+      setTaskId(taskId);
+      setIsRunning(true);
+      navigate('pipeline');
+    } catch (err: any) {
+      console.error('Failed to start pipeline:', err);
+      messageApi.error(`Failed to start pipeline: ${err.message ?? 'Unknown error'}`);
+    } finally {
+      setStarting(false);
+    }
   };
 
   return (
     <div style={{ padding: 24, maxWidth: 800, margin: '0 auto' }}>
+      {contextHolder}
       {/* Header */}
       <Title level={3} style={{ color: '#cdd6f4', marginBottom: 24 }}>
         Task Configuration
@@ -214,6 +279,7 @@ export default function TaskConfig() {
           size="large"
           icon={<PlayCircleOutlined />}
           onClick={handleStart}
+          loading={starting}
           style={{ minWidth: 220, height: 48, fontSize: 16 }}
           disabled={components.length === 0 || !taskDescription.trim()}
         >
