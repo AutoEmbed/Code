@@ -6,3 +6,5 @@ dist/
 .env
 __pycache__/
 *.pyc
+python-env/
+*.tar.gz
