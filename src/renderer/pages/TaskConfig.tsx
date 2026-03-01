@@ -9,6 +9,7 @@ import {
   Divider,
   Drawer,
   List,
+  Alert,
   message,
 } from 'antd';
 import {
@@ -17,6 +18,7 @@ import {
   AppstoreOutlined,
   FileTextOutlined,
   PlayCircleOutlined,
+  SettingOutlined,
 } from '@ant-design/icons';
 import { useTaskStore } from '../stores/taskStore';
 import { usePipelineStore } from '../stores/pipelineStore';
@@ -167,6 +169,34 @@ export default function TaskConfig() {
   return (
     <div style={{ padding: 24, maxWidth: 800, margin: '0 auto' }}>
       {contextHolder}
+
+      {/* First-run guidance */}
+      {(!config.apiKey || !config.arduinoCliPath) && (
+        <Alert
+          message="Setup Required"
+          description={
+            <span>
+              Please configure your{' '}
+              {!config.apiKey && <strong>API Key</strong>}
+              {!config.apiKey && !config.arduinoCliPath && ' and '}
+              {!config.arduinoCliPath && <strong>Arduino CLI path</strong>}
+              {' '}in{' '}
+              <a
+                style={{ color: '#00b4d8' }}
+                onClick={() => navigate('settings')}
+              >
+                <SettingOutlined /> Settings
+              </a>
+              {' '}before starting a pipeline.
+            </span>
+          }
+          type="warning"
+          showIcon
+          style={{ marginBottom: 20 }}
+          banner
+        />
+      )}
+
       {/* Header */}
       <Title level={3} style={{ color: '#cdd6f4', marginBottom: 24 }}>
         Task Configuration

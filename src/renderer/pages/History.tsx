@@ -11,6 +11,8 @@ import {
   Typography,
   Popconfirm,
   Tooltip,
+  Spin,
+  Alert,
   message,
 } from 'antd';
 import {
@@ -19,6 +21,7 @@ import {
   DeleteOutlined,
   CopyOutlined,
   EyeOutlined,
+  LoadingOutlined,
 } from '@ant-design/icons';
 import type { ColumnsType } from 'antd/es/table';
 import { useHistoryStore } from '../stores/historyStore';
@@ -57,13 +60,21 @@ const cardStyle: React.CSSProperties = {
 };
 
 export default function History() {
-  const { items, loading, selectedItem, fetchHistory, selectItem, deleteItem } =
+  const { items, loading, error, selectedItem, fetchHistory, selectItem, deleteItem } =
     useHistoryStore();
   const [messageApi, contextHolder] = message.useMessage();
 
   useEffect(() => {
     fetchHistory();
   }, [fetchHistory]);
+
+  const handleDelete = async (taskId: string) => {
+    try {
+      await deleteItem(taskId);
+    } catch {
+      messageApi.error('Failed to delete history item');
+    }
+  };
 
   const handleCopyCode = (code: string) => {
     navigator.clipboard
@@ -160,7 +171,7 @@ export default function History() {
             description="This action cannot be undone."
             onConfirm={(e) => {
               e?.stopPropagation();
-              deleteItem(record.task_id);
+              handleDelete(record.task_id);
             }}
             onCancel={(e) => e?.stopPropagation()}
             okText="Delete"
@@ -219,7 +230,29 @@ export default function History() {
 
       {/* Table */}
       <div style={{ flex: 1, minHeight: 0 }}>
-        {items.length === 0 && !loading ? (
+        {loading && items.length === 0 ? (
+          <Card style={{ ...cardStyle, textAlign: 'center', padding: '60px 24px' }}>
+            <Spin
+              indicator={<LoadingOutlined style={{ fontSize: 32, color: '#00b4d8' }} />}
+              tip={<span style={{ color: '#a6adc8', marginTop: 12 }}>Loading history...</span>}
+            >
+              <div style={{ height: 60 }} />
+            </Spin>
+          </Card>
+        ) : error ? (
+          <Alert
+            message="Failed to Load History"
+            description={error}
+            type="error"
+            showIcon
+            action={
+              <Button size="small" onClick={() => fetchHistory()}>
+                Retry
+              </Button>
+            }
+            style={{ marginBottom: 16 }}
+          />
+        ) : items.length === 0 ? (
           <Card style={cardStyle}>
             <Empty
               image={Empty.PRESENTED_IMAGE_SIMPLE}

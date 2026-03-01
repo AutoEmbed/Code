@@ -1,10 +1,11 @@
-import { Layout, Menu, Typography } from 'antd';
+import { Layout, Menu, Typography, Badge } from 'antd';
 import {
   SettingOutlined,
   FileTextOutlined,
   PlayCircleOutlined,
   CodeOutlined,
   HistoryOutlined,
+  ApiOutlined,
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 
@@ -15,10 +16,21 @@ import History from '../pages/History';
 import Settings from '../pages/Settings';
 import { useNavigationStore } from '../stores/navigationStore';
 import type { PageKey } from '../stores/navigationStore';
+import { useConfigStore } from '../stores/configStore';
+import { usePipelineStore } from '../stores/pipelineStore';
 import { useState } from 'react';
 
 const { Sider, Content, Footer } = Layout;
-const { Title } = Typography;
+const { Title, Text } = Typography;
+
+// Map board FQBN to display name for status bar
+const boardFqbnToName: Record<string, string> = {
+  'arduino:avr:uno': 'Arduino Uno',
+  'arduino:avr:mega': 'Arduino Mega',
+  'arduino:avr:nano': 'Arduino Nano',
+  'esp32:esp32:esp32': 'ESP32',
+  'esp32:esp32:esp32s3': 'ESP32-S3',
+};
 
 const pageComponents: Record<PageKey, React.ComponentType> = {
   'task-config': TaskConfig,
@@ -59,12 +71,27 @@ const menuItems: MenuProps['items'] = [
 export default function AppLayout() {
   const { currentPage, navigate } = useNavigationStore();
   const [collapsed, setCollapsed] = useState(false);
+  const config = useConfigStore((s) => s.config);
+  const { isRunning, currentStage, stages } = usePipelineStore();
 
   const PageComponent = pageComponents[currentPage];
 
   const handleMenuClick: MenuProps['onClick'] = ({ key }) => {
     navigate(key as PageKey);
   };
+
+  // Status bar: left side info
+  const boardDisplay = boardFqbnToName[config.boardFqbn] || config.boardFqbn || 'No Board';
+  const portDisplay = config.serialPort || 'No Port';
+  const connectionDisplay = config.apiKey ? 'Configured' : 'Not Configured';
+
+  // Status bar: right side pipeline progress
+  const completedCount = stages.filter((s) => s.status === 'completed').length;
+  const pipelineDisplay = isRunning
+    ? `Pipeline: ${completedCount + 1}/${stages.length}`
+    : completedCount > 0
+      ? `Pipeline: ${completedCount}/${stages.length}`
+      : 'Pipeline: Idle';
 
   return (
     <Layout style={{ height: '100vh', background: '#141422' }}>
@@ -84,20 +111,30 @@ export default function AppLayout() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            gap: 8,
             borderBottom: '1px solid #3a3a5c',
           }}
         >
-          <Title
-            level={4}
+          <ApiOutlined
             style={{
               color: '#00b4d8',
-              margin: 0,
-              fontSize: collapsed ? 14 : 16,
-              whiteSpace: 'nowrap',
+              fontSize: collapsed ? 18 : 16,
             }}
-          >
-            {collapsed ? 'AE' : 'AutoEmbed'}
-          </Title>
+          />
+          {!collapsed && (
+            <Title
+              level={4}
+              style={{
+                color: '#00b4d8',
+                margin: 0,
+                fontSize: 16,
+                whiteSpace: 'nowrap',
+                letterSpacing: '0.5px',
+              }}
+            >
+              AutoEmbed
+            </Title>
+          )}
         </div>
         <Menu
           theme="dark"
@@ -114,6 +151,8 @@ export default function AppLayout() {
             padding: 0,
             overflow: 'auto',
             background: '#141422',
+            minHeight: 0,
+            flex: 1,
           }}
         >
           <PageComponent />
@@ -125,10 +164,40 @@ export default function AppLayout() {
             borderTop: '1px solid #3a3a5c',
             color: '#888',
             fontSize: 12,
-            textAlign: 'center',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
           }}
         >
-          AutoEmbed v1.0.0 — Neural Network Embedding Optimization
+          <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <Text style={{ color: '#a6adc8', fontSize: 12 }}>{boardDisplay}</Text>
+            <span style={{ color: '#3a3a5c' }}>|</span>
+            <Text style={{ color: '#a6adc8', fontSize: 12 }}>{portDisplay}</Text>
+            <span style={{ color: '#3a3a5c' }}>|</span>
+            <Badge
+              status={config.apiKey ? 'success' : 'default'}
+              text={
+                <Text style={{ color: config.apiKey ? '#a6e3a1' : '#6c7086', fontSize: 12 }}>
+                  {connectionDisplay}
+                </Text>
+              }
+            />
+          </span>
+          <span>
+            <Badge
+              status={isRunning ? 'processing' : 'default'}
+              text={
+                <Text
+                  style={{
+                    color: isRunning ? '#00b4d8' : '#6c7086',
+                    fontSize: 12,
+                  }}
+                >
+                  {pipelineDisplay}
+                </Text>
+              }
+            />
+          </span>
         </Footer>
       </Layout>
     </Layout>

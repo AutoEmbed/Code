@@ -1,9 +1,10 @@
-import { Button, Card, Col, Row, Space, Typography } from 'antd';
+import { Alert, Button, Card, Col, Row, Space, Typography, message } from 'antd';
 import {
   PlayCircleOutlined,
   StopOutlined,
   ReloadOutlined,
   CodeOutlined,
+  DisconnectOutlined,
 } from '@ant-design/icons';
 import { usePipelineStore } from '../stores/pipelineStore';
 import { useNavigationStore } from '../stores/navigationStore';
@@ -22,8 +23,9 @@ export default function Pipeline() {
   const { taskId, isRunning, stages, currentStage, error, result, reset } =
     usePipelineStore();
   const { navigate } = useNavigationStore();
+  const [messageApi, contextHolder] = message.useMessage();
 
-  usePipelineWS(taskId);
+  const { wsStatus } = usePipelineWS(taskId);
 
   const completedCount = stages.filter((s) => s.status === 'completed').length;
   const totalElapsed = stages.reduce((sum, s) => sum + s.elapsed_ms, 0);
@@ -38,6 +40,8 @@ export default function Pipeline() {
         flexDirection: 'column',
       }}
     >
+      {contextHolder}
+
       {/* Header */}
       <div
         style={{
@@ -52,6 +56,21 @@ export default function Pipeline() {
           Pipeline Execution
         </Title>
       </div>
+
+      {/* WebSocket disconnect warning */}
+      {wsStatus.error && taskId && (
+        <Alert
+          message={
+            wsStatus.reconnecting ? 'Reconnecting to Server' : 'Connection Lost'
+          }
+          description={wsStatus.error}
+          type={wsStatus.reconnecting ? 'warning' : 'error'}
+          showIcon
+          icon={<DisconnectOutlined />}
+          style={{ marginBottom: 16 }}
+          banner
+        />
+      )}
 
       {/* Main two-column layout */}
       <div style={{ flex: 1, minHeight: 0, overflow: 'auto' }}>
@@ -159,8 +178,8 @@ export default function Pipeline() {
                       await fetch(`http://localhost:${port}/api/pipeline/${taskId}/cancel`, {
                         method: 'POST',
                       });
-                    } catch (e) {
-                      console.error('Failed to cancel pipeline:', e);
+                    } catch (e: any) {
+                      messageApi.error(`Failed to cancel pipeline: ${e.message ?? 'Unknown error'}`);
                     }
                   }
                   reset();

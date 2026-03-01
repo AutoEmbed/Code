@@ -13,6 +13,7 @@ export interface HistoryItem {
 interface HistoryStore {
   items: HistoryItem[];
   loading: boolean;
+  error: string | null;
   selectedItem: HistoryItem | null;
   fetchHistory: (port?: number) => Promise<void>;
   selectItem: (item: HistoryItem | null) => void;
@@ -22,17 +23,19 @@ interface HistoryStore {
 export const useHistoryStore = create<HistoryStore>((set, get) => ({
   items: [],
   loading: false,
+  error: null,
   selectedItem: null,
 
   fetchHistory: async (port = 8765) => {
-    set({ loading: true });
+    set({ loading: true, error: null });
     try {
       const res = await fetch(`http://localhost:${port}/api/history`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       set({ items: Array.isArray(data) ? data : [], loading: false });
-    } catch (err) {
+    } catch (err: any) {
       console.error('Failed to fetch history:', err);
-      set({ loading: false });
+      set({ loading: false, error: err.message ?? 'Failed to fetch history' });
     }
   },
 
@@ -40,17 +43,19 @@ export const useHistoryStore = create<HistoryStore>((set, get) => ({
 
   deleteItem: async (taskId, port = 8765) => {
     try {
-      await fetch(`http://localhost:${port}/api/history/${taskId}`, {
+      const res = await fetch(`http://localhost:${port}/api/history/${taskId}`, {
         method: 'DELETE',
       });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       // Clear selection if the deleted item was selected
       const { selectedItem } = get();
       if (selectedItem?.task_id === taskId) {
         set({ selectedItem: null });
       }
       await get().fetchHistory(port);
-    } catch (err) {
+    } catch (err: any) {
       console.error('Failed to delete history item:', err);
+      throw err; // Re-throw so UI can handle it
     }
   },
 }));
