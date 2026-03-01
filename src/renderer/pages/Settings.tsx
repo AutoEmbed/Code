@@ -47,16 +47,6 @@ const boardFqbnToName: Record<string, string> = {
   'esp32:esp32:esp32s3': 'ESP32-S3',
 };
 
-// Extend window type for electronAPI
-declare global {
-  interface Window {
-    electronAPI?: {
-      selectFile?: () => Promise<string | null>;
-      selectDirectory?: () => Promise<string | null>;
-    };
-  }
-}
-
 const cardStyle: React.CSSProperties = {
   background: '#1e1e2e',
   border: '1px solid #3a3a5c',
