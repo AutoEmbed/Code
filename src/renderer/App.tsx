@@ -1,12 +1,11 @@
-import React from 'react'
+import { ConfigProvider } from 'antd';
+import { appTheme } from './styles/theme';
+import AppLayout from './layouts/AppLayout';
 
-function App(): React.JSX.Element {
+export default function App() {
   return (
-    <div style={{ padding: 40, textAlign: 'center' }}>
-      <h1>AutoEmbed</h1>
-      <p>Neural Network Embedding Optimization Tool</p>
-    </div>
-  )
+    <ConfigProvider theme={appTheme}>
+      <AppLayout />
+    </ConfigProvider>
+  );
 }
-
-export default App

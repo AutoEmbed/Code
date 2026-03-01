@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  background: #141422;
+  color: #e0e0e0;
+}
+
+#root {
+  height: 100vh;
+  overflow: hidden;
+}
