@@ -2,6 +2,9 @@ import { app, shell, BrowserWindow } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import { registerIpcHandlers } from './ipc-handlers'
+import { PythonManager } from './python-manager'
+
+const pythonManager = new PythonManager()
 
 function createWindow(): void {
   const mainWindow = new BrowserWindow({
@@ -34,12 +37,21 @@ function createWindow(): void {
   }
 }
 
-app.whenReady().then(() => {
+app.whenReady().then(async () => {
   // Set app user model id for windows
   electronApp.setAppUserModelId('com.autoembed.gui')
 
   // Register IPC handlers for file dialogs and backend communication
   registerIpcHandlers()
+
+  // Start Python backend
+  try {
+    const port = await pythonManager.start()
+    console.log(`Backend started on port ${port}`)
+  } catch (err) {
+    console.error('Failed to start Python backend:', err)
+    // Continue anyway - app can work without backend for UI testing
+  }
 
   // Default open or close DevTools by F12 in development
   // and ignore CommandOrControl + R in production.
@@ -52,6 +64,10 @@ app.whenReady().then(() => {
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
+})
+
+app.on('will-quit', async () => {
+  await pythonManager.stop()
 })
 
 app.on('window-all-closed', () => {
