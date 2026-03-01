@@ -1,0 +1,319 @@
+{
+    "bytemap.h": [],
+    "DS3231.h": [
+        {
+            "name": "dayOfTheWeek",
+            "description": "Gets day of the week.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "secondstime",
+            "description": "Seconds since 1/1/2000.",
+            "parameters": [],
+            "return_type": "long"
+        },
+        {
+            "name": "unixtime",
+            "description": "Seconds since 1/1/1970.",
+            "parameters": [],
+            "return_type": "uint32_t"
+        },
+        {
+            "name": "isleapYear",
+            "description": "Checks if year is leap.",
+            "parameters": [
+                "const uint16_t year"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "now",
+            "description": "Get current date and time.",
+            "parameters": [
+                "TwoWire & _Wire"
+            ],
+            "return_type": "DateTime"
+        },
+        {
+            "name": "getSecond",
+            "description": "Gets current second.",
+            "parameters": [],
+            "return_type": "byte"
+        },
+        {
+            "name": "getMinute",
+            "description": "Gets current minute.",
+            "parameters": [],
+            "return_type": "byte"
+        },
+        {
+            "name": "getHour",
+            "description": "Gets current hour.",
+            "parameters": [
+                "bool& h12",
+                "bool& PM_time"
+            ],
+            "return_type": "byte"
+        },
+        {
+            "name": "getDoW",
+            "description": "Gets day of the week.",
+            "parameters": [],
+            "return_type": "byte"
+        },
+        {
+            "name": "getDate",
+            "description": "Gets current date.",
+            "parameters": [],
+            "return_type": "byte"
+        },
+        {
+            "name": "getMonth",
+            "description": "Gets current month.",
+            "parameters": [
+                "bool& Century"
+            ],
+            "return_type": "byte"
+        },
+        {
+            "name": "getYear",
+            "description": "Gets current year.",
+            "parameters": [],
+            "return_type": "byte"
+        },
+        {
+            "name": "setEpoch",
+            "description": "Sets time using epoch.",
+            "parameters": [
+                "time_t epoch",
+                "bool flag_localtime"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setSecond",
+            "description": "Sets current second.",
+            "parameters": [
+                "byte Second"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setMinute",
+            "description": "Sets current minute.",
+            "parameters": [
+                "byte Minute"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setHour",
+            "description": "Sets current hour.",
+            "parameters": [
+                "byte Hour"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setDoW",
+            "description": "Sets day of the week.",
+            "parameters": [
+                "byte DoW"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setDate",
+            "description": "Sets current date.",
+            "parameters": [
+                "byte Date"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setMonth",
+            "description": "Sets current month.",
+            "parameters": [
+                "byte Month"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setYear",
+            "description": "Sets current year.",
+            "parameters": [
+                "byte Year"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setClockMode",
+            "description": "Sets 12/24h mode.",
+            "parameters": [
+                "bool h12"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getTemperature",
+            "description": "Gets current temperature.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getA1Time",
+            "description": "Retrieves alarm 1 time.",
+            "parameters": [
+                "byte& A1Day",
+                "byte& A1Hour",
+                "byte& A1Minute",
+                "byte& A1Second",
+                "byte& AlarmBits",
+                "bool& A1Dy",
+                "bool& A1h12",
+                "bool& A1PM"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getA2Time",
+            "description": "Retrieves alarm 2 time.",
+            "parameters": [
+                "byte& A2Day",
+                "byte& A2Hour",
+                "byte& A2Minute",
+                "byte& AlarmBits",
+                "bool& A2Dy",
+                "bool& A2h12",
+                "bool& A2PM"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getA1Time",
+            "description": "Retrieves alarm 1 time, clears bits.",
+            "parameters": [
+                "byte& A1Day",
+                "byte& A1Hour",
+                "byte& A1Minute",
+                "byte& A1Second",
+                "byte& AlarmBits",
+                "bool& A1Dy",
+                "bool& A1h12",
+                "bool& A1PM",
+                "bool clearAlarmBits"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getA2Time",
+            "description": "Retrieves alarm 2 time, clears bits.",
+            "parameters": [
+                "byte& A1Day",
+                "byte& A1Hour",
+                "byte& A1Minute",
+                "byte& AlarmBits",
+                "bool& A1Dy",
+                "bool& A1h12",
+                "bool& A1PM",
+                "bool clearAlarmBits"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setA1Time",
+            "description": "Sets alarm 1 time.",
+            "parameters": [
+                "byte A1Day",
+                "byte A1Hour",
+                "byte A1Minute",
+                "byte A1Second",
+                "byte AlarmBits",
+                "bool A1Dy",
+                "bool A1h12",
+                "bool A1PM"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setA2Time",
+            "description": "Sets alarm 2 time.",
+            "parameters": [
+                "byte A2Day",
+                "byte A2Hour",
+                "byte A2Minute",
+                "byte AlarmBits",
+                "bool A2Dy",
+                "bool A2h12",
+                "bool A2PM"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "turnOnAlarm",
+            "description": "Enables alarm 1 or 2.",
+            "parameters": [
+                "byte Alarm"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "turnOffAlarm",
+            "description": "Disables alarm 1 or 2.",
+            "parameters": [
+                "byte Alarm"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "checkAlarmEnabled",
+            "description": "Checks if alarm is enabled.",
+            "parameters": [
+                "byte Alarm"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "checkIfAlarm",
+            "description": "Checks if alarm is activated.",
+            "parameters": [
+                "byte Alarm"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "checkIfAlarm",
+            "description": "Checks if alarm is activated, clears flag.",
+            "parameters": [
+                "byte Alarm",
+                "bool clearflag"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "enableOscillator",
+            "description": "Enables or disables oscillator.",
+            "parameters": [
+                "bool TF",
+                "bool battery",
+                "byte frequency"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "enable32kHz",
+            "description": "Enables/disables 32kHz output.",
+            "parameters": [
+                "bool TF"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "oscillatorCheck",
+            "description": "Checks oscillator status.",
+            "parameters": [],
+            "return_type": "bool"
+        }
+    ]
+}

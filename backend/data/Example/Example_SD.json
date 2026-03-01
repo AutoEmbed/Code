@@ -1,0 +1,1311 @@
+{
+    "SD.h": [
+        {
+            "name": "write",
+            "description": "write single byte",
+            "parameters": [
+                "uint8_t"
+            ],
+            "return_type": "size_t",
+            "practices": {
+                "API order": "Call after checking availableForWrite.",
+                "parameter usage": "Ensure uint8_t is valid byte value.",
+                "return value handling": "Verify returned size matches input."
+            }
+        },
+        {
+            "name": "write",
+            "description": "write buffer",
+            "parameters": [
+                "const uint8_t *buf",
+                "size_t size"
+            ],
+            "return_type": "size_t",
+            "practices": {
+                "API order": "Check availableForWrite before calling.",
+                "parameter usage": "Ensure buf is not NULL.",
+                "return value handling": "Compare return size with provided size."
+            }
+        },
+        {
+            "name": "availableForWrite",
+            "description": "available bytes for writing",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "Call before write functions.",
+                "parameter usage": "No parameters to consider.",
+                "return value handling": "Check value is non-negative."
+            }
+        },
+        {
+            "name": "read",
+            "description": "read byte",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "Call after checking available.",
+                "parameter usage": "No parameters to consider.",
+                "return value handling": "Check return is -1 for errors."
+            }
+        },
+        {
+            "name": "peek",
+            "description": "peek byte",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "Call after available check.",
+                "parameter usage": "No parameters to consider.",
+                "return value handling": "Ensure return is not -1."
+            }
+        },
+        {
+            "name": "available",
+            "description": "available bytes to read",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "Use before read or peek.",
+                "parameter usage": "No parameters to consider.",
+                "return value handling": "Check return is valid."
+            }
+        },
+        {
+            "name": "flush",
+            "description": "flush",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after writing data.",
+                "parameter usage": "No parameters to consider.",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "read",
+            "description": "read buffer",
+            "parameters": [
+                "void *buf",
+                "uint16_t nbyte"
+            ],
+            "return_type": "int",
+            "practices": {
+                "API order": "Ensure available check before call.",
+                "parameter usage": "buf should be allocated.",
+                "return value handling": "Compare with nbyte parameter."
+            }
+        },
+        {
+            "name": "seek",
+            "description": "seek position",
+            "parameters": [
+                "uint32_t pos"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Use before read/write.",
+                "parameter usage": "Ensure pos is valid location.",
+                "return value handling": "Check if return is true."
+            }
+        },
+        {
+            "name": "position",
+            "description": "current position",
+            "parameters": [],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "Call after seek for validation.",
+                "parameter usage": "No parameters to consider.",
+                "return value handling": "Store returned value for reference."
+            }
+        },
+        {
+            "name": "size",
+            "description": "file size",
+            "parameters": [],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "Call on open file.",
+                "parameter usage": "No parameters.",
+                "return value handling": "Check for valid size."
+            }
+        },
+        {
+            "name": "close",
+            "description": "close file",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call at end of file operations.",
+                "parameter usage": "No parameters.",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "operator bool",
+            "description": "check file validity",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call after opening file.",
+                "parameter usage": "No parameters.",
+                "return value handling": "Check for true or false."
+            }
+        },
+        {
+            "name": "name",
+            "description": "get file name",
+            "parameters": [],
+            "return_type": "char*",
+            "practices": {
+                "API order": "Call on valid file.",
+                "parameter usage": "No parameters.",
+                "return value handling": "Ensure null-terminated string."
+            }
+        },
+        {
+            "name": "isDirectory",
+            "description": "is a directory",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call on valid file object.",
+                "parameter usage": "No parameters.",
+                "return value handling": "Check for true or false."
+            }
+        },
+        {
+            "name": "openNextFile",
+            "description": "open next file",
+            "parameters": [
+                "uint8_t mode = O_RDONLY"
+            ],
+            "return_type": "File",
+            "practices": {
+                "API order": "Call while iterating directory.",
+                "parameter usage": "Specify mode if needed.",
+                "return value handling": "Check for valid File object."
+            }
+        },
+        {
+            "name": "rewindDirectory",
+            "description": "rewind directory",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call when needing to re-iterate.",
+                "parameter usage": "No parameters.",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "begin",
+            "description": "begin with csPin",
+            "parameters": [
+                "uint8_t csPin = SD_CHIP_SELECT_PIN"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call at initialization.",
+                "parameter usage": "Specify valid csPin.",
+                "return value handling": "Check return for successful init."
+            }
+        },
+        {
+            "name": "begin",
+            "description": "begin with clock and csPin",
+            "parameters": [
+                "uint32_t clock",
+                "uint8_t csPin"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call at initialization.",
+                "parameter usage": "Specify clock and csPin.",
+                "return value handling": "Check return for successful init."
+            }
+        },
+        {
+            "name": "end",
+            "description": "end",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call at the end of tasks.",
+                "parameter usage": "No parameters.",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "open",
+            "description": "open file",
+            "parameters": [
+                "const char *filename",
+                "uint8_t mode = FILE_READ"
+            ],
+            "return_type": "File",
+            "practices": {
+                "API order": "Initialize SD card before call",
+                "parameter usage": "Ensure filename's validity",
+                "return value handling": "Check if File returned"
+            }
+        },
+        {
+            "name": "open",
+            "description": "open file",
+            "parameters": [
+                "const String &filename",
+                "uint8_t mode = FILE_READ"
+            ],
+            "return_type": "File",
+            "practices": {
+                "API order": "Initialize SD card before usage",
+                "parameter usage": "Verify String filename",
+                "return value handling": "Confirm File object"
+            }
+        },
+        {
+            "name": "exists",
+            "description": "file path exists",
+            "parameters": [
+                "const char *filepath"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Ensure SD card initialization",
+                "parameter usage": "Validate filepath",
+                "return value handling": "Check for true or false"
+            }
+        },
+        {
+            "name": "exists",
+            "description": "file path exists",
+            "parameters": [
+                "const String &filepath"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Initialize SD card first",
+                "parameter usage": "Verify filepath String",
+                "return value handling": "Process boolean return"
+            }
+        },
+        {
+            "name": "mkdir",
+            "description": "make directory",
+            "parameters": [
+                "const char *filepath"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "SD card must be initialized",
+                "parameter usage": "Validate directory path",
+                "return value handling": "Check for true if created"
+            }
+        },
+        {
+            "name": "mkdir",
+            "description": "make directory",
+            "parameters": [
+                "const String &filepath"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Initialize SD card beforehand",
+                "parameter usage": "Ensure valid String path",
+                "return value handling": "Verify boolean result"
+            }
+        },
+        {
+            "name": "remove",
+            "description": "remove file",
+            "parameters": [
+                "const char *filepath"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Initialize SD card first",
+                "parameter usage": "Validate filepath",
+                "return value handling": "Check if file removed successfully"
+            }
+        },
+        {
+            "name": "remove",
+            "description": "remove file",
+            "parameters": [
+                "const String &filepath"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Ensure SD card initialized",
+                "parameter usage": "Verify String filepath",
+                "return value handling": "Confirm removal success"
+            }
+        },
+        {
+            "name": "rmdir",
+            "description": "remove directory",
+            "parameters": [
+                "const char *filepath"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Initialize SD card beforehand",
+                "parameter usage": "Ensure valid directory path",
+                "return value handling": "Check return value boolean"
+            }
+        },
+        {
+            "name": "rmdir",
+            "description": "remove directory",
+            "parameters": [
+                "const String &filepath"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Initialize SD card first",
+                "parameter usage": "Validate String directory path",
+                "return value handling": "Assert directory removed"
+            }
+        }
+    ],
+    "Sd2Card.h": [
+        {
+            "name": "cardSize",
+            "description": "Get card size",
+            "parameters": [],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "Call after init",
+                "parameter usage": "No parameters required",
+                "return value handling": "Check if valid"
+            }
+        },
+        {
+            "name": "erase",
+            "description": "Erase blocks",
+            "parameters": [
+                "uint32_t firstBlock",
+                "uint32_t lastBlock"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Invoke after init",
+                "parameter usage": "Ensure valid block range",
+                "return value handling": "Confirm success"
+            }
+        },
+        {
+            "name": "eraseSingleBlockEnable",
+            "description": "Enable single block erase",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call before erase",
+                "parameter usage": "No parameters required",
+                "return value handling": "Verify success"
+            }
+        },
+        {
+            "name": "errorCode",
+            "description": "Get last error code",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "After failed call",
+                "parameter usage": "No parameters required",
+                "return value handling": "Check for troubleshooting"
+            }
+        },
+        {
+            "name": "errorData",
+            "description": "Get last error data",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "After errorCode",
+                "parameter usage": "No parameters required",
+                "return value handling": "Use for debugging"
+            }
+        },
+        {
+            "name": "init",
+            "description": "Default initialization",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "First call",
+                "parameter usage": "No parameters required",
+                "return value handling": "Check if initialized"
+            }
+        },
+        {
+            "name": "init",
+            "description": "Initialize with clock rate",
+            "parameters": [
+                "uint8_t sckRateID"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "First call",
+                "parameter usage": "Pass valid rate ID",
+                "return value handling": "Confirm initialization"
+            }
+        },
+        {
+            "name": "init",
+            "description": "Initialize with clock rate and pin",
+            "parameters": [
+                "uint8_t sckRateID",
+                "uint8_t chipSelectPin"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "First call",
+                "parameter usage": "Provide rate and pin",
+                "return value handling": "Verify success"
+            }
+        },
+        {
+            "name": "partialBlockRead",
+            "description": "Set partial block read",
+            "parameters": [
+                "uint8_t value"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "After init",
+                "parameter usage": "Set valid value",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "partialBlockRead",
+            "description": "Get partial block read",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "After set call",
+                "parameter usage": "No parameters required",
+                "return value handling": "Check enabled state"
+            }
+        },
+        {
+            "name": "readBlock",
+            "description": "Read block data",
+            "parameters": [
+                "uint32_t block",
+                "uint8_t* dst"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call before readEnd",
+                "parameter usage": "Ensure dst has correct size",
+                "return value handling": "Check return value for errors"
+            }
+        },
+        {
+            "name": "readData",
+            "description": "Read data with offset",
+            "parameters": [
+                "uint32_t block",
+                "uint16_t offset",
+                "uint16_t count",
+                "uint8_t* dst"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call before readEnd",
+                "parameter usage": "Check block, offset, count",
+                "return value handling": "Verify return for successful read"
+            }
+        },
+        {
+            "name": "readCID",
+            "description": "Read CID register",
+            "parameters": [
+                "cid_t* cid"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call any time after init",
+                "parameter usage": "cid must point to valid memory",
+                "return value handling": "Check return for read success"
+            }
+        },
+        {
+            "name": "readCSD",
+            "description": "Read CSD register",
+            "parameters": [
+                "csd_t* csd"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call any time after init",
+                "parameter usage": "csd must point to valid memory",
+                "return value handling": "Check return for read success"
+            }
+        },
+        {
+            "name": "readEnd",
+            "description": "End read operation",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after read operation",
+                "parameter usage": "No parameters required",
+                "return value handling": "No return value to handle"
+            }
+        },
+        {
+            "name": "setSckRate",
+            "description": "Set SCK rate",
+            "parameters": [
+                "uint8_t sckRateID"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call after card init",
+                "parameter usage": "sckRateID must be valid ID",
+                "return value handling": "Check for SCK set success"
+            }
+        },
+        {
+            "name": "type",
+            "description": "Get card type",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call after card init",
+                "parameter usage": "No parameters required",
+                "return value handling": "Check type for error handling"
+            }
+        },
+        {
+            "name": "writeBlock",
+            "description": "Write to block",
+            "parameters": [
+                "uint32_t blockNumber",
+                "const uint8_t* src",
+                "uint8_t blocking"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call after writeStart",
+                "parameter usage": "src must have valid data",
+                "return value handling": "Check return for write success"
+            }
+        },
+        {
+            "name": "writeData",
+            "description": "Write data",
+            "parameters": [
+                "const uint8_t* src"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call after writeStart",
+                "parameter usage": "Ensure src has write data",
+                "return value handling": "Verify return for data write"
+            }
+        },
+        {
+            "name": "writeStart",
+            "description": "Start write operation",
+            "parameters": [
+                "uint32_t blockNumber",
+                "uint32_t eraseCount"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call before writeBlock",
+                "parameter usage": "Check blockNumber, eraseCount",
+                "return value handling": "Check return for write start"
+            }
+        },
+        {
+            "name": "writeStop",
+            "description": "Stop write operation",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Use after write operation.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Check if return is non-zero."
+            }
+        },
+        {
+            "name": "isBusy",
+            "description": "Check if busy",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Check before starting new operation.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Check if return indicates busy."
+            }
+        }
+    ],
+    "Sd2PinMap.h": [
+        {
+            "name": "getPinMode",
+            "description": "Get pin mode",
+            "parameters": [
+                "uint8_t pin"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call after setPinMode",
+                "parameter usage": "Verify pin is valid",
+                "return value handling": "Check return matches expected mode"
+            }
+        },
+        {
+            "name": "setPinMode",
+            "description": "Set pin mode",
+            "parameters": [
+                "uint8_t pin",
+                "uint8_t mode"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call before getPinMode",
+                "parameter usage": "Specify valid mode",
+                "return value handling": "No return value to handle"
+            }
+        },
+        {
+            "name": "fastDigitalRead",
+            "description": "Fast digital read",
+            "parameters": [
+                "uint8_t pin"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call after setPinMode",
+                "parameter usage": "Pin must be set correctly",
+                "return value handling": "Check 0 or 1 as expected"
+            }
+        },
+        {
+            "name": "fastDigitalWrite",
+            "description": "Fast digital write",
+            "parameters": [
+                "uint8_t pin",
+                "uint8_t value"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after setPinMode",
+                "parameter usage": "Value must be 0 or 1",
+                "return value handling": "No return value to handle"
+            }
+        }
+    ],
+    "SdFat.h": [
+        {
+            "name": "close",
+            "description": "Close the file",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call before opening another file.",
+                "parameter usage": "Not applicable.",
+                "return value handling": "Check for failure code (0)."
+            }
+        },
+        {
+            "name": "contiguousRange",
+            "description": "Get contiguous range",
+            "parameters": [
+                "uint32_t* bgnBlock",
+                "uint32_t* endBlock"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Use after opening a file.",
+                "parameter usage": "Ensure parameters are valid pointers.",
+                "return value handling": "Verify successful operation (>0)."
+            }
+        },
+        {
+            "name": "createContiguous",
+            "description": "Create contiguous file",
+            "parameters": [
+                "SdFile* dirFile",
+                "const char* fileName",
+                "uint32_t size"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call after file system initialized.",
+                "parameter usage": "Provide valid directory and filename.",
+                "return value handling": "Handle failure cases (0)."
+            }
+        },
+        {
+            "name": "dateTimeCallback",
+            "description": "Set date/time callback",
+            "parameters": [
+                "void (*dateTime)(uint16_t* date, uint16_t* time)"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Set before file operations.",
+                "parameter usage": "Ensure function pointer is correct.",
+                "return value handling": "Not applicable."
+            }
+        },
+        {
+            "name": "dateTimeCallbackCancel",
+            "description": "Cancel date/time callback",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Use when callback not needed.",
+                "parameter usage": "Not applicable.",
+                "return value handling": "Not applicable."
+            }
+        },
+        {
+            "name": "dirEntry",
+            "description": "Get directory entry",
+            "parameters": [
+                "dir_t* dir"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Retrieve after directory opened.",
+                "parameter usage": "Ensure dir parameter is valid.",
+                "return value handling": "Check for success (>0)."
+            }
+        },
+        {
+            "name": "dirName",
+            "description": "Get directory name",
+            "parameters": [
+                "const dir_t& dir",
+                "char* name"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Use after dirEntry.",
+                "parameter usage": "Pass valid dir and name pointers.",
+                "return value handling": "Not applicable."
+            }
+        },
+        {
+            "name": "ls",
+            "description": "List directory",
+            "parameters": [
+                "uint8_t flags",
+                "uint8_t indent"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after opening a directory.",
+                "parameter usage": "Set proper flags and indentation.",
+                "return value handling": "Not applicable."
+            }
+        },
+        {
+            "name": "makeDir",
+            "description": "Make directory",
+            "parameters": [
+                "SdFile* dir",
+                "const char* dirName"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Invoke after initializing filesystem.",
+                "parameter usage": "Provide valid directory and dirName.",
+                "return value handling": "Handle failure (0) accordingly."
+            }
+        },
+        {
+            "name": "open",
+            "description": "Open file",
+            "parameters": [
+                "SdFile* dirFile",
+                "uint16_t index",
+                "uint8_t oflag"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Always initialize first.",
+                "parameter usage": "Set correct directory and index.",
+                "return value handling": "Check return value for errors."
+            }
+        },
+        {
+            "name": "openRoot",
+            "description": "Open root directory",
+            "parameters": [
+                "SdVolume* vol"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call after volume initialized.",
+                "parameter usage": "Pass valid SdVolume object.",
+                "return value handling": "Check for success (non-zero)."
+            }
+        },
+        {
+            "name": "printDirName",
+            "description": "Print directory name",
+            "parameters": [
+                "const dir_t& dir",
+                "uint8_t width"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Use after directory entry read.",
+                "parameter usage": "Ensure dir and width are valid.",
+                "return value handling": "No return value to handle."
+            }
+        },
+        {
+            "name": "printFatDate",
+            "description": "Print FAT date",
+            "parameters": [
+                "uint16_t fatDate"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Use after reading FAT data.",
+                "parameter usage": "fatDate must be valid.",
+                "return value handling": "No return value to handle."
+            }
+        },
+        {
+            "name": "printFatTime",
+            "description": "Print FAT time",
+            "parameters": [
+                "uint16_t fatTime"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Use after reading FAT data.",
+                "parameter usage": "fatTime must be valid.",
+                "return value handling": "No return value to handle."
+            }
+        },
+        {
+            "name": "printTwoDigits",
+            "description": "Print two digits",
+            "parameters": [
+                "uint8_t v"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Use when two digits needed.",
+                "parameter usage": "v must be valid.",
+                "return value handling": "No return value to handle."
+            }
+        },
+        {
+            "name": "read",
+            "description": "Read next byte",
+            "parameters": [],
+            "return_type": "int16_t",
+            "practices": {
+                "API order": "Call after opening file.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Check for EOF (negative)."
+            }
+        },
+        {
+            "name": "read",
+            "description": "Read bytes into buffer",
+            "parameters": [
+                "void* buf",
+                "uint16_t nbyte"
+            ],
+            "return_type": "int16_t",
+            "practices": {
+                "API order": "Call after opening file.",
+                "parameter usage": "Ensure buf is non-null.",
+                "return value handling": "Check return for bytes read."
+            }
+        },
+        {
+            "name": "readDir",
+            "description": "Read next directory entry",
+            "parameters": [
+                "dir_t* dir"
+            ],
+            "return_type": "int8_t",
+            "practices": {
+                "API order": "Call after opening directory.",
+                "parameter usage": "dir must be valid.",
+                "return value handling": "Check for end of directory."
+            }
+        },
+        {
+            "name": "remove",
+            "description": "Remove file",
+            "parameters": [
+                "SdFile* dirFile",
+                "const char* fileName"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call after directory opened.",
+                "parameter usage": "Valid dirFile and fileName.",
+                "return value handling": "Check for deletion success."
+            }
+        },
+        {
+            "name": "rmDir",
+            "description": "Remove directory",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call after opening directory.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Check for success (non-zero)."
+            }
+        },
+        {
+            "name": "rmRfStar",
+            "description": "Remove directory recursively",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Ensure directory is closed before removal",
+                "parameter usage": "No parameters required",
+                "return value handling": "Check uint8_t for success (non-zero)"
+            }
+        },
+        {
+            "name": "seekSet",
+            "description": "Set file position",
+            "parameters": [
+                "uint32_t pos"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call after file open and before read/write",
+                "parameter usage": "Specify new file position",
+                "return value handling": "Check uint8_t for success"
+            }
+        },
+        {
+            "name": "setUnbufferedRead",
+            "description": "Enable unbuffered read",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call before reading the file",
+                "parameter usage": "No parameters required",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "sync",
+            "description": "Sync file",
+            "parameters": [
+                "uint8_t blocking"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call after write operations",
+                "parameter usage": "Pass 1 for blocking, 0 non-blocking",
+                "return value handling": "Check uint8_t for success"
+            }
+        },
+        {
+            "name": "timestamp",
+            "description": "Set file timestamp",
+            "parameters": [
+                "uint8_t flag",
+                "uint16_t year",
+                "uint8_t month",
+                "uint8_t day",
+                "uint8_t hour",
+                "uint8_t minute",
+                "uint8_t second"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Ensure file is open",
+                "parameter usage": "Use valid date-time values",
+                "return value handling": "Check uint8_t for success"
+            }
+        },
+        {
+            "name": "truncate",
+            "description": "Truncate file",
+            "parameters": [
+                "uint32_t size"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call on opened file",
+                "parameter usage": "Specify new file size",
+                "return value handling": "Check uint8_t for success"
+            }
+        },
+        {
+            "name": "write",
+            "description": "Write byte",
+            "parameters": [
+                "uint8_t b"
+            ],
+            "return_type": "size_t",
+            "practices": {
+                "API order": "Call after file open",
+                "parameter usage": "Pass byte to write",
+                "return value handling": "Check size_t for written size"
+            }
+        },
+        {
+            "name": "write",
+            "description": "Write buffer",
+            "parameters": [
+                "const void* buf",
+                "uint16_t nbyte"
+            ],
+            "return_type": "size_t",
+            "practices": {
+                "API order": "Call after file open",
+                "parameter usage": "Pass buffer and size",
+                "return value handling": "Check size_t for written size"
+            }
+        },
+        {
+            "name": "write",
+            "description": "Write string",
+            "parameters": [
+                "const char* str"
+            ],
+            "return_type": "size_t",
+            "practices": {
+                "API order": "Call after file open",
+                "parameter usage": "Pass string to write",
+                "return value handling": "Check size_t for written size"
+            }
+        },
+        {
+            "name": "write_P",
+            "description": "Write string from PROGMEM",
+            "parameters": [
+                "PGM_P str"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after file open",
+                "parameter usage": "Use strings from PROGMEM",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "writeln_P",
+            "description": "Write line from PROGMEM",
+            "parameters": [
+                "PGM_P str"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Check write availability before calling.",
+                "parameter usage": "Ensure correct PROGMEM pointer.",
+                "return value handling": "No value to handle."
+            }
+        },
+        {
+            "name": "availableForWrite",
+            "description": "Check write availability",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "Always call before write operations.",
+                "parameter usage": "No parameters required.",
+                "return value handling": "Check for positive availability."
+            }
+        },
+        {
+            "name": "cacheClear",
+            "description": "Clear cache",
+            "parameters": [],
+            "return_type": "uint8_t*",
+            "practices": {
+                "API order": "Before initialization/after writing.",
+                "parameter usage": "No parameters required.",
+                "return value handling": "Properly handle the returned pointer."
+            }
+        },
+        {
+            "name": "init",
+            "description": "Initialize volume",
+            "parameters": [
+                "Sd2Card* dev"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call before operations.",
+                "parameter usage": "Pass valid Sd2Card pointer.",
+                "return value handling": "Check non-zero for success."
+            }
+        },
+        {
+            "name": "init",
+            "description": "Initialize volume with partition",
+            "parameters": [
+                "Sd2Card* dev",
+                "uint8_t part"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call before operations.",
+                "parameter usage": "Valid Sd2Card pointer, partition.",
+                "return value handling": "Check non-zero for success."
+            }
+        }
+    ],
+    "SdFatmainpage.h": [
+        {
+            "name": "Sd2Card::init",
+            "description": "initialize SD card",
+            "parameters": [
+                "uint8_t sckRateID"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call before volume/init.",
+                "parameter usage": "Ensure sckRateID matches card requirements.",
+                "return value handling": "Use return value to check initialization success."
+            }
+        },
+        {
+            "name": "SdVolume::init",
+            "description": "initialize volume",
+            "parameters": [
+                "Sd2Card *dev",
+                "uint8_t part"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call after Sd2Card::init.",
+                "parameter usage": "Pass correct Sd2Card pointer.",
+                "return value handling": "Check return to confirm volume initialization."
+            }
+        },
+        {
+            "name": "SdFile::open",
+            "description": "open a file",
+            "parameters": [
+                "const char *path",
+                "uint8_t oflag"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Before read/write actions.",
+                "parameter usage": "Ensure path is valid.",
+                "return value handling": "Verify return value before proceeding."
+            }
+        },
+        {
+            "name": "SdFile::read",
+            "description": "read from file",
+            "parameters": [
+                "void *buf",
+                "uint16_t nbyte"
+            ],
+            "return_type": "int16_t",
+            "practices": {
+                "API order": "After SdFile::open call.",
+                "parameter usage": "Ensure buffer is allocated.",
+                "return value handling": "Check bytes read for correctness."
+            }
+        },
+        {
+            "name": "SdFile::remove",
+            "description": "remove a file",
+            "parameters": [
+                "const char *path"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Ensure file not in use.",
+                "parameter usage": "Ensure path is correct.",
+                "return value handling": "Verify successful removal."
+            }
+        },
+        {
+            "name": "SdFile::write",
+            "description": "write to file",
+            "parameters": [
+                "const void *buf",
+                "uint16_t nbyte"
+            ],
+            "return_type": "int16_t",
+            "practices": {
+                "API order": "After opening file.",
+                "parameter usage": "Ensure buffer data is valid.",
+                "return value handling": "Check bytes written for completeness."
+            }
+        },
+        {
+            "name": "SdFile::close",
+            "description": "close a file",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "After read/write operations.",
+                "parameter usage": "Not applicable.",
+                "return value handling": "Not applicable."
+            }
+        },
+        {
+            "name": "SdFile::sync",
+            "description": "sync file to disk",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "After write operations.",
+                "parameter usage": "Not applicable.",
+                "return value handling": "Check for successful sync."
+            }
+        }
+    ],
+    "SdFatUtil.h": [
+        {
+            "name": "FreeRam",
+            "description": "Get free RAM bytes",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "Call anytime.",
+                "parameter usage": "No parameters required.",
+                "return value handling": "Check if non-negative."
+            }
+        },
+        {
+            "name": "SerialPrint_P",
+            "description": "Print flash string",
+            "parameters": [
+                "PGM_P str"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after Serial.begin.",
+                "parameter usage": "Ensure str is a valid PGM_P.",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "SerialPrintln_P",
+            "description": "Print flash string with CR/LF",
+            "parameters": [
+                "PGM_P str"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after Serial.begin.",
+                "parameter usage": "Ensure str is a valid PGM_P.",
+                "return value handling": "No return value."
+            }
+        }
+    ]
+}

@@ -1,0 +1,266 @@
+{
+    "Adafruit_APDS9960.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the sensor",
+            "parameters": [
+                "uint16_t iTimeMS",
+                "apds9960AGain_t",
+                "uint8_t addr",
+                "TwoWire *theWire"
+            ],
+            "return_type": "boolean"
+        },
+        {
+            "name": "setADCIntegrationTime",
+            "description": "Set ADC integration time",
+            "parameters": [
+                "uint16_t iTimeMS"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getADCIntegrationTime",
+            "description": "Get ADC integration time",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "setADCGain",
+            "description": "Set ADC gain",
+            "parameters": [
+                "apds9960AGain_t gain"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getADCGain",
+            "description": "Get ADC gain",
+            "parameters": [],
+            "return_type": "apds9960AGain_t"
+        },
+        {
+            "name": "setLED",
+            "description": "Set LED drive and boost",
+            "parameters": [
+                "apds9960LedDrive_t drive",
+                "apds9960LedBoost_t boost"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "enableProximity",
+            "description": "Enable or disable proximity",
+            "parameters": [
+                "boolean en"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setProxGain",
+            "description": "Set proximity gain",
+            "parameters": [
+                "apds9960PGain_t gain"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getProxGain",
+            "description": "Get proximity gain",
+            "parameters": [],
+            "return_type": "apds9960PGain_t"
+        },
+        {
+            "name": "setProxPulse",
+            "description": "Set proximity pulse length",
+            "parameters": [
+                "apds9960PPulseLen_t pLen",
+                "uint8_t pulses"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "enableProximityInterrupt",
+            "description": "Enable proximity interrupt",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "disableProximityInterrupt",
+            "description": "Disable proximity interrupt",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "readProximity",
+            "description": "Read proximity data",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setProximityInterruptThreshold",
+            "description": "Set proximity interrupt threshold",
+            "parameters": [
+                "uint8_t low",
+                "uint8_t high",
+                "uint8_t persistence"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getProximityInterrupt",
+            "description": "Get proximity interrupt status",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "enableGesture",
+            "description": "Enable or disable gesture",
+            "parameters": [
+                "boolean en"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "gestureValid",
+            "description": "Check if gesture data is valid",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setGestureDimensions",
+            "description": "Set gesture dimensions",
+            "parameters": [
+                "uint8_t dims"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setGestureFIFOThreshold",
+            "description": "Set gesture FIFO threshold",
+            "parameters": [
+                "uint8_t thresh"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setGestureGain",
+            "description": "Set gesture gain",
+            "parameters": [
+                "uint8_t gain"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setGestureProximityThreshold",
+            "description": "Set gesture proximity threshold",
+            "parameters": [
+                "uint8_t thresh"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setGestureOffset",
+            "description": "Set gesture offset",
+            "parameters": [
+                "uint8_t offset_up",
+                "uint8_t offset_down",
+                "uint8_t offset_left",
+                "uint8_t offset_right"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "readGesture",
+            "description": "Read gesture data",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "resetCounts",
+            "description": "Reset gesture counters",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "enableColor",
+            "description": "Enable or disable color sensing",
+            "parameters": [
+                "boolean en"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "colorDataReady",
+            "description": "Check if color data is ready",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "getColorData",
+            "description": "Get color data",
+            "parameters": [
+                "uint16_t *r",
+                "uint16_t *g",
+                "uint16_t *b",
+                "uint16_t *c"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "calculateColorTemperature",
+            "description": "Calculate color temperature",
+            "parameters": [
+                "uint16_t r",
+                "uint16_t g",
+                "uint16_t b"
+            ],
+            "return_type": "uint16_t"
+        },
+        {
+            "name": "calculateLux",
+            "description": "Calculate light intensity",
+            "parameters": [
+                "uint16_t r",
+                "uint16_t g",
+                "uint16_t b"
+            ],
+            "return_type": "uint16_t"
+        },
+        {
+            "name": "enableColorInterrupt",
+            "description": "Enable color interrupt",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "disableColorInterrupt",
+            "description": "Disable color interrupt",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "clearInterrupt",
+            "description": "Clear all interrupts",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "setIntLimits",
+            "description": "Set interrupt limits",
+            "parameters": [
+                "uint16_t l",
+                "uint16_t h"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "enable",
+            "description": "Enable or disable the sensor",
+            "parameters": [
+                "boolean en"
+            ],
+            "return_type": "void"
+        }
+    ]
+}

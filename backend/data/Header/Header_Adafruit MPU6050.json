@@ -1,0 +1,258 @@
+{
+    "Adafruit_MPU6050.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the MPU6050 device",
+            "parameters": [
+                "uint8_t i2c_addr",
+                "TwoWire *wire",
+                "int32_t sensorID"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "getEvent",
+            "description": "Retrieve sensor events",
+            "parameters": [
+                "sensors_event_t *accel",
+                "sensors_event_t *gyro",
+                "sensors_event_t *temp"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "getAccelerometerRange",
+            "description": "Get current accelerometer range",
+            "parameters": [],
+            "return_type": "mpu6050_accel_range_t"
+        },
+        {
+            "name": "setAccelerometerRange",
+            "description": "Set accelerometer range",
+            "parameters": [
+                "mpu6050_accel_range_t range"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getGyroRange",
+            "description": "Get current gyro range",
+            "parameters": [],
+            "return_type": "mpu6050_gyro_range_t"
+        },
+        {
+            "name": "setGyroRange",
+            "description": "Set gyro range",
+            "parameters": [
+                "mpu6050_gyro_range_t range"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setInterruptPinPolarity",
+            "description": "Set interrupt pin polarity",
+            "parameters": [
+                "bool active_low"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setInterruptPinLatch",
+            "description": "Set interrupt pin latch behavior",
+            "parameters": [
+                "bool held"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setFsyncSampleOutput",
+            "description": "Set FSYNC sample output",
+            "parameters": [
+                "mpu6050_fsync_out_t fsync_output"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getHighPassFilter",
+            "description": "Get high pass filter setting",
+            "parameters": [],
+            "return_type": "mpu6050_highpass_t"
+        },
+        {
+            "name": "setHighPassFilter",
+            "description": "Set high pass filter",
+            "parameters": [
+                "mpu6050_highpass_t bandwidth"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setMotionInterrupt",
+            "description": "Enable or disable motion interrupt",
+            "parameters": [
+                "bool active"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setMotionDetectionThreshold",
+            "description": "Set motion detection threshold",
+            "parameters": [
+                "uint8_t thr"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setMotionDetectionDuration",
+            "description": "Set motion detection duration",
+            "parameters": [
+                "uint8_t dur"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getMotionInterruptStatus",
+            "description": "Check if motion interrupt occurred",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "getFsyncSampleOutput",
+            "description": "Get FSYNC sample output",
+            "parameters": [],
+            "return_type": "mpu6050_fsync_out_t"
+        },
+        {
+            "name": "setI2CBypass",
+            "description": "Enable/disable I2C bypass",
+            "parameters": [
+                "bool bypass"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setClock",
+            "description": "Set clock source",
+            "parameters": [
+                "mpu6050_clock_select_t clock"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getClock",
+            "description": "Get current clock source",
+            "parameters": [],
+            "return_type": "mpu6050_clock_select_t"
+        },
+        {
+            "name": "setFilterBandwidth",
+            "description": "Set digital low pass filter bandwidth",
+            "parameters": [
+                "mpu6050_bandwidth_t bandwidth"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getFilterBandwidth",
+            "description": "Get digital low pass filter bandwidth",
+            "parameters": [],
+            "return_type": "mpu6050_bandwidth_t"
+        },
+        {
+            "name": "setSampleRateDivisor",
+            "description": "Set sample rate divisor",
+            "parameters": [
+                "uint8_t divisor"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getSampleRateDivisor",
+            "description": "Get sample rate divisor",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "enableSleep",
+            "description": "Enable or disable sleep mode",
+            "parameters": [
+                "bool enable"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "enableCycle",
+            "description": "Enable or disable cycle mode",
+            "parameters": [
+                "bool enable"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setCycleRate",
+            "description": "Set cycle rate",
+            "parameters": [
+                "mpu6050_cycle_rate_t rate"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getCycleRate",
+            "description": "Get cycle rate",
+            "parameters": [],
+            "return_type": "mpu6050_cycle_rate_t"
+        },
+        {
+            "name": "setGyroStandby",
+            "description": "Set gyro standby mode",
+            "parameters": [
+                "bool xAxisStandby",
+                "bool yAxisStandby",
+                "bool zAxisStandby"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setAccelerometerStandby",
+            "description": "Set accelerometer standby mode",
+            "parameters": [
+                "bool xAxisStandby",
+                "bool yAxisStandby",
+                "bool zAxisStandby"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setTemperatureStandby",
+            "description": "Set temperature standby mode",
+            "parameters": [
+                "bool enable"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "reset",
+            "description": "Reset device",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "getTemperatureSensor",
+            "description": "Get temperature sensor object",
+            "parameters": [],
+            "return_type": "Adafruit_Sensor*"
+        },
+        {
+            "name": "getAccelerometerSensor",
+            "description": "Get accelerometer sensor object",
+            "parameters": [],
+            "return_type": "Adafruit_Sensor*"
+        },
+        {
+            "name": "getGyroSensor",
+            "description": "Get gyro sensor object",
+            "parameters": [],
+            "return_type": "Adafruit_Sensor*"
+        }
+    ]
+}

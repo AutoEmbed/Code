@@ -1,0 +1,53 @@
+{
+    "MLX90614.h": [
+        {
+            "name": "convertToCentiK",
+            "description": "Convert raw data to centiKelvin.",
+            "parameters": [
+                "uint16_t data"
+            ],
+            "return_type": "uint16_t"
+        },
+        {
+            "name": "convertToCentiC",
+            "description": "Convert raw data to centiCelsius.",
+            "parameters": [
+                "uint16_t data"
+            ],
+            "return_type": "int16_t"
+        },
+        {
+            "name": "initialise",
+            "description": "Initialise the sensor without pin details.",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "start",
+            "description": "Start sampling and power-up if needed.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "process",
+            "description": "Process the state machine.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "finish",
+            "description": "Force completion and power-down.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "read",
+            "description": "Read a value from a given address.",
+            "parameters": [
+                "uint8_t address",
+                "uint16_t &value"
+            ],
+            "return_type": "bool"
+        }
+    ]
+}

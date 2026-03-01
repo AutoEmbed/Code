@@ -1,0 +1,572 @@
+{
+    "AS5600.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the sensor.",
+            "parameters": [
+                "uint8_t directionPin = AS5600_SW_DIRECTION_PIN"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <Wire.h>",
+                "parameter usage": "ASL.begin(4); // sets direction pin to 4",
+                "return value handling": "if (ASL.begin(4)) { /* success */ }"
+            }
+        },
+        {
+            "name": "isConnected",
+            "description": "Check if device is connected.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "ASL.begin(4);",
+                "parameter usage": "ASL.isConnected();",
+                "return value handling": "bool connected = ASL.isConnected();"
+            }
+        },
+        {
+            "name": "getAddress",
+            "description": "Get the I2C address.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "ASL.begin(4);",
+                "parameter usage": "ASL.getAddress();",
+                "return value handling": "uint8_t address = ASL.getAddress();"
+            }
+        },
+        {
+            "name": "setDirection",
+            "description": "Set rotation direction.",
+            "parameters": [
+                "uint8_t direction = AS5600_CLOCK_WISE"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "ASL.begin(4);",
+                "parameter usage": "ASL.setDirection(AS5600_CLOCK_WISE);",
+                "return value handling": "None needed."
+            }
+        },
+        {
+            "name": "getDirection",
+            "description": "Get rotation direction.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "ASL.begin(4);",
+                "parameter usage": "ASL.getDirection();",
+                "return value handling": "uint8_t direction = ASL.getDirection();"
+            }
+        },
+        {
+            "name": "getZMCO",
+            "description": "Get ZMCO register value.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "ASL.begin(4);",
+                "parameter usage": "ASL.getZMCO();",
+                "return value handling": "uint8_t zmco = ASL.getZMCO();"
+            }
+        },
+        {
+            "name": "setZPosition",
+            "description": "Set Z position.",
+            "parameters": [
+                "uint16_t value"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "ASL.begin(4);",
+                "parameter usage": "ASL.setZPosition(300);",
+                "return value handling": "if (ASL.setZPosition(300)) { /* success */ }"
+            }
+        },
+        {
+            "name": "getZPosition",
+            "description": "Get Z position.",
+            "parameters": [],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "ASL.begin(4);",
+                "parameter usage": "ASL.getZPosition();",
+                "return value handling": "uint16_t zPos = ASL.getZPosition();"
+            }
+        },
+        {
+            "name": "setMPosition",
+            "description": "Set M position.",
+            "parameters": [
+                "uint16_t value"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "ASL.begin(4);",
+                "parameter usage": "ASL.setMPosition(500);",
+                "return value handling": "if (ASL.setMPosition(500)) { /* success */ }"
+            }
+        },
+        {
+            "name": "getMPosition",
+            "description": "Get M position.",
+            "parameters": [],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "ASL.begin(4);",
+                "parameter usage": "ASL.getMPosition();",
+                "return value handling": "uint16_t mPos = ASL.getMPosition();"
+            }
+        },
+        {
+            "name": "setMaxAngle",
+            "description": "Set max angle.",
+            "parameters": [
+                "uint16_t value"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"AS5600.h\"; initialize with AS5600L ASL;",
+                "parameter usage": "ASL.setMaxAngle(1024);",
+                "return value handling": "bool result = ASL.setMaxAngle(1024); handle result;"
+            }
+        },
+        {
+            "name": "getMaxAngle",
+            "description": "Get max angle.",
+            "parameters": [],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include \"AS5600.h\"; initialize with AS5600L ASL;",
+                "parameter usage": "uint16_t angle = ASL.getMaxAngle();",
+                "return value handling": "uint16_t angle = ASL.getMaxAngle(); use angle;"
+            }
+        },
+        {
+            "name": "setConfigure",
+            "description": "Set configuration register.",
+            "parameters": [
+                "uint16_t value"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"AS5600.h\"; initialize with AS5600L ASL;",
+                "parameter usage": "ASL.setConfigure(0x1234);",
+                "return value handling": "bool result = ASL.setConfigure(0x1234); handle result;"
+            }
+        },
+        {
+            "name": "getConfigure",
+            "description": "Get configuration register.",
+            "parameters": [],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include \"AS5600.h\"; initialize with AS5600L ASL;",
+                "parameter usage": "uint16_t config = ASL.getConfigure();",
+                "return value handling": "uint16_t config = ASL.getConfigure(); use config;"
+            }
+        },
+        {
+            "name": "setPowerMode",
+            "description": "Set power mode.",
+            "parameters": [
+                "uint8_t powerMode"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"AS5600.h\"; initialize with AS5600L ASL;",
+                "parameter usage": "ASL.setPowerMode(0x01);",
+                "return value handling": "bool result = ASL.setPowerMode(0x01); handle result;"
+            }
+        },
+        {
+            "name": "getPowerMode",
+            "description": "Get power mode.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"AS5600.h\"; initialize with AS5600L ASL;",
+                "parameter usage": "uint8_t mode = ASL.getPowerMode();",
+                "return value handling": "uint8_t mode = ASL.getPowerMode(); use mode;"
+            }
+        },
+        {
+            "name": "setHysteresis",
+            "description": "Set hysteresis.",
+            "parameters": [
+                "uint8_t hysteresis"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"AS5600.h\"; initialize with AS5600L ASL;",
+                "parameter usage": "ASL.setHysteresis(0x02);",
+                "return value handling": "bool result = ASL.setHysteresis(0x02); handle result;"
+            }
+        },
+        {
+            "name": "getHysteresis",
+            "description": "Get hysteresis.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"AS5600.h\"; initialize with AS5600L ASL;",
+                "parameter usage": "uint8_t hyst = ASL.getHysteresis();",
+                "return value handling": "uint8_t hyst = ASL.getHysteresis(); use hyst;"
+            }
+        },
+        {
+            "name": "setOutputMode",
+            "description": "Set output mode.",
+            "parameters": [
+                "uint8_t outputMode"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"AS5600.h\"; initialize with AS5600L ASL;",
+                "parameter usage": "ASL.setOutputMode(0x03);",
+                "return value handling": "bool result = ASL.setOutputMode(0x03); handle result;"
+            }
+        },
+        {
+            "name": "getOutputMode",
+            "description": "Get output mode.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"AS5600.h\"; initialize with AS5600L ASL;",
+                "parameter usage": "uint8_t mode = ASL.getOutputMode();",
+                "return value handling": "uint8_t mode = ASL.getOutputMode(); use mode;"
+            }
+        },
+        {
+            "name": "setPWMFrequency",
+            "description": "Set PWM frequency.",
+            "parameters": [
+                "uint8_t pwmFreq"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"AS5600.h\" AS5600L as5600(0x40);",
+                "parameter usage": "as5600.setPWMFrequency(100);",
+                "return value handling": "bool success = as5600.setPWMFrequency(100);"
+            }
+        },
+        {
+            "name": "getPWMFrequency",
+            "description": "Get PWM frequency.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"AS5600.h\" AS5600L as5600(0x40);",
+                "parameter usage": "uint8_t freq = as5600.getPWMFrequency();",
+                "return value handling": "uint8_t freq = as5600.getPWMFrequency();"
+            }
+        },
+        {
+            "name": "setSlowFilter",
+            "description": "Set slow filter.",
+            "parameters": [
+                "uint8_t mask"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"AS5600.h\" AS5600L as5600(0x40);",
+                "parameter usage": "as5600.setSlowFilter(0x05);",
+                "return value handling": "bool success = as5600.setSlowFilter(0x05);"
+            }
+        },
+        {
+            "name": "getSlowFilter",
+            "description": "Get slow filter.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"AS5600.h\" AS5600L as5600(0x40);",
+                "parameter usage": "uint8_t filter = as5600.getSlowFilter();",
+                "return value handling": "uint8_t filter = as5600.getSlowFilter();"
+            }
+        },
+        {
+            "name": "setFastFilter",
+            "description": "Set fast filter.",
+            "parameters": [
+                "uint8_t mask"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"AS5600.h\" AS5600L as5600(0x40);",
+                "parameter usage": "as5600.setFastFilter(0x03);",
+                "return value handling": "bool success = as5600.setFastFilter(0x03);"
+            }
+        },
+        {
+            "name": "getFastFilter",
+            "description": "Get fast filter.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"AS5600.h\" AS5600L as5600(0x40);",
+                "parameter usage": "uint8_t filter = as5600.getFastFilter();",
+                "return value handling": "uint8_t filter = as5600.getFastFilter();"
+            }
+        },
+        {
+            "name": "setWatchDog",
+            "description": "Set watchdog.",
+            "parameters": [
+                "uint8_t mask"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"AS5600.h\" AS5600L as5600(0x40);",
+                "parameter usage": "as5600.setWatchDog(0x01);",
+                "return value handling": "bool success = as5600.setWatchDog(0x01);"
+            }
+        },
+        {
+            "name": "getWatchDog",
+            "description": "Get watchdog.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"AS5600.h\" AS5600L as5600(0x40);",
+                "parameter usage": "uint8_t watchdog = as5600.getWatchDog();",
+                "return value handling": "uint8_t watchdog = as5600.getWatchDog();"
+            }
+        },
+        {
+            "name": "rawAngle",
+            "description": "Get raw angle.",
+            "parameters": [],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include \"AS5600.h\" AS5600L as5600(0x40);",
+                "parameter usage": "uint16_t angle = as5600.rawAngle();",
+                "return value handling": "uint16_t angle = as5600.rawAngle();"
+            }
+        },
+        {
+            "name": "readAngle",
+            "description": "Get angle reading.",
+            "parameters": [],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include \"AS5600.h\" AS5600L as5600(0x40);",
+                "parameter usage": "uint16_t angle = as5600.readAngle();",
+                "return value handling": "uint16_t angle = as5600.readAngle();"
+            }
+        },
+        {
+            "name": "setOffset",
+            "description": "Set angle offset.",
+            "parameters": [
+                "float degrees"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"AS5600.h\"",
+                "parameter usage": "ASL.setOffset(30.0);",
+                "return value handling": "if (result) { // Handle success }"
+            }
+        },
+        {
+            "name": "getOffset",
+            "description": "Get angle offset.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"AS5600.h\"",
+                "parameter usage": "float offset = ASL.getOffset();",
+                "return value handling": "if (offset >= 0) { // Handle value }"
+            }
+        },
+        {
+            "name": "increaseOffset",
+            "description": "Increase angle offset.",
+            "parameters": [
+                "float degrees"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"AS5600.h\"",
+                "parameter usage": "ASL.increaseOffset(15.0);",
+                "return value handling": "if (result) { // Handle success }"
+            }
+        },
+        {
+            "name": "readStatus",
+            "description": "Read sensor status.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"AS5600.h\"",
+                "parameter usage": "uint8_t status = ASL.readStatus();",
+                "return value handling": "if (status == expected) { // Handle status }"
+            }
+        },
+        {
+            "name": "readAGC",
+            "description": "Read AGC register.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"AS5600.h\"",
+                "parameter usage": "uint8_t agc = ASL.readAGC();",
+                "return value handling": "if (agc == expected) { // Handle AGC }"
+            }
+        },
+        {
+            "name": "readMagnitude",
+            "description": "Read magnitude register.",
+            "parameters": [],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include \"AS5600.h\"",
+                "parameter usage": "uint16_t magnitude = ASL.readMagnitude();",
+                "return value handling": "if (magnitude > 0) { // Handle magnitude }"
+            }
+        },
+        {
+            "name": "detectMagnet",
+            "description": "Detect if magnet is present.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"AS5600.h\"",
+                "parameter usage": "bool present = ASL.detectMagnet();",
+                "return value handling": "if (present) { // Handle presence }"
+            }
+        },
+        {
+            "name": "magnetTooStrong",
+            "description": "Detect if magnet is too strong.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"AS5600.h\"",
+                "parameter usage": "bool tooStrong = ASL.magnetTooStrong();",
+                "return value handling": "if (tooStrong) { // Handle too strong }"
+            }
+        },
+        {
+            "name": "magnetTooWeak",
+            "description": "Detect if magnet is too weak.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"AS5600.h\"",
+                "parameter usage": "bool tooWeak = ASL.magnetTooWeak();",
+                "return value handling": "if (tooWeak) { // Handle too weak }"
+            }
+        },
+        {
+            "name": "getAngularSpeed",
+            "description": "Calculate angular speed.",
+            "parameters": [
+                "uint8_t mode = AS5600_MODE_DEGREES"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"AS5600.h\"",
+                "parameter usage": "float speed = ASL.getAngularSpeed();",
+                "return value handling": "if (speed >= 0) { // Handle speed }"
+            }
+        },
+        {
+            "name": "getCumulativePosition",
+            "description": "Get cumulative position.",
+            "parameters": [],
+            "return_type": "int32_t",
+            "practices": {
+                "API order": "#include \"AS5600.h\" before use",
+                "parameter usage": "No parameters required",
+                "return value handling": "Check if value >= 0"
+            }
+        },
+        {
+            "name": "getRevolutions",
+            "description": "Get number of revolutions.",
+            "parameters": [],
+            "return_type": "int32_t",
+            "practices": {
+                "API order": "#include \"AS5600.h\" before use",
+                "parameter usage": "No parameters required",
+                "return value handling": "Ensure value consistency"
+            }
+        },
+        {
+            "name": "resetPosition",
+            "description": "Reset position.",
+            "parameters": [
+                "int32_t position"
+            ],
+            "return_type": "int32_t",
+            "practices": {
+                "API order": "#include \"AS5600.h\" before use",
+                "parameter usage": "resetPosition(5);",
+                "return value handling": "Store return value"
+            }
+        },
+        {
+            "name": "resetCumulativePosition",
+            "description": "Reset cumulative position.",
+            "parameters": [
+                "int32_t position"
+            ],
+            "return_type": "int32_t",
+            "practices": {
+                "API order": "#include \"AS5600.h\" before use",
+                "parameter usage": "resetCumulativePosition(0);",
+                "return value handling": "Check if reset was successful"
+            }
+        },
+        {
+            "name": "lastError",
+            "description": "Get last error code.",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "#include \"AS5600.h\" before use",
+                "parameter usage": "No parameters required",
+                "return value handling": "Check if value != 0"
+            }
+        },
+        {
+            "name": "setAddress",
+            "description": "Set new I2C address.",
+            "parameters": [
+                "uint8_t address"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"AS5600.h\" before use",
+                "parameter usage": "setAddress(0x38);",
+                "return value handling": "Ensure return is true"
+            }
+        },
+        {
+            "name": "setI2CUPDT",
+            "description": "Set I2CUPDT.",
+            "parameters": [
+                "uint8_t value"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"AS5600.h\" before use",
+                "parameter usage": "setI2CUPDT(0x03);",
+                "return value handling": "Confirm value set successfully"
+            }
+        },
+        {
+            "name": "getI2CUPDT",
+            "description": "Get I2CUPDT.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"AS5600.h\" before use",
+                "parameter usage": "No parameters required",
+                "return value handling": "Check if value is valid"
+            }
+        }
+    ]
+}

@@ -1,0 +1,118 @@
+{
+    "Adafruit_Si7021.h": [
+        {
+            "name": "begin",
+            "description": "Initializes the sensor",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"Adafruit_Si7021.h\"; sensor.begin()",
+                "parameter usage": "sensor.begin()",
+                "return value handling": "if (!sensor.begin()) handleError();"
+            }
+        },
+        {
+            "name": "readTemperature",
+            "description": "Reads the temperature",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "N/A",
+                "parameter usage": "float temp = sensor.readTemperature();",
+                "return value handling": "float temp = sensor.readTemperature();"
+            }
+        },
+        {
+            "name": "reset",
+            "description": "Resets the sensor",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "N/A",
+                "parameter usage": "sensor.reset();",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "readSerialNumber",
+            "description": "Reads the serial number",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "N/A",
+                "parameter usage": "sensor.readSerialNumber();",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "readHumidity",
+            "description": "Reads the humidity",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "N/A",
+                "parameter usage": "float humidity = sensor.readHumidity();",
+                "return value handling": "float humidity = sensor.readHumidity();"
+            }
+        },
+        {
+            "name": "heater",
+            "description": "Enable/Disable the sensor heater",
+            "parameters": [
+                "bool h"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "N/A",
+                "parameter usage": "sensor.heater(true);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "isHeaterEnabled",
+            "description": "Checks if heater is enabled",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "N/A",
+                "parameter usage": "bool enabled = sensor.isHeaterEnabled();",
+                "return value handling": "bool heaterStatus = sensor.isHeaterEnabled();"
+            }
+        },
+        {
+            "name": "setHeatLevel",
+            "description": "Sets sensor heater heat level",
+            "parameters": [
+                "uint8_t level"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "N/A",
+                "parameter usage": "sensor.setHeatLevel(1);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getRevision",
+            "description": "Returns sensor revision",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "N/A",
+                "parameter usage": "uint8_t revision = sensor.getRevision();",
+                "return value handling": "uint8_t revision = sensor.getRevision();"
+            }
+        },
+        {
+            "name": "getModel",
+            "description": "Returns sensor model",
+            "parameters": [],
+            "return_type": "si_sensorType",
+            "practices": {
+                "API order": "N/A",
+                "parameter usage": "si_sensorType model = sensor.getModel();",
+                "return value handling": "si_sensorType model = sensor.getModel();"
+            }
+        }
+    ]
+}

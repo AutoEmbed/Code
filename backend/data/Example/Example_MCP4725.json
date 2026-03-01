@@ -1,0 +1,305 @@
+{
+    "MCP4725.h": [
+        {
+            "name": "begin",
+            "description": "Initializes the library.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"Wire.h\", MCP4725.begin() after Wire.begin()",
+                "parameter usage": "None",
+                "return value handling": "Check true/false"
+            }
+        },
+        {
+            "name": "isConnected",
+            "description": "Checks if the device is connected.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call after MCP4725.begin()",
+                "parameter usage": "None",
+                "return value handling": "Use in conditional statements"
+            }
+        },
+        {
+            "name": "getAddress",
+            "description": "Returns the I2C address.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call after MCP4725.begin()",
+                "parameter usage": "None",
+                "return value handling": "Store or print the address"
+            }
+        },
+        {
+            "name": "setValue",
+            "description": "Sets DAC value.",
+            "parameters": [
+                "const uint16_t value = 0"
+            ],
+            "return_type": "int",
+            "practices": {
+                "API order": "Call after MCP4725.begin()",
+                "parameter usage": "MCP.setValue(4095)",
+                "return value handling": "Check return code (0 = success)"
+            }
+        },
+        {
+            "name": "getValue",
+            "description": "Gets last set value.",
+            "parameters": [],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "Call after MCP4725.setValue()",
+                "parameter usage": "None",
+                "return value handling": "Store or print the value"
+            }
+        },
+        {
+            "name": "setPercentage",
+            "description": "Sets value as a percentage.",
+            "parameters": [
+                "float percentage = 0"
+            ],
+            "return_type": "int",
+            "practices": {
+                "API order": "Call after MCP4725.begin()",
+                "parameter usage": "MCP.setPercentage(75.0)",
+                "return value handling": "Check return code (0 = success)"
+            }
+        },
+        {
+            "name": "getPercentage",
+            "description": "Gets the set percentage.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after MCP4725.setPercentage()",
+                "parameter usage": "None",
+                "return value handling": "Store or print the percentage"
+            }
+        },
+        {
+            "name": "setMaxVoltage",
+            "description": "Sets maximum voltage.",
+            "parameters": [
+                "float v = 5.0"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after MCP4725.begin()",
+                "parameter usage": "MCP.setMaxVoltage(3.3)",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "getMaxVoltage",
+            "description": "Gets maximum voltage.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after MCP4725.setMaxVoltage()",
+                "parameter usage": "None",
+                "return value handling": "Store or print the voltage"
+            }
+        },
+        {
+            "name": "setVoltage",
+            "description": "Sets voltage.",
+            "parameters": [
+                "float v"
+            ],
+            "return_type": "int",
+            "practices": {
+                "API order": "Call after MCP4725.setMaxVoltage()",
+                "parameter usage": "MCP.setVoltage(2.5)",
+                "return value handling": "Check return code (0 = success)"
+            }
+        },
+        {
+            "name": "getVoltage",
+            "description": "Gets set voltage.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"MCP4725.h\"; MCP4725 MCP(0x62);",
+                "parameter usage": "None",
+                "return value handling": "float voltage = MCP.getVoltage();"
+            }
+        },
+        {
+            "name": "writeDAC",
+            "description": "Writes value to DAC and optionally EEPROM.",
+            "parameters": [
+                "const uint16_t value",
+                "const bool EEPROM = false"
+            ],
+            "return_type": "int",
+            "practices": {
+                "API order": "#include \"MCP4725.h\"; MCP4725 MCP(0x62);",
+                "parameter usage": "MCP.writeDAC(1023, true);",
+                "return value handling": "int result = MCP.writeDAC(1023);"
+            }
+        },
+        {
+            "name": "ready",
+            "description": "Checks if EEPROM write is done.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"MCP4725.h\"; MCP4725 MCP(0x62);",
+                "parameter usage": "None",
+                "return value handling": "bool isReady = MCP.ready();"
+            }
+        },
+        {
+            "name": "readDAC",
+            "description": "Reads value from DAC.",
+            "parameters": [],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include \"MCP4725.h\"; MCP4725 MCP(0x62);",
+                "parameter usage": "None",
+                "return value handling": "uint16_t value = MCP.readDAC();"
+            }
+        },
+        {
+            "name": "readEEPROM",
+            "description": "Reads value from EEPROM.",
+            "parameters": [],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include \"MCP4725.h\"; MCP4725 MCP(0x62);",
+                "parameter usage": "None",
+                "return value handling": "uint16_t value = MCP.readEEPROM();"
+            }
+        },
+        {
+            "name": "getLastWriteEEPROM",
+            "description": "Gets timestamp of last EEPROM write.",
+            "parameters": [],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "#include \"MCP4725.h\"; MCP4725 MCP(0x62);",
+                "parameter usage": "None",
+                "return value handling": "uint32_t timestamp = MCP.getLastWriteEEPROM();"
+            }
+        },
+        {
+            "name": "writePowerDownMode",
+            "description": "Writes power-down mode.",
+            "parameters": [
+                "const uint8_t PDM",
+                "const bool EEPROM = false"
+            ],
+            "return_type": "int",
+            "practices": {
+                "API order": "#include \"MCP4725.h\"; MCP4725 MCP(0x62);",
+                "parameter usage": "MCP.writePowerDownMode(1, true);",
+                "return value handling": "int result = MCP.writePowerDownMode(1);"
+            }
+        },
+        {
+            "name": "readPowerDownModeEEPROM",
+            "description": "Reads power-down mode from EEPROM.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"MCP4725.h\"; MCP4725 MCP(0x62);",
+                "parameter usage": "None",
+                "return value handling": "uint8_t mode = MCP.readPowerDownModeEEPROM();"
+            }
+        },
+        {
+            "name": "readPowerDownModeDAC",
+            "description": "Reads power-down mode from DAC.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"MCP4725.h\"; MCP4725 MCP(0x62);",
+                "parameter usage": "None",
+                "return value handling": "uint8_t mode = MCP.readPowerDownModeDAC();"
+            }
+        },
+        {
+            "name": "powerOnReset",
+            "description": "Resets the device.",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "#include \"MCP4725.h\"; MCP4725 MCP(0x62);",
+                "parameter usage": "None",
+                "return value handling": "int result = MCP.powerOnReset();"
+            }
+        },
+        {
+            "name": "powerOnWakeUp",
+            "description": "Wakes up the device.",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "#include \"MCP4725.h\"; MCP4725 MCP;",
+                "parameter usage": "None required.",
+                "return value handling": "Check if return is not 0."
+            }
+        },
+        {
+            "name": "setVoltage",
+            "description": "Sets the output voltage.",
+            "parameters": [
+                {
+                    "type": "float",
+                    "name": "voltage",
+                    "description": "Desired voltage."
+                }
+            ],
+            "return_type": "int",
+            "practices": {
+                "API order": "#include \"MCP4725.h\"; MCP4725 MCP;",
+                "parameter usage": "MCP.setVoltage(3.3);",
+                "return value handling": "Check if return is not 0."
+            }
+        },
+        {
+            "name": "getVoltage",
+            "description": "Gets the current output voltage.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"MCP4725.h\"; MCP4725 MCP;",
+                "parameter usage": "float v = MCP.getVoltage();",
+                "return value handling": "Validate if return > 0."
+            }
+        },
+        {
+            "name": "begin",
+            "description": "Initialize the communication.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"MCP4725.h\"; MCP4725 MCP;",
+                "parameter usage": "MCP.begin();",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setMaxVoltage",
+            "description": "Sets the maximum output voltage.",
+            "parameters": [
+                {
+                    "type": "float",
+                    "name": "voltage",
+                    "description": "Maximum voltage."
+                }
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"MCP4725.h\"; MCP4725 MCP;",
+                "parameter usage": "MCP.setMaxVoltage(5.1);",
+                "return value handling": "N/A"
+            }
+        }
+    ]
+}

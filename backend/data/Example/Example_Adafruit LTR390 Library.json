@@ -1,0 +1,186 @@
+{
+    "Adafruit_LTR390.h": [
+        {
+            "name": "begin",
+            "description": "Initialize sensor",
+            "parameters": [
+                "TwoWire *theWire = &Wire"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"Adafruit_LTR390.h\"; initialize in setup()",
+                "parameter usage": "e.g., ltr.begin();",
+                "return value handling": "Check with if statement"
+            }
+        },
+        {
+            "name": "reset",
+            "description": "Reset the sensor",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call after begin()",
+                "parameter usage": "e.g., ltr.reset();",
+                "return value handling": "Check with if statement"
+            }
+        },
+        {
+            "name": "enable",
+            "description": "Enable or disable the sensor",
+            "parameters": [
+                "bool en"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after begin()",
+                "parameter usage": "e.g., ltr.enable(true);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "enabled",
+            "description": "Check if sensor is enabled",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call after enable()",
+                "parameter usage": "e.g., ltr.enabled();",
+                "return value handling": "Use in condition checks"
+            }
+        },
+        {
+            "name": "setMode",
+            "description": "Set sensor mode",
+            "parameters": [
+                "ltr390_mode_t mode"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after begin()",
+                "parameter usage": "e.g., ltr.setMode(LTR390_MODE_UVS);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getMode",
+            "description": "Get current sensor mode",
+            "parameters": [],
+            "return_type": "ltr390_mode_t",
+            "practices": {
+                "API order": "Called after setMode()",
+                "parameter usage": "e.g., ltr.getMode();",
+                "return value handling": "Use in switch statements"
+            }
+        },
+        {
+            "name": "setGain",
+            "description": "Set sensor gain",
+            "parameters": [
+                "ltr390_gain_t gain"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after begin()",
+                "parameter usage": "e.g., ltr.setGain(LTR390_GAIN_3);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getGain",
+            "description": "Get current sensor gain",
+            "parameters": [],
+            "return_type": "ltr390_gain_t",
+            "practices": {
+                "API order": "Called after setGain()",
+                "parameter usage": "e.g., ltr.getGain();",
+                "return value handling": "Use in switch statements"
+            }
+        },
+        {
+            "name": "setResolution",
+            "description": "Set sensor resolution",
+            "parameters": [
+                "ltr390_resolution_t res"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after begin()",
+                "parameter usage": "e.g., ltr.setResolution(LTR390_RESOLUTION_16BIT);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getResolution",
+            "description": "Get current resolution",
+            "parameters": [],
+            "return_type": "ltr390_resolution_t",
+            "practices": {
+                "API order": "Called after setResolution()",
+                "parameter usage": "e.g., ltr.getResolution();",
+                "return value handling": "Use in switch statements"
+            }
+        },
+        {
+            "name": "setThresholds",
+            "description": "Set sensor threshold limits",
+            "parameters": [
+                "uint32_t lower",
+                "uint32_t higher"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"Adafruit_LTR390.h\"; ltr.begin();",
+                "parameter usage": "ltr.setThresholds(100, 1000);",
+                "return value handling": "No return to handle"
+            }
+        },
+        {
+            "name": "configInterrupt",
+            "description": "Configure sensor interrupt",
+            "parameters": [
+                "bool enable",
+                "ltr390_mode_t source",
+                "uint8_t persistance = 0"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"Adafruit_LTR390.h\"; ltr.begin();",
+                "parameter usage": "ltr.configInterrupt(true, LTR390_MODE_UVS);",
+                "return value handling": "No return to handle"
+            }
+        },
+        {
+            "name": "newDataAvailable",
+            "description": "Check for new data",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"Adafruit_LTR390.h\"",
+                "parameter usage": "bool available = ltr.newDataAvailable();",
+                "return value handling": "Check the boolean result, e.g., if(available)"
+            }
+        },
+        {
+            "name": "readUVS",
+            "description": "Read UV sensor data",
+            "parameters": [],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "#include \"Adafruit_LTR390.h\"; ltr.begin();",
+                "parameter usage": "uint32_t uvData = ltr.readUVS();",
+                "return value handling": "Store and print or use the UV data"
+            }
+        },
+        {
+            "name": "readALS",
+            "description": "Read ambient light data",
+            "parameters": [],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "#include \"Adafruit_LTR390.h\"; ltr.begin();",
+                "parameter usage": "uint32_t alsData = ltr.readALS();",
+                "return value handling": "Store and print or use the ALS data"
+            }
+        }
+    ]
+}

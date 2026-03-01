@@ -1,0 +1,71 @@
+{
+    "BasicUsage.ino": {
+        "BasicUsage.ino": [
+            {
+                "functionality": "reads temperature from an LM75-derived temperature sensor and displays it in Celsius every 250ms",
+                "API": [
+                    "temperature.readTemperatureC"
+                ]
+            }
+        ]
+    },
+    "MultipleSensors.ino": {
+        "MultipleSensors.ino": [
+            {
+                "functionality": "reads the temperature from two LM75-derived sensors with different addresses (0x48 and 0x49), and displays them in Celsius every 250ms",
+                "API": [
+                    "Serial.begin",
+                    "Wire.begin",
+                    "Serial.print",
+                    "readTemperatureC",
+                    "Serial.println",
+                    "Serial.print",
+                    "readTemperatureC",
+                    "Serial.println",
+                    "delay"
+                ]
+            }
+        ]
+    },
+    "OnSemiOneShotMode.ino": {
+        "OnSemiOneShotMode.ino": [
+            {
+                "functionality": "demonstrates the use of one-shot mode for temperature conversion using the NCT75 sensor to conserve power",
+                "API": [
+                    "begin",
+                    "enableOneShotMode",
+                    "startOneShotConversion",
+                    "readTemperatureC"
+                ]
+            }
+        ]
+    },
+    "ShutdownModeOneShot.ino": {
+        "ShutdownModeOneShot.ino": [
+            {
+                "functionality": "Shuts down the sensor to save power and uses one-shot conversion to request a single immediate temperature conversion",
+                "API": [
+                    "enableShutdownMode",
+                    "startOneShotConversion",
+                    "checkConversionReady",
+                    "readTemperatureC"
+                ]
+            }
+        ]
+    },
+    "Thermostat.ino": {
+        "Thermostat.ino": [
+            {
+                "functionality": "sets up a thermostat using the LM75 sensor that triggers an alert based on temperature thresholds and prints temperature data along with alert status to the serial port",
+                "API": [
+                    "setAlertActiveHigh",
+                    "setTemperatureHighC",
+                    "setTemperatureLowC",
+                    "readTemperatureC",
+                    "readTemperatureLowC",
+                    "readTemperatureHighC"
+                ]
+            }
+        ]
+    }
+}

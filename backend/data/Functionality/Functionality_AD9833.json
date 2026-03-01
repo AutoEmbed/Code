@@ -1,0 +1,155 @@
+{
+    "AD9833_1000_Hz.ino": {
+        "AD9833_1000_Hz.ino": [
+            {
+                "functionality": "creates a 1000 Hz reference signal",
+                "API": [
+                    "begin",
+                    "setWave",
+                    "getWave",
+                    "setFrequency",
+                    "getFrequency",
+                    "setFrequencyChannel"
+                ]
+            }
+        ]
+    },
+    "AD9833_HLB_MODE.ino": {
+        "AD9833_HLB_MODE.ino": [
+            {
+                "functionality": "test frequency generation using AD9833 and basic SPI communication",
+                "API": [
+                    "begin",
+                    "setFrequency",
+                    "setFrequency",
+                    "setWave",
+                    "writeFrequencyRegisterLSB",
+                    "writeFrequencyRegisterLSB"
+                ]
+            }
+        ]
+    },
+    "AD9833_minimal.ino": {
+        "AD9833_minimal.ino": [
+            {
+                "functionality": "demo AD9833 waveform generator",
+                "API": [
+                    "begin",
+                    "setFrequency",
+                    "setWave",
+                    "getWave"
+                ]
+            }
+        ]
+    },
+    "AD9833_minimal_ESP32.ino": {
+        "AD9833_minimal_ESP32.ino": [
+            {
+                "functionality": "demonstrates AD9833 waveform generator, initializes and sets frequency and wave type",
+                "API": [
+                    "begin",
+                    "setFrequency",
+                    "setWave",
+                    "getWave"
+                ]
+            }
+        ]
+    },
+    "AD9833_multi_device.ino": {
+        "AD9833_multi_device.ino": [
+            {
+                "functionality": "demonstrates the use of AD9833 waveform generators on 4 devices, setting them to generate a major chord",
+                "API": [
+                    "begin",
+                    "setFrequency",
+                    "setFrequency",
+                    "setFrequency",
+                    "setFrequency",
+                    "setWave",
+                    "setWave",
+                    "setWave",
+                    "setWave"
+                ]
+            }
+        ]
+    },
+    "AD9833_performance.ino": {
+        "AD9833_performance.ino": [
+            {
+                "functionality": "demonstrates performance of AD9833 waveform generator",
+                "API": [
+                    "begin",
+                    "usesHWSPI",
+                    "setFrequency",
+                    "setPhase",
+                    "setWave",
+                    "writeFrequencyRegisterLSB",
+                    "writeFrequencyRegisterMSB",
+                    "setFrequencyChannel",
+                    "setPhaseChannel"
+                ]
+            }
+        ]
+    },
+    "AD9833_sweep.ino": {
+        "AD9833_sweep.ino": [
+            {
+                "functionality": "demo AD9833 wave form generator",
+                "API": [
+                    "begin",
+                    "setWave",
+                    "setFrequency"
+                ]
+            }
+        ]
+    },
+    "AD9833_switch_channel.ino": {
+        "AD9833_switch_channel.ino": [
+            {
+                "functionality": "demo AD9833 wave form generator",
+                "API": [
+                    "begin",
+                    "setWave",
+                    "setFrequency",
+                    "setFrequency",
+                    "setFrequencyChannel",
+                    "setWave",
+                    "getWave",
+                    "setFrequencyChannel"
+                ]
+            }
+        ]
+    },
+    "AD9833_switch_phase.ino": {
+        "AD9833_switch_phase.ino": [
+            {
+                "functionality": "demo AD9833 waveform generator with phase switching",
+                "API": [
+                    "begin",
+                    "setWave",
+                    "setFrequency",
+                    "setPhase",
+                    "setPhase",
+                    "setPhaseChannel",
+                    "getWave",
+                    "setPhaseChannel"
+                ]
+            }
+        ]
+    },
+    "AD9833_test_10.ino": {
+        "AD9833_test_10.ino": [
+            {
+                "functionality": "tests the AD9833 component by setting different frequencies and waveforms",
+                "API": [
+                    "begin",
+                    "setFrequency",
+                    "setFrequency",
+                    "setWave",
+                    "setFrequency",
+                    "setFrequency"
+                ]
+            }
+        ]
+    }
+}

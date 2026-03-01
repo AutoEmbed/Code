@@ -1,0 +1,489 @@
+{
+    "EByte_LoRa_E32_library.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the E32 module",
+            "parameters": [
+                "HardwareSerial* serial",
+                "uint32_t baudRate",
+                "uint8_t auxPin",
+                "uint8_t m0Pin",
+                "uint8_t m1Pin"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"EByte_LoRa_E32_library.h\"",
+                "parameter usage": "e32.begin(&Serial, 9600, auxPin, m0Pin, m1Pin);",
+                "return value handling": "void, no need to handle"
+            }
+        },
+        {
+            "name": "available",
+            "description": "Check if data is available",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "After begin() call",
+                "parameter usage": "if (e32.available()) { }",
+                "return value handling": "int, check if > 0"
+            }
+        },
+        {
+            "name": "readByte",
+            "description": "Read a single byte",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "After available()",
+                "parameter usage": "uint8_t data = e32.readByte();",
+                "return value handling": "uint8_t, handle received byte"
+            }
+        },
+        {
+            "name": "writeByte",
+            "description": "Write a single byte",
+            "parameters": [
+                "uint8_t data"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "After begin() call",
+                "parameter usage": "e32.writeByte(0xFF);",
+                "return value handling": "void, no need to handle"
+            }
+        },
+        {
+            "name": "sendMessage",
+            "description": "Send a message",
+            "parameters": [
+                "uint8_t* data",
+                "uint8_t size"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "After begin() call",
+                "parameter usage": "uint8_t msg[] = {0x01, 0x02}; e32.sendMessage(msg, 2);",
+                "return value handling": "void, no need to handle"
+            }
+        },
+        {
+            "name": "receiveMessage",
+            "description": "Receive a message",
+            "parameters": [
+                "uint8_t* buffer",
+                "uint8_t size"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "After available()",
+                "parameter usage": "uint8_t buffer[10]; uint8_t len = e32.receiveMessage(buffer, 10);",
+                "return value handling": "uint8_t, check length received"
+            }
+        },
+        {
+            "name": "setMode",
+            "description": "Set the module mode",
+            "parameters": [
+                "uint8_t mode"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "After begin() call",
+                "parameter usage": "e32.setMode(0x01);",
+                "return value handling": "void, no need to handle"
+            }
+        },
+        {
+            "name": "getModuleInfo",
+            "description": "Get module information",
+            "parameters": [
+                "ModuleInformation& info"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "After begin() call",
+                "parameter usage": "ModuleInformation info; e32.getModuleInfo(info);",
+                "return value handling": "void, handle info struct"
+            }
+        },
+        {
+            "name": "setAddress",
+            "description": "Set the module address",
+            "parameters": [
+                "uint16_t address"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "After begin() call",
+                "parameter usage": "e32.setAddress(0x1234);",
+                "return value handling": "void, no need to handle"
+            }
+        },
+        {
+            "name": "setChannel",
+            "description": "Set the communication channel",
+            "parameters": [
+                "uint8_t channel"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "After begin() call",
+                "parameter usage": "e32.setChannel(0x04);",
+                "return value handling": "void, no need to handle"
+            }
+        }
+    ],
+    "LoRa_E32.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the module",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include LoRa_E32.h; begin() first",
+                "parameter usage": "void e32ttl100.begin()",
+                "return value handling": "if (begin()) {...}"
+            }
+        },
+        {
+            "name": "setMode",
+            "description": "Set the operating mode",
+            "parameters": [
+                "MODE_TYPE mode"
+            ],
+            "return_type": "Status",
+            "practices": {
+                "API order": "Call after begin()",
+                "parameter usage": "e32ttl100.setMode(SLEEP)",
+                "return value handling": "if (status.isSuccess()) {...}"
+            }
+        },
+        {
+            "name": "getMode",
+            "description": "Get the current mode",
+            "parameters": [],
+            "return_type": "MODE_TYPE",
+            "practices": {
+                "API order": "Call after begin()",
+                "parameter usage": "MODE_TYPE mode = e32ttl100.getMode()",
+                "return value handling": "if (mode == NORMAL) {...}"
+            }
+        },
+        {
+            "name": "getConfiguration",
+            "description": "Retrieve module configuration",
+            "parameters": [],
+            "return_type": "ResponseStructContainer",
+            "practices": {
+                "API order": "Call after begin()",
+                "parameter usage": "auto config = e32ttl100.getConfiguration()",
+                "return value handling": "config.close()"
+            }
+        },
+        {
+            "name": "setConfiguration",
+            "description": "Set module configuration",
+            "parameters": [
+                "Configuration configuration",
+                "PROGRAM_COMMAND saveType = WRITE_CFG_PWR_DWN_LOSE"
+            ],
+            "return_type": "ResponseStatus",
+            "practices": {
+                "API order": "Call after getConfiguration()",
+                "parameter usage": "e32ttl100.setConfiguration(configuration)",
+                "return value handling": "if (status.isSuccess()) {...}"
+            }
+        },
+        {
+            "name": "getModuleInformation",
+            "description": "Get module information",
+            "parameters": [],
+            "return_type": "ResponseStructContainer",
+            "practices": {
+                "API order": "Call after begin()",
+                "parameter usage": "auto info = e32ttl100.getModuleInformation()",
+                "return value handling": "info.close()"
+            }
+        },
+        {
+            "name": "resetModule",
+            "description": "Reset the module",
+            "parameters": [],
+            "return_type": "ResponseStatus",
+            "practices": {
+                "API order": "Call after begin()",
+                "parameter usage": "e32ttl100.resetModule()",
+                "return value handling": "if (status.isSuccess()) {...}"
+            }
+        },
+        {
+            "name": "sendMessage",
+            "description": "Send a message",
+            "parameters": [
+                "const void *message",
+                "const uint8_t size"
+            ],
+            "return_type": "ResponseStatus",
+            "practices": {
+                "API order": "Call after setMode(NORMAL)",
+                "parameter usage": "e32ttl100.sendMessage(msg, size)",
+                "return value handling": "if (status.isSuccess()) {...}"
+            }
+        },
+        {
+            "name": "receiveMessageUntil",
+            "description": "Receive message until delimiter",
+            "parameters": [
+                "char delimiter = '\\0'"
+            ],
+            "return_type": "ResponseContainer",
+            "practices": {
+                "API order": "Call after setMode(NORMAL)",
+                "parameter usage": "auto msg = e32ttl100.receiveMessageUntil('\\n')",
+                "return value handling": "msg.close()"
+            }
+        },
+        {
+            "name": "receiveMessage",
+            "description": "Receive a message",
+            "parameters": [
+                "const uint8_t size"
+            ],
+            "return_type": "ResponseStructContainer",
+            "practices": {
+                "API order": "Call after setMode(NORMAL)",
+                "parameter usage": "auto msg = e32ttl100.receiveMessage(size)",
+                "return value handling": "msg.close()"
+            }
+        },
+        {
+            "name": "sendMessage",
+            "description": "Send a message",
+            "parameters": [
+                "const String message"
+            ],
+            "return_type": "ResponseStatus",
+            "practices": {
+                "API order": "#include \"LoRa_E32.h\"; init with begin()",
+                "parameter usage": "e32ttl100.sendMessage(\"Test message\")",
+                "return value handling": "Check status code, description"
+            }
+        },
+        {
+            "name": "receiveMessage",
+            "description": "Receive a message",
+            "parameters": [],
+            "return_type": "ResponseContainer",
+            "practices": {
+                "API order": "#include \"LoRa_E32.h\"; init with begin()",
+                "parameter usage": "auto resp = e32ttl100.receiveMessage()",
+                "return value handling": "Handle ResponseContainer instance"
+            }
+        },
+        {
+            "name": "sendFixedMessage",
+            "description": "Send a fixed message",
+            "parameters": [
+                "byte ADDH",
+                "byte ADDL",
+                "byte CHAN",
+                "const String message"
+            ],
+            "return_type": "ResponseStatus",
+            "practices": {
+                "API order": "#include \"LoRa_E32.h\"; init with begin()",
+                "parameter usage": "e32ttl100.sendFixedMessage(0x00, 0x01, 0x17, \"hello\")",
+                "return value handling": "Check status code, description"
+            }
+        },
+        {
+            "name": "sendFixedMessage",
+            "description": "Send a fixed message",
+            "parameters": [
+                "byte ADDH",
+                "byte ADDL",
+                "byte CHAN",
+                "const void *message",
+                "const uint8_t size"
+            ],
+            "return_type": "ResponseStatus",
+            "practices": {
+                "API order": "#include \"LoRa_E32.h\"; init with begin()",
+                "parameter usage": "e32ttl100.sendFixedMessage(0x00, 0x01, 0x17, msg, size)",
+                "return value handling": "Check status code, description"
+            }
+        },
+        {
+            "name": "sendBroadcastFixedMessage",
+            "description": "Send a broadcast message",
+            "parameters": [
+                "byte CHAN",
+                "const void *message",
+                "const uint8_t size"
+            ],
+            "return_type": "ResponseStatus",
+            "practices": {
+                "API order": "#include \"LoRa_E32.h\"; init with begin()",
+                "parameter usage": "e32ttl100.sendBroadcastFixedMessage(0x17, msg, size)",
+                "return value handling": "Check status code, description"
+            }
+        },
+        {
+            "name": "sendBroadcastFixedMessage",
+            "description": "Send a broadcast message",
+            "parameters": [
+                "byte CHAN",
+                "const String message"
+            ],
+            "return_type": "ResponseStatus",
+            "practices": {
+                "API order": "#include \"LoRa_E32.h\"; init with begin()",
+                "parameter usage": "e32ttl100.sendBroadcastFixedMessage(0x17, \"hello\")",
+                "return value handling": "Check status code, description"
+            }
+        },
+        {
+            "name": "receiveInitialMessage",
+            "description": "Receive an initial message",
+            "parameters": [
+                "const uint8_t size"
+            ],
+            "return_type": "ResponseContainer",
+            "practices": {
+                "API order": "#include \"LoRa_E32.h\"; init with begin()",
+                "parameter usage": "auto resp = e32ttl100.receiveInitialMessage(size)",
+                "return value handling": "Handle ResponseContainer instance"
+            }
+        },
+        {
+            "name": "available",
+            "description": "Check available bytes",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "#include \"LoRa_E32.h\"; init with begin()",
+                "parameter usage": "int bytes = e32ttl100.available()",
+                "return value handling": "Check number of bytes available"
+            }
+        }
+    ],
+    "statesNaming.h": [
+        {
+            "name": "getResponseDescriptionByParams",
+            "description": "Get response status description.",
+            "parameters": [
+                "byte status"
+            ],
+            "return_type": "String",
+            "practices": {
+                "API order": "#include \"statesNaming.h\"",
+                "parameter usage": "getResponseDescriptionByParams(0x00);",
+                "return value handling": "Serial.println(response);"
+            }
+        },
+        {
+            "name": "getUARTParityDescriptionByParams",
+            "description": "Get UART parity description.",
+            "parameters": [
+                "byte uartParity"
+            ],
+            "return_type": "String",
+            "practices": {
+                "API order": "#include \"statesNaming.h\"",
+                "parameter usage": "getUARTParityDescriptionByParams(0x01);",
+                "return value handling": "Serial.println(uartParityDesc);"
+            }
+        },
+        {
+            "name": "getUARTBaudRateDescriptionByParams",
+            "description": "Get UART baud rate description.",
+            "parameters": [
+                "byte uartBaudRate"
+            ],
+            "return_type": "String",
+            "practices": {
+                "API order": "#include \"statesNaming.h\"",
+                "parameter usage": "getUARTBaudRateDescriptionByParams(0x03);",
+                "return value handling": "Serial.println(baudRateDesc);"
+            }
+        },
+        {
+            "name": "getAirDataRateDescriptionByParams",
+            "description": "Get air data rate description.",
+            "parameters": [
+                "byte airDataRate"
+            ],
+            "return_type": "String",
+            "practices": {
+                "API order": "#include \"statesNaming.h\"",
+                "parameter usage": "getAirDataRateDescriptionByParams(0x04);",
+                "return value handling": "Serial.println(airDataRateDesc);"
+            }
+        },
+        {
+            "name": "getFixedTransmissionDescriptionByParams",
+            "description": "Get fixed transmission description.",
+            "parameters": [
+                "byte fixedTransmission"
+            ],
+            "return_type": "String",
+            "practices": {
+                "API order": "#include \"statesNaming.h\"",
+                "parameter usage": "getFixedTransmissionDescriptionByParams(0x05);",
+                "return value handling": "Serial.println(fixedTransDesc);"
+            }
+        },
+        {
+            "name": "getIODriveModeDescriptionDescriptionByParams",
+            "description": "Get IO drive mode description.",
+            "parameters": [
+                "byte ioDriveMode"
+            ],
+            "return_type": "String",
+            "practices": {
+                "API order": "#include \"statesNaming.h\"",
+                "parameter usage": "getIODriveModeDescriptionDescriptionByParams(0x06);",
+                "return value handling": "Serial.println(ioDriveModeDesc);"
+            }
+        },
+        {
+            "name": "getWirelessWakeUPTimeDescriptionByParams",
+            "description": "Get wireless wake-up time description.",
+            "parameters": [
+                "byte wirelessWakeUPTime"
+            ],
+            "return_type": "String",
+            "practices": {
+                "API order": "#include \"statesNaming.h\"",
+                "parameter usage": "getWirelessWakeUPTimeDescriptionByParams(0x07);",
+                "return value handling": "Serial.println(wakeupTimeDesc);"
+            }
+        },
+        {
+            "name": "getFECDescriptionByParams",
+            "description": "Get FEC (Forward Error Correction) description.",
+            "parameters": [
+                "byte fec"
+            ],
+            "return_type": "String",
+            "practices": {
+                "API order": "#include \"statesNaming.h\"",
+                "parameter usage": "getFECDescriptionByParams(0x08);",
+                "return value handling": "Serial.println(fecDesc);"
+            }
+        },
+        {
+            "name": "getTransmissionPowerDescriptionByParams",
+            "description": "Get transmission power description.",
+            "parameters": [
+                "byte transmissionPower"
+            ],
+            "return_type": "String",
+            "practices": {
+                "API order": "#include \"statesNaming.h\"",
+                "parameter usage": "getTransmissionPowerDescriptionByParams(0x09);",
+                "return value handling": "Serial.println(transPowerDesc);"
+            }
+        }
+    ]
+}

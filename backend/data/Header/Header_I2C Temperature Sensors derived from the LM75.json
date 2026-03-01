@@ -1,0 +1,200 @@
+{
+    "Temperature_LM75_Derived.h": [
+        {
+            "name": "convertCtoF",
+            "description": "Convert Celsius to Fahrenheit.",
+            "parameters": [
+                "float c"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "convertFtoC",
+            "description": "Convert Fahrenheit to Celsius.",
+            "parameters": [
+                "float f"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "convertIntegerTemperature",
+            "description": "Convert int temperature.",
+            "parameters": [
+                "int16_t value"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "convertFloatTemperature",
+            "description": "Convert float temperature.",
+            "parameters": [
+                "float value"
+            ],
+            "return_type": "int16_t"
+        },
+        {
+            "name": "readTemperatureC",
+            "description": "Read temperature in Celsius.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "readTemperatureF",
+            "description": "Read temperature in Fahrenheit.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "readTemperatureLowC",
+            "description": "Read low temperature in Celsius.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "readTemperatureLowF",
+            "description": "Read low temperature in Fahrenheit.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "setTemperatureLowC",
+            "description": "Set low temperature in Celsius.",
+            "parameters": [
+                "float value"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setTemperatureLowF",
+            "description": "Set low temperature in Fahrenheit.",
+            "parameters": [
+                "float value"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "readTemperatureHighC",
+            "description": "Read high temperature in Celsius.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "readTemperatureHighF",
+            "description": "Read high temperature in Fahrenheit.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "setTemperatureHighC",
+            "description": "Set high temperature in Celsius.",
+            "parameters": [
+                "float value"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setTemperatureHighF",
+            "description": "Set high temperature in Fahrenheit.",
+            "parameters": [
+                "float value"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setFaultQueueLength",
+            "description": "Set fault queue length.",
+            "parameters": [
+                "enum FaultQueueLength faults"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setAlertActiveLow",
+            "description": "Set alert active low.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "setAlertActiveHigh",
+            "description": "Set alert active high.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "setThermostatComparatorMode",
+            "description": "Set comparator mode.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "setThermostatInterruptMode",
+            "description": "Set interrupt mode.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "enableShutdownMode",
+            "description": "Enable shutdown mode.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "disableShutdownMode",
+            "description": "Disable shutdown mode.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "setResolution",
+            "description": "Set resolution.",
+            "parameters": [
+                "enum Resolution resolution"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "enableOneShotMode",
+            "description": "Enable one-shot mode.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "startOneShotConversion",
+            "description": "Start one-shot conversion.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "checkConversionReady",
+            "description": "Check if conversion is ready.",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setConversionRate",
+            "description": "Set conversion rate.",
+            "parameters": [
+                "enum ConversionRate rate"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "checkAlert",
+            "description": "Check alert status.",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "enableExtendedMode",
+            "description": "Enable extended mode.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "disableExtendedMode",
+            "description": "Disable extended mode.",
+            "parameters": [],
+            "return_type": "void"
+        }
+    ]
+}

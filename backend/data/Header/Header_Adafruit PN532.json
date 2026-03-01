@@ -1,0 +1,261 @@
+{
+    "Adafruit_PN532.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the PN532",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "reset",
+            "description": "Reset the PN532",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "wakeup",
+            "description": "Wake up the PN532",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "SAMConfig",
+            "description": "Configure the SAM",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "getFirmwareVersion",
+            "description": "Get the firmware version",
+            "parameters": [],
+            "return_type": "uint32_t"
+        },
+        {
+            "name": "sendCommandCheckAck",
+            "description": "Send command and check ACK",
+            "parameters": [
+                "uint8_t *cmd",
+                "uint8_t cmdlen",
+                "uint16_t timeout = 100"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "writeGPIO",
+            "description": "Write to GPIO",
+            "parameters": [
+                "uint8_t pinstate"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "readGPIO",
+            "description": "Read from GPIO",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setPassiveActivationRetries",
+            "description": "Set activation retries",
+            "parameters": [
+                "uint8_t maxRetries"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "readPassiveTargetID",
+            "description": "Read passive target ID",
+            "parameters": [
+                "uint8_t cardbaudrate",
+                "uint8_t *uid",
+                "uint8_t *uidLength",
+                "uint16_t timeout = 0"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "startPassiveTargetIDDetection",
+            "description": "Start passive target detection",
+            "parameters": [
+                "uint8_t cardbaudrate"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "readDetectedPassiveTargetID",
+            "description": "Read detected target ID",
+            "parameters": [
+                "uint8_t *uid",
+                "uint8_t *uidLength"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "inDataExchange",
+            "description": "Exchange data",
+            "parameters": [
+                "uint8_t *send",
+                "uint8_t sendLength",
+                "uint8_t *response",
+                "uint8_t *responseLength"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "inListPassiveTarget",
+            "description": "List passive targets",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "AsTarget",
+            "description": "Set as target",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "getDataTarget",
+            "description": "Get data from target",
+            "parameters": [
+                "uint8_t *cmd",
+                "uint8_t *cmdlen"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setDataTarget",
+            "description": "Set data to target",
+            "parameters": [
+                "uint8_t *cmd",
+                "uint8_t cmdlen"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "mifareclassic_IsFirstBlock",
+            "description": "Check if first block",
+            "parameters": [
+                "uint32_t uiBlock"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "mifareclassic_IsTrailerBlock",
+            "description": "Check if trailer block",
+            "parameters": [
+                "uint32_t uiBlock"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "mifareclassic_AuthenticateBlock",
+            "description": "Authenticate Mifare block",
+            "parameters": [
+                "uint8_t *uid",
+                "uint8_t uidLen",
+                "uint32_t blockNumber",
+                "uint8_t keyNumber",
+                "uint8_t *keyData"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "mifareclassic_ReadDataBlock",
+            "description": "Read Mifare data block",
+            "parameters": [
+                "uint8_t blockNumber",
+                "uint8_t *data"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "mifareclassic_WriteDataBlock",
+            "description": "Write Mifare data block",
+            "parameters": [
+                "uint8_t blockNumber",
+                "uint8_t *data"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "mifareclassic_FormatNDEF",
+            "description": "Format as NDEF",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "mifareclassic_WriteNDEFURI",
+            "description": "Write NDEF URI",
+            "parameters": [
+                "uint8_t sectorNumber",
+                "uint8_t uriIdentifier",
+                "const char *url"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "mifareultralight_ReadPage",
+            "description": "Read MiFare Ultralight page",
+            "parameters": [
+                "uint8_t page",
+                "uint8_t *buffer"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "mifareultralight_WritePage",
+            "description": "Write MiFare Ultralight page",
+            "parameters": [
+                "uint8_t page",
+                "uint8_t *data"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "ntag2xx_ReadPage",
+            "description": "Read NTAG2xx page",
+            "parameters": [
+                "uint8_t page",
+                "uint8_t *buffer"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "ntag2xx_WritePage",
+            "description": "Write NTAG2xx page",
+            "parameters": [
+                "uint8_t page",
+                "uint8_t *data"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "ntag2xx_WriteNDEFURI",
+            "description": "Write NDEF URI for NTAG2xx",
+            "parameters": [
+                "uint8_t uriIdentifier",
+                "char *url",
+                "uint8_t dataLen"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "PrintHex",
+            "description": "Print data in hex format",
+            "parameters": [
+                "const byte *data",
+                "const uint32_t numBytes"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "PrintHexChar",
+            "description": "Print data in hex and char format",
+            "parameters": [
+                "const byte *pbtData",
+                "const uint32_t numBytes"
+            ],
+            "return_type": "void"
+        }
+    ]
+}

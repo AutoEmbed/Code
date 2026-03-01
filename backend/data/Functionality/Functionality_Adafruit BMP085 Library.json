@@ -1,0 +1,17 @@
+{
+    "BMP085test.ino": {
+        "BMP085test.ino": [
+            {
+                "functionality": "reads temperature, pressure, and altitude data from a BMP085 sensor and prints the values to the serial port",
+                "API": [
+                    "begin",
+                    "readTemperature",
+                    "readPressure",
+                    "readAltitude",
+                    "readSealevelPressure",
+                    "readAltitude"
+                ]
+            }
+        ]
+    }
+}

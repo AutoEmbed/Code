@@ -1,0 +1,91 @@
+{
+    "MATRIX7219_clock.ino": {
+        "MATRIX7219_clock.ino": [
+            {
+                "functionality": "demonstrates a simple binary clock using an 8x8 LED MATRIX MATRIX7219",
+                "API": [
+                    "begin",
+                    "clear",
+                    "setBrightness",
+                    "setSwap",
+                    "setRow"
+                ]
+            }
+        ]
+    },
+    "MATRIX7219_demo.ino": {
+        "MATRIX7219_demo.ino": [
+            {
+                "functionality": "demonstrates basic operations of the MATRIX7219 8x8 LED MATRIX MAX7219",
+                "API": [
+                    "begin",
+                    "clear",
+                    "setBrightness",
+                    "setRow"
+                ]
+            }
+        ]
+    },
+    "MATRIX7219_display_on_off.ino": {
+        "MATRIX7219_display_on_off.ino": [
+            {
+                "functionality": "demo of MATRIX7219 8x8 LED MATRIX MAX7219",
+                "API": [
+                    "begin",
+                    "clear",
+                    "setBrightness",
+                    "setReverse",
+                    "displayTest",
+                    "displayTest",
+                    "setRow",
+                    "displayOff",
+                    "displayOn"
+                ]
+            }
+        ]
+    },
+    "MATRIX7219_performance.ino": {
+        "MATRIX7219_performance.ino": [
+            {
+                "functionality": "demonstrates performance measurements of MATRIX7219 8x8 LED MATRIX MAX7219",
+                "API": [
+                    "begin",
+                    "clear",
+                    "getMatrixCount",
+                    "setRow",
+                    "setRow",
+                    "setBrightness",
+                    "setRow"
+                ]
+            }
+        ]
+    },
+    "MATRIX7219_queens.ino": {
+        "MATRIX7219_queens.ino": [
+            {
+                "functionality": "visualizes the eight queens problem using an 8x8 LED MATRIX MAX7219",
+                "API": [
+                    "begin",
+                    "clear",
+                    "setBrightness",
+                    "setReverse",
+                    "setRow"
+                ]
+            }
+        ]
+    },
+    "MATRIX7219_VU_METER.ino": {
+        "MATRIX7219_VU_METER.ino": [
+            {
+                "functionality": "demonstrates MATRIX7219 8x8 LED MATRIX MAX7219 by simulating a VU meter",
+                "API": [
+                    "begin",
+                    "clear",
+                    "setBrightness",
+                    "setReverse",
+                    "setRow"
+                ]
+            }
+        ]
+    }
+}

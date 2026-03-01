@@ -1,0 +1,101 @@
+{
+    "CardInfo.ino": {
+        "CardInfo.ino": [
+            {
+                "functionality": "gets information about the SD card and lists all files with their dates and sizes",
+                "API": [
+                    "init",
+                    "type",
+                    "init",
+                    "clusterCount",
+                    "blocksPerCluster",
+                    "blocksPerCluster",
+                    "clusterCount",
+                    "fatType",
+                    "blocksPerCluster",
+                    "clusterCount",
+                    "openRoot",
+                    "ls",
+                    "close"
+                ]
+            }
+        ]
+    },
+    "Datalogger.ino": {
+        "Datalogger.ino": [
+            {
+                "functionality": "logs data from analog sensors to an SD card while communicating status through the serial port",
+                "API": [
+                    "begin",
+                    "open"
+                ]
+            }
+        ]
+    },
+    "DumpFile.ino": {
+        "DumpFile.ino": [
+            {
+                "functionality": "reads a file from the SD card and sends it over the serial port",
+                "API": [
+                    "begin",
+                    "open"
+                ]
+            }
+        ]
+    },
+    "Files.ino": {
+        "Files.ino": [
+            {
+                "functionality": "demonstrates basic file operations (create, check existence, remove) on an SD card",
+                "API": [
+                    "begin",
+                    "exists",
+                    "open",
+                    "remove"
+                ]
+            }
+        ]
+    },
+    "listfiles.ino": {
+        "listfiles.ino": [
+            {
+                "functionality": "prints out the files in a directory on an SD card",
+                "API": [
+                    "begin",
+                    "open",
+                    "openNextFile"
+                ]
+            }
+        ]
+    },
+    "NonBlockingWrite.ino": {
+        "NonBlockingWrite.ino": [
+            {
+                "functionality": "demonstrates non-blocking writes to a file on an SD card, storing millis() value every 10ms and flashing an LED on successful writes",
+                "API": [
+                    "begin",
+                    "remove",
+                    "open",
+                    "println",
+                    "availableForWrite",
+                    "write"
+                ]
+            }
+        ]
+    },
+    "ReadWrite.ino": {
+        "ReadWrite.ino": [
+            {
+                "functionality": "reads and writes data to and from an SD card file",
+                "API": [
+                    "begin",
+                    "open",
+                    "println",
+                    "close",
+                    "available",
+                    "read"
+                ]
+            }
+        ]
+    }
+}

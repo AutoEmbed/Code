@@ -1,0 +1,44 @@
+{
+    "BH1750.h": [
+        {
+            "name": "begin",
+            "description": "Initializes the sensor",
+            "parameters": [
+                "Mode mode",
+                "byte addr",
+                "TwoWire* i2c"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "configure",
+            "description": "Configures the measurement mode",
+            "parameters": [
+                "Mode mode"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setMTreg",
+            "description": "Sets measurement time register",
+            "parameters": [
+                "byte MTreg"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "measurementReady",
+            "description": "Checks if measurement is ready",
+            "parameters": [
+                "bool maxWait"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "readLightLevel",
+            "description": "Reads light level in lux",
+            "parameters": [],
+            "return_type": "float"
+        }
+    ]
+}

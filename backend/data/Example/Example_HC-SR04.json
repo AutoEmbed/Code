@@ -1,0 +1,309 @@
+{
+    "HCSR04.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the sensor",
+            "parameters": [
+                "uint8_t triggerPin",
+                "uint8_t* echoPins",
+                "uint8_t echoCount",
+                "uint32_t timeout",
+                "uint16_t triggerTime",
+                "uint16_t triggerWait",
+                "eUltraSonicUnlock_t unlock"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "First API call. DO not need 'HCSR04 sensor' to initial",
+                "parameter usage": "Ensure valid pin numbers, unlock. Example: HCSR04.begin(triggerPin, echoPin).",
+                "return value handling": "Not applicable"
+            }
+        },
+        {
+            "name": "end",
+            "description": "End the sensor",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Last API call",
+                "parameter usage": "No parameters required",
+                "return value handling": "Not applicable"
+            }
+        },
+        {
+            "name": "measureMicroseconds",
+            "description": "Measure time in microseconds",
+            "parameters": [
+                "long* results"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "After begin",
+                "parameter usage": "Allocate and pass a long array",
+                "return value handling": "Check results array"
+            }
+        },
+        {
+            "name": "measureDistanceMm",
+            "description": "Measure distance in mm",
+            "parameters": [
+                "float temperature",
+                "double* results"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "After begin",
+                "parameter usage": "Pass valid temperature, allocate results",
+                "return value handling": "Check results array"
+            }
+        },
+        {
+            "name": "measureDistanceCm",
+            "description": "Measure distance in cm",
+            "parameters": [
+                "float temperature",
+                "double* results"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "After begin",
+                "parameter usage": "Pass valid temperature, allocate results. HCSR04.measureDistanceCm()",
+                "return value handling": "Check results array"
+            }
+        },
+        {
+            "name": "measureDistanceIn",
+            "description": "Measure distance in inches",
+            "parameters": [
+                "float temperature",
+                "double* results"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "After begin",
+                "parameter usage": "Pass valid temperature, allocate results",
+                "return value handling": "Check results array"
+            }
+        },
+        {
+            "name": "triggerInterrupt0",
+            "description": "Trigger interrupt 0",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "After initialization",
+                "parameter usage": "No parameters",
+                "return value handling": "Not applicable"
+            }
+        },
+        {
+            "name": "triggerInterrupt1",
+            "description": "Trigger interrupt 1",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "After initialization",
+                "parameter usage": "No parameters",
+                "return value handling": "Not applicable"
+            }
+        },
+        {
+            "name": "triggerInterrupt2",
+            "description": "Trigger interrupt 2",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "After initialization",
+                "parameter usage": "No parameters",
+                "return value handling": "Not applicable"
+            }
+        },
+        {
+            "name": "triggerInterrupt3",
+            "description": "Trigger interrupt 3",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "After initialization",
+                "parameter usage": "No parameters",
+                "return value handling": "Not applicable"
+            }
+        },
+        {
+            "name": "triggerInterrupt4",
+            "description": "Trigger interrupt 4",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <HCSR04.h>",
+                "parameter usage": "None required",
+                "return value handling": "Verify no processing needed"
+            }
+        },
+        {
+            "name": "triggerInterrupt5",
+            "description": "Trigger interrupt 5",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <HCSR04.h>",
+                "parameter usage": "None required",
+                "return value handling": "Verify no processing needed"
+            }
+        },
+        {
+            "name": "triggerInterrupt6",
+            "description": "Trigger interrupt 6",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <HCSR04.h>",
+                "parameter usage": "None required",
+                "return value handling": "Verify no processing needed"
+            }
+        },
+        {
+            "name": "triggerInterrupt7",
+            "description": "Trigger interrupt 7",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <HCSR04.h>",
+                "parameter usage": "None required",
+                "return value handling": "Verify no processing needed"
+            }
+        },
+        {
+            "name": "triggerInterrupt8",
+            "description": "Trigger interrupt 8",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <HCSR04.h>",
+                "parameter usage": "None required",
+                "return value handling": "Verify no processing needed"
+            }
+        },
+        {
+            "name": "triggerInterrupt9",
+            "description": "Trigger interrupt 9",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <HCSR04.h>",
+                "parameter usage": "None required",
+                "return value handling": "Verify no processing needed"
+            }
+        },
+        {
+            "name": "echoInterrupt0",
+            "description": "Echo interrupt 0",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <HCSR04.h>",
+                "parameter usage": "None required",
+                "return value handling": "Verify no processing needed"
+            }
+        },
+        {
+            "name": "echoInterrupt1",
+            "description": "Echo interrupt 1",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <HCSR04.h>",
+                "parameter usage": "None required",
+                "return value handling": "Verify no processing needed"
+            }
+        },
+        {
+            "name": "echoInterrupt2",
+            "description": "Echo interrupt 2",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <HCSR04.h>",
+                "parameter usage": "None required",
+                "return value handling": "Verify no processing needed"
+            }
+        },
+        {
+            "name": "echoInterrupt3",
+            "description": "Echo interrupt 3",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <HCSR04.h>",
+                "parameter usage": "None required",
+                "return value handling": "Verify no processing needed"
+            }
+        },
+        {
+            "name": "echoInterrupt4",
+            "description": "Echo interrupt 4",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <HCSR04.h>",
+                "parameter usage": "No parameters required.",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "echoInterrupt5",
+            "description": "Echo interrupt 5",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <HCSR04.h>",
+                "parameter usage": "No parameters required.",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "echoInterrupt6",
+            "description": "Echo interrupt 6",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <HCSR04.h>",
+                "parameter usage": "No parameters required.",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "echoInterrupt7",
+            "description": "Echo interrupt 7",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <HCSR04.h>",
+                "parameter usage": "No parameters required.",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "echoInterrupt8",
+            "description": "Echo interrupt 8",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <HCSR04.h>",
+                "parameter usage": "No parameters required.",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "echoInterrupt9",
+            "description": "Echo interrupt 9",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <HCSR04.h>",
+                "parameter usage": "No parameters required.",
+                "return value handling": "No return value."
+            }
+        }
+    ]
+}

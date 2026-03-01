@@ -1,0 +1,118 @@
+{
+    "Adafruit_INA219.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the sensor",
+            "parameters": [
+                "TwoWire *theWire = &Wire"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <Wire.h> #include <Adafruit_INA219.h>",
+                "parameter usage": "ina219.begin(&Wire);",
+                "return value handling": "if (!ina219.begin()) { /* Handle error */ }"
+            }
+        },
+        {
+            "name": "setCalibration_32V_2A",
+            "description": "Set calibration for 32V 2A range",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after begin()",
+                "parameter usage": "ina219.setCalibration_32V_2A();",
+                "return value handling": "void function, no return value"
+            }
+        },
+        {
+            "name": "setCalibration_32V_1A",
+            "description": "Set calibration for 32V 1A range",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after begin()",
+                "parameter usage": "ina219.setCalibration_32V_1A();",
+                "return value handling": "void function, no return value"
+            }
+        },
+        {
+            "name": "setCalibration_16V_400mA",
+            "description": "Set calibration for 16V 400mA range",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after begin()",
+                "parameter usage": "ina219.setCalibration_16V_400mA();",
+                "return value handling": "void function, no return value"
+            }
+        },
+        {
+            "name": "getBusVoltage_V",
+            "description": "Get bus voltage in volts",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after calibration",
+                "parameter usage": "float voltage = ina219.getBusVoltage_V();",
+                "return value handling": "Check the returned float value"
+            }
+        },
+        {
+            "name": "getShuntVoltage_mV",
+            "description": "Get shunt voltage in millivolts",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after calibration",
+                "parameter usage": "float shuntVoltage = ina219.getShuntVoltage_mV();",
+                "return value handling": "Check the returned float value"
+            }
+        },
+        {
+            "name": "getCurrent_mA",
+            "description": "Get current in milliamps",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after calibration",
+                "parameter usage": "float current = ina219.getCurrent_mA();",
+                "return value handling": "Check the returned float value"
+            }
+        },
+        {
+            "name": "getPower_mW",
+            "description": "Get power in milliwatts",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after calibration",
+                "parameter usage": "float power = ina219.getPower_mW();",
+                "return value handling": "Check the returned float value"
+            }
+        },
+        {
+            "name": "powerSave",
+            "description": "Enable or disable power save mode",
+            "parameters": [
+                "bool on"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Optional, call any time",
+                "parameter usage": "ina219.powerSave(true);",
+                "return value handling": "void function, no return value"
+            }
+        },
+        {
+            "name": "success",
+            "description": "Check if the last operation succeeded",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Optional, call after operations",
+                "parameter usage": "bool status = ina219.success();",
+                "return value handling": "if (!ina219.success()) { /* Handle error */ }"
+            }
+        }
+    ]
+}

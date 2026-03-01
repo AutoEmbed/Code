@@ -1,0 +1,63 @@
+{
+    "Buzzer.h": [
+        {
+            "name": "begin",
+            "description": "Initialize buzzer.",
+            "parameters": [
+                "int pin"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "end",
+            "description": "Stop buzzer.",
+            "parameters": [
+                "int pin"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "sound",
+            "description": "Emit sound.",
+            "parameters": [
+                "int frequency",
+                "int duration"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "slowDistortion",
+            "description": "Generate slow distortion sound.",
+            "parameters": [
+                "int frequency",
+                "int duration"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "distortion",
+            "description": "Generate distortion sound.",
+            "parameters": [
+                "int frequency",
+                "int duration"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "fastDistortion",
+            "description": "Generate fast distortion sound.",
+            "parameters": [
+                "int frequency",
+                "int duration"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "toString",
+            "description": "Return buzzer details.",
+            "parameters": [],
+            "return_type": "String"
+        }
+    ],
+    "pitches.h": []
+}

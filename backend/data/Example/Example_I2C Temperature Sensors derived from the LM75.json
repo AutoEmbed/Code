@@ -1,0 +1,345 @@
+{
+    "Temperature_LM75_Derived.h": [
+        {
+            "name": "convertCtoF",
+            "description": "Convert Celsius to Fahrenheit.",
+            "parameters": [
+                "float c"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "Invoke after reading temperature",
+                "parameter usage": "Ensure float input",
+                "return value handling": "Store or print result"
+            }
+        },
+        {
+            "name": "convertFtoC",
+            "description": "Convert Fahrenheit to Celsius.",
+            "parameters": [
+                "float f"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "Invoke after reading temperature",
+                "parameter usage": "Ensure float input",
+                "return value handling": "Store or print result"
+            }
+        },
+        {
+            "name": "convertIntegerTemperature",
+            "description": "Convert int temperature.",
+            "parameters": [
+                "int16_t value"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "Invoke if integer temperature available",
+                "parameter usage": "Ensure int16_t input",
+                "return value handling": "Store or print result"
+            }
+        },
+        {
+            "name": "convertFloatTemperature",
+            "description": "Convert float temperature.",
+            "parameters": [
+                "float value"
+            ],
+            "return_type": "int16_t",
+            "practices": {
+                "API order": "Invoke if float temperature available",
+                "parameter usage": "Ensure float input",
+                "return value handling": "Store or print result"
+            }
+        },
+        {
+            "name": "readTemperatureC",
+            "description": "Read temperature in Celsius.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Invoke in loop or on request",
+                "parameter usage": "None required",
+                "return value handling": "Store or print result"
+            }
+        },
+        {
+            "name": "readTemperatureF",
+            "description": "Read temperature in Fahrenheit.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Invoke in loop or on request",
+                "parameter usage": "None required",
+                "return value handling": "Store or print result"
+            }
+        },
+        {
+            "name": "readTemperatureLowC",
+            "description": "Read low temperature in Celsius.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Invoke to get low threshold",
+                "parameter usage": "None required",
+                "return value handling": "Store or print result"
+            }
+        },
+        {
+            "name": "readTemperatureLowF",
+            "description": "Read low temperature in Fahrenheit.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Invoke to get low threshold",
+                "parameter usage": "None required",
+                "return value handling": "Store or print result"
+            }
+        },
+        {
+            "name": "setTemperatureLowC",
+            "description": "Set low temperature in Celsius.",
+            "parameters": [
+                "float value"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Invoke to set low threshold",
+                "parameter usage": "Ensure float input",
+                "return value handling": "Check for expected changes"
+            }
+        },
+        {
+            "name": "setTemperatureLowF",
+            "description": "Set low temperature in Fahrenheit.",
+            "parameters": [
+                "float value"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Invoke to set low threshold",
+                "parameter usage": "Ensure float input",
+                "return value handling": "Check for expected changes"
+            }
+        },
+        {
+            "name": "readTemperatureHighC",
+            "description": "Read high temperature in Celsius.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after sensor initialization.",
+                "parameter usage": "No parameters.",
+                "return value handling": "Check validity; handle errors."
+            }
+        },
+        {
+            "name": "readTemperatureHighF",
+            "description": "Read high temperature in Fahrenheit.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after sensor initialization.",
+                "parameter usage": "No parameters.",
+                "return value handling": "Check validity; handle errors."
+            }
+        },
+        {
+            "name": "setTemperatureHighC",
+            "description": "Set high temperature in Celsius.",
+            "parameters": [
+                "float value"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Set before reading temperature.",
+                "parameter usage": "Use valid Celsius value.",
+                "return value handling": "Check setting success."
+            }
+        },
+        {
+            "name": "setTemperatureHighF",
+            "description": "Set high temperature in Fahrenheit.",
+            "parameters": [
+                "float value"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Set before reading temperature.",
+                "parameter usage": "Use valid Fahrenheit value.",
+                "return value handling": "Check setting success."
+            }
+        },
+        {
+            "name": "setFaultQueueLength",
+            "description": "Set fault queue length.",
+            "parameters": [
+                "enum FaultQueueLength faults"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Configure before enabling faults.",
+                "parameter usage": "Use valid enum for faults.",
+                "return value handling": "Verify setting success."
+            }
+        },
+        {
+            "name": "setAlertActiveLow",
+            "description": "Set alert active low.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Use before enabling alerts.",
+                "parameter usage": "No parameters.",
+                "return value handling": "Confirm low alert active."
+            }
+        },
+        {
+            "name": "setAlertActiveHigh",
+            "description": "Set alert active high.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Use before enabling alerts.",
+                "parameter usage": "No parameters.",
+                "return value handling": "Confirm high alert active."
+            }
+        },
+        {
+            "name": "setThermostatComparatorMode",
+            "description": "Set comparator mode.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Set before monitoring.",
+                "parameter usage": "No parameters.",
+                "return value handling": "Verify comparator mode set."
+            }
+        },
+        {
+            "name": "setThermostatInterruptMode",
+            "description": "Set interrupt mode.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Set before monitoring.",
+                "parameter usage": "No parameters.",
+                "return value handling": "Verify interrupt mode set."
+            }
+        },
+        {
+            "name": "enableShutdownMode",
+            "description": "Enable shutdown mode.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Enable after configuration.",
+                "parameter usage": "No parameters.",
+                "return value handling": "Confirm shutdown mode active."
+            }
+        },
+        {
+            "name": "disableShutdownMode",
+            "description": "Disable shutdown mode.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call before other modes.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "No return to handle."
+            }
+        },
+        {
+            "name": "setResolution",
+            "description": "Set resolution.",
+            "parameters": [
+                "enum Resolution resolution"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Set before starting conversion.",
+                "parameter usage": "Use valid enum Resolution.",
+                "return value handling": "No return to handle."
+            }
+        },
+        {
+            "name": "enableOneShotMode",
+            "description": "Enable one-shot mode.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Enable before starting conversion.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "No return to handle."
+            }
+        },
+        {
+            "name": "startOneShotConversion",
+            "description": "Start one-shot conversion.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after enabling one-shot mode.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "No return to handle."
+            }
+        },
+        {
+            "name": "checkConversionReady",
+            "description": "Check if conversion is ready.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Use after starting conversion.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Check return for readiness."
+            }
+        },
+        {
+            "name": "setConversionRate",
+            "description": "Set conversion rate.",
+            "parameters": [
+                "enum ConversionRate rate"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Set during initialization.",
+                "parameter usage": "Use valid enum ConversionRate.",
+                "return value handling": "No return to handle."
+            }
+        },
+        {
+            "name": "checkAlert",
+            "description": "Check alert status.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Can be called anytime.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Check return for alert status."
+            }
+        },
+        {
+            "name": "enableExtendedMode",
+            "description": "Enable extended mode.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Enable before measurement.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "No return to handle."
+            }
+        },
+        {
+            "name": "disableExtendedMode",
+            "description": "Disable extended mode.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Disable if not needed.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "No return to handle."
+            }
+        }
+    ]
+}

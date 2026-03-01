@@ -1,0 +1,42 @@
+{
+    "PIRSensor.h": [
+        {
+            "name": "lastTriggerTime",
+            "description": "Get last trigger time",
+            "parameters": [],
+            "return_type": "unsigned long"
+        },
+        {
+            "name": "triggeredWithin",
+            "description": "Check if triggered within specified time",
+            "parameters": [
+                "unsigned long xms"
+            ],
+            "return_type": "int"
+        },
+        {
+            "name": "currentTriggers",
+            "description": "Get the current triggers count",
+            "parameters": [],
+            "return_type": "unsigned long"
+        },
+        {
+            "name": "activate",
+            "description": "Activate the PIR sensor",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "deactivate",
+            "description": "Deactivate the PIR sensor",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "trigCount",
+            "description": "Get the trigger count",
+            "parameters": [],
+            "return_type": "int"
+        }
+    ]
+}

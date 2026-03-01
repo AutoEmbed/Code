@@ -1,0 +1,182 @@
+{
+    "VL53L0X.h": [
+        {
+            "name": "setAddress",
+            "description": "Sets sensor I2C address",
+            "parameters": [
+                "uint8_t new_addr"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "init",
+            "description": "Initializes the sensor",
+            "parameters": [
+                "bool io_2v8 = true"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "writeReg",
+            "description": "Writes 8-bit value to register",
+            "parameters": [
+                "uint8_t reg",
+                "uint8_t value"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "writeReg16Bit",
+            "description": "Writes 16-bit value to register",
+            "parameters": [
+                "uint8_t reg",
+                "uint16_t value"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "writeReg32Bit",
+            "description": "Writes 32-bit value to register",
+            "parameters": [
+                "uint8_t reg",
+                "uint32_t value"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "readReg",
+            "description": "Reads 8-bit value from register",
+            "parameters": [
+                "uint8_t reg"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "readReg16Bit",
+            "description": "Reads 16-bit value from register",
+            "parameters": [
+                "uint8_t reg"
+            ],
+            "return_type": "uint16_t"
+        },
+        {
+            "name": "readReg32Bit",
+            "description": "Reads 32-bit value from register",
+            "parameters": [
+                "uint8_t reg"
+            ],
+            "return_type": "uint32_t"
+        },
+        {
+            "name": "writeMulti",
+            "description": "Writes multiple bytes to register",
+            "parameters": [
+                "uint8_t reg",
+                "uint8_t const * src",
+                "uint8_t count"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "readMulti",
+            "description": "Reads multiple bytes from register",
+            "parameters": [
+                "uint8_t reg",
+                "uint8_t * dst",
+                "uint8_t count"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setSignalRateLimit",
+            "description": "Sets signal rate limit",
+            "parameters": [
+                "float limit_Mcps"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "getSignalRateLimit",
+            "description": "Gets signal rate limit",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "setMeasurementTimingBudget",
+            "description": "Sets measurement timing budget",
+            "parameters": [
+                "uint32_t budget_us"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "getMeasurementTimingBudget",
+            "description": "Gets measurement timing budget",
+            "parameters": [],
+            "return_type": "uint32_t"
+        },
+        {
+            "name": "setVcselPulsePeriod",
+            "description": "Sets VCSEL pulse period",
+            "parameters": [
+                "vcselPeriodType type",
+                "uint8_t period_pclks"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "getVcselPulsePeriod",
+            "description": "Gets VCSEL pulse period",
+            "parameters": [
+                "vcselPeriodType type"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "startContinuous",
+            "description": "Starts continuous ranging",
+            "parameters": [
+                "uint32_t period_ms = 0"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "stopContinuous",
+            "description": "Stops continuous ranging",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "readRangeContinuousMillimeters",
+            "description": "Reads continuous range in mm",
+            "parameters": [],
+            "return_type": "uint16_t"
+        },
+        {
+            "name": "readRangeSingleMillimeters",
+            "description": "Reads single range in mm",
+            "parameters": [],
+            "return_type": "uint16_t"
+        },
+        {
+            "name": "setTimeout",
+            "description": "Sets I2C timeout",
+            "parameters": [
+                "uint16_t timeout"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getTimeout",
+            "description": "Gets I2C timeout",
+            "parameters": [],
+            "return_type": "uint16_t"
+        },
+        {
+            "name": "timeoutOccurred",
+            "description": "Checks if timeout occurred",
+            "parameters": [],
+            "return_type": "bool"
+        }
+    ]
+}

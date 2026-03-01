@@ -1,0 +1,48 @@
+{
+    "Alarms.ino": {
+        "Alarms.ino": [
+            {
+                "functionality": "sets temperature alarms and checks for alarms, printing triggered alarms to the serial port",
+                "API": [
+                    "selectNext",
+                    "setAlarms",
+                    "doConversion",
+                    "selectNextAlarm",
+                    "getAlarmLow",
+                    "getAlarmHigh",
+                    "getTempC"
+                ]
+            }
+        ]
+    },
+    "Multiple.ino": {
+        "Multiple.ino": [
+            {
+                "functionality": "reads temperature data from multiple DS18B20 devices, identifies the device model, and prints details including address, resolution, power mode, and temperature in Celsius and Fahrenheit to the serial port",
+                "API": [
+                    "getNumberOfDevices",
+                    "selectNext",
+                    "getFamilyCode",
+                    "getAddress",
+                    "getResolution",
+                    "getPowerMode",
+                    "getTempC",
+                    "getTempF"
+                ]
+            }
+        ]
+    },
+    "Single.ino": {
+        "Single.ino": [
+            {
+                "functionality": "configures a DS18B20 sensor to set alarms and check for alarm conditions, printing the temperature if an alarm is triggered",
+                "API": [
+                    "select",
+                    "setAlarms",
+                    "hasAlarm",
+                    "getTempC"
+                ]
+            }
+        ]
+    }
+}

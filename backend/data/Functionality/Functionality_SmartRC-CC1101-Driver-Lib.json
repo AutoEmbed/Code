@@ -1,0 +1,681 @@
+{
+    "cc1101_New_Receive_method_advanced.ino": {
+        "cc1101_New_Receive_method_advanced.ino": [
+            {
+                "functionality": "checks the Rx Fifo for any data it contains and prints the data to the serial port if received",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setCCMode",
+                    "setModulation",
+                    "setMHZ",
+                    "setDeviation",
+                    "setChannel",
+                    "setChsp",
+                    "setRxBW",
+                    "setDRate",
+                    "setPA",
+                    "setSyncMode",
+                    "setSyncWord",
+                    "setAdrChk",
+                    "setAddr",
+                    "setWhiteData",
+                    "setPktFormat",
+                    "setLengthConfig",
+                    "setPacketLength",
+                    "setCrc",
+                    "setCRC_AF",
+                    "setDcFilterOff",
+                    "setManchester",
+                    "setFEC",
+                    "setPRE",
+                    "setPQT",
+                    "setAppendStatus",
+                    "CheckRxFifo",
+                    "CheckCRC",
+                    "getRssi",
+                    "getLqi",
+                    "ReceiveData"
+                ]
+            }
+        ]
+    },
+    "cc1101_New_Receive_method_minimal.ino": {
+        "cc1101_New_Receive_method_minimal.ino": [
+            {
+                "functionality": "checks the Rx Fifo for any data it contains, allows additional operations in the loop, does not require gdo0 and gdo2 pins",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setCCMode",
+                    "setModulation",
+                    "setMHZ",
+                    "setSyncMode",
+                    "setCrc",
+                    "CheckRxFifo",
+                    "CheckCRC",
+                    "getRssi",
+                    "getLqi",
+                    "ReceiveData"
+                ]
+            }
+        ]
+    },
+    "cc1101_New_Transmitt_method_Hello_World_advanced.ino": {
+        "cc1101_New_Transmitt_method_Hello_World_advanced.ino": [
+            {
+                "functionality": "transmits 'Hello World' message using different methods without using GDO pin",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setCCMode",
+                    "setModulation",
+                    "setMHZ",
+                    "setDeviation",
+                    "setChannel",
+                    "setChsp",
+                    "setRxBW",
+                    "setDRate",
+                    "setPA",
+                    "setSyncMode",
+                    "setSyncWord",
+                    "setAdrChk",
+                    "setAddr",
+                    "setWhiteData",
+                    "setPktFormat",
+                    "setLengthConfig",
+                    "setPacketLength",
+                    "setCrc",
+                    "setCRC_AF",
+                    "setDcFilterOff",
+                    "setManchester",
+                    "setFEC",
+                    "setPRE",
+                    "setPQT",
+                    "setAppendStatus",
+                    "SendData",
+                    "SendData",
+                    "SendData"
+                ]
+            }
+        ]
+    },
+    "cc1101_New_Transmitt_method_Hello_World_minimal.ino": {
+        "cc1101_New_Transmitt_method_Hello_World_minimal.ino": [
+            {
+                "functionality": "transmits 'Hello World' using different methods and checks CC1101 connection",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setCCMode",
+                    "setModulation",
+                    "setMHZ",
+                    "setSyncMode",
+                    "setCrc",
+                    "SendData",
+                    "SendData",
+                    "SendData"
+                ]
+            }
+        ]
+    },
+    "cc1101_New_Transmitt_method_Serial_advanced.ino": {
+        "cc1101_New_Transmitt_method_Serial_advanced.ino": [
+            {
+                "functionality": "transmits data received from the serial interface using the SmartRC-CC1101-Driver-Lib",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setCCMode",
+                    "setModulation",
+                    "setMHZ",
+                    "setDeviation",
+                    "setChannel",
+                    "setChsp",
+                    "setRxBW",
+                    "setDRate",
+                    "setPA",
+                    "setSyncMode",
+                    "setSyncWord",
+                    "setAdrChk",
+                    "setAddr",
+                    "setWhiteData",
+                    "setPktFormat",
+                    "setLengthConfig",
+                    "setPacketLength",
+                    "setCrc",
+                    "setCRC_AF",
+                    "setDcFilterOff",
+                    "setManchester",
+                    "setFEC",
+                    "setPRE",
+                    "setPQT",
+                    "setAppendStatus",
+                    "SendData"
+                ]
+            }
+        ]
+    },
+    "cc1101_New_Transmitt_method_Serial_minimal.ino": {
+        "cc1101_New_Transmitt_method_Serial_minimal.ino": [
+            {
+                "functionality": "initializes the CC1101, sets various configuration parameters, and sends data received from the serial port",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setCCMode",
+                    "setModulation",
+                    "setMHZ",
+                    "setSyncMode",
+                    "setCrc",
+                    "SendData"
+                ]
+            }
+        ]
+    },
+    "cc1101_Receive_advanced.ino": {
+        "cc1101_Receive_advanced.ino": [
+            {
+                "functionality": "Initializes the CC1101 module and prints received data with RSSI and LQI values",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setGDO0",
+                    "setCCMode",
+                    "setModulation",
+                    "setMHZ",
+                    "setDeviation",
+                    "setChannel",
+                    "setChsp",
+                    "setRxBW",
+                    "setDRate",
+                    "setPA",
+                    "setSyncMode",
+                    "setSyncWord",
+                    "setAdrChk",
+                    "setAddr",
+                    "setWhiteData",
+                    "setPktFormat",
+                    "setLengthConfig",
+                    "setPacketLength",
+                    "setCrc",
+                    "setCRC_AF",
+                    "setDcFilterOff",
+                    "setManchester",
+                    "setFEC",
+                    "setPRE",
+                    "setPQT",
+                    "setAppendStatus",
+                    "CheckReceiveFlag",
+                    "CheckCRC",
+                    "getRssi",
+                    "getLqi",
+                    "ReceiveData"
+                ]
+            }
+        ]
+    },
+    "cc1101_Receive_minimal.ino": {
+        "cc1101_Receive_minimal.ino": [
+            {
+                "functionality": "receives data using the CC1101 module and prints the received message along with RSSI and LQI values to the serial port",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setGDO0",
+                    "setCCMode",
+                    "setModulation",
+                    "setMHZ",
+                    "setSyncMode",
+                    "setCrc",
+                    "CheckReceiveFlag",
+                    "CheckCRC",
+                    "getRssi",
+                    "getLqi",
+                    "ReceiveData"
+                ]
+            }
+        ]
+    },
+    "cc1101_Transmitt_Hello_World_advanced.ino": {
+        "cc1101_Transmitt_Hello_World_advanced.ino": [
+            {
+                "functionality": "transmits 'Hello World' in different formats using the SmartRC-CC1101-Driver-Lib library",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setGDO0",
+                    "setCCMode",
+                    "setModulation",
+                    "setMHZ",
+                    "setDeviation",
+                    "setChannel",
+                    "setChsp",
+                    "setRxBW",
+                    "setDRate",
+                    "setPA",
+                    "setSyncMode",
+                    "setSyncWord",
+                    "setAdrChk",
+                    "setAddr",
+                    "setWhiteData",
+                    "setPktFormat",
+                    "setLengthConfig",
+                    "setPacketLength",
+                    "setCrc",
+                    "setCRC_AF",
+                    "setDcFilterOff",
+                    "setManchester",
+                    "setFEC",
+                    "setPRE",
+                    "setPQT",
+                    "setAppendStatus",
+                    "SendData",
+                    "SendData",
+                    "SendData"
+                ]
+            }
+        ]
+    },
+    "cc1101_Transmitt_Hello_World_minimal.ino": {
+        "cc1101_Transmitt_Hello_World_minimal.ino": [
+            {
+                "functionality": "Transmits the 'Hello World' message via the CC1101 transceiver in different formats",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setGDO0",
+                    "setCCMode",
+                    "setModulation",
+                    "setMHZ",
+                    "setSyncMode",
+                    "setCrc",
+                    "SendData",
+                    "SendData",
+                    "SendData"
+                ]
+            }
+        ]
+    },
+    "cc1101_Transmitt_Serial_advanced.ino": {
+        "cc1101_Transmitt_Serial_advanced.ino": [
+            {
+                "functionality": "transmits serial data using CC1101 module and prints buffer content to the serial port",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setGDO0",
+                    "setCCMode",
+                    "setModulation",
+                    "setMHZ",
+                    "setDeviation",
+                    "setChannel",
+                    "setChsp",
+                    "setRxBW",
+                    "setDRate",
+                    "setPA",
+                    "setSyncMode",
+                    "setSyncWord",
+                    "setAdrChk",
+                    "setAddr",
+                    "setWhiteData",
+                    "setPktFormat",
+                    "setLengthConfig",
+                    "setPacketLength",
+                    "setCrc",
+                    "setCRC_AF",
+                    "setDcFilterOff",
+                    "setManchester",
+                    "setFEC",
+                    "setPRE",
+                    "setPQT",
+                    "setAppendStatus",
+                    "SendData"
+                ]
+            }
+        ]
+    },
+    "cc1101_Transmitt_Serial_minimal.ino": {
+        "cc1101_Transmitt_Serial_minimal.ino": [
+            {
+                "functionality": "configures CC1101 transceiver and sends data received from serial input",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setGDO0",
+                    "setCCMode",
+                    "setModulation",
+                    "setMHZ",
+                    "setSyncMode",
+                    "setCrc",
+                    "SendData"
+                ]
+            }
+        ]
+    },
+    "pilight_debug_cc1101.ino": {
+        "pilight_debug_cc1101.ino": [
+            {
+                "functionality": "mimics the output of the pilight_debug tool, initializes and sets up the CC1101 module, and prints received raw signal data to the serial port",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setMHZ",
+                    "SetRx"
+                ]
+            }
+        ]
+    },
+    "pilight_raw_cc1101.ino": {
+        "pilight_raw_cc1101.ino": [
+            {
+                "functionality": "This example mimics the output of the pilight_raw tool, receiving and printing raw RC signals found with a CC1101 transceiver.",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setMHZ",
+                    "SetRx"
+                ]
+            }
+        ]
+    },
+    "Receive_cc1101.ino": {
+        "Receive_cc1101.ino": [
+            {
+                "functionality": "receives RF signals, processes them, and prints the result to the serial port",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setMHZ",
+                    "SetRx"
+                ]
+            }
+        ]
+    },
+    "Receive_Raw_cc1101.ino": {
+        "Receive_Raw_cc1101.ino": [
+            {
+                "functionality": "receives raw pulse signals via the CC1101, prints the pulse lengths and their string format to the serial port",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setMHZ",
+                    "SetRx"
+                ]
+            }
+        ]
+    },
+    "Transmit_cc1101.ino": {
+        "Transmit_cc1101.ino": [
+            {
+                "functionality": "transmits data using the CC1101 and ESPiLight library, toggling the state of an elro 800 switch every 2 seconds",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setMHZ",
+                    "SetTx"
+                ]
+            }
+        ]
+    },
+    "Transmit_Raw_cc1101.ino": {
+        "Transmit_Raw_cc1101.ino": [
+            {
+                "functionality": "transmits a raw signal using the CC1101 module",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setMHZ",
+                    "SetTx"
+                ]
+            }
+        ]
+    },
+    "LearnCode_cc1101.ino": {
+        "LearnCode_cc1101.ino": [
+            {
+                "functionality": "controls an LED with a remote after learning the remote code",
+                "API": [
+                    "Init",
+                    "setMHZ",
+                    "SetRx"
+                ]
+            }
+        ]
+    },
+    "LightShow_cc1101.ino": {
+        "LightShow_cc1101.ino": [
+            {
+                "functionality": "a demo for RF remote switch receiver with CC1101, using NewRemoteTransmitter class to switch devices on and off in a loop",
+                "API": [
+                    "Init",
+                    "setMHZ",
+                    "SetTx"
+                ]
+            }
+        ]
+    },
+    "NewRemoteRepeater.ino": {
+        "NewRemoteRepeater.ino": [
+            {
+                "functionality": "receives an RF remote switch signal, decodes it, and retransmits it after a short delay",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setMHZ",
+                    "SetRx",
+                    "SetTx"
+                ]
+            }
+        ]
+    },
+    "Retransmitter_cc1101.ino": {
+        "Retransmitter_cc1101.ino": [
+            {
+                "functionality": "waits for a valid code from a receiver, decodes it, and retransmits it after 5 seconds",
+                "API": [
+                    "Init",
+                    "setMHZ",
+                    "SetRx",
+                    "SetTx"
+                ]
+            }
+        ]
+    },
+    "ShowReceivedCode_cc1101.ino": {
+        "ShowReceivedCode_cc1101.ino": [
+            {
+                "functionality": "shows received signals on the serial port and prints detected codes",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setMHZ",
+                    "SetRx"
+                ]
+            }
+        ]
+    },
+    "ProtocolAnalyzeDemo_cc1101.ino": {
+        "ProtocolAnalyzeDemo_cc1101.ino": [
+            {
+                "functionality": "analyzes and proposes unknown new protocols using the CC1101 transceiver and RCSwitch library",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setMHZ",
+                    "SetRx"
+                ]
+            }
+        ]
+    },
+    "output.ino": {
+        "output.ino": [
+            {
+                "functionality": "prints binary, tri-state, pulse length, protocol, and raw data to the serial port",
+                "API": [
+                    "dec2binWzerofill",
+                    "bin2tristate"
+                ]
+            }
+        ]
+    },
+    "ReceiveDemo_Advanced_cc1101.ino": {
+        "ReceiveDemo_Advanced_cc1101.ino": [
+            {
+                "functionality": "receives data using CC1101 and RCSwitch library and outputs results to the serial port",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setMHZ",
+                    "SetRx"
+                ]
+            }
+        ]
+    },
+    "ReceiveDemo_Simple_cc1101.ino": {
+        "ReceiveDemo_Simple_cc1101.ino": [
+            {
+                "functionality": "receives data using CC1101 and prints received value, bit length, and protocol to the serial port",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setMHZ",
+                    "SetRx"
+                ]
+            }
+        ]
+    },
+    "ReceiveDemo_Simple_with_RSSI_cc1101.ino": {
+        "ReceiveDemo_Simple_with_RSSI_cc1101.ino": [
+            {
+                "functionality": "receives radio signals, prints the received value, bit length, protocol, and RSSI to the serial port",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setMHZ",
+                    "SetRx",
+                    "getRssi"
+                ]
+            }
+        ]
+    },
+    "Receive_Send_Decimal_Demo_Simple.ino": {
+        "Receive_Send_Decimal_Demo_Simple.ino": [
+            {
+                "functionality": "example for receiving and transmitting decimal codes with CC1101",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setMHZ",
+                    "SetTx",
+                    "SetRx"
+                ]
+            }
+        ]
+    },
+    "Repeater_cc1101.ino": {
+        "Repeater_cc1101.ino": [
+            {
+                "functionality": "repeats data received from remote weather sensors and retransmits the signal",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setMHZ",
+                    "SetRx",
+                    "SetTx"
+                ]
+            }
+        ]
+    },
+    "SendDemo_cc1101.ino": {
+        "SendDemo_cc1101.ino": [
+            {
+                "functionality": "demonstrates different methods of sending signals using the CC1101 and RCSwitch libraries",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setMHZ",
+                    "SetTx"
+                ]
+            }
+        ]
+    },
+    "TypeA_WithDIPSwitches_cc1101.ino": {
+        "TypeA_WithDIPSwitches_cc1101.ino": [
+            {
+                "functionality": "transmits data using DIP switches to control devices",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setMHZ",
+                    "SetTx"
+                ]
+            }
+        ]
+    },
+    "TypeB_WithRotaryOrSlidingSwitches_cc1101.ino": {
+        "TypeB_WithRotaryOrSlidingSwitches_cc1101.ino": [
+            {
+                "functionality": "controls an outlet with two rotary/sliding switches using the CC1101 module",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setMHZ",
+                    "SetTx"
+                ]
+            }
+        ]
+    },
+    "TypeC_Intertechno_cc1101.ino": {
+        "TypeC_Intertechno_cc1101.ino": [
+            {
+                "functionality": "controls Intertechno outlets using an Arduino with a CC1101 module",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setMHZ",
+                    "SetTx"
+                ]
+            }
+        ]
+    },
+    "TypeD_REV_cc1101.ino": {
+        "TypeD_REV_cc1101.ino": [
+            {
+                "functionality": "control a REV outlet, including setup and operation of the CC1101 module and switching a device on and off",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setMHZ",
+                    "SetTx"
+                ]
+            }
+        ]
+    },
+    "ThermoHygroReceiver_cc1101.ino": {
+        "ThermoHygroReceiver_cc1101.ino": [
+            {
+                "functionality": "receives and decodes data from a 433MHz thermo/hygro weather sensor, and prints the temperature, humidity, and channel to the serial port",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setMHZ",
+                    "SetRx"
+                ]
+            }
+        ]
+    },
+    "ThermoHygroTransmitter_cc1101.ino": {
+        "ThermoHygroTransmitter_cc1101.ino": [
+            {
+                "functionality": "sends thermo/hygro data using a CC1101 module, with configurable settings for specific hardware platforms, checks for SPI connection, starts transmission, and sends data at intervals",
+                "API": [
+                    "getCC1101",
+                    "Init",
+                    "setMHZ",
+                    "SetTx"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,168 @@
+{
+    "DS18B20.h": [
+        {
+            "name": "select",
+            "description": "Selects a device by its address.",
+            "parameters": [
+                "uint8_t address[]"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "selectNext",
+            "description": "Selects the next device on the bus.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "selectNextAlarm",
+            "description": "Selects the next device with an alarm.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "resetSearch",
+            "description": "Resets the search for devices.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "getTempC",
+            "description": "Gets the temperature in Celsius.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getTempF",
+            "description": "Gets the temperature in Fahrenheit.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getResolution",
+            "description": "Gets the resolution of the selected device.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setResolution",
+            "description": "Sets the resolution for the device.",
+            "parameters": [
+                "uint8_t resolution"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getPowerMode",
+            "description": "Gets the power mode of the device.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "getFamilyCode",
+            "description": "Gets the family code of the device.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "getAddress",
+            "description": "Gets the address of the selected device.",
+            "parameters": [
+                "uint8_t address[]"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "doConversion",
+            "description": "Initiates a temperature conversion.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "getNumberOfDevices",
+            "description": "Gets the number of devices on the bus.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "hasAlarm",
+            "description": "Checks if the selected device has an alarm.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setAlarms",
+            "description": "Sets the alarm temperature thresholds.",
+            "parameters": [
+                "int8_t alarmLow",
+                "int8_t alarmHigh"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getAlarmLow",
+            "description": "Gets the low alarm temperature threshold.",
+            "parameters": [],
+            "return_type": "int8_t"
+        },
+        {
+            "name": "setAlarmLow",
+            "description": "Sets the low alarm temperature threshold.",
+            "parameters": [
+                "int8_t alarmLow"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getAlarmHigh",
+            "description": "Gets the high alarm temperature threshold.",
+            "parameters": [],
+            "return_type": "int8_t"
+        },
+        {
+            "name": "setAlarmHigh",
+            "description": "Sets the high alarm temperature threshold.",
+            "parameters": [
+                "int8_t alarmHigh"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setRegisters",
+            "description": "Sets the low and high alarm registers.",
+            "parameters": [
+                "int8_t lowRegister",
+                "int8_t highRegister"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getLowRegister",
+            "description": "Gets the low alarm register value.",
+            "parameters": [],
+            "return_type": "int8_t"
+        },
+        {
+            "name": "setLowRegister",
+            "description": "Sets the low alarm register value.",
+            "parameters": [
+                "int8_t lowRegister"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getHighRegister",
+            "description": "Gets the high alarm register value.",
+            "parameters": [],
+            "return_type": "int8_t"
+        },
+        {
+            "name": "setHighRegister",
+            "description": "Sets the high alarm register value.",
+            "parameters": [
+                "int8_t highRegister"
+            ],
+            "return_type": "void"
+        }
+    ]
+}

@@ -1,0 +1,204 @@
+{
+    "Adafruit_SGP40.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the sensor",
+            "parameters": [
+                "TwoWire *theWire = &Wire"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "selfTest",
+            "description": "Perform a self-test",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "softReset",
+            "description": "Soft reset the sensor",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "heaterOff",
+            "description": "Turn off the heater",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "measureRaw",
+            "description": "Measure raw sensor value",
+            "parameters": [
+                "float temperature = 25",
+                "float humidity = 50"
+            ],
+            "return_type": "uint16_t"
+        },
+        {
+            "name": "measureVocIndex",
+            "description": "Measure VOC index",
+            "parameters": [
+                "float temperature = 25",
+                "float humidity = 50"
+            ],
+            "return_type": "int32_t"
+        }
+    ],
+    "Adafruit_SHT4x.h": [
+        {
+            "name": "getEvent",
+            "description": "Retrieve humidity sensor event",
+            "parameters": [
+                "sensors_event_t *"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "getSensor",
+            "description": "Retrieve humidity sensor information",
+            "parameters": [
+                "sensor_t *"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getEvent",
+            "description": "Retrieve temperature sensor event",
+            "parameters": [
+                "sensors_event_t *"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "getSensor",
+            "description": "Retrieve temperature sensor information",
+            "parameters": [
+                "sensor_t *"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "begin",
+            "description": "Initialize the sensor",
+            "parameters": [
+                "TwoWire *theWire = &Wire"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "readSerial",
+            "description": "Read sensor's serial number",
+            "parameters": [],
+            "return_type": "uint32_t"
+        },
+        {
+            "name": "reset",
+            "description": "Perform a software reset",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setPrecision",
+            "description": "Set measurement precision",
+            "parameters": [
+                "sht4x_precision_t prec"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getPrecision",
+            "description": "Get current precision setting",
+            "parameters": [],
+            "return_type": "sht4x_precision_t"
+        },
+        {
+            "name": "setHeater",
+            "description": "Set heater configuration",
+            "parameters": [
+                "sht4x_heater_t heat"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getHeater",
+            "description": "Get current heater setting",
+            "parameters": [],
+            "return_type": "sht4x_heater_t"
+        },
+        {
+            "name": "getEvent",
+            "description": "Get measurement events",
+            "parameters": [
+                "sensors_event_t *humidity",
+                "sensors_event_t *temp"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "getTemperatureSensor",
+            "description": "Get temperature sensor object",
+            "parameters": [],
+            "return_type": "Adafruit_Sensor *"
+        },
+        {
+            "name": "getHumiditySensor",
+            "description": "Get humidity sensor object",
+            "parameters": [],
+            "return_type": "Adafruit_Sensor *"
+        }
+    ],
+    "sensirion_arch_config.h": [],
+    "sensirion_voc_algorithm.h": [
+        {
+            "name": "VocAlgorithm_init",
+            "description": "Initialize VOC algorithm parameters.",
+            "parameters": [
+                "VocAlgorithmParams *params"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "VocAlgorithm_get_states",
+            "description": "Get current algorithm states.",
+            "parameters": [
+                "VocAlgorithmParams *params",
+                "int32_t *state0",
+                "int32_t *state1"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "VocAlgorithm_set_states",
+            "description": "Restore previously retrieved algorithm states.",
+            "parameters": [
+                "VocAlgorithmParams *params",
+                "int32_t state0",
+                "int32_t state1"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "VocAlgorithm_set_tuning_parameters",
+            "description": "Customize the VOC algorithm parameters.",
+            "parameters": [
+                "VocAlgorithmParams *params",
+                "int32_t voc_index_offset",
+                "int32_t learning_time_hours",
+                "int32_t gating_max_duration_minutes",
+                "int32_t std_initial"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "VocAlgorithm_process",
+            "description": "Calculate VOC index from raw sensor value.",
+            "parameters": [
+                "VocAlgorithmParams *params",
+                "int32_t sraw",
+                "int32_t *voc_index"
+            ],
+            "return_type": "void"
+        }
+    ]
+}

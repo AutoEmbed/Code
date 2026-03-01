@@ -1,0 +1,273 @@
+{
+    "INA219.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the sensor",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "isConnected",
+            "description": "Check if the sensor is connected",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "getAddress",
+            "description": "Get the I2C address of the sensor",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "getShuntVoltage",
+            "description": "Get the shunt voltage",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getBusVoltage",
+            "description": "Get the bus voltage",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getPower",
+            "description": "Get the power",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getCurrent",
+            "description": "Get the current",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getMathOverflowFlag",
+            "description": "Check if math overflow flag is set",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "getConversionFlag",
+            "description": "Check if conversion flag is set",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "reset",
+            "description": "Reset the sensor",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setBusVoltageRange",
+            "description": "Set the bus voltage range",
+            "parameters": [
+                "uint8_t voltage"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "getBusVoltageRange",
+            "description": "Get the bus voltage range",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setGain",
+            "description": "Set the gain factor",
+            "parameters": [
+                "uint8_t factor"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "getGain",
+            "description": "Get the gain factor",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "getMaxShuntVoltage",
+            "description": "Get the max shunt voltage",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "setBusResolution",
+            "description": "Set the bus resolution",
+            "parameters": [
+                "uint8_t bits"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setBusSamples",
+            "description": "Set the bus samples",
+            "parameters": [
+                "uint8_t value"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setBusADC",
+            "description": "Set the bus ADC using mask",
+            "parameters": [
+                "uint8_t mask"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "getBusADC",
+            "description": "Get the bus ADC setting",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setShuntResolution",
+            "description": "Set the shunt resolution",
+            "parameters": [
+                "uint8_t bits"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setShuntSamples",
+            "description": "Set the shunt samples",
+            "parameters": [
+                "uint8_t value"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setShuntADC",
+            "description": "Set the shunt ADC using mask",
+            "parameters": [
+                "uint8_t mask"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "getShuntADC",
+            "description": "Get the shunt ADC setting",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setMaxCurrentShunt",
+            "description": "Set the max current and shunt",
+            "parameters": [
+                "float maxCurrent",
+                "float shunt"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "isCalibrated",
+            "description": "Check if the sensor is calibrated",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "getCurrentLSB",
+            "description": "Get the current LSB",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getCurrentLSB_mA",
+            "description": "Get the current LSB in mA",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getCurrentLSB_uA",
+            "description": "Get the current LSB in uA",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getShunt",
+            "description": "Get the shunt value",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getMaxCurrent",
+            "description": "Get the max current",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "setMode",
+            "description": "Set the operating mode",
+            "parameters": [
+                "uint8_t mode"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "getMode",
+            "description": "Get the operating mode",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "shutDown",
+            "description": "Shutdown the sensor",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setModeShuntTrigger",
+            "description": "Set mode to shunt trigger",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setModeBusTrigger",
+            "description": "Set mode to bus trigger",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setModeShuntBusTrigger",
+            "description": "Set mode to shunt bus trigger",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setModeADCOff",
+            "description": "Set mode to ADC off",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setModeShuntContinuous",
+            "description": "Set mode to shunt continuous",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setModeBusContinuous",
+            "description": "Set mode to bus continuous",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setModeShuntBusContinuous",
+            "description": "Set mode to shunt bus continuous",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "getRegister",
+            "description": "Get a register value",
+            "parameters": [
+                "uint8_t reg"
+            ],
+            "return_type": "uint16_t"
+        }
+    ]
+}

@@ -1,0 +1,196 @@
+{
+    "apduToBlackBerry.ino": {
+        "apduToBlackBerry.ino": [
+            {
+                "functionality": "Exchanges APDU commands with a BlackBerry device over NFC and uses an RGB LED to display status",
+                "API": [
+                    "begin",
+                    "getFirmwareVersion",
+                    "inListPassiveTarget",
+                    "inDataExchange"
+                ]
+            }
+        ]
+    },
+    "iso14443as_target.ino": {
+        "iso14443as_target.ino": [
+            {
+                "functionality": "mimics an ISO14443A smart card and retrieves information from a PoS or terminal",
+                "API": [
+                    "begin",
+                    "getFirmwareVersion",
+                    "setPassiveActivationRetries",
+                    "AsTarget",
+                    "getDataTarget",
+                    "setDataTarget"
+                ]
+            }
+        ]
+    },
+    "iso14443a_uid.ino": {
+        "iso14443a_uid.ino": [
+            {
+                "functionality": "connects to an ISO14443A card or tag, retrieves information, and prints it to the serial port",
+                "API": [
+                    "begin",
+                    "getFirmwareVersion",
+                    "setPassiveActivationRetries",
+                    "readPassiveTargetID"
+                ]
+            }
+        ]
+    },
+    "mifareclassic_formatndef.ino": {
+        "mifareclassic_formatndef.ino": [
+            {
+                "functionality": "formats a Mifare Classic 1K card as an NFC Forum tag to store NDEF messages",
+                "API": [
+                    "begin",
+                    "getFirmwareVersion",
+                    "readPassiveTargetID",
+                    "PrintHex",
+                    "mifareclassic_AuthenticateBlock",
+                    "mifareclassic_FormatNDEF",
+                    "mifareclassic_WriteNDEFURI"
+                ]
+            }
+        ]
+    },
+    "mifareclassic_memdump.ino": {
+        "mifareclassic_memdump.ino": [
+            {
+                "functionality": "attempts to dump the contents of a Mifare Classic 1K card",
+                "API": [
+                    "begin",
+                    "getFirmwareVersion",
+                    "readPassiveTargetID",
+                    "PrintHex",
+                    "mifareclassic_IsFirstBlock",
+                    "mifareclassic_AuthenticateBlock",
+                    "mifareclassic_ReadDataBlock",
+                    "PrintHexChar"
+                ]
+            }
+        ]
+    },
+    "mifareclassic_ndeftoclassic.ino": {
+        "mifareclassic_ndeftoclassic.ino": [
+            {
+                "functionality": "Attempts to take a Mifare Classic 1K card that has been formatted for NDEF messages and resets the authentication keys back to the Mifare Classic defaults.",
+                "API": [
+                    "begin",
+                    "getFirmwareVersion",
+                    "readPassiveTargetID",
+                    "PrintHex",
+                    "mifareclassic_AuthenticateBlock",
+                    "mifareclassic_WriteDataBlock"
+                ]
+            }
+        ]
+    },
+    "mifareclassic_updatendef.ino": {
+        "mifareclassic_updatendef.ino": [
+            {
+                "functionality": "updates a sector already formatted for NDEF, inserting a new URL",
+                "API": [
+                    "begin",
+                    "getFirmwareVersion",
+                    "readPassiveTargetID",
+                    "PrintHex",
+                    "mifareclassic_AuthenticateBlock",
+                    "mifareclassic_WriteNDEFURI"
+                ]
+            }
+        ]
+    },
+    "ntag2xx_erase.ino": {
+        "ntag2xx_erase.ino": [
+            {
+                "functionality": "erases the user data section of an NTAG203 or NTAG213 NFC/RFID card or tag",
+                "API": [
+                    "begin",
+                    "getFirmwareVersion",
+                    "readPassiveTargetID",
+                    "PrintHex",
+                    "ntag2xx_WritePage"
+                ]
+            }
+        ]
+    },
+    "ntag2xx_read.ino": {
+        "ntag2xx_read.ino": [
+            {
+                "functionality": "waits for any NTAG203 or NTAG213 card or tag and attempts to read from it",
+                "API": [
+                    "begin",
+                    "getFirmwareVersion",
+                    "readPassiveTargetID",
+                    "PrintHex",
+                    "ntag2xx_ReadPage",
+                    "PrintHexChar"
+                ]
+            }
+        ]
+    },
+    "ntag2xx_updatendef.ino": {
+        "ntag2xx_updatendef.ino": [
+            {
+                "functionality": "Adds or updates an NDEF URI at the start of the tag's memory for NTAG203 or NTAG213 card or tag",
+                "API": [
+                    "begin",
+                    "getFirmwareVersion",
+                    "readPassiveTargetID",
+                    "PrintHex",
+                    "ntag2xx_ReadPage",
+                    "ntag2xx_WritePage",
+                    "ntag2xx_WriteNDEFURI"
+                ]
+            }
+        ]
+    },
+    "readMifare.ino": {
+        "readMifare.ino": [
+            {
+                "functionality": "waits for any ISO14443A card or tag and reads from it; handles both Mifare Classic and Mifare Ultralight cards",
+                "API": [
+                    "begin",
+                    "getFirmwareVersion",
+                    "readPassiveTargetID",
+                    "PrintHex",
+                    "mifareclassic_AuthenticateBlock",
+                    "mifareclassic_ReadDataBlock",
+                    "PrintHexChar",
+                    "mifareultralight_ReadPage"
+                ]
+            }
+        ]
+    },
+    "readMifareClassic.ino": {
+        "readMifareClassic.ino": [
+            {
+                "functionality": "waits for any ISO14443A card or tag, attempts to read from it, checks if the card has a 4-byte UID, and if so, processes it as a Mifare Classic card",
+                "API": [
+                    "begin",
+                    "getFirmwareVersion",
+                    "readPassiveTargetID",
+                    "PrintHex"
+                ]
+            }
+        ]
+    },
+    "readMifareClassicIrq.ino": {
+        "readMifareClassicIrq.ino": [
+            {
+                "functionality": "waits for any ISO14443A card or tag, attempts to read and print card details",
+                "API": [
+                    "begin",
+                    "getFirmwareVersion",
+                    "startListeningToNFC",
+                    "startPassiveTargetIDDetection",
+                    "readDetectedPassiveTargetID",
+                    "PrintHex"
+                ]
+            }
+        ]
+    }
+}

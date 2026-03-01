@@ -1,0 +1,158 @@
+{
+    "Adafruit_TCS34725.h": [
+        {
+            "name": "begin",
+            "description": "Initialize sensor with I2C address",
+            "parameters": [
+                "uint8_t addr",
+                "TwoWire *theWire"
+            ],
+            "return_type": "boolean"
+        },
+        {
+            "name": "init",
+            "description": "Initialize hardware configuration",
+            "parameters": [],
+            "return_type": "boolean"
+        },
+        {
+            "name": "setIntegrationTime",
+            "description": "Sets sensor integration time",
+            "parameters": [
+                "uint8_t it"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setGain",
+            "description": "Sets sensor gain",
+            "parameters": [
+                "tcs34725Gain_t gain"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getRawData",
+            "description": "Gets the raw sensor data",
+            "parameters": [
+                "uint16_t *r",
+                "uint16_t *g",
+                "uint16_t *b",
+                "uint16_t *c"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getRGB",
+            "description": "Gets the RGB sensor data",
+            "parameters": [
+                "float *r",
+                "float *g",
+                "float *b"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getRawDataOneShot",
+            "description": "Gets raw sensor data in one-shot mode",
+            "parameters": [
+                "uint16_t *r",
+                "uint16_t *g",
+                "uint16_t *b",
+                "uint16_t *c"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "calculateColorTemperature",
+            "description": "Calculates color temperature",
+            "parameters": [
+                "uint16_t r",
+                "uint16_t g",
+                "uint16_t b"
+            ],
+            "return_type": "uint16_t"
+        },
+        {
+            "name": "calculateColorTemperature_dn40",
+            "description": "Calculates color temperature with scaling",
+            "parameters": [
+                "uint16_t r",
+                "uint16_t g",
+                "uint16_t b",
+                "uint16_t c"
+            ],
+            "return_type": "uint16_t"
+        },
+        {
+            "name": "calculateLux",
+            "description": "Calculates luminance",
+            "parameters": [
+                "uint16_t r",
+                "uint16_t g",
+                "uint16_t b"
+            ],
+            "return_type": "uint16_t"
+        },
+        {
+            "name": "write8",
+            "description": "Writes 8-bit value to register",
+            "parameters": [
+                "uint8_t reg",
+                "uint8_t value"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "read8",
+            "description": "Reads 8-bit value from register",
+            "parameters": [
+                "uint8_t reg"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "read16",
+            "description": "Reads 16-bit value from register",
+            "parameters": [
+                "uint8_t reg"
+            ],
+            "return_type": "uint16_t"
+        },
+        {
+            "name": "setInterrupt",
+            "description": "Enables or disables sensor interrupt",
+            "parameters": [
+                "boolean flag"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "clearInterrupt",
+            "description": "Clears the interrupt",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "setIntLimits",
+            "description": "Sets limits for interrupt",
+            "parameters": [
+                "uint16_t l",
+                "uint16_t h"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "enable",
+            "description": "Enables the sensor",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "disable",
+            "description": "Disables the sensor",
+            "parameters": [],
+            "return_type": "void"
+        }
+    ]
+}

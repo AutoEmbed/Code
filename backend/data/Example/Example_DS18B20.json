@@ -1,0 +1,278 @@
+{
+    "DS18B20.h": [
+        {
+            "name": "select",
+            "description": "Selects a device by its address.",
+            "parameters": [
+                "uint8_t address[]"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <DS18B20.h>",
+                "parameter usage": "uint8_t addr[] = {0x28, 0xFF, 0x0C, 0x46};",
+                "return value handling": "Check non-zero for success"
+            }
+        },
+        {
+            "name": "selectNext",
+            "description": "Selects the next device on the bus.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <DS18B20.h>",
+                "parameter usage": "while(ds.selectNext()) { ... }",
+                "return value handling": "Check non-zero for success"
+            }
+        },
+        {
+            "name": "selectNextAlarm",
+            "description": "Selects the next device with an alarm.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <DS18B20.h>",
+                "parameter usage": "while(ds.selectNextAlarm()) { ... }",
+                "return value handling": "Check non-zero for success"
+            }
+        },
+        {
+            "name": "resetSearch",
+            "description": "Resets the search for devices.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS18B20.h>",
+                "parameter usage": "ds.resetSearch();",
+                "return value handling": "No action needed"
+            }
+        },
+        {
+            "name": "getTempC",
+            "description": "Gets the temperature in Celsius.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <DS18B20.h>",
+                "parameter usage": "float temperature = ds.getTempC();",
+                "return value handling": "Check for error codes"
+            }
+        },
+        {
+            "name": "getTempF",
+            "description": "Gets the temperature in Fahrenheit.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <DS18B20.h>",
+                "parameter usage": "float temperature = ds.getTempF();",
+                "return value handling": "Check for error codes"
+            }
+        },
+        {
+            "name": "getResolution",
+            "description": "Gets the resolution of the selected device.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <DS18B20.h>",
+                "parameter usage": "uint8_t res = ds.getResolution();",
+                "return value handling": "Handle based on expected resolution range"
+            }
+        },
+        {
+            "name": "setResolution",
+            "description": "Sets the resolution for the device.",
+            "parameters": [
+                "uint8_t resolution"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS18B20.h>",
+                "parameter usage": "ds.setResolution(12);",
+                "return value handling": "No action needed"
+            }
+        },
+        {
+            "name": "getPowerMode",
+            "description": "Gets the power mode of the device.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <DS18B20.h>",
+                "parameter usage": "uint8_t mode = ds.getPowerMode();",
+                "return value handling": "Handle based on mode logic"
+            }
+        },
+        {
+            "name": "getFamilyCode",
+            "description": "Gets the family code of the device.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <DS18B20.h>",
+                "parameter usage": "uint8_t code = ds.getFamilyCode();",
+                "return value handling": "Check against known codes"
+            }
+        },
+        {
+            "name": "getAddress",
+            "description": "Gets the address of the selected device.",
+            "parameters": [
+                "uint8_t address[]"
+            ],
+            "practices": {
+                "API order": "Include DS18B20.h; create DS18B20 object before using.",
+                "parameter usage": "Pass properly allocated uint8_t array with size equal to 8.",
+                "return value handling": "Validate address content for expected values."
+            }
+        },
+        {
+            "name": "doConversion",
+            "description": "Initiates a temperature conversion.",
+            "parameters": [],
+            "practices": {
+                "API order": "Include DS18B20.h; initialize module prior to invocation.",
+                "parameter usage": "No parameter required for execution.",
+                "return value handling": "Confirm operation via sensor readiness or data output."
+            }
+        },
+        {
+            "name": "getNumberOfDevices",
+            "description": "Gets the number of devices on the bus.",
+            "parameters": [],
+            "practices": {
+                "API order": "Include DS18B20.h; ensure initialization before use.",
+                "parameter usage": "No arguments passed into method.",
+                "return value handling": "Verify returned value is non-negative and plausible."
+            }
+        },
+        {
+            "name": "hasAlarm",
+            "description": "Checks if the selected device has an alarm.",
+            "parameters": [],
+            "practices": {
+                "API order": "Include DS18B20.h; verify device readiness.",
+                "parameter usage": "Invoke only for selected devices post-initialization.",
+                "return value handling": "Detect alarm status via returned value check (non-zero)."
+            }
+        },
+        {
+            "name": "setAlarms",
+            "description": "Sets the alarm temperature thresholds.",
+            "parameters": [
+                "int8_t alarmLow",
+                "int8_t alarmHigh"
+            ],
+            "practices": {
+                "API order": "Include DS18B20.h; perform device selection first.",
+                "parameter usage": "Example: setAlarms(-10, 50) for low and high settings.",
+                "return value handling": "Crosscheck alarm configuration accuracy through readings."
+            }
+        },
+        {
+            "name": "getAlarmLow",
+            "description": "Gets the low alarm temperature threshold.",
+            "parameters": [],
+            "practices": {
+                "API order": "Include DS18B20.h; utilize after alarm setup.",
+                "parameter usage": "No input arguments required here.",
+                "return value handling": "Store and confirm against pre-programmed threshold."
+            }
+        },
+        {
+            "name": "setAlarmLow",
+            "description": "Sets the low alarm temperature threshold.",
+            "parameters": [
+                "int8_t alarmLow"
+            ],
+            "practices": {
+                "API order": "Include DS18B20.h; invoke within sensor session.",
+                "parameter usage": "Example: setAlarmLow(5) sets the low threshold to 5.",
+                "return value handling": "Validate low alarm value registers correctly."
+            }
+        },
+        {
+            "name": "getAlarmHigh",
+            "description": "Gets the high alarm temperature threshold.",
+            "parameters": [],
+            "practices": {
+                "API order": "Include DS18B20.h; read after initialization and threshold setting.",
+                "parameter usage": "No arguments required to call function.",
+                "return value handling": "Compare retrieved values with stored thresholds."
+            }
+        },
+        {
+            "name": "setAlarmHigh",
+            "description": "Sets the high alarm temperature threshold.",
+            "parameters": [
+                "int8_t alarmHigh"
+            ],
+            "practices": {
+                "API order": "Include DS18B20.h; proper initialization needed.",
+                "parameter usage": "Example: setAlarmHigh(40) to set high threshold.",
+                "return value handling": "Check high alarm threshold updated appropriately."
+            }
+        },
+        {
+            "name": "setRegisters",
+            "description": "Sets the low and high alarm registers.",
+            "parameters": [
+                "int8_t lowRegister",
+                "int8_t highRegister"
+            ],
+            "practices": {
+                "API order": "Include DS18B20.h; execute only after bus initialization.",
+                "parameter usage": "Example: setRegisters(10, 45) for alarm setup.",
+                "return value handling": "Ensure correct thresholds are registered successfully."
+            }
+        },
+        {
+            "name": "getLowRegister",
+            "description": "Gets the low alarm register value.",
+            "parameters": [],
+            "return_type": "int8_t",
+            "practices": {
+                "API order": "#include <DS18B20.h>; initialize DS18B20 module.",
+                "parameter usage": "None; called directly as ds.getLowRegister().",
+                "return value handling": "Handle returned 'int8_t' to evaluate low alarm threshold."
+            }
+        },
+        {
+            "name": "setLowRegister",
+            "description": "Sets the low alarm register value.",
+            "parameters": [
+                "int8_t lowRegister"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS18B20.h>; initialize DS18B20 module.",
+                "parameter usage": "Example: ds.setLowRegister(20) to set low threshold.",
+                "return value handling": "None; ensure parameter is validated beforehand."
+            }
+        },
+        {
+            "name": "getHighRegister",
+            "description": "Gets the high alarm register value.",
+            "parameters": [],
+            "return_type": "int8_t",
+            "practices": {
+                "API order": "#include <DS18B20.h>; initialize DS18B20 module.",
+                "parameter usage": "None; called directly as ds.getHighRegister().",
+                "return value handling": "Handle returned 'int8_t' to evaluate high alarm threshold."
+            }
+        },
+        {
+            "name": "setHighRegister",
+            "description": "Sets the high alarm register value.",
+            "parameters": [
+                "int8_t highRegister"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS18B20.h>; initialize DS18B20 module.",
+                "parameter usage": "Example: ds.setHighRegister(25) to set high threshold.",
+                "return value handling": "None; ensure parameter is validated beforehand."
+            }
+        }
+    ]
+}

@@ -1,0 +1,308 @@
+{
+    "ADXL345_activity_inactivity_interrupt.ino": {
+        "ADXL345_activity_inactivity_interrupt.ino": [
+            {
+                "functionality": "demonstrates usage of the ADXL345 accelerometer with activity and inactivity interrupts",
+                "API": [
+                    "init",
+                    "setDataRate",
+                    "getDataRateAsString",
+                    "setRange",
+                    "getRangeAsString",
+                    "setActivityParameters",
+                    "setInactivityParameters",
+                    "setInterrupt",
+                    "readAndClearInterrupts",
+                    "getGValues",
+                    "getActTapStatusAsString",
+                    "readAndClearInterrupts",
+                    "checkInterrupt",
+                    "readAndClearInterrupts"
+                ]
+            }
+        ]
+    },
+    "ADXL345_angles_orientation.ino": {
+        "ADXL345_angles_orientation.ino": [
+            {
+                "functionality": "measures angles, corrected angles, and orientation of the ADXL345 accelerometer",
+                "API": [
+                    "init",
+                    "setCorrFactors",
+                    "measureAngleOffsets",
+                    "setDataRate",
+                    "getDataRateAsString",
+                    "setRange",
+                    "getRangeAsString",
+                    "getRawValues",
+                    "getGValues",
+                    "getAngles",
+                    "getCorrAngles",
+                    "getOrientationAsString"
+                ]
+            }
+        ]
+    },
+    "ADXL345_auto_sleep.ino": {
+        "ADXL345_auto_sleep.ino": [
+            {
+                "functionality": "demonstrates the use of the auto sleep function of the ADXL345 accelerometer",
+                "API": [
+                    "init",
+                    "setDataRate",
+                    "getDataRateAsString",
+                    "setRange",
+                    "getRangeAsString",
+                    "setActivityParameters",
+                    "setInactivityParameters",
+                    "setInterrupt",
+                    "setAutoSleep",
+                    "readAndClearInterrupts",
+                    "getGValues",
+                    "readAndClearInterrupts",
+                    "checkInterrupt",
+                    "isAsleep",
+                    "checkInterrupt",
+                    "isAsleep",
+                    "readAndClearInterrupts"
+                ]
+            }
+        ]
+    },
+    "ADXL345_basic_data.ino": {
+        "ADXL345_basic_data.ino": [
+            {
+                "functionality": "reads raw and g values from ADXL345 accelerometer and prints them to the serial port",
+                "API": [
+                    "init",
+                    "setDataRate",
+                    "getDataRateAsString",
+                    "setRange",
+                    "getRangeAsString",
+                    "getRawValues",
+                    "getGValues"
+                ]
+            }
+        ]
+    },
+    "ADXL345_calibration.ino": {
+        "ADXL345_calibration.ino": [
+            {
+                "functionality": "calibrates the ADXL345 accelerometer by finding min and max raw x, y, and z values",
+                "API": [
+                    "init",
+                    "getRawValues"
+                ]
+            }
+        ]
+    },
+    "ADXL345_data_ready_interrupt.ino": {
+        "ADXL345_data_ready_interrupt.ino": [
+            {
+                "functionality": "demonstrates the use of data ready interrupt with the ADXL345 accelerometer",
+                "API": [
+                    "init",
+                    "setDataRate",
+                    "getDataRateAsString",
+                    "setRange",
+                    "getRangeAsString",
+                    "setInterrupt",
+                    "readAndClearInterrupts",
+                    "getGValues"
+                ]
+            }
+        ]
+    },
+    "ADXL345_double_tap.ino": {
+        "ADXL345_double_tap.ino": [
+            {
+                "functionality": "demonstrates the use of double tap and single tap functionality of the ADXL345 accelerometer",
+                "API": [
+                    "init",
+                    "setDataRate",
+                    "getDataRateAsString",
+                    "setRange",
+                    "getRangeAsString",
+                    "setGeneralTapParameters",
+                    "setAdditionalDoubleTapParameters",
+                    "setInterrupt",
+                    "readAndClearInterrupts",
+                    "getGValues",
+                    "getActTapStatusAsString",
+                    "readAndClearInterrupts",
+                    "checkInterrupt",
+                    "checkInterrupt",
+                    "readAndClearInterrupts"
+                ]
+            }
+        ]
+    },
+    "ADXL345_fifo_fifo.ino": {
+        "ADXL345_fifo_fifo.ino": [
+            {
+                "functionality": "demonstrates how to use the FIFO in fifo mode with the ADXL345_WE library for the ADXL345 accelerometer",
+                "API": [
+                    "init",
+                    "setDataRate",
+                    "getDataRateAsString",
+                    "setRange",
+                    "getRangeAsString",
+                    "setMeasureMode",
+                    "setInterrupt",
+                    "setFifoParameters",
+                    "setFifoMode",
+                    "readAndClearInterrupts",
+                    "getGValues"
+                ]
+            }
+        ]
+    },
+    "ADXL345_fifo_stream.ino": {
+        "ADXL345_fifo_stream.ino": [
+            {
+                "functionality": "demonstrates the use of FIFO in stream mode to capture accelerometer data from the ADXL345 accelerometer",
+                "API": [
+                    "init",
+                    "setDataRate",
+                    "getDataRateAsString",
+                    "setRange",
+                    "getRangeAsString",
+                    "setActivityParameters",
+                    "setInterrupt",
+                    "setFifoParameters",
+                    "setFifoMode",
+                    "readAndClearInterrupts",
+                    "setMeasureMode",
+                    "getActTapStatusAsString",
+                    "readAndClearInterrupts",
+                    "checkInterrupt",
+                    "readAndClearInterrupts",
+                    "setMeasureMode",
+                    "getGValues"
+                ]
+            }
+        ]
+    },
+    "ADXL345_fifo_trigger.ino": {
+        "ADXL345_fifo_trigger.ino": [
+            {
+                "functionality": "program uses the ADXL345 accelerometer in FIFO trigger mode to detect and print activities",
+                "API": [
+                    "init",
+                    "setCorrFactors",
+                    "setDataRate",
+                    "getDataRateAsString",
+                    "setRange",
+                    "getRangeAsString",
+                    "setActivityParameters",
+                    "setInterrupt",
+                    "setFifoParameters",
+                    "setFifoMode",
+                    "readAndClearInterrupts",
+                    "getActTapStatusAsString",
+                    "readAndClearInterrupts",
+                    "checkInterrupt",
+                    "getFifoStatus",
+                    "getGValues",
+                    "readAndClearInterrupts",
+                    "resetTrigger"
+                ]
+            }
+        ]
+    },
+    "ADXL345_free_fall_interrupt.ino": {
+        "ADXL345_free_fall_interrupt.ino": [
+            {
+                "functionality": "demonstrates how to use the free fall interrupt with the ADXL345 accelerometer",
+                "API": [
+                    "init",
+                    "setDataRate",
+                    "getDataRateAsString",
+                    "setRange",
+                    "getRangeAsString",
+                    "setFreeFallThresholds",
+                    "setInterrupt",
+                    "readAndClearInterrupts",
+                    "getRawValues",
+                    "getGValues",
+                    "readAndClearInterrupts",
+                    "readAndClearInterrupts",
+                    "checkInterrupt"
+                ]
+            }
+        ]
+    },
+    "ADXL345_pitch_roll_corrected_angles.ino": {
+        "ADXL345_pitch_roll_corrected_angles.ino": [
+            {
+                "functionality": "measures pitch and roll angles using the ADXL345 accelerometer and compares corrected angles",
+                "API": [
+                    "init",
+                    "setCorrFactors",
+                    "measureAngleOffsets",
+                    "setDataRate",
+                    "getDataRateAsString",
+                    "setRange",
+                    "getRangeAsString",
+                    "getCorrAngles",
+                    "getPitch",
+                    "getRoll"
+                ]
+            }
+        ]
+    },
+    "ADXL345_single_tap.ino": {
+        "ADXL345_single_tap.ino": [
+            {
+                "functionality": "demonstrates the single tap interrupt functionality of the ADXL345 accelerometer",
+                "API": [
+                    "init",
+                    "setDataRate",
+                    "getDataRateAsString",
+                    "setRange",
+                    "getRangeAsString",
+                    "setGeneralTapParameters",
+                    "setInterrupt",
+                    "readAndClearInterrupts",
+                    "getGValues",
+                    "getActTapStatusAsString",
+                    "readAndClearInterrupts",
+                    "checkInterrupt",
+                    "readAndClearInterrupts"
+                ]
+            }
+        ]
+    },
+    "ADXL345_sleep.ino": {
+        "ADXL345_sleep.ino": [
+            {
+                "functionality": "shows how to use sleep mode of the ADXL345 and its effect",
+                "API": [
+                    "init",
+                    "setDataRate",
+                    "getDataRateAsString",
+                    "setRange",
+                    "getRangeAsString",
+                    "setSleep",
+                    "getGValues"
+                ]
+            }
+        ]
+    },
+    "ADXL345_SPI_basic_data.ino": {
+        "ADXL345_SPI_basic_data.ino": [
+            {
+                "functionality": "demonstrates basic data sketch using SPI for the ADXL345 accelerometer",
+                "API": [
+                    "init",
+                    "setDataRate",
+                    "getDataRateAsString",
+                    "setRange",
+                    "getRangeAsString",
+                    "getRawValues",
+                    "getGValues"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,68 @@
+{
+    "Adafruit_INA219.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the sensor",
+            "parameters": [
+                "TwoWire *theWire = &Wire"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setCalibration_32V_2A",
+            "description": "Set calibration for 32V 2A range",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "setCalibration_32V_1A",
+            "description": "Set calibration for 32V 1A range",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "setCalibration_16V_400mA",
+            "description": "Set calibration for 16V 400mA range",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "getBusVoltage_V",
+            "description": "Get bus voltage in volts",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getShuntVoltage_mV",
+            "description": "Get shunt voltage in millivolts",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getCurrent_mA",
+            "description": "Get current in milliamps",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getPower_mW",
+            "description": "Get power in milliwatts",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "powerSave",
+            "description": "Enable or disable power save mode",
+            "parameters": [
+                "bool on"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "success",
+            "description": "Check if the last operation succeeded",
+            "parameters": [],
+            "return_type": "bool"
+        }
+    ]
+}

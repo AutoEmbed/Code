@@ -1,0 +1,178 @@
+{
+    "MS5611_adjust_pressure_math.ino": {
+        "MS5611_adjust_pressure_math.ino": [
+            {
+                "functionality": "Reads temperature and pressure data from the MS5611 sensor, prints the values to the serial port, and uses different oversampling settings.",
+                "API": [
+                    "begin",
+                    "reset",
+                    "setOversampling",
+                    "read",
+                    "getTemperature",
+                    "getPressure"
+                ]
+            }
+        ]
+    },
+    "MS5611_detector.ino": {
+        "MS5611_detector.ino": [
+            {
+                "functionality": "detects an MS5611 sensor on a Nano33 BLE and identifies its I2C address",
+                "API": []
+            }
+        ]
+    },
+    "MS5611_deviceID.ino": {
+        "MS5611_deviceID.ino": [
+            {
+                "functionality": "checks if the MS5611 sensor is connected and prints the device ID to the serial port",
+                "API": [
+                    "begin",
+                    "getDeviceID"
+                ]
+            }
+        ]
+    },
+    "MS5611_minimal.ino": {
+        "MS5611_minimal.ino": [
+            {
+                "functionality": "demonstrates basic usage of the MS5611 sensor to read temperature and pressure data and print them to the serial port",
+                "API": [
+                    "begin",
+                    "read",
+                    "getTemperature",
+                    "getPressure"
+                ]
+            }
+        ]
+    },
+    "MS5611_minimal_ESP32.ino": {
+        "MS5611_minimal_ESP32.ino": [
+            {
+                "functionality": "reads temperature and pressure data from MS5611 sensor and prints the values to the serial port",
+                "API": [
+                    "begin",
+                    "read",
+                    "getTemperature",
+                    "getPressure"
+                ]
+            }
+        ]
+    },
+    "MS5611_minimal_RP2040.ino": {
+        "MS5611_minimal_RP2040.ino": [
+            {
+                "functionality": "demonstrates how to read temperature and pressure from an MS5611 sensor and print these values to the serial port",
+                "API": [
+                    "begin",
+                    "read",
+                    "getTemperature",
+                    "getPressure"
+                ]
+            }
+        ]
+    },
+    "MS5611_performance.ino": {
+        "MS5611_performance.ino": [
+            {
+                "functionality": "reads temperature and pressure data, measures the time taken for a reading, and prints the values to the serial port",
+                "API": [
+                    "begin",
+                    "read",
+                    "getTemperature",
+                    "getPressure"
+                ]
+            }
+        ]
+    },
+    "MS5611_performance_all.ino": {
+        "MS5611_performance_all.ino": [
+            {
+                "functionality": "demonstrates the performance of the MS5611 sensor at different oversampling rates",
+                "API": [
+                    "begin",
+                    "read",
+                    "getOversampling",
+                    "setOversampling",
+                    "read",
+                    "getOversampling",
+                    "setOversampling",
+                    "read",
+                    "getOversampling",
+                    "setOversampling",
+                    "read",
+                    "getOversampling",
+                    "setOversampling",
+                    "read",
+                    "getOversampling",
+                    "setOversampling",
+                    "read",
+                    "getOversampling"
+                ]
+            }
+        ]
+    },
+    "MS5611_test.ino": {
+        "MS5611_test.ino": [
+            {
+                "functionality": "demo application",
+                "API": [
+                    "begin",
+                    "setOversampling",
+                    "read",
+                    "getTemperature",
+                    "getPressure"
+                ]
+            }
+        ]
+    },
+    "MS5611_test_offset.ino": {
+        "MS5611_test_offset.ino": [
+            {
+                "functionality": "demo application for reading and displaying temperature and pressure values using the MS5611 sensor",
+                "API": [
+                    "begin",
+                    "setTemperatureOffset",
+                    "setPressureOffset",
+                    "setOversampling",
+                    "read",
+                    "getTemperature",
+                    "getPressure"
+                ]
+            }
+        ]
+    },
+    "MS5611_test_plotter.ino": {
+        "MS5611_test_plotter.ino": [
+            {
+                "functionality": "demonstrates usage of MS5611 sensor by reading and printing temperature and pressure data",
+                "API": [
+                    "begin",
+                    "setPressureOffset",
+                    "read",
+                    "getTemperature",
+                    "getPressure"
+                ]
+            }
+        ]
+    },
+    "MS5611_test_two.ino": {
+        "MS5611_test_two.ino": [
+            {
+                "functionality": "demo application for two sensors",
+                "API": [
+                    "begin",
+                    "begin",
+                    "read",
+                    "read",
+                    "getTemperature",
+                    "getPressure",
+                    "getTemperature",
+                    "getPressure",
+                    "getTemperature",
+                    "getPressure"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,72 @@
+{
+    "PIRSensor.h": [
+        {
+            "name": "lastTriggerTime",
+            "description": "Get last trigger time",
+            "parameters": [],
+            "return_type": "unsigned long",
+            "practices": {
+                "API order": "#include 'PIRSensor.h', init in setup()",
+                "parameter usage": "No parameters needed",
+                "return value handling": "Store in unsigned long var"
+            }
+        },
+        {
+            "name": "triggeredWithin",
+            "description": "Check if triggered within specified time",
+            "parameters": [
+                "unsigned long xms"
+            ],
+            "return_type": "int",
+            "practices": {
+                "API order": "#include 'PIRSensor.h', init in setup()",
+                "parameter usage": "Example: pir.triggeredWithin(1000);",
+                "return value handling": "Check if != 0 for true"
+            }
+        },
+        {
+            "name": "currentTriggers",
+            "description": "Get the current triggers count",
+            "parameters": [],
+            "return_type": "unsigned long",
+            "practices": {
+                "API order": "#include 'PIRSensor.h', init in setup()",
+                "parameter usage": "No parameters needed",
+                "return value handling": "Store in unsigned long var"
+            }
+        },
+        {
+            "name": "activate",
+            "description": "Activate the PIR sensor",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "#include 'PIRSensor.h', init in setup()",
+                "parameter usage": "Example: pir.activate();",
+                "return value handling": "Check if == 0 for success"
+            }
+        },
+        {
+            "name": "deactivate",
+            "description": "Deactivate the PIR sensor",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "#include 'PIRSensor.h', init in setup()",
+                "parameter usage": "Example: pir.deactivate();",
+                "return value handling": "Check if == 0 for success"
+            }
+        },
+        {
+            "name": "trigCount",
+            "description": "Get the trigger count",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "#include 'PIRSensor.h', init in setup()",
+                "parameter usage": "No parameters needed",
+                "return value handling": "Store in int var"
+            }
+        }
+    ]
+}

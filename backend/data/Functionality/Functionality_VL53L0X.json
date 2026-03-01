@@ -1,0 +1,32 @@
+{
+    "Continuous.ino": {
+        "Continuous.ino": [
+            {
+                "functionality": "uses continuous mode to take range measurements with the VL53L0X sensor and prints the values to the serial port",
+                "API": [
+                    "setTimeout",
+                    "init",
+                    "startContinuous",
+                    "readRangeContinuousMillimeters",
+                    "timeoutOccurred"
+                ]
+            }
+        ]
+    },
+    "Single.ino": {
+        "Single.ino": [
+            {
+                "functionality": "gets single-shot range measurements from the VL53L0X sensor and prints the value to the serial port",
+                "API": [
+                    "setTimeout",
+                    "init",
+                    "setSignalRateLimit",
+                    "setVcselPulsePeriod",
+                    "setMeasurementTimingBudget",
+                    "readRangeSingleMillimeters",
+                    "timeoutOccurred"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,68 @@
+{
+    "Adafruit_Si7021.h": [
+        {
+            "name": "begin",
+            "description": "Initializes the sensor",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "readTemperature",
+            "description": "Reads the temperature",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "reset",
+            "description": "Resets the sensor",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "readSerialNumber",
+            "description": "Reads the serial number",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "readHumidity",
+            "description": "Reads the humidity",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "heater",
+            "description": "Enable/Disable the sensor heater",
+            "parameters": [
+                "bool h"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "isHeaterEnabled",
+            "description": "Checks if heater is enabled",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setHeatLevel",
+            "description": "Sets sensor heater heat level",
+            "parameters": [
+                "uint8_t level"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getRevision",
+            "description": "Returns sensor revision",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "getModel",
+            "description": "Returns sensor model",
+            "parameters": [],
+            "return_type": "si_sensorType"
+        }
+    ]
+}
