@@ -4,9 +4,14 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from .api.pipeline_routes import router as pipeline_router
-from .api.settings_routes import router as settings_router
-from .api.history_routes import router as history_router
+try:
+    from .api.pipeline_routes import router as pipeline_router
+    from .api.settings_routes import router as settings_router
+    from .api.history_routes import router as history_router
+except ImportError:
+    from api.pipeline_routes import router as pipeline_router
+    from api.settings_routes import router as settings_router
+    from api.history_routes import router as history_router
 
 logging.basicConfig(level=logging.INFO)
 

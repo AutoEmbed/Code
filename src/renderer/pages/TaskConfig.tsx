@@ -31,10 +31,13 @@ const { Title, Text } = Typography;
 const { TextArea } = Input;
 
 const boardOptions = [
-  { label: 'Arduino Uno', value: 'arduino:avr:uno', name: 'Arduino Uno' },
-  { label: 'Arduino Mega', value: 'arduino:avr:mega', name: 'Arduino Mega' },
-  { label: 'Arduino Nano', value: 'arduino:avr:nano', name: 'Arduino Nano' },
-  { label: 'ESP32', value: 'esp32:esp32:esp32', name: 'ESP32' },
+  { label: 'Arduino Uno', value: 'arduino:avr:uno' },
+  { label: 'Arduino Mega', value: 'arduino:avr:mega' },
+  { label: 'Arduino Nano', value: 'arduino:avr:nano' },
+  { label: 'ESP32', value: 'esp32:esp32:esp32' },
+  { label: 'Arduino Leonardo', value: 'arduino:avr:leonardo' },
+  { label: 'Arduino Due', value: 'arduino:sam:arduino_due_x_dbg' },
+  { label: 'ESP8266 (NodeMCU)', value: 'esp8266:esp8266:nodemcuv2' },
 ];
 
 const boardFqbnToName: Record<string, string> = {
@@ -42,6 +45,9 @@ const boardFqbnToName: Record<string, string> = {
   'arduino:avr:mega': 'Arduino Mega',
   'arduino:avr:nano': 'Arduino Nano',
   'esp32:esp32:esp32': 'ESP32',
+  'arduino:avr:leonardo': 'Arduino Leonardo',
+  'arduino:sam:arduino_due_x_dbg': 'Arduino Due',
+  'esp8266:esp8266:nodemcuv2': 'ESP8266 (NodeMCU)',
 };
 
 const PRESETS = [

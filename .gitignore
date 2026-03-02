@@ -1,10 +1,39 @@
+# Dependencies
 node_modules/
+
+# Build output
 out/
 dist/
-.DS_Store
-*.log
-.env
+
+# Python
 __pycache__/
 *.pyc
+*.pyo
 python-env/
+venv/
+.venv/
+
+# Runtime data
+backend/data/history.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Env / secrets
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Packages
 *.tar.gz
+*.zip

@@ -18,8 +18,11 @@ export class PythonManager {
 
     console.log(`Starting Python backend: ${pythonPath} ${scriptPath} --port ${this.port}`)
 
-    this.process = spawn(pythonPath, [scriptPath, '--port', String(this.port)], {
+    const projectRoot = app.isPackaged ? process.resourcesPath : app.getAppPath()
+
+    this.process = spawn(pythonPath, ['-m', 'backend.main_api', '--port', String(this.port)], {
       stdio: ['pipe', 'pipe', 'pipe'],
+      cwd: projectRoot,
       env: { ...process.env }
     })
 
