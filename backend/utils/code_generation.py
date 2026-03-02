@@ -317,7 +317,7 @@ def read_serial_output(port, baudrate=9600, timeout=10, max_duration=7, max_line
     line_count = 0
 
     while True:
-        line = ser.readline().decode('utf-8').strip()
+        line = ser.readline().decode('utf-8', errors='replace').strip()
 
         if line:
             logger.info(line)

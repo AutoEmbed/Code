@@ -1,8 +1,12 @@
 """Pydantic models for AutoEmbed pipeline configuration and state tracking."""
 
-from pydantic import BaseModel
+from pydantic import BaseModel, model_validator
 from typing import Optional
 from enum import Enum
+import subprocess
+import os
+import platform as platform_mod
+import json as json_mod
 
 
 class StageStatus(str, Enum):
@@ -23,6 +27,36 @@ class AppConfig(BaseModel):
     libraries_dir: str = ""
     target_architecture: str = "avr"
 
+    @model_validator(mode='after')
+    def resolve_libraries_dir(self) -> 'AppConfig':
+        """Auto-detect libraries_dir if left empty."""
+        if self.libraries_dir:
+            os.makedirs(self.libraries_dir, exist_ok=True)
+            return self
+        # Try arduino-cli config dump
+        if self.arduino_cli_path:
+            try:
+                result = subprocess.run(
+                    [self.arduino_cli_path, 'config', 'dump', '--format', 'json'],
+                    capture_output=True, text=True, timeout=5,
+                )
+                if result.returncode == 0:
+                    cfg = json_mod.loads(result.stdout)
+                    user_dir = cfg.get('directories', {}).get('user', '')
+                    if user_dir:
+                        self.libraries_dir = os.path.join(user_dir, 'libraries')
+            except Exception:
+                pass
+        # Fallback: platform default
+        if not self.libraries_dir:
+            home = os.path.expanduser('~')
+            if platform_mod.system() == 'Windows':
+                self.libraries_dir = os.path.join(home, 'Documents', 'Arduino', 'libraries')
+            else:
+                self.libraries_dir = os.path.join(home, 'Arduino', 'libraries')
+        os.makedirs(self.libraries_dir, exist_ok=True)
+        return self
+
 
 class TaskConfig(BaseModel):
     components: list[str]
@@ -30,6 +64,7 @@ class TaskConfig(BaseModel):
     pin_connections: dict[str, str]
     board_name: str = "Arduino Uno"
     board_fqbn: str = "arduino:avr:uno"
+    baud_rate: Optional[int] = None  # None = auto-detect from generated code
 
 
 class StageUpdate(BaseModel):

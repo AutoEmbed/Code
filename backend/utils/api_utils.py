@@ -145,6 +145,7 @@ def download_library(arduino_cli_path, libraries_dir, library_name):
         libraries_dir: Absolute path to the Arduino libraries directory.
         library_name: Name of the library to install.
     """
+    os.makedirs(libraries_dir, exist_ok=True)
     before_download = set(os.listdir(libraries_dir))
 
     result = subprocess.run(

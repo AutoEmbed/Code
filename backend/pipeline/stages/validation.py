@@ -31,9 +31,10 @@ class ValidationStage(BaseStage):
             )
 
         # Read serial output from the Arduino
-        logger.info(f"Reading serial output from {serial_port}...")
+        baud_rate = context.get('baud_rate', 9600)
+        logger.info(f"Reading serial output from {serial_port} at {baud_rate} baud...")
         output_lines = await asyncio.to_thread(
-            read_serial_output, serial_port
+            read_serial_output, serial_port, baudrate=baud_rate
         )
         logger.info(f"Read {len(output_lines)} lines from serial")
 

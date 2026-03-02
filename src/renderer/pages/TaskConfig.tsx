@@ -3,6 +3,7 @@ import {
   Card,
   Select,
   Input,
+  InputNumber,
   Button,
   Typography,
   Space,
@@ -86,10 +87,12 @@ export default function TaskConfig() {
     pinConnections,
     boardFqbn,
     boardName,
+    baudRate,
     setComponents,
     setTaskDescription,
     setBoardName,
     setBoardFqbn,
+    setBaudRate,
   } = useTaskStore();
 
   const { reset: resetPipeline, setTaskId, setIsRunning } = usePipelineStore();
@@ -132,6 +135,7 @@ export default function TaskConfig() {
         pin_connections: pinConnections,
         board_name: boardName,
         board_fqbn: boardFqbn,
+        baud_rate: baudRate ?? undefined,
       },
       app_config: {
         api_key: config.apiKey,
@@ -299,7 +303,16 @@ export default function TaskConfig() {
           onChange={(e) => setTaskDescription(e.target.value)}
           placeholder="Describe what you want the Arduino to do, e.g., 'Read temperature every 5 seconds and display on serial monitor'"
         />
-        <div style={{ marginTop: 12 }}>
+        <div style={{ marginTop: 12, display: 'flex', alignItems: 'center', gap: 12 }}>
+          <Text style={{ color: '#a6adc8', whiteSpace: 'nowrap' }}>Baud Rate</Text>
+          <InputNumber
+            value={baudRate}
+            onChange={(v) => setBaudRate(v)}
+            placeholder="Auto (default 9600)"
+            min={300}
+            max={2000000}
+            style={{ width: 200 }}
+          />
           <Button type="dashed" onClick={() => setDrawerOpen(true)}>
             Load Preset
           </Button>

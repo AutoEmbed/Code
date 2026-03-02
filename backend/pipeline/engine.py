@@ -66,6 +66,7 @@ class PipelineEngine:
             "task_config": task_config,
             "task_id": task_id,
             "app_config": self.app_config,
+            "baud_rate": task_config.baud_rate,
         }
         stage_results: list[dict] = []
 

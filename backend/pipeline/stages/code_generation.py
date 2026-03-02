@@ -54,7 +54,14 @@ class CodeGenerationStage(BaseStage):
 
         logger.info(f"Generated code: {len(generated_code)} characters")
 
+        # Auto-detect baud rate from generated code if not specified by user
+        if not context.get('baud_rate'):
+            baud_match = re.search(r'Serial\.begin\s*\(\s*(\d+)\s*\)', generated_code)
+            context['baud_rate'] = int(baud_match.group(1)) if baud_match else 9600
+            logger.info(f"Auto-detected baud rate: {context['baud_rate']}")
+
         return {
             "generated_code": generated_code,
             "all_libraries": all_libraries,
+            "baud_rate": context['baud_rate'],
         }

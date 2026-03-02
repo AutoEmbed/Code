@@ -1,7 +1,11 @@
-import { spawn, ChildProcess } from 'child_process'
+import { spawn, ChildProcess, execFile } from 'child_process'
 import path from 'path'
+import fs from 'fs'
 import { app } from 'electron'
 import http from 'http'
+import { promisify } from 'util'
+
+const execFileAsync = promisify(execFile)
 
 export class PythonManager {
   private process: ChildProcess | null = null
@@ -13,7 +17,7 @@ export class PythonManager {
   }
 
   async start(): Promise<number> {
-    const pythonPath = this.getPythonPath()
+    const pythonPath = await this.getPythonPath()
     const scriptPath = this.getScriptPath()
 
     console.log(`Starting Python backend: ${pythonPath} ${scriptPath} --port ${this.port}`)
@@ -63,17 +67,18 @@ export class PythonManager {
     }
   }
 
-  private getPythonPath(): string {
+  private async getPythonPath(): Promise<string> {
     if (app.isPackaged) {
-      // In production: use bundled Python environment
-      const platform = process.platform
       const pythonEnv = path.join(process.resourcesPath, 'python-env')
-      return platform === 'win32'
+      const candidate = process.platform === 'win32'
         ? path.join(pythonEnv, 'python.exe')
         : path.join(pythonEnv, 'bin', 'python')
+      if (fs.existsSync(candidate)) {
+        return candidate
+      }
+      console.warn('Bundled python-env not found, searching system Python...')
     }
-    // In dev: use system python
-    return 'python3'
+    return this.findSystemPython()
   }
 
   private getScriptPath(): string {
@@ -82,6 +87,26 @@ export class PythonManager {
     }
     // In dev: relative to project root
     return path.join(app.getAppPath(), 'backend', 'main_api.py')
+  }
+
+  private async findSystemPython(): Promise<string> {
+    const candidates = process.platform === 'win32'
+      ? ['python', 'python3', 'py']
+      : ['python3', 'python']
+
+    for (const cmd of candidates) {
+      try {
+        await execFileAsync(cmd, ['--version'])
+        console.log(`Found system Python: ${cmd}`)
+        return cmd
+      } catch {
+        continue
+      }
+    }
+    throw new Error(
+      'Python not found. Please install Python 3.10+ and add it to PATH.\n' +
+      'Download: https://www.python.org/downloads/'
+    )
   }
 
   private waitForHealth(timeout: number = 30000): Promise<void> {

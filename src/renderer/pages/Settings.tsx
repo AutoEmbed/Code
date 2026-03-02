@@ -241,7 +241,7 @@ export default function Settings() {
             <Space.Compact style={{ width: '100%' }}>
               <Form.Item name="librariesDir" noStyle>
                 <Input
-                  placeholder="/home/user/Arduino/libraries"
+                  placeholder="Leave empty to auto-detect (recommended)"
                   style={{ width: 'calc(100% - 90px)' }}
                 />
               </Form.Item>
