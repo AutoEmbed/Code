@@ -1,0 +1,77 @@
+{
+    "BMP280.h": [
+        {
+            "name": "begin",
+            "description": "Sensor begin",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "getTemperature",
+            "description": "Get temperature",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getPressure",
+            "description": "Get pressure",
+            "parameters": [],
+            "return_type": "uint32_t"
+        },
+        {
+            "name": "calAltitude",
+            "description": "Calculate altitude",
+            "parameters": [
+                "uint32_t pressure",
+                "float seaLevelPressure = 1013.0"
+            ],
+            "return_type": "int16_t"
+        },
+        {
+            "name": "reset",
+            "description": "Reset sensor",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "setCtrlMeasMode",
+            "description": "Set control measure mode",
+            "parameters": [
+                "eCtrlMeasMode_t eMode"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setCtrlMeasSamplingTemp",
+            "description": "Set temperature oversampling",
+            "parameters": [
+                "eSampling_t eSampling"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setCtrlMeasSamplingPress",
+            "description": "Set pressure oversampling",
+            "parameters": [
+                "eSampling_t eSampling"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setConfigFilter",
+            "description": "Set config filter",
+            "parameters": [
+                "eConfigFilter_t eFilter"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setConfigTStandby",
+            "description": "Set config standby time",
+            "parameters": [
+                "eConfigTStandby_t eT"
+            ],
+            "return_type": "void"
+        }
+    ]
+}

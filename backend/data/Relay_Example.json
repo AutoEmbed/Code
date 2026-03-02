@@ -1,0 +1,48 @@
+{
+    "Relay.h": [
+        {
+            "name": "begin",
+            "description": "Initializes the relay.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"Relay.h\"; light.begin();",
+                "parameter usage": "light.begin();",
+                "return value handling": "No value to handle."
+            }
+        },
+        {
+            "name": "getState",
+            "description": "Gets the current state.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"Relay.h\"; light.begin();",
+                "parameter usage": "bool state = light.getState();",
+                "return value handling": "if(state){/*do something*/}"
+            }
+        },
+        {
+            "name": "turnOn",
+            "description": "Turns the relay on.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"Relay.h\"; light.begin();",
+                "parameter usage": "light.turnOn();",
+                "return value handling": "No value to handle."
+            }
+        },
+        {
+            "name": "turnOff",
+            "description": "Turns the relay off.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"Relay.h\"; light.begin();",
+                "parameter usage": "light.turnOff();",
+                "return value handling": "No value to handle."
+            }
+        }
+    ]
+}

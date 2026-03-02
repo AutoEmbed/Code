@@ -1,0 +1,65 @@
+{
+    "Ballvalve.h": [
+        {
+            "name": "getLastDuration",
+            "description": "Get the last operation duration.",
+            "parameters": [
+                "const char*"
+            ],
+            "return_type": "int",
+            "practices": {
+                "API order": "#include <Ballvalve.h>",
+                "parameter usage": "thisValve.getLastDuration(\"OPEN\")",
+                "return value handling": "int duration = thisValve.getLastDuration(\"OPEN\");"
+            }
+        },
+        {
+            "name": "getMaxTravelTime",
+            "description": "Get the maximum travel time.",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "#include <Ballvalve.h>",
+                "parameter usage": "thisValve.getMaxTravelTime()",
+                "return value handling": "int maxTime = thisValve.getMaxTravelTime();"
+            }
+        },
+        {
+            "name": "getValvePosition",
+            "description": "Get the current valve position.",
+            "parameters": [],
+            "return_type": "const char*",
+            "practices": {
+                "API order": "#include <Ballvalve.h>",
+                "parameter usage": "thisValve.getValvePosition()",
+                "return value handling": "const char* pos = thisValve.getValvePosition();"
+            }
+        },
+        {
+            "name": "setMaxTraveltime",
+            "description": "Set the maximum travel time.",
+            "parameters": [
+                "int"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Ballvalve.h>",
+                "parameter usage": "thisValve.setMaxTraveltime(8);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setValvePosition",
+            "description": "Set the valve position.",
+            "parameters": [
+                "const char*"
+            ],
+            "return_type": "const char*",
+            "practices": {
+                "API order": "#include <Ballvalve.h>",
+                "parameter usage": "thisValve.setValvePosition(\"OPEN\");",
+                "return value handling": "const char* status = thisValve.setValvePosition(\"OPEN\");"
+            }
+        }
+    ]
+}

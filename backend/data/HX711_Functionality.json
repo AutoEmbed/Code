@@ -1,0 +1,247 @@
+{
+    "HX_calibration.ino": {
+        "HX_calibration.ino": [
+            {
+                "functionality": "calibrates an HX711 load cell by determining offset and scale factor",
+                "API": [
+                    "begin",
+                    "tare",
+                    "get_offset",
+                    "calibrate_scale",
+                    "get_scale",
+                    "set_offset",
+                    "set_scale"
+                ]
+            }
+        ]
+    },
+    "HX_delta_scale.ino": {
+        "HX_delta_scale.ino": [
+            {
+                "functionality": "demonstrates the use of an HX711 load cell to measure weight and display the value along with its change over time",
+                "API": [
+                    "begin",
+                    "get_units",
+                    "set_scale",
+                    "tare",
+                    "get_units",
+                    "get_units",
+                    "get_units"
+                ]
+            }
+        ]
+    },
+    "HX_get_noise_statistics.ino": {
+        "HX_get_noise_statistics.ino": [
+            {
+                "functionality": "measures noise of the system using HX711 by performing 1000 measurements and calculates basic statistics like MIN, MAX, AVG, VAR, PDEV, and UDEV",
+                "API": [
+                    "begin",
+                    "set_raw_mode",
+                    "read",
+                    "set_scale",
+                    "set_offset",
+                    "set_average_mode",
+                    "get_units"
+                ]
+            }
+        ]
+    },
+    "HX_grocery_scale.ino": {
+        "HX_grocery_scale.ino": [
+            {
+                "functionality": "demonstrates usage of HX711 for weighing and price calculation",
+                "API": [
+                    "begin",
+                    "get_units",
+                    "tare",
+                    "get_units",
+                    "calibrate_scale",
+                    "get_units",
+                    "set_unit_price",
+                    "get_units",
+                    "get_price"
+                ]
+            }
+        ]
+    },
+    "HX_is_ready.ino": {
+        "HX_is_ready.ino": [
+            {
+                "functionality": "HX711 demo to read weight measurements",
+                "API": [
+                    "begin",
+                    "set_scale",
+                    "tare",
+                    "is_ready",
+                    "get_units"
+                ]
+            }
+        ]
+    },
+    "HX_kitchen_scale.ino": {
+        "HX_kitchen_scale.ino": [
+            {
+                "functionality": "A demo for using the HX711 component to measure weight with a load cell, involving setup, calibration, and continuous reading of weight values.",
+                "API": [
+                    "begin",
+                    "get_units",
+                    "tare",
+                    "get_units",
+                    "calibrate_scale",
+                    "get_units",
+                    "get_units"
+                ]
+            }
+        ]
+    },
+    "HX_loadcell_array.ino": {
+        "HX_loadcell_array.ino": [
+            {
+                "functionality": "demonstrates how to use an array of HX711 scales, initializing and reading from them",
+                "API": [
+                    "begin",
+                    "set_scale",
+                    "tare",
+                    "get_units"
+                ]
+            }
+        ]
+    },
+    "HX_morse_experimental.ino": {
+        "HX_morse_experimental.ino": [
+            {
+                "functionality": "differentiates between long and short press durations using a load cell, emulating Morse code",
+                "API": [
+                    "begin",
+                    "set_scale",
+                    "tare",
+                    "is_ready",
+                    "get_units"
+                ]
+            }
+        ]
+    },
+    "HX_performance.ino": {
+        "HX_performance.ino": [
+            {
+                "functionality": "demonstrates the usage and performance of the HX711 sensor",
+                "API": [
+                    "begin",
+                    "set_scale",
+                    "tare",
+                    "power_down",
+                    "power_up",
+                    "get_units",
+                    "read",
+                    "read_average",
+                    "get_value"
+                ]
+            }
+        ]
+    },
+    "HX_performance2.ino": {
+        "HX_performance2.ino": [
+            {
+                "functionality": "HX711 demo that initializes the HX711 module, sets its scale, resets it to zero, and measures the number of get_units calls in one minute",
+                "API": [
+                    "begin",
+                    "set_scale",
+                    "tare",
+                    "is_ready",
+                    "get_units"
+                ]
+            }
+        ]
+    },
+    "HX_plotter.ino": {
+        "HX_plotter.ino": [
+            {
+                "functionality": "demonstrates usage of HX711 to read weight data and print the value to the serial port",
+                "API": [
+                    "begin",
+                    "set_scale",
+                    "tare",
+                    "get_units"
+                ]
+            }
+        ]
+    },
+    "HX_plotter_multimap.ino": {
+        "HX_plotter_multimap.ino": [
+            {
+                "functionality": "HX711 demo",
+                "API": [
+                    "begin",
+                    "set_scale",
+                    "tare",
+                    "get_units"
+                ]
+            }
+        ]
+    },
+    "HX_read_median.ino": {
+        "HX_read_median.ino": [
+            {
+                "functionality": "HX711 demo for reading median values multiple times and printing performance data",
+                "API": [
+                    "begin",
+                    "set_scale",
+                    "tare",
+                    "read_median"
+                ]
+            }
+        ]
+    },
+    "HX_read_median_average.ino": {
+        "HX_read_median_average.ino": [
+            {
+                "functionality": "demonstrates reading weight data using the HX711 sensor, including median averaging",
+                "API": [
+                    "begin",
+                    "set_scale",
+                    "tare",
+                    "read_medavg"
+                ]
+            }
+        ]
+    },
+    "HX_set_mode.ino": {
+        "HX_set_mode.ino": [
+            {
+                "functionality": "HX711 demo setting different modes and measuring performance",
+                "API": [
+                    "begin",
+                    "set_scale",
+                    "tare",
+                    "set_average_mode",
+                    "get_mode",
+                    "get_value",
+                    "set_median_mode",
+                    "get_value",
+                    "set_medavg_mode",
+                    "get_value",
+                    "set_raw_mode",
+                    "get_value"
+                ]
+            }
+        ]
+    },
+    "HX_set_persistent.ino": {
+        "HX_set_persistent.ino": [
+            {
+                "functionality": "Calibrates an HX711 scale, saves calibration values to EEPROM, and performs tare operations based on button press",
+                "API": [
+                    "set_scale",
+                    "set_offset",
+                    "begin",
+                    "get_units",
+                    "tare",
+                    "calibrate_scale",
+                    "get_offset",
+                    "get_scale"
+                ]
+            }
+        ]
+    }
+}

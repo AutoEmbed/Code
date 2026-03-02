@@ -1,0 +1,428 @@
+{
+    "Adafruit_MPU6050.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the MPU6050 device",
+            "parameters": [
+                "uint8_t i2c_addr",
+                "TwoWire *wire",
+                "int32_t sensorID"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "mpu.begin(0x68, &Wire, 12345);",
+                "return value handling": "Check if false, retry or handle error"
+            }
+        },
+        {
+            "name": "getEvent",
+            "description": "Retrieve sensor events",
+            "parameters": [
+                "sensors_event_t *accel",
+                "sensors_event_t *gyro",
+                "sensors_event_t *temp"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Initialize sensor using begin() first",
+                "parameter usage": "sensors_event_t a, g, t; mpu.getEvent(&a, &g, &t);",
+                "return value handling": "Check if false, retry or handle error"
+            }
+        },
+        {
+            "name": "getAccelerometerRange",
+            "description": "Get current accelerometer range",
+            "parameters": [],
+            "return_type": "mpu6050_accel_range_t",
+            "practices": {
+                "API order": "Initialize sensor using begin() first",
+                "parameter usage": "mpu6050_accel_range_t range = mpu.getAccelerometerRange();",
+                "return value handling": "Store or print the range"
+            }
+        },
+        {
+            "name": "setAccelerometerRange",
+            "description": "Set accelerometer range",
+            "parameters": [
+                "mpu6050_accel_range_t range"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Initialize sensor using begin() first",
+                "parameter usage": "mpu.setAccelerometerRange(MPU6050_RANGE_8_G);",
+                "return value handling": "No return value, proceed"
+            }
+        },
+        {
+            "name": "getGyroRange",
+            "description": "Get current gyro range",
+            "parameters": [],
+            "return_type": "mpu6050_gyro_range_t",
+            "practices": {
+                "API order": "Initialize sensor using begin() first",
+                "parameter usage": "mpu6050_gyro_range_t range = mpu.getGyroRange();",
+                "return value handling": "Store or print the range"
+            }
+        },
+        {
+            "name": "setGyroRange",
+            "description": "Set gyro range",
+            "parameters": [
+                "mpu6050_gyro_range_t range"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Initialize sensor using begin() first",
+                "parameter usage": "mpu.setGyroRange(MPU6050_RANGE_500_DEG);",
+                "return value handling": "No return value, proceed"
+            }
+        },
+        {
+            "name": "setInterruptPinPolarity",
+            "description": "Set interrupt pin polarity",
+            "parameters": [
+                "bool active_low"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Initialize sensor using begin() first",
+                "parameter usage": "mpu.setInterruptPinPolarity(true);",
+                "return value handling": "No return value, proceed"
+            }
+        },
+        {
+            "name": "setInterruptPinLatch",
+            "description": "Set interrupt pin latch behavior",
+            "parameters": [
+                "bool held"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Initialize sensor using begin() first",
+                "parameter usage": "mpu.setInterruptPinLatch(true);",
+                "return value handling": "No return value, proceed"
+            }
+        },
+        {
+            "name": "setFsyncSampleOutput",
+            "description": "Set FSYNC sample output",
+            "parameters": [
+                "mpu6050_fsync_out_t fsync_output"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Initialize sensor using begin() first",
+                "parameter usage": "mpu.setFsyncSampleOutput(MPU6050_FSYNC_OUT_TEMP);",
+                "return value handling": "No return value, proceed"
+            }
+        },
+        {
+            "name": "getHighPassFilter",
+            "description": "Get high pass filter setting",
+            "parameters": [],
+            "return_type": "mpu6050_highpass_t",
+            "practices": {
+                "API order": "Initialize sensor using begin() first",
+                "parameter usage": "mpu6050_highpass_t filter = mpu.getHighPassFilter();",
+                "return value handling": "Store or print the filter setting"
+            }
+        },
+        {
+            "name": "setHighPassFilter",
+            "description": "Set high pass filter",
+            "parameters": [
+                "mpu6050_highpass_t bandwidth"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "mpu.setHighPassFilter(MPU6050_HIGHPASS_5_HZ);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setMotionInterrupt",
+            "description": "Enable or disable motion interrupt",
+            "parameters": [
+                "bool active"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "mpu.setMotionInterrupt(true);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setMotionDetectionThreshold",
+            "description": "Set motion detection threshold",
+            "parameters": [
+                "uint8_t thr"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "mpu.setMotionDetectionThreshold(10);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setMotionDetectionDuration",
+            "description": "Set motion detection duration",
+            "parameters": [
+                "uint8_t dur"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "mpu.setMotionDetectionDuration(20);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getMotionInterruptStatus",
+            "description": "Check if motion interrupt occurred",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "bool status = mpu.getMotionInterruptStatus();",
+                "return value handling": "if (status) { handleEvent(); }"
+            }
+        },
+        {
+            "name": "getFsyncSampleOutput",
+            "description": "Get FSYNC sample output",
+            "parameters": [],
+            "return_type": "mpu6050_fsync_out_t",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "mpu6050_fsync_out_t output = mpu.getFsyncSampleOutput();",
+                "return value handling": "output; // process as needed"
+            }
+        },
+        {
+            "name": "setI2CBypass",
+            "description": "Enable/disable I2C bypass",
+            "parameters": [
+                "bool bypass"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "mpu.setI2CBypass(true);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setClock",
+            "description": "Set clock source",
+            "parameters": [
+                "mpu6050_clock_select_t clock"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "mpu.setClock(MPU6050_CLOCK_PLL_XGYRO);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getClock",
+            "description": "Get current clock source",
+            "parameters": [],
+            "return_type": "mpu6050_clock_select_t",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "mpu6050_clock_select_t clk = mpu.getClock();",
+                "return value handling": "if (clk != expected) { correctClock(); }"
+            }
+        },
+        {
+            "name": "setFilterBandwidth",
+            "description": "Set digital low pass filter bandwidth",
+            "parameters": [
+                "mpu6050_bandwidth_t bandwidth"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "mpu.setFilterBandwidth(MPU6050_BAND_21_HZ);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getFilterBandwidth",
+            "description": "Get digital low pass filter bandwidth",
+            "parameters": [],
+            "return_type": "mpu6050_bandwidth_t",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "mpu.getFilterBandwidth();",
+                "return value handling": "Use switch case for readability."
+            }
+        },
+        {
+            "name": "setSampleRateDivisor",
+            "description": "Set sample rate divisor",
+            "parameters": [
+                "uint8_t divisor"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "mpu.setSampleRateDivisor(4);",
+                "return value handling": "Check via get function."
+            }
+        },
+        {
+            "name": "getSampleRateDivisor",
+            "description": "Get sample rate divisor",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "uint8_t divisor = mpu.getSampleRateDivisor();",
+                "return value handling": "Store in a variable."
+            }
+        },
+        {
+            "name": "enableSleep",
+            "description": "Enable or disable sleep mode",
+            "parameters": [
+                "bool enable"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "mpu.enableSleep(true);",
+                "return value handling": "Check return value for success."
+            }
+        },
+        {
+            "name": "enableCycle",
+            "description": "Enable or disable cycle mode",
+            "parameters": [
+                "bool enable"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "mpu.enableCycle(true);",
+                "return value handling": "Check return value for success."
+            }
+        },
+        {
+            "name": "setCycleRate",
+            "description": "Set cycle rate",
+            "parameters": [
+                "mpu6050_cycle_rate_t rate"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "mpu.setCycleRate(MPU6050_CYCLE_1_25_HZ);",
+                "return value handling": "Check effect via get function."
+            }
+        },
+        {
+            "name": "getCycleRate",
+            "description": "Get cycle rate",
+            "parameters": [],
+            "return_type": "mpu6050_cycle_rate_t",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "mpu6050_cycle_rate_t rate = mpu.getCycleRate();",
+                "return value handling": "Store in a variable."
+            }
+        },
+        {
+            "name": "setGyroStandby",
+            "description": "Set gyro standby mode",
+            "parameters": [
+                "bool xAxisStandby",
+                "bool yAxisStandby",
+                "bool zAxisStandby"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "mpu.setGyroStandby(true, false, true);",
+                "return value handling": "Check return value for success."
+            }
+        },
+        {
+            "name": "setAccelerometerStandby",
+            "description": "Set accelerometer standby mode",
+            "parameters": [
+                "bool xAxisStandby",
+                "bool yAxisStandby",
+                "bool zAxisStandby"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "mpu.setAccelerometerStandby(true, false, true);",
+                "return value handling": "Check return value for success."
+            }
+        },
+        {
+            "name": "setTemperatureStandby",
+            "description": "Set temperature standby mode",
+            "parameters": [
+                "bool enable"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "mpu.setTemperatureStandby(true);",
+                "return value handling": "Check return value for success."
+            }
+        },
+        {
+            "name": "reset",
+            "description": "Reset device",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Adafruit_MPU6050.h>",
+                "parameter usage": "mpu.reset();",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "getTemperatureSensor",
+            "description": "Get temperature sensor object",
+            "parameters": [],
+            "return_type": "Adafruit_Sensor*",
+            "practices": {
+                "API order": "#include <Adafruit_Sensor.h>",
+                "parameter usage": "Adafruit_Sensor *tempSensor = mpu.getTemperatureSensor();",
+                "return value handling": "Check for NULL"
+            }
+        },
+        {
+            "name": "getAccelerometerSensor",
+            "description": "Get accelerometer sensor object",
+            "parameters": [],
+            "return_type": "Adafruit_Sensor*",
+            "practices": {
+                "API order": "#include <Adafruit_Sensor.h>",
+                "parameter usage": "Adafruit_Sensor *accelSensor = mpu.getAccelerometerSensor();",
+                "return value handling": "Check for NULL"
+            }
+        },
+        {
+            "name": "getGyroSensor",
+            "description": "Get gyro sensor object",
+            "parameters": [],
+            "return_type": "Adafruit_Sensor*",
+            "practices": {
+                "API order": "#include <Adafruit_Sensor.h>",
+                "parameter usage": "Adafruit_Sensor *gyroSensor = mpu.getGyroSensor();",
+                "return value handling": "Check for NULL"
+            }
+        }
+    ]
+}

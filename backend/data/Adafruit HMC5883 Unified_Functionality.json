@@ -1,0 +1,14 @@
+{
+    "magsensor.ino": {
+        "magsensor.ino": [
+            {
+                "functionality": "reads magnetic field data and prints the values to the serial port, calculates the heading in degrees",
+                "API": [
+                    "getSensor",
+                    "begin",
+                    "getEvent"
+                ]
+            }
+        ]
+    }
+}

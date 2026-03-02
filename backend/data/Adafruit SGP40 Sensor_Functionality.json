@@ -1,0 +1,25 @@
+{
+    "sgp40test.ino": {
+        "sgp40test.ino": [
+            {
+                "functionality": "initializes the SGP40 sensor, prints its serial number, and continuously measures raw air quality data",
+                "API": [
+                    "begin",
+                    "measureRaw"
+                ]
+            }
+        ]
+    },
+    "sgp40_voc.ino": {
+        "sgp40_voc.ino": [
+            {
+                "functionality": "measures temperature and humidity using SHT31 and computes VOC index using SGP40, then prints these values to the serial monitor",
+                "API": [
+                    "begin",
+                    "measureRaw",
+                    "measureVocIndex"
+                ]
+            }
+        ]
+    }
+}

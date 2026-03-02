@@ -1,0 +1,16 @@
+{
+    "FiveWireValve.ino": {
+        "FiveWireValve.ino": [
+            {
+                "functionality": "Controls a ball valve using a DPDT relay and performs open/close operations with error checking and status reporting",
+                "API": [
+                    "setMaxTraveltime",
+                    "getMaxTravelTime",
+                    "getValvePosition",
+                    "setValvePosition",
+                    "getLastDuration"
+                ]
+            }
+        ]
+    }
+}

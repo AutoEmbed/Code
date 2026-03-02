@@ -1,0 +1,498 @@
+{
+    "DS3231.h": [
+        {
+            "name": "dayOfTheWeek",
+            "description": "Gets day of the week.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "uint8_t day = myRTC.dayOfTheWeek();",
+                "return value handling": "Check if value is valid."
+            }
+        },
+        {
+            "name": "secondstime",
+            "description": "Seconds since 1/1/2000.",
+            "parameters": [],
+            "return_type": "long",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "long seconds = myRTC.secondstime();",
+                "return value handling": "Store the returned value."
+            }
+        },
+        {
+            "name": "unixtime",
+            "description": "Seconds since 1/1/1970.",
+            "parameters": [],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "uint32_t unixTime = myRTC.unixtime();",
+                "return value handling": "Ensure UNIX time validity."
+            }
+        },
+        {
+            "name": "isleapYear",
+            "description": "Checks if year is leap.",
+            "parameters": [
+                "const uint16_t year"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "bool leap = myRTC.isleapYear(2024);",
+                "return value handling": "Use in condition checks."
+            }
+        },
+        {
+            "name": "now",
+            "description": "Get current date and time.",
+            "parameters": [
+                "TwoWire & _Wire"
+            ],
+            "return_type": "DateTime",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "DateTime now = myRTC.now(Wire);",
+                "return value handling": "Access DateTime properties."
+            }
+        },
+        {
+            "name": "getSecond",
+            "description": "Gets current second.",
+            "parameters": [],
+            "return_type": "byte",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "byte second = myRTC.getSecond();",
+                "return value handling": "Store or compare seconds."
+            }
+        },
+        {
+            "name": "getMinute",
+            "description": "Gets current minute.",
+            "parameters": [],
+            "return_type": "byte",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "byte minute = myRTC.getMinute();",
+                "return value handling": "Store or compare minutes."
+            }
+        },
+        {
+            "name": "getHour",
+            "description": "Gets current hour.",
+            "parameters": [
+                "bool& h12",
+                "bool& PM_time"
+            ],
+            "return_type": "byte",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "byte hour = myRTC.getHour(h12, PM_time);",
+                "return value handling": "Check 12/24-hour mode."
+            }
+        },
+        {
+            "name": "getDoW",
+            "description": "Gets day of the week.",
+            "parameters": [],
+            "return_type": "byte",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "byte dow = myRTC.getDoW();",
+                "return value handling": "Store for weekday check."
+            }
+        },
+        {
+            "name": "getDate",
+            "description": "Gets current date.",
+            "parameters": [],
+            "return_type": "byte",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "byte date = myRTC.getDate();",
+                "return value handling": "Use date for logging."
+            }
+        },
+        {
+            "name": "getMonth",
+            "description": "Gets current month.",
+            "parameters": [
+                "bool& Century"
+            ],
+            "return_type": "byte",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "bool century; myRTC.getMonth(century);",
+                "return value handling": "byte month = myRTC.getMonth(century);"
+            }
+        },
+        {
+            "name": "getYear",
+            "description": "Gets current year.",
+            "parameters": [],
+            "return_type": "byte",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "byte year = myRTC.getYear();",
+                "return value handling": "byte year = myRTC.getYear();"
+            }
+        },
+        {
+            "name": "setEpoch",
+            "description": "Sets time using epoch.",
+            "parameters": [
+                "time_t epoch",
+                "bool flag_localtime"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "myRTC.setEpoch(1640995200, true);",
+                "return value handling": "return type void, no handling"
+            }
+        },
+        {
+            "name": "setSecond",
+            "description": "Sets current second.",
+            "parameters": [
+                "byte Second"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "myRTC.setSecond(30);",
+                "return value handling": "return type void, no handling"
+            }
+        },
+        {
+            "name": "setMinute",
+            "description": "Sets current minute.",
+            "parameters": [
+                "byte Minute"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "myRTC.setMinute(45);",
+                "return value handling": "return type void, no handling"
+            }
+        },
+        {
+            "name": "setHour",
+            "description": "Sets current hour.",
+            "parameters": [
+                "byte Hour"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "myRTC.setHour(10);",
+                "return value handling": "return type void, no handling"
+            }
+        },
+        {
+            "name": "setDoW",
+            "description": "Sets day of the week.",
+            "parameters": [
+                "byte DoW"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "myRTC.setDoW(3);",
+                "return value handling": "return type void, no handling"
+            }
+        },
+        {
+            "name": "setDate",
+            "description": "Sets current date.",
+            "parameters": [
+                "byte Date"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "myRTC.setDate(25);",
+                "return value handling": "return type void, no handling"
+            }
+        },
+        {
+            "name": "setMonth",
+            "description": "Sets current month.",
+            "parameters": [
+                "byte Month"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "myRTC.setMonth(12);",
+                "return value handling": "return type void, no handling"
+            }
+        },
+        {
+            "name": "setYear",
+            "description": "Sets current year.",
+            "parameters": [
+                "byte Year"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "myRTC.setYear(22);",
+                "return value handling": "return type void, no handling"
+            }
+        },
+        {
+            "name": "setClockMode",
+            "description": "Sets 12/24h mode.",
+            "parameters": [
+                "bool h12"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS3231.h>\nDS3231 myRTC;\nWire.begin();",
+                "parameter usage": "myRTC.setClockMode(false);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "getTemperature",
+            "description": "Gets current temperature.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <DS3231.h>\nDS3231 myRTC;\nWire.begin();",
+                "parameter usage": "float temp = myRTC.getTemperature();",
+                "return value handling": "Check temp value."
+            }
+        },
+        {
+            "name": "getA1Time",
+            "description": "Retrieves alarm 1 time.",
+            "parameters": [
+                "byte& A1Day",
+                "byte& A1Hour",
+                "byte& A1Minute",
+                "byte& A1Second",
+                "byte& AlarmBits",
+                "bool& A1Dy",
+                "bool& A1h12",
+                "bool& A1PM"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS3231.h>\nDS3231 myRTC;\nWire.begin();",
+                "parameter usage": "myRTC.getA1Time(day, hour, min, sec, bits, dy, h12, pm);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "getA2Time",
+            "description": "Retrieves alarm 2 time.",
+            "parameters": [
+                "byte& A2Day",
+                "byte& A2Hour",
+                "byte& A2Minute",
+                "byte& AlarmBits",
+                "bool& A2Dy",
+                "bool& A2h12",
+                "bool& A2PM"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS3231.h>\nDS3231 myRTC;\nWire.begin();",
+                "parameter usage": "myRTC.getA2Time(day, hour, min, bits, dy, h12, pm);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "getA1Time",
+            "description": "Retrieves alarm 1 time, clears bits.",
+            "parameters": [
+                "byte& A1Day",
+                "byte& A1Hour",
+                "byte& A1Minute",
+                "byte& A1Second",
+                "byte& AlarmBits",
+                "bool& A1Dy",
+                "bool& A1h12",
+                "bool& A1PM",
+                "bool clearAlarmBits"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS3231.h>\nDS3231 myRTC;\nWire.begin();",
+                "parameter usage": "myRTC.getA1Time(day, hour, min, sec, bits, dy, h12, pm, true);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "getA2Time",
+            "description": "Retrieves alarm 2 time, clears bits.",
+            "parameters": [
+                "byte& A1Day",
+                "byte& A1Hour",
+                "byte& A1Minute",
+                "byte& AlarmBits",
+                "bool& A1Dy",
+                "bool& A1h12",
+                "bool& A1PM",
+                "bool clearAlarmBits"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS3231.h>\nDS3231 myRTC;\nWire.begin();",
+                "parameter usage": "myRTC.getA2Time(day, hour, min, bits, dy, h12, pm, true);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "setA1Time",
+            "description": "Sets alarm 1 time.",
+            "parameters": [
+                "byte A1Day",
+                "byte A1Hour",
+                "byte A1Minute",
+                "byte A1Second",
+                "byte AlarmBits",
+                "bool A1Dy",
+                "bool A1h12",
+                "bool A1PM"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS3231.h>\nDS3231 myRTC;\nWire.begin();",
+                "parameter usage": "myRTC.setA1Time(day, hr, min, sec, bits, dy, h12, pm);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "setA2Time",
+            "description": "Sets alarm 2 time.",
+            "parameters": [
+                "byte A2Day",
+                "byte A2Hour",
+                "byte A2Minute",
+                "byte AlarmBits",
+                "bool A2Dy",
+                "bool A2h12",
+                "bool A2PM"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS3231.h>\nDS3231 myRTC;\nWire.begin();",
+                "parameter usage": "myRTC.setA2Time(day, hr, min, bits, dy, h12, pm);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "turnOnAlarm",
+            "description": "Enables alarm 1 or 2.",
+            "parameters": [
+                "byte Alarm"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS3231.h>\nDS3231 myRTC;\nWire.begin();",
+                "parameter usage": "myRTC.turnOnAlarm(1);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "turnOffAlarm",
+            "description": "Disables alarm 1 or 2.",
+            "parameters": [
+                "byte Alarm"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS3231.h>\nDS3231 myRTC;\nWire.begin();",
+                "parameter usage": "myRTC.turnOffAlarm(1);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "checkAlarmEnabled",
+            "description": "Checks if alarm is enabled.",
+            "parameters": [
+                "byte Alarm"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "checkAlarmEnabled(1);",
+                "return value handling": "bool enabled = checkAlarmEnabled(1);"
+            }
+        },
+        {
+            "name": "checkIfAlarm",
+            "description": "Checks if alarm is activated.",
+            "parameters": [
+                "byte Alarm"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "checkIfAlarm(1);",
+                "return value handling": "bool alarm = checkIfAlarm(1);"
+            }
+        },
+        {
+            "name": "checkIfAlarm",
+            "description": "Checks if alarm is activated, clears flag.",
+            "parameters": [
+                "byte Alarm",
+                "bool clearflag"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "checkIfAlarm(1, true);",
+                "return value handling": "bool alarm = checkIfAlarm(1, true);"
+            }
+        },
+        {
+            "name": "enableOscillator",
+            "description": "Enables or disables oscillator.",
+            "parameters": [
+                "bool TF",
+                "bool battery",
+                "byte frequency"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "enableOscillator(true, false, 1);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "enable32kHz",
+            "description": "Enables/disables 32kHz output.",
+            "parameters": [
+                "bool TF"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "enable32kHz(true);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "oscillatorCheck",
+            "description": "Checks oscillator status.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <DS3231.h>",
+                "parameter usage": "oscillatorCheck();",
+                "return value handling": "bool oscillatorOn = oscillatorCheck();"
+            }
+        }
+    ]
+}

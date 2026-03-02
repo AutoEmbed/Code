@@ -1,0 +1,60 @@
+{
+    "HC-SR04_Multiple.ino": {
+        "HC-SR04_Multiple.ino": [
+            {
+                "functionality": "measures distance using multiple HC-SR04 sensors and prints the values to the serial port",
+                "API": [
+                    "begin",
+                    "measureDistanceCm"
+                ]
+            }
+        ]
+    },
+    "HC-SR04_Simple.ino": {
+        "HC-SR04_Simple.ino": [
+            {
+                "functionality": "measures distance using the HC-SR04 sensor and prints the value to the serial port",
+                "API": [
+                    "begin",
+                    "measureDistanceCm"
+                ]
+            }
+        ]
+    },
+    "HC-SR04_Temperature.ino": {
+        "HC-SR04_Temperature.ino": [
+            {
+                "functionality": "measures distance using the HC-SR04 sensor and prints the value to the serial port",
+                "API": [
+                    "begin",
+                    "measureDistanceCm"
+                ]
+            }
+        ]
+    },
+    "HC-SR04_Time.ino": {
+        "HC-SR04_Time.ino": [
+            {
+                "functionality": "measures the distance using the HC-SR04 ultrasonic sensor and prints the measured time in microseconds to the serial port",
+                "API": [
+                    "begin",
+                    "measureMicroseconds"
+                ]
+            }
+        ]
+    },
+    "HC-SR04_Units.ino": {
+        "HC-SR04_Units.ino": [
+            {
+                "functionality": "measures and prints distances in different units: microseconds, millimeters, centimeters, and inches",
+                "API": [
+                    "begin",
+                    "measureMicroseconds",
+                    "measureDistanceMm",
+                    "measureDistanceCm",
+                    "measureDistanceIn"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,153 @@
+{
+    "ADXL345.h": [
+        {
+            "name": "start",
+            "description": "Initializes the device.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <ADXL345.h>\\nInitialize in setup()",
+                "parameter usage": "None",
+                "return value handling": "Check for true/false."
+            }
+        },
+        {
+            "name": "stop",
+            "description": "Stops the device.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <ADXL345.h>\\nInitialize in setup()",
+                "parameter usage": "None",
+                "return value handling": "Check for true/false."
+            }
+        },
+        {
+            "name": "readDeviceID",
+            "description": "Reads the device ID.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <ADXL345.h>\\nInitialize in setup()",
+                "parameter usage": "devID = accel.readDeviceID();",
+                "return value handling": "Check if non-zero."
+            }
+        },
+        {
+            "name": "update",
+            "description": "Updates sensor data.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <ADXL345.h>\\nInitialize in setup()",
+                "parameter usage": "if(accel.update()){...}",
+                "return value handling": "Check for true/false."
+            }
+        },
+        {
+            "name": "getX",
+            "description": "Gets X-axis acceleration.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <ADXL345.h>\\nInitialize in setup()",
+                "parameter usage": "x = accel.getX();",
+                "return value handling": "Use returned float."
+            }
+        },
+        {
+            "name": "getY",
+            "description": "Gets Y-axis acceleration.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <ADXL345.h>\\nInitialize in setup()",
+                "parameter usage": "y = accel.getY();",
+                "return value handling": "Use returned float."
+            }
+        },
+        {
+            "name": "getZ",
+            "description": "Gets Z-axis acceleration.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <ADXL345.h>\\nInitialize in setup()",
+                "parameter usage": "z = accel.getZ();",
+                "return value handling": "Use returned float."
+            }
+        },
+        {
+            "name": "getRawX",
+            "description": "Gets raw X-axis data.",
+            "parameters": [],
+            "return_type": "int16_t",
+            "practices": {
+                "API order": "#include <ADXL345.h>\\nInitialize in setup()",
+                "parameter usage": "rawX = accel.getRawX();",
+                "return value handling": "Use returned int16_t."
+            }
+        },
+        {
+            "name": "getRawY",
+            "description": "Gets raw Y-axis data.",
+            "parameters": [],
+            "return_type": "int16_t",
+            "practices": {
+                "API order": "#include <ADXL345.h>\\nInitialize in setup()",
+                "parameter usage": "rawY = accel.getRawY();",
+                "return value handling": "Use returned int16_t."
+            }
+        },
+        {
+            "name": "getRawZ",
+            "description": "Gets raw Z-axis data.",
+            "parameters": [],
+            "return_type": "int16_t",
+            "practices": {
+                "API order": "#include <ADXL345.h>\\nInitialize in setup()",
+                "parameter usage": "rawZ = accel.getRawZ();",
+                "return value handling": "Use returned int16_t."
+            }
+        },
+        {
+            "name": "writeRate",
+            "description": "Writes data rate.",
+            "parameters": [
+                "uint8_t rate"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <ADXL345.h>",
+                "parameter usage": "accel.writeRate(ADXL345_RATE_200HZ);",
+                "return value handling": "if (!accel.writeRate(...)) { error }"
+            }
+        },
+        {
+            "name": "writeRateWithLowPower",
+            "description": "Writes data rate with low power.",
+            "parameters": [
+                "uint8_t rate"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <ADXL345.h>",
+                "parameter usage": "accel.writeRateWithLowPower(ADXL345_RATE_200HZ);",
+                "return value handling": "if (!accel.writeRateWithLowPower(...)) { error }"
+            }
+        },
+        {
+            "name": "writeRange",
+            "description": "Writes measurement range.",
+            "parameters": [
+                "uint8_t range"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <ADXL345.h>",
+                "parameter usage": "accel.writeRange(ADXL345_RANGE_16G);",
+                "return value handling": "if (!accel.writeRange(...)) { error }"
+            }
+        }
+    ]
+}

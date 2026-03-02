@@ -1,0 +1,24 @@
+{
+    "Knob.ino": {
+        "Knob.ino": [
+            {
+                "functionality": "controls a servo position using a potentiometer",
+                "API": [
+                    "attach",
+                    "write"
+                ]
+            }
+        ]
+    },
+    "Sweep.ino": {
+        "Sweep.ino": [
+            {
+                "functionality": "controls a servo motor to sweep from 0 to 180 degrees and back to 0",
+                "API": [
+                    "attach",
+                    "write"
+                ]
+            }
+        ]
+    }
+}

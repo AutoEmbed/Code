@@ -1,0 +1,66 @@
+{
+    "DHT11.h": [
+        {
+            "name": "setDelay",
+            "description": "Sets the delay between sensor readings.",
+            "parameters": [
+                "unsigned long delay"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call before initiating sensor read.",
+                "parameter usage": "Use appropriate delay to prevent sensor overload.",
+                "return value handling": "No return value to handle."
+            }
+        },
+        {
+            "name": "readHumidity",
+            "description": "Reads and returns the humidity.",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "Call after initialization.",
+                "parameter usage": "No parameters needed; simply call.",
+                "return value handling": "Check for error codes in returned int."
+            }
+        },
+        {
+            "name": "readTemperature",
+            "description": "Reads and returns the temperature.",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "Call after initialization.",
+                "parameter usage": "No parameters needed; simply call.",
+                "return value handling": "Verify return value for errors."
+            }
+        },
+        {
+            "name": "readTemperatureHumidity",
+            "description": "Reads and returns temperature and humidity.",
+            "parameters": [
+                "int &temperature",
+                "int &humidity"
+            ],
+            "return_type": "int",
+            "practices": {
+                "API order": "Call after initialization.",
+                "parameter usage": "Pass variables for temp and humidity.",
+                "return value handling": "Check returned int for errors."
+            }
+        },
+        {
+            "name": "getErrorString",
+            "description": "Returns a string describing the error.",
+            "parameters": [
+                "int errorCode"
+            ],
+            "return_type": "String",
+            "practices": {
+                "API order": "Call after detecting an error.",
+                "parameter usage": "Pass valid error code to function.",
+                "return value handling": "Use string to describe error state."
+            }
+        }
+    ]
+}

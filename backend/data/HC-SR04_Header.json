@@ -1,0 +1,179 @@
+{
+    "HCSR04.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the sensor",
+            "parameters": [
+                "uint8_t triggerPin",
+                "uint8_t* echoPins",
+                "uint8_t echoCount",
+                "uint32_t timeout",
+                "uint16_t triggerTime",
+                "uint16_t triggerWait",
+                "eUltraSonicUnlock_t unlock"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "end",
+            "description": "End the sensor",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "measureMicroseconds",
+            "description": "Measure time in microseconds",
+            "parameters": [
+                "long* results"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "measureDistanceMm",
+            "description": "Measure distance in mm",
+            "parameters": [
+                "float temperature",
+                "double* results"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "measureDistanceCm",
+            "description": "Measure distance in cm",
+            "parameters": [
+                "float temperature",
+                "double* results"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "measureDistanceIn",
+            "description": "Measure distance in inches",
+            "parameters": [
+                "float temperature",
+                "double* results"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "triggerInterrupt0",
+            "description": "Trigger interrupt 0",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "triggerInterrupt1",
+            "description": "Trigger interrupt 1",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "triggerInterrupt2",
+            "description": "Trigger interrupt 2",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "triggerInterrupt3",
+            "description": "Trigger interrupt 3",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "triggerInterrupt4",
+            "description": "Trigger interrupt 4",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "triggerInterrupt5",
+            "description": "Trigger interrupt 5",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "triggerInterrupt6",
+            "description": "Trigger interrupt 6",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "triggerInterrupt7",
+            "description": "Trigger interrupt 7",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "triggerInterrupt8",
+            "description": "Trigger interrupt 8",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "triggerInterrupt9",
+            "description": "Trigger interrupt 9",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "echoInterrupt0",
+            "description": "Echo interrupt 0",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "echoInterrupt1",
+            "description": "Echo interrupt 1",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "echoInterrupt2",
+            "description": "Echo interrupt 2",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "echoInterrupt3",
+            "description": "Echo interrupt 3",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "echoInterrupt4",
+            "description": "Echo interrupt 4",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "echoInterrupt5",
+            "description": "Echo interrupt 5",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "echoInterrupt6",
+            "description": "Echo interrupt 6",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "echoInterrupt7",
+            "description": "Echo interrupt 7",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "echoInterrupt8",
+            "description": "Echo interrupt 8",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "echoInterrupt9",
+            "description": "Echo interrupt 9",
+            "parameters": [],
+            "return_type": "void"
+        }
+    ]
+}

@@ -1,0 +1,94 @@
+{
+    "basic_readings.ino": {
+        "basic_readings.ino": [
+            {
+                "functionality": "reads accelerometer, gyroscope, and temperature data from Adafruit MPU6050 and prints the values to the serial port",
+                "API": [
+                    "begin",
+                    "setAccelerometerRange",
+                    "getAccelerometerRange",
+                    "setGyroRange",
+                    "getGyroRange",
+                    "setFilterBandwidth",
+                    "getEvent"
+                ]
+            }
+        ]
+    },
+    "motion_detection.ino": {
+        "motion_detection.ino": [
+            {
+                "functionality": "detects motion using the MPU6050 sensor and prints acceleration and gyroscope data",
+                "API": [
+                    "begin",
+                    "setHighPassFilter",
+                    "setMotionDetectionThreshold",
+                    "setMotionDetectionDuration",
+                    "setInterruptPinLatch",
+                    "setInterruptPinPolarity",
+                    "setMotionInterrupt",
+                    "getMotionInterruptStatus",
+                    "getEvent"
+                ]
+            }
+        ]
+    },
+    "MPU6050_oled.ino": {
+        "MPU6050_oled.ino": [
+            {
+                "functionality": "reads data from an MPU6050 sensor and displays the information on an OLED display",
+                "API": [
+                    "begin",
+                    "getEvent"
+                ]
+            }
+        ]
+    },
+    "mpu6050_unifiedsensors.ino": {
+        "mpu6050_unifiedsensors.ino": [
+            {
+                "functionality": "gets individual unified sensor data from the MPU6050 and prints it to the serial port",
+                "API": [
+                    "begin",
+                    "getTemperatureSensor",
+                    "printSensorDetails",
+                    "getAccelerometerSensor",
+                    "printSensorDetails",
+                    "getGyroSensor",
+                    "printSensorDetails",
+                    "getEvent",
+                    "getEvent",
+                    "getEvent"
+                ]
+            }
+        ]
+    },
+    "plotter.ino": {
+        "plotter.ino": [
+            {
+                "functionality": "reads accelerometer and gyroscope data from Adafruit MPU6050 and prints the values to the serial port",
+                "API": [
+                    "begin",
+                    "setAccelerometerRange",
+                    "setGyroRange",
+                    "setFilterBandwidth",
+                    "getEvent"
+                ]
+            }
+        ]
+    },
+    "sleep_demo.ino": {
+        "sleep_demo.ino": [
+            {
+                "functionality": "demonstrates various sleep and cycle modes of the Adafruit MPU6050 sensor and shows data readings in different modes",
+                "API": [
+                    "begin",
+                    "enableSleep",
+                    "enableCycle",
+                    "setCycleRate",
+                    "getEvent"
+                ]
+            }
+        ]
+    }
+}

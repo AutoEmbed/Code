@@ -1,0 +1,126 @@
+{
+    "eHaJo_LM75.h": [
+        {
+            "name": "EHAJO_LM75",
+            "description": "Constructor for the LM75 sensor class.",
+            "parameters": []
+        },
+        {
+            "name": "setAddress",
+            "description": "Sets the I2C address of the sensor.",
+            "parameters": [
+                {
+                    "name": "bit_A0",
+                    "type": "uint8_t",
+                    "description": "Value of address bit A0."
+                },
+                {
+                    "name": "bit_A1",
+                    "type": "uint8_t",
+                    "description": "Value of address bit A1."
+                },
+                {
+                    "name": "bit_A2",
+                    "type": "uint8_t",
+                    "description": "Value of address bit A2."
+                }
+            ]
+        },
+        {
+            "name": "getTemp",
+            "description": "Gets the current temperature in Celsius.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "CtoF",
+            "description": "Converts a temperature from Celsius to Fahrenheit.",
+            "parameters": [
+                {
+                    "name": "temperatureC",
+                    "type": "float",
+                    "description": "Temperature in Celsius."
+                }
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "getTOS",
+            "description": "Gets the overtemperature shutdown (TOS) value.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "setTOS",
+            "description": "Sets the overtemperature shutdown (TOS) value.",
+            "parameters": [
+                {
+                    "name": "temperature",
+                    "type": "float",
+                    "description": "Temperature value to set as TOS."
+                }
+            ]
+        },
+        {
+            "name": "getHyst",
+            "description": "Gets the hysteresis value.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "setHyst",
+            "description": "Sets the hysteresis value.",
+            "parameters": [
+                {
+                    "name": "temperature",
+                    "type": "float",
+                    "description": "Temperature value to set as hysteresis."
+                }
+            ]
+        },
+        {
+            "name": "setOSFaultQueue",
+            "description": "Sets the OS fault queue.",
+            "parameters": [
+                {
+                    "name": "numberfaults",
+                    "type": "LM75_OS_Fault_queue",
+                    "description": "Number of faults to set."
+                }
+            ]
+        },
+        {
+            "name": "setMode",
+            "description": "Sets the operating mode of the sensor.",
+            "parameters": [
+                {
+                    "name": "opmode",
+                    "type": "LM75_opmode",
+                    "description": "Operating mode to set."
+                }
+            ]
+        },
+        {
+            "name": "setOSMode",
+            "description": "Sets the OS mode of the sensor.",
+            "parameters": [
+                {
+                    "name": "opmode",
+                    "type": "LM75_OS_opmode",
+                    "description": "OS mode to set."
+                }
+            ]
+        },
+        {
+            "name": "setTOSPolarity",
+            "description": "Sets the TOS polarity of the sensor.",
+            "parameters": [
+                {
+                    "name": "polarity",
+                    "type": "LM75_TOSPolarity",
+                    "description": "TOS polarity to set."
+                }
+            ]
+        }
+    ]
+}

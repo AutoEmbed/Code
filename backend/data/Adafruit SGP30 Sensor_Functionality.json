@@ -1,0 +1,15 @@
+{
+    "sgp30test.ino": {
+        "sgp30test.ino": [
+            {
+                "functionality": "reads gas concentration levels using the SGP30 sensor and prints the values or baseline to the serial port",
+                "API": [
+                    "begin",
+                    "IAQmeasure",
+                    "IAQmeasureRaw",
+                    "getIAQBaseline"
+                ]
+            }
+        ]
+    }
+}

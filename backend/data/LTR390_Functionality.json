@@ -1,0 +1,21 @@
+{
+    "ltr390.ino": {
+        "ltr390.ino": [
+            {
+                "functionality": "initializes the LTR390 sensor, sets various modes, gains, and resolutions, and alternates between reading ambient light and UV index, printing the values to the serial port",
+                "API": [
+                    "init",
+                    "setMode",
+                    "setGain",
+                    "getGain",
+                    "setResolution",
+                    "getResolution",
+                    "newDataAvailable",
+                    "getMode",
+                    "getLux",
+                    "getUVI"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "powerSafe.ino": {
+        "powerSafe.ino": [
+            {
+                "functionality": "gets temperature and sends the device to sleep afterwards",
+                "API": [
+                    "setMode(LM75_MODE_NORMAL)",
+                    "getTemp()",
+                    "setMode(LM75_MODE_SHUTDOWN)"
+                ]
+            }
+        ]
+    },
+    "ReadTemp.ino": {
+        "ReadTemp.ino": [
+            {
+                "functionality": "gets temperature data from LM75 sensor and prints the value to the serial port",
+                "API": [
+                    "getTemp"
+                ]
+            }
+        ]
+    },
+    "SetHysteresis.ino": {
+        "SetHysteresis.ino": [
+            {
+                "functionality": "sets temperature hysteresis and overshoot, and controls an LED based on temperature readings",
+                "API": [
+                    "setTOS",
+                    "setHyst",
+                    "setTOSPolarity",
+                    "setOSMode",
+                    "getTemp"
+                ]
+            }
+        ]
+    }
+}

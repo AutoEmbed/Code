@@ -1,0 +1,14 @@
+{
+    "PIRSensor.ino": {
+        "PIRSensor.ino": [
+            {
+                "functionality": "tests a passive infrared presence sensor, sets an LED high upon motion detection, and prints trigger information to the serial port",
+                "API": [
+                    "activate",
+                    "lastTriggerTime",
+                    "trigCount"
+                ]
+            }
+        ]
+    }
+}

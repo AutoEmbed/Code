@@ -1,0 +1,188 @@
+{
+    "MQUnifiedsensor.h": [
+        {
+            "name": "init",
+            "description": "Initialize the sensor",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "update",
+            "description": "Update sensor readings",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "externalADCUpdate",
+            "description": "Update using external ADC value",
+            "parameters": [
+                "float volt"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setR0",
+            "description": "Set the R0 value",
+            "parameters": [
+                "float R0 = 10"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setRL",
+            "description": "Set the RL value",
+            "parameters": [
+                "float RL = 10"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setA",
+            "description": "Set the coefficient a",
+            "parameters": [
+                "float a"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setB",
+            "description": "Set the coefficient b",
+            "parameters": [
+                "float b"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setRegressionMethod",
+            "description": "Set regression method",
+            "parameters": [
+                "int regressionMethod"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setVoltResolution",
+            "description": "Set voltage resolution",
+            "parameters": [
+                "float voltage_resolution = 5"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "serialDebug",
+            "description": "Enable/Disable serial debug",
+            "parameters": [
+                "bool onSetup = false"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setADC",
+            "description": "Set ADC value",
+            "parameters": [
+                "int value"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "calibrate",
+            "description": "Calibrate the sensor",
+            "parameters": [
+                "float ratioInCleanAir"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "readSensor",
+            "description": "Read sensor value",
+            "parameters": [
+                "bool isMQ303A = false",
+                "float correctionFactor = 0.0",
+                "bool injected = false"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "readSensorR0Rs",
+            "description": "Read sensor R0 to Rs",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "validateEcuation",
+            "description": "Validate using ratio input",
+            "parameters": [
+                "float ratioInput = 0"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "getA",
+            "description": "Get coefficient a",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getB",
+            "description": "Get coefficient b",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getR0",
+            "description": "Get R0 value",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getRL",
+            "description": "Get RL value",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getVoltResolution",
+            "description": "Get voltage resolution",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getRegressionMethod",
+            "description": "Get regression method",
+            "parameters": [],
+            "return_type": "String"
+        },
+        {
+            "name": "getVoltage",
+            "description": "Get voltage value",
+            "parameters": [
+                "bool read = true",
+                "bool injected = false",
+                "int value = 0"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "stringTofloat",
+            "description": "Convert string to float",
+            "parameters": [
+                "String &str"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "getRS",
+            "description": "Get RS value",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "setRsR0RatioGetPPM",
+            "description": "Set Rs/R0 ratio to get PPM",
+            "parameters": [
+                "float value"
+            ],
+            "return_type": "float"
+        }
+    ]
+}

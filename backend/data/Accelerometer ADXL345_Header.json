@@ -1,0 +1,599 @@
+{
+    "ADXL345.h": [
+        {
+            "name": "powerOn",
+            "description": "Power on the device",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "readAccel",
+            "description": "Read x, y, z acceleration values",
+            "parameters": [
+                "int* xyx"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "readXYZ",
+            "description": "Read individual x, y, z values",
+            "parameters": [
+                "int* x",
+                "int* y",
+                "int* z"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getAcceleration",
+            "description": "Get acceleration in G's",
+            "parameters": [
+                "double *xyz"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setTapThreshold",
+            "description": "Set the tap threshold",
+            "parameters": [
+                "int tapThreshold"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getTapThreshold",
+            "description": "Get the tap threshold",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "setAxisGains",
+            "description": "Set axis gain values",
+            "parameters": [
+                "double *_gains"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getAxisGains",
+            "description": "Get axis gain values",
+            "parameters": [
+                "double *_gains"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setAxisOffset",
+            "description": "Set axis offset values",
+            "parameters": [
+                "int x",
+                "int y",
+                "int z"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getAxisOffset",
+            "description": "Get axis offset values",
+            "parameters": [
+                "int* x",
+                "int* y",
+                "int* z"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setTapDuration",
+            "description": "Set the tap duration",
+            "parameters": [
+                "int tapDuration"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getTapDuration",
+            "description": "Get the tap duration",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "setDoubleTapLatency",
+            "description": "Set double tap latency",
+            "parameters": [
+                "int doubleTapLatency"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getDoubleTapLatency",
+            "description": "Get double tap latency",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "setDoubleTapWindow",
+            "description": "Set double tap window",
+            "parameters": [
+                "int doubleTapWindow"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getDoubleTapWindow",
+            "description": "Get double tap window",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "setActivityThreshold",
+            "description": "Set the activity threshold",
+            "parameters": [
+                "int activityThreshold"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getActivityThreshold",
+            "description": "Get the activity threshold",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "setInactivityThreshold",
+            "description": "Set the inactivity threshold",
+            "parameters": [
+                "int inactivityThreshold"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getInactivityThreshold",
+            "description": "Get inactivity threshold",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "setTimeInactivity",
+            "description": "Set time inactivity",
+            "parameters": [
+                "int timeInactivity"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getTimeInactivity",
+            "description": "Get time inactivity",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "setFreeFallThreshold",
+            "description": "Set free fall threshold",
+            "parameters": [
+                "int freeFallthreshold"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getFreeFallThreshold",
+            "description": "Get free fall threshold",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "setFreeFallDuration",
+            "description": "Set free fall duration",
+            "parameters": [
+                "int freeFallDuration"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getFreeFallDuration",
+            "description": "Get free fall duration",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "isActivityXEnabled",
+            "description": "Check if activity X is enabled",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "isActivityYEnabled",
+            "description": "Check if activity Y is enabled",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "isActivityZEnabled",
+            "description": "Check if activity Z is enabled",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "isInactivityXEnabled",
+            "description": "Check if inactivity X is enabled",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "isInactivityYEnabled",
+            "description": "Check if inactivity Y is enabled",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "isInactivityZEnabled",
+            "description": "Check if inactivity Z is enabled",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "isActivityAc",
+            "description": "Check if activity AC is enabled",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "isInactivityAc",
+            "description": "Check if inactivity AC is enabled",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setActivityAc",
+            "description": "Set activity AC state",
+            "parameters": [
+                "bool state"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setInactivityAc",
+            "description": "Set inactivity AC state",
+            "parameters": [
+                "bool state"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getSuppressBit",
+            "description": "Get suppress bit state",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setSuppressBit",
+            "description": "Set suppress bit state",
+            "parameters": [
+                "bool state"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "isTapDetectionOnX",
+            "description": "Check tap detection on X",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setTapDetectionOnX",
+            "description": "Set tap detection on X",
+            "parameters": [
+                "bool state"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "isTapDetectionOnY",
+            "description": "Check tap detection on Y",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setTapDetectionOnY",
+            "description": "Set tap detection on Y",
+            "parameters": [
+                "bool state"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "isTapDetectionOnZ",
+            "description": "Check tap detection on Z",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setTapDetectionOnZ",
+            "description": "Set tap detection on Z",
+            "parameters": [
+                "bool state"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setActivityX",
+            "description": "Set activity on X axis",
+            "parameters": [
+                "bool state"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setActivityY",
+            "description": "Set activity on Y axis",
+            "parameters": [
+                "bool state"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setActivityZ",
+            "description": "Set activity on Z axis",
+            "parameters": [
+                "bool state"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setInactivityX",
+            "description": "Set inactivity on X axis",
+            "parameters": [
+                "bool state"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setInactivityY",
+            "description": "Set inactivity on Y axis",
+            "parameters": [
+                "bool state"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setInactivityZ",
+            "description": "Set inactivity on Z axis",
+            "parameters": [
+                "bool state"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "isActivitySourceOnX",
+            "description": "Check activity source on X axis",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "isActivitySourceOnY",
+            "description": "Check activity source on Y axis",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "isActivitySourceOnZ",
+            "description": "Check activity source on Z axis",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "isTapSourceOnX",
+            "description": "Check tap source on X axis",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "isTapSourceOnY",
+            "description": "Check tap source on Y axis",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "isTapSourceOnZ",
+            "description": "Check tap source on Z axis",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "isAsleep",
+            "description": "Check if device is asleep",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "isLowPower",
+            "description": "Check if in low power mode",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setLowPower",
+            "description": "Set low power mode",
+            "parameters": [
+                "bool state"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getRate",
+            "description": "Get the data rate",
+            "parameters": [],
+            "return_type": "double"
+        },
+        {
+            "name": "setRate",
+            "description": "Set the data rate",
+            "parameters": [
+                "double rate"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "set_bw",
+            "description": "Set bandwidth code",
+            "parameters": [
+                "byte bw_code"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "get_bw_code",
+            "description": "Get bandwidth code",
+            "parameters": [],
+            "return_type": "byte"
+        },
+        {
+            "name": "triggered",
+            "description": "Check if triggered by mask",
+            "parameters": [
+                "byte interrupts",
+                "int mask"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "getInterruptSource",
+            "description": "Get interrupt source",
+            "parameters": [],
+            "return_type": "byte"
+        },
+        {
+            "name": "getInterruptSource",
+            "description": "Get specific interrupt source",
+            "parameters": [
+                "byte interruptBit"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "getInterruptMapping",
+            "description": "Get interrupt mapping",
+            "parameters": [
+                "byte interruptBit"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setInterruptMapping",
+            "description": "Set interrupt mapping",
+            "parameters": [
+                "byte interruptBit",
+                "bool interruptPin"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "isInterruptEnabled",
+            "description": "Check if interrupt is enabled",
+            "parameters": [
+                "byte interruptBit"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setInterrupt",
+            "description": "Enable or disable interrupt",
+            "parameters": [
+                "byte interruptBit",
+                "bool state"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getRangeSetting",
+            "description": "Get range setting",
+            "parameters": [
+                "byte* rangeSetting"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setRangeSetting",
+            "description": "Set range setting",
+            "parameters": [
+                "int val"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getSelfTestBit",
+            "description": "Get self-test bit state",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setSelfTestBit",
+            "description": "Set self-test bit state",
+            "parameters": [
+                "bool selfTestBit"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getSpiBit",
+            "description": "Get SPI bit state",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setSpiBit",
+            "description": "Set SPI bit state",
+            "parameters": [
+                "bool spiBit"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getInterruptLevelBit",
+            "description": "Get interrupt level bit state",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setInterruptLevelBit",
+            "description": "Set interrupt level bit state",
+            "parameters": [
+                "bool interruptLevelBit"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getFullResBit",
+            "description": "Get full resolution bit state",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setFullResBit",
+            "description": "Set full resolution bit state",
+            "parameters": [
+                "bool fullResBit"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getJustifyBit",
+            "description": "Get justify bit state",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setJustifyBit",
+            "description": "Set justify bit state",
+            "parameters": [
+                "bool justifyBit"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "printAllRegister",
+            "description": "Print all register values",
+            "parameters": [],
+            "return_type": "void"
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "PIR_demo.ino": {
+        "PIR_demo.ino": [
+            {
+                "functionality": "demonstrates the use of a PIR sensor class to read values from PIR sensors and print them to the serial port",
+                "API": [
+                    "add",
+                    "add",
+                    "add",
+                    "read"
+                ]
+            }
+        ]
+    },
+    "PIR_demo_lastValue.ino": {
+        "PIR_demo_lastValue.ino": [
+            {
+                "functionality": "demonstrates the use of multiple PIR sensors, showing changes in their state by printing the new detected values to the serial monitor",
+                "API": [
+                    "add",
+                    "lastValue",
+                    "read"
+                ]
+            }
+        ]
+    },
+    "PIR_performance.ino": {
+        "PIR_performance.ino": [
+            {
+                "functionality": "demonstrates the performance of a PIR sensor using the PIR library",
+                "API": [
+                    "add",
+                    "add",
+                    "add",
+                    "add",
+                    "add",
+                    "add",
+                    "add",
+                    "add",
+                    "read",
+                    "lastValue",
+                    "changed"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,630 @@
+{
+    "Alcoholimeter.ino": {
+        "Alcoholimeter.ino": [
+            {
+                "functionality": "reads alcohol concentration using an MQ3 sensor and prints the PPM value to the serial port",
+                "API": [
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "update",
+                    "readSensor"
+                ]
+            }
+        ]
+    },
+    "AlgorithmTester.ino": {
+        "AlgorithmTester.ino": [
+            {
+                "functionality": "tests the accuracy of the gas sensor algorithm by comparing calculated PPM values to expected ones for various MQ sensors",
+                "API": [
+                    "init",
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "validateEcuation"
+                ]
+            }
+        ]
+    },
+    "Calibration.ino": {
+        "Calibration.ino": [
+            {
+                "functionality": "calibrates an MQ2 sensor and prints the R0 value to the serial port in a clean air environment",
+                "API": [
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "init",
+                    "update",
+                    "calibrate"
+                ]
+            }
+        ]
+    },
+    "Digital_Input.ino": {
+        "Digital_Input.ino": [
+            {
+                "functionality": "demonstrates the use of an MQ3 sensor using digital input to detect high concentrations and print status messages to the serial port",
+                "API": []
+            }
+        ]
+    },
+    "esp32.ino": {
+        "esp32.ino": [
+            {
+                "functionality": "reads sensor data from MQ3 using ESP32 and prints the value to the serial port",
+                "API": [
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "serialDebug",
+                    "update",
+                    "readSensor",
+                    "serialDebug"
+                ]
+            }
+        ]
+    },
+    "ESP32_WROOM_32D.ino": {
+        "ESP32_WROOM_32D.ino": [
+            {
+                "functionality": "interfaces with an MQ2 gas sensor to measure gas concentration and prints the PPM value to the serial port",
+                "API": [
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "update",
+                    "readSensor"
+                ]
+            }
+        ]
+    },
+    "ESP8266.ino": {
+        "ESP8266.ino": [
+            {
+                "functionality": "measures gas concentration with an MQ3 sensor on an ESP8266 board and prints values to the serial port",
+                "API": [
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "serialDebug",
+                    "update",
+                    "readSensor",
+                    "serialDebug"
+                ]
+            }
+        ]
+    },
+    "external_A2D.ino": {
+        "external_A2D.ino": [
+            {
+                "functionality": "demonstrates the use of an MQ3 sensor with an external A2D converter",
+                "API": [
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "setADC",
+                    "calibrate",
+                    "setR0",
+                    "serialDebug",
+                    "setADC",
+                    "readSensor",
+                    "serialDebug"
+                ]
+            }
+        ]
+    },
+    "LinearVsExponential.ino": {
+        "LinearVsExponential.ino": [
+            {
+                "functionality": "Demonstrates the use of an MQ4 sensor to read PPM concentration using linear and exponential equations, calibrating the sensor initially and updating measurements in the loop",
+                "API": [
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "init",
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "readSensor"
+                ]
+            }
+        ]
+    },
+    "MQ-131.ino": {
+        "MQ-131.ino": [
+            {
+                "functionality": "The sketch reads ozone (O3) concentration using an MQ-131 sensor, calibrates the sensor, and prints the PPM (parts per million) value to the serial port",
+                "API": [
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "serialDebug",
+                    "update",
+                    "readSensorR0Rs",
+                    "serialDebug"
+                ]
+            }
+        ]
+    },
+    "MQ-135.ino": {
+        "MQ-135.ino": [
+            {
+                "functionality": "Demonstrates the use of the MQ135 sensor by setting up the sensor, calibrating it, reading PPM concentration, and printing the results to the serial port",
+                "API": [
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "serialDebug",
+                    "update",
+                    "readSensor",
+                    "serialDebug"
+                ]
+            }
+        ]
+    },
+    "MQ-135-ALL.ino": {
+        "MQ-135-ALL.ino": [
+            {
+                "functionality": "reads various gases concentrations using the MQ135 sensor and prints the values to the serial port",
+                "API": [
+                    "setRegressionMethod",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "update",
+                    "setA",
+                    "setB",
+                    "readSensor",
+                    "setA",
+                    "setB",
+                    "readSensor",
+                    "setA",
+                    "setB",
+                    "readSensor",
+                    "setA",
+                    "setB",
+                    "readSensor",
+                    "setA",
+                    "setB",
+                    "readSensor",
+                    "setA",
+                    "setB",
+                    "readSensor"
+                ]
+            }
+        ]
+    },
+    "MQ-135-CorrectionFactorDHT11.ino": {
+        "MQ-135-CorrectionFactorDHT11.ino": [
+            {
+                "functionality": "demonstrates the use of an MQ135 sensor with temperature and humidity correction to read gas concentrations",
+                "API": [
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "serialDebug",
+                    "readSensor",
+                    "serialDebug"
+                ]
+            }
+        ]
+    },
+    "MQ-136.ino": {
+        "MQ-136.ino": [
+            {
+                "functionality": "Measures gas concentration using the MQ136 sensor and prints the value to the serial port",
+                "API": [
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "serialDebug",
+                    "update",
+                    "readSensor",
+                    "serialDebug"
+                ]
+            }
+        ]
+    },
+    "MQ-2.ino": {
+        "MQ-2.ino": [
+            {
+                "functionality": "reads gas concentration data using an MQ2 sensor and prints the value to the serial port",
+                "API": [
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "serialDebug",
+                    "update",
+                    "readSensor",
+                    "serialDebug"
+                ]
+            }
+        ]
+    },
+    "MQ-3.ino": {
+        "MQ-3.ino": [
+            {
+                "functionality": "reads data from an MQ3 sensor, calibrates it, and prints PPM concentration to the serial port",
+                "API": [
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "serialDebug",
+                    "update",
+                    "readSensor",
+                    "serialDebug"
+                ]
+            }
+        ]
+    },
+    "MQ-303A.ino": {
+        "MQ-303A.ino": [
+            {
+                "functionality": "demonstrates the use of an MQ303 sensor to read gas concentration levels, calibrate the sensor, and print the values to the serial port",
+                "API": [
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "serialDebug",
+                    "update",
+                    "readSensor",
+                    "serialDebug"
+                ]
+            }
+        ]
+    },
+    "MQ-309A.ino": {
+        "MQ-309A.ino": [
+            {
+                "functionality": "Demonstrates the use of an MQ309 sensor to measure gas concentrations.",
+                "API": [
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "serialDebug",
+                    "update",
+                    "readSensor",
+                    "serialDebug",
+                    "update",
+                    "readSensor",
+                    "serialDebug"
+                ]
+            }
+        ]
+    },
+    "MQ-4.ino": {
+        "MQ-4.ino": [
+            {
+                "functionality": "demonstrates the use of an MQ4 sensor to read gas concentration values and print them to the serial port",
+                "API": [
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "serialDebug",
+                    "update",
+                    "readSensor",
+                    "serialDebug"
+                ]
+            }
+        ]
+    },
+    "MQ-4-ALL.ino": {
+        "MQ-4-ALL.ino": [
+            {
+                "functionality": "reads gas sensor data and prints the values to the serial port",
+                "API": [
+                    "setRegressionMethod",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "update",
+                    "setA",
+                    "setB",
+                    "readSensor",
+                    "setA",
+                    "setB",
+                    "readSensor",
+                    "setA",
+                    "setB",
+                    "readSensor",
+                    "setA",
+                    "setB",
+                    "readSensor",
+                    "setA",
+                    "setB",
+                    "readSensor"
+                ]
+            }
+        ]
+    },
+    "MQ-4-LINEAR.ino": {
+        "MQ-4-LINEAR.ino": [
+            {
+                "functionality": "demonstrates the use of an MQ-4 sensor to read LPG concentration and print the values to the serial port",
+                "API": [
+                    "begin",
+                    "setRegressionMethod",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "update",
+                    "setA",
+                    "setB",
+                    "readSensor"
+                ]
+            }
+        ]
+    },
+    "MQ-5.ino": {
+        "MQ-5.ino": [
+            {
+                "functionality": "reads gas concentration from an MQ5 sensor and prints values to the serial port",
+                "API": [
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "serialDebug",
+                    "update",
+                    "readSensor",
+                    "serialDebug"
+                ]
+            }
+        ]
+    },
+    "MQ-6.ino": {
+        "MQ-6.ino": [
+            {
+                "functionality": "demonstrates the use of an MQ6 sensor to read and display gas concentration values",
+                "API": [
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "serialDebug",
+                    "update",
+                    "readSensor",
+                    "serialDebug"
+                ]
+            }
+        ]
+    },
+    "MQ-7.ino": {
+        "MQ-7.ino": [
+            {
+                "functionality": "reads CO concentration, calibrates the sensor, and prints the values to the serial port",
+                "API": [
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "serialDebug",
+                    "update",
+                    "readSensor",
+                    "serialDebug",
+                    "update",
+                    "readSensor",
+                    "serialDebug"
+                ]
+            }
+        ]
+    },
+    "MQ-8.ino": {
+        "MQ-8.ino": [
+            {
+                "functionality": "demonstrates the use of an MQ8 sensor to read and display gas concentration (in PPM) using the MQUnifiedsensor library",
+                "API": [
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "serialDebug",
+                    "update",
+                    "readSensor",
+                    "serialDebug"
+                ]
+            }
+        ]
+    },
+    "MQ-9.ino": {
+        "MQ-9.ino": [
+            {
+                "functionality": "reads gas concentration data from the MQ9 sensor and prints the value to the serial port",
+                "API": [
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "serialDebug",
+                    "update",
+                    "readSensor",
+                    "serialDebug"
+                ]
+            }
+        ]
+    },
+    "MQ-9-ALL.ino": {
+        "MQ-9-ALL.ino": [
+            {
+                "functionality": "demonstrates the use of an MQ9 sensor to read and print gas concentration values for LPG, CH4, and CO continuously",
+                "API": [
+                    "setRegressionMethod",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "update",
+                    "setA",
+                    "setB",
+                    "readSensor",
+                    "setA",
+                    "setB",
+                    "readSensor",
+                    "setA",
+                    "setB",
+                    "readSensor"
+                ]
+            }
+        ]
+    },
+    "MQ-Board.ino": {
+        "MQ-Board.ino": [
+            {
+                "functionality": "calibrates and reads data from MQ2 to MQ9 sensors, prints the values to the serial port",
+                "API": [
+                    "init",
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "setR0",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "update",
+                    "readSensor"
+                ]
+            }
+        ]
+    },
+    "MQ135-ADS1115.ino": {
+        "MQ135-ADS1115.ino": [
+            {
+                "functionality": "Demonstrates the use of an MQ135 sensor for reading gas concentrations and prints the values to the serial port",
+                "API": [
+                    "setRegressionMethod",
+                    "init",
+                    "externalADCUpdate",
+                    "calibrate",
+                    "setR0",
+                    "externalADCUpdate",
+                    "setA",
+                    "setB",
+                    "readSensor",
+                    "setA",
+                    "setB",
+                    "readSensor",
+                    "setA",
+                    "setB",
+                    "readSensor",
+                    "setA",
+                    "setB",
+                    "readSensor",
+                    "setA",
+                    "setB",
+                    "readSensor",
+                    "setA",
+                    "setB",
+                    "readSensor"
+                ]
+            }
+        ]
+    },
+    "smokeDetector.ino": {
+        "smokeDetector.ino": [
+            {
+                "functionality": "demonstrates the use of an MQ2 sensor to detect smoke and measure its concentration",
+                "API": [
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "init",
+                    "update",
+                    "calibrate",
+                    "setR0",
+                    "serialDebug",
+                    "update",
+                    "readSensor",
+                    "serialDebug"
+                ]
+            }
+        ]
+    },
+    "UnitTesting.ino": {
+        "UnitTesting.ino": [
+            {
+                "functionality": "testing and calibrating various MQ sensors, specifically focusing on the MQ2 sensor using the MQUnifiedsensor library",
+                "API": [
+                    "getVoltage",
+                    "setRegressionMethod",
+                    "setA",
+                    "setB",
+                    "init",
+                    "setR0",
+                    "setRsR0RatioGetPPM"
+                ]
+            }
+        ]
+    }
+}

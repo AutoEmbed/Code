@@ -1,0 +1,40 @@
+{
+    "Ballvalve.h": [
+        {
+            "name": "getLastDuration",
+            "description": "Get the last operation duration.",
+            "parameters": [
+                "const char*"
+            ],
+            "return_type": "int"
+        },
+        {
+            "name": "getMaxTravelTime",
+            "description": "Get the maximum travel time.",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "getValvePosition",
+            "description": "Get the current valve position.",
+            "parameters": [],
+            "return_type": "const char*"
+        },
+        {
+            "name": "setMaxTraveltime",
+            "description": "Set the maximum travel time.",
+            "parameters": [
+                "int"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setValvePosition",
+            "description": "Set the valve position.",
+            "parameters": [
+                "const char*"
+            ],
+            "return_type": "const char*"
+        }
+    ]
+}

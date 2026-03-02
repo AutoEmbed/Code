@@ -1,0 +1,44 @@
+{
+    "PIR.h": [
+        {
+            "name": "add",
+            "description": "adds a pin to the set",
+            "parameters": [
+                "uint8_t pin"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "count",
+            "description": "returns number of PIR sensors added",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "read",
+            "description": "read all PIR sensors in the set",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "lastValue",
+            "description": "returns last values read with read()",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "changed",
+            "description": "returns bit mask of changed pins",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "read",
+            "description": "read a specific PIR sensor",
+            "parameters": [
+                "uint8_t index"
+            ],
+            "return_type": "uint8_t"
+        }
+    ]
+}

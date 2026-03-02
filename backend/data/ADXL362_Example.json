@@ -1,0 +1,209 @@
+{
+    "ADXL362.h": [
+        {
+            "name": "begin",
+            "description": "Start communication",
+            "parameters": [
+                "int16_t chipSelectPin = 10"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ADXL362.h>",
+                "parameter usage": "xl.begin(10);",
+                "return value handling": "No return value handling needed."
+            }
+        },
+        {
+            "name": "beginMeasure",
+            "description": "Start measurement mode",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after begin()",
+                "parameter usage": "xl.beginMeasure();",
+                "return value handling": "No return value handling needed."
+            }
+        },
+        {
+            "name": "readXData",
+            "description": "Read X-axis data",
+            "parameters": [],
+            "return_type": "int16_t",
+            "practices": {
+                "API order": "Call after beginMeasure()",
+                "parameter usage": "int16_t x = xl.readXData();",
+                "return value handling": "Store returned value in int16_t."
+            }
+        },
+        {
+            "name": "readYData",
+            "description": "Read Y-axis data",
+            "parameters": [],
+            "return_type": "int16_t",
+            "practices": {
+                "API order": "Call after beginMeasure()",
+                "parameter usage": "int16_t y = xl.readYData();",
+                "return value handling": "Store returned value in int16_t."
+            }
+        },
+        {
+            "name": "readZData",
+            "description": "Read Z-axis data",
+            "parameters": [],
+            "return_type": "int16_t",
+            "practices": {
+                "API order": "Call after beginMeasure()",
+                "parameter usage": "int16_t z = xl.readZData();",
+                "return value handling": "Store returned value in int16_t."
+            }
+        },
+        {
+            "name": "readXYZTData",
+            "description": "Read X, Y, Z, and temperature data",
+            "parameters": [
+                "int16_t &XData",
+                "int16_t &YData",
+                "int16_t &ZData",
+                "int16_t &Temperature"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after beginMeasure()",
+                "parameter usage": "xl.readXYZTData(XValue, YValue, ZValue, Temperature);",
+                "return value handling": "No return value handling needed."
+            }
+        },
+        {
+            "name": "readTemp",
+            "description": "Read temperature data",
+            "parameters": [],
+            "return_type": "int16_t",
+            "practices": {
+                "API order": "Call after beginMeasure()",
+                "parameter usage": "int16_t temp = xl.readTemp();",
+                "return value handling": "Store returned value in int16_t."
+            }
+        },
+        {
+            "name": "setupDCActivityInterrupt",
+            "description": "Configure DC activity interrupt",
+            "parameters": [
+                "int16_t threshold",
+                "byte time"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after begin()",
+                "parameter usage": "xl.setupDCActivityInterrupt(300, 10);",
+                "return value handling": "No return value handling needed."
+            }
+        },
+        {
+            "name": "setupDCInactivityInterrupt",
+            "description": "Configure DC inactivity interrupt",
+            "parameters": [
+                "int16_t threshold",
+                "int16_t time"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after begin()",
+                "parameter usage": "xl.setupDCInactivityInterrupt(80, 200);",
+                "return value handling": "No return value handling needed."
+            }
+        },
+        {
+            "name": "setupACActivityInterrupt",
+            "description": "Configure AC activity interrupt",
+            "parameters": [
+                "int16_t threshold",
+                "byte time"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after begin()",
+                "parameter usage": "xl.setupACActivityInterrupt(300, 10);",
+                "return value handling": "No return value handling needed."
+            }
+        },
+        {
+            "name": "setupACInactivityInterrupt",
+            "description": "Configure AC inactivity interrupt",
+            "parameters": [
+                "int16_t threshold",
+                "int16_t time"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ADXL362.h>",
+                "parameter usage": "xl.setupACInactivityInterrupt(100, 50);",
+                "return value handling": "void"
+            }
+        },
+        {
+            "name": "checkAllControlRegs",
+            "description": "Verify control registers",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ADXL362.h>",
+                "parameter usage": "xl.checkAllControlRegs();",
+                "return value handling": "void"
+            }
+        },
+        {
+            "name": "SPIreadOneRegister",
+            "description": "Read single SPI register",
+            "parameters": [
+                "byte regAddress"
+            ],
+            "return_type": "byte",
+            "practices": {
+                "API order": "#include <ADXL362.h>",
+                "parameter usage": "byte value = xl.SPIreadOneRegister(0x20);",
+                "return value handling": "Handle byte value appropriately"
+            }
+        },
+        {
+            "name": "SPIwriteOneRegister",
+            "description": "Write to single SPI register",
+            "parameters": [
+                "byte regAddress",
+                "byte regValue"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ADXL362.h>",
+                "parameter usage": "xl.SPIwriteOneRegister(0x20, 0x05);",
+                "return value handling": "void"
+            }
+        },
+        {
+            "name": "SPIreadTwoRegisters",
+            "description": "Read two SPI registers",
+            "parameters": [
+                "byte regAddress"
+            ],
+            "return_type": "int16_t",
+            "practices": {
+                "API order": "#include <ADXL362.h>",
+                "parameter usage": "int16_t value = xl.SPIreadTwoRegisters(0x20);",
+                "return value handling": "Handle int16_t value appropriately"
+            }
+        },
+        {
+            "name": "SPIwriteTwoRegisters",
+            "description": "Write to two SPI registers",
+            "parameters": [
+                "byte regAddress",
+                "int16_t twoRegValue"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ADXL362.h>",
+                "parameter usage": "xl.SPIwriteTwoRegisters(0x20, 0x1234);",
+                "return value handling": "void"
+            }
+        }
+    ]
+}

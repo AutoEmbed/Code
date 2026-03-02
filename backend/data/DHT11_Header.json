@@ -1,0 +1,41 @@
+{
+    "DHT11.h": [
+        {
+            "name": "setDelay",
+            "description": "Sets the delay between sensor readings.",
+            "parameters": [
+                "unsigned long delay"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "readHumidity",
+            "description": "Reads and returns the humidity.",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "readTemperature",
+            "description": "Reads and returns the temperature.",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "readTemperatureHumidity",
+            "description": "Reads and returns temperature and humidity.",
+            "parameters": [
+                "int &temperature",
+                "int &humidity"
+            ],
+            "return_type": "int"
+        },
+        {
+            "name": "getErrorString",
+            "description": "Returns a string describing the error.",
+            "parameters": [
+                "int errorCode"
+            ],
+            "return_type": "String"
+        }
+    ]
+}

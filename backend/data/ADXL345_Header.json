@@ -1,0 +1,88 @@
+{
+    "ADXL345.h": [
+        {
+            "name": "start",
+            "description": "Initializes the device.",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "stop",
+            "description": "Stops the device.",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "readDeviceID",
+            "description": "Reads the device ID.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "update",
+            "description": "Updates sensor data.",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "getX",
+            "description": "Gets X-axis acceleration.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getY",
+            "description": "Gets Y-axis acceleration.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getZ",
+            "description": "Gets Z-axis acceleration.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getRawX",
+            "description": "Gets raw X-axis data.",
+            "parameters": [],
+            "return_type": "int16_t"
+        },
+        {
+            "name": "getRawY",
+            "description": "Gets raw Y-axis data.",
+            "parameters": [],
+            "return_type": "int16_t"
+        },
+        {
+            "name": "getRawZ",
+            "description": "Gets raw Z-axis data.",
+            "parameters": [],
+            "return_type": "int16_t"
+        },
+        {
+            "name": "writeRate",
+            "description": "Writes data rate.",
+            "parameters": [
+                "uint8_t rate"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "writeRateWithLowPower",
+            "description": "Writes data rate with low power.",
+            "parameters": [
+                "uint8_t rate"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "writeRange",
+            "description": "Writes measurement range.",
+            "parameters": [
+                "uint8_t range"
+            ],
+            "return_type": "bool"
+        }
+    ]
+}

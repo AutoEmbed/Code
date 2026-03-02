@@ -1,0 +1,19 @@
+{
+    "example.ino": {
+        "example.ino": [
+            {
+                "functionality": "measures color and light intensity values using the TCS34725 sensor and prints them to the serial port",
+                "API": [
+                    "attach",
+                    "integrationTime",
+                    "gain",
+                    "available",
+                    "color",
+                    "colorTemperature",
+                    "lux",
+                    "raw"
+                ]
+            }
+        ]
+    }
+}

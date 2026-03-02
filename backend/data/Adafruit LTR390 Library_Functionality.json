@@ -1,0 +1,22 @@
+{
+    "ltr390_test.ino": {
+        "ltr390_test.ino": [
+            {
+                "functionality": "initializes the LTR390 sensor, configures its settings, and reads UV data printing to the serial port",
+                "API": [
+                    "begin",
+                    "setMode",
+                    "getMode",
+                    "setGain",
+                    "getGain",
+                    "setResolution",
+                    "getResolution",
+                    "setThresholds",
+                    "configInterrupt",
+                    "newDataAvailable",
+                    "readUVS"
+                ]
+            }
+        ]
+    }
+}

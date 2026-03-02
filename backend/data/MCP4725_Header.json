@@ -1,0 +1,144 @@
+{
+    "MCP4725.h": [
+        {
+            "name": "begin",
+            "description": "Initializes the library.",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "isConnected",
+            "description": "Checks if the device is connected.",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "getAddress",
+            "description": "Returns the I2C address.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setValue",
+            "description": "Sets DAC value.",
+            "parameters": [
+                "const uint16_t value = 0"
+            ],
+            "return_type": "int"
+        },
+        {
+            "name": "getValue",
+            "description": "Gets last set value.",
+            "parameters": [],
+            "return_type": "uint16_t"
+        },
+        {
+            "name": "setPercentage",
+            "description": "Sets value as a percentage.",
+            "parameters": [
+                "float percentage = 0"
+            ],
+            "return_type": "int"
+        },
+        {
+            "name": "getPercentage",
+            "description": "Gets the set percentage.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "setMaxVoltage",
+            "description": "Sets maximum voltage.",
+            "parameters": [
+                "float v = 5.0"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getMaxVoltage",
+            "description": "Gets maximum voltage.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "setVoltage",
+            "description": "Sets voltage.",
+            "parameters": [
+                "float v"
+            ],
+            "return_type": "int"
+        },
+        {
+            "name": "getVoltage",
+            "description": "Gets set voltage.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "writeDAC",
+            "description": "Writes value to DAC and optionally EEPROM.",
+            "parameters": [
+                "const uint16_t value",
+                "const bool EEPROM = false"
+            ],
+            "return_type": "int"
+        },
+        {
+            "name": "ready",
+            "description": "Checks if EEPROM write is done.",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "readDAC",
+            "description": "Reads value from DAC.",
+            "parameters": [],
+            "return_type": "uint16_t"
+        },
+        {
+            "name": "readEEPROM",
+            "description": "Reads value from EEPROM.",
+            "parameters": [],
+            "return_type": "uint16_t"
+        },
+        {
+            "name": "getLastWriteEEPROM",
+            "description": "Gets timestamp of last EEPROM write.",
+            "parameters": [],
+            "return_type": "uint32_t"
+        },
+        {
+            "name": "writePowerDownMode",
+            "description": "Writes power-down mode.",
+            "parameters": [
+                "const uint8_t PDM",
+                "const bool EEPROM = false"
+            ],
+            "return_type": "int"
+        },
+        {
+            "name": "readPowerDownModeEEPROM",
+            "description": "Reads power-down mode from EEPROM.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "readPowerDownModeDAC",
+            "description": "Reads power-down mode from DAC.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "powerOnReset",
+            "description": "Resets the device.",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "powerOnWakeUp",
+            "description": "Wakes up the device.",
+            "parameters": [],
+            "return_type": "int"
+        }
+    ]
+}

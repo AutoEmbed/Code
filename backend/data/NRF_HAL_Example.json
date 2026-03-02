@@ -1,0 +1,845 @@
+{
+    "nrf_hal.h": [
+        {
+            "name": "hal_nrf_set_cs_pin",
+            "description": "Set chip select pin.",
+            "parameters": [
+                "int cs"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>; Initialize CS pin.",
+                "parameter usage": "hal_nrf_set_cs_pin(CS_PIN);",
+                "return value handling": "Not applicable for void return."
+            }
+        },
+        {
+            "name": "hal_nrf_set_operation_mode",
+            "description": "Set operation mode.",
+            "parameters": [
+                "hal_nrf_operation_mode_t op_mode"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>; Initialize module.",
+                "parameter usage": "hal_nrf_set_operation_mode(HAL_NRF_PRX);",
+                "return value handling": "Not applicable for void return."
+            }
+        },
+        {
+            "name": "hal_nrf_get_operation_mode",
+            "description": "Get current operation mode.",
+            "parameters": [],
+            "return_type": "hal_nrf_operation_mode_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>; Initialize module.",
+                "parameter usage": "hal_nrf_operation_mode_t mode = hal_nrf_get_operation_mode();",
+                "return value handling": "Check for valid mode value."
+            }
+        },
+        {
+            "name": "hal_nrf_activate_features",
+            "description": "Activate features.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>; Initialize module.",
+                "parameter usage": "hal_nrf_activate_features();",
+                "return value handling": "Not applicable for void return."
+            }
+        },
+        {
+            "name": "hal_nrf_enable_dynamic_payload",
+            "description": "Enable or disable dynamic payload.",
+            "parameters": [
+                "bool enable"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>; Initialize module.",
+                "parameter usage": "hal_nrf_enable_dynamic_payload(true);",
+                "return value handling": "Not applicable for void return."
+            }
+        },
+        {
+            "name": "hal_nrf_is_dynamic_payload_enabled",
+            "description": "Check if dynamic payload is enabled.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <nrf_hal.h>; Initialize module.",
+                "parameter usage": "bool enabled = hal_nrf_is_dynamic_payload_enabled();",
+                "return value handling": "Check if dynamic payload is enabled."
+            }
+        },
+        {
+            "name": "hal_nrf_enable_ack_payload",
+            "description": "Enable or disable ACK payload.",
+            "parameters": [
+                "bool enable"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>; Initialize module.",
+                "parameter usage": "hal_nrf_enable_ack_payload(false);",
+                "return value handling": "Not applicable for void return."
+            }
+        },
+        {
+            "name": "hal_nrf_is_ack_payload_enabled",
+            "description": "Check if ACK payload is enabled.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <nrf_hal.h>; Initialize module.",
+                "parameter usage": "bool enabled = hal_nrf_is_ack_payload_enabled();",
+                "return value handling": "Check if ACK payload is enabled."
+            }
+        },
+        {
+            "name": "hal_nrf_enable_dynamic_ack",
+            "description": "Enable or disable dynamic ACK.",
+            "parameters": [
+                "bool enable"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>; Initialize module.",
+                "parameter usage": "hal_nrf_enable_dynamic_ack(true);",
+                "return value handling": "Not applicable for void return."
+            }
+        },
+        {
+            "name": "hal_nrf_is_dynamic_ack_enabled",
+            "description": "Check if dynamic ACK is enabled.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <nrf_hal.h>; Initialize module.",
+                "parameter usage": "bool enabled = hal_nrf_is_dynamic_ack_enabled();",
+                "return value handling": "Check if dynamic ACK is enabled."
+            }
+        },
+        {
+            "name": "hal_nrf_setup_dynamic_payload",
+            "description": "Setup dynamic payload.",
+            "parameters": [
+                "uint8_t setup"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_setup_dynamic_payload(0x01);",
+                "return value handling": "Not applicable, void return."
+            }
+        },
+        {
+            "name": "hal_nrf_write_ack_payload",
+            "description": "Write ACK payload.",
+            "parameters": [
+                "uint8_t pipe",
+                "const uint8_t *tx_pload",
+                "uint8_t length"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_write_ack_payload(1, data, len);",
+                "return value handling": "Not applicable, void return."
+            }
+        },
+        {
+            "name": "hal_nrf_set_rf_channel",
+            "description": "Set RF channel.",
+            "parameters": [
+                "uint8_t channel"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_set_rf_channel(20);",
+                "return value handling": "Not applicable, void return."
+            }
+        },
+        {
+            "name": "hal_nrf_get_rf_channel",
+            "description": "Get RF channel.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "uint8_t ch = hal_nrf_get_rf_channel();",
+                "return value handling": "Check return for current channel."
+            }
+        },
+        {
+            "name": "hal_nrf_set_output_power",
+            "description": "Set output power.",
+            "parameters": [
+                "hal_nrf_output_power_t power"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_set_output_power(HAL_NRF_0DBM);",
+                "return value handling": "Not applicable, void return."
+            }
+        },
+        {
+            "name": "hal_nrf_get_output_power",
+            "description": "Get output power.",
+            "parameters": [],
+            "return_type": "hal_nrf_output_power_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_output_power_t pow = hal_nrf_get_output_power();",
+                "return value handling": "Check return for power setting."
+            }
+        },
+        {
+            "name": "hal_nrf_set_datarate",
+            "description": "Set data rate.",
+            "parameters": [
+                "hal_nrf_datarate_t datarate"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_set_datarate(HAL_NRF_1MBPS);",
+                "return value handling": "Not applicable, void return."
+            }
+        },
+        {
+            "name": "hal_nrf_get_datarate",
+            "description": "Get data rate.",
+            "parameters": [],
+            "return_type": "hal_nrf_datarate_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_datarate_t rate = hal_nrf_get_datarate();",
+                "return value handling": "Check return for data rate."
+            }
+        },
+        {
+            "name": "hal_nrf_set_crc_mode",
+            "description": "Set CRC mode.",
+            "parameters": [
+                "hal_nrf_crc_mode_t crc_mode"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_set_crc_mode(HAL_NRF_CRC_16BIT);",
+                "return value handling": "Not applicable, void return."
+            }
+        },
+        {
+            "name": "hal_nrf_get_crc_mode",
+            "description": "Get CRC mode.",
+            "parameters": [],
+            "return_type": "hal_nrf_crc_mode_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_crc_mode_t crc = hal_nrf_get_crc_mode();",
+                "return value handling": "Check return for CRC mode."
+            }
+        },
+        {
+            "name": "hal_nrf_set_auto_retr",
+            "description": "Set auto retransmission.",
+            "parameters": [
+                "uint8_t retr",
+                "uint16_t delay"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>; call after init.",
+                "parameter usage": "hal_nrf_set_auto_retr(3, 500);",
+                "return value handling": "void: no actions needed."
+            }
+        },
+        {
+            "name": "hal_nrf_get_auto_retr_ctr",
+            "description": "Get auto retransmission count.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "auto ret_count = hal_nrf_get_auto_retr_ctr();",
+                "return value handling": "Check if within expected range."
+            }
+        },
+        {
+            "name": "hal_nrf_get_auto_retr_delay",
+            "description": "Get auto retransmission delay.",
+            "parameters": [],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "auto ret_delay = hal_nrf_get_auto_retr_delay();",
+                "return value handling": "Check if within expected range."
+            }
+        },
+        {
+            "name": "hal_nrf_set_rx_payload_width",
+            "description": "Set RX payload width.",
+            "parameters": [
+                "uint8_t pipe_num",
+                "uint8_t pload_width"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>; call after init.",
+                "parameter usage": "hal_nrf_set_rx_payload_width(0, 32);",
+                "return value handling": "void: no actions needed."
+            }
+        },
+        {
+            "name": "hal_nrf_get_rx_payload_width",
+            "description": "Get RX payload width.",
+            "parameters": [
+                "uint8_t pipe_num"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "auto width = hal_nrf_get_rx_payload_width(0);",
+                "return value handling": "Ensure width is expected."
+            }
+        },
+        {
+            "name": "hal_nrf_open_pipe",
+            "description": "Open RX or TX pipe.",
+            "parameters": [
+                "hal_nrf_address_t pipe_num",
+                "bool auto_ack"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>; call after init.",
+                "parameter usage": "hal_nrf_open_pipe(0, true);",
+                "return value handling": "void: no actions needed."
+            }
+        },
+        {
+            "name": "hal_nrf_close_pipe",
+            "description": "Close RX or TX pipe.",
+            "parameters": [
+                "hal_nrf_address_t pipe_num"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>; call after init.",
+                "parameter usage": "hal_nrf_close_pipe(0);",
+                "return value handling": "void: no actions needed."
+            }
+        },
+        {
+            "name": "hal_nrf_get_pipe_status",
+            "description": "Get pipe status.",
+            "parameters": [
+                "uint8_t pipe_num"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "auto status = hal_nrf_get_pipe_status(0);",
+                "return value handling": "Check status value."
+            }
+        },
+        {
+            "name": "hal_nrf_set_address_width",
+            "description": "Set address width.",
+            "parameters": [
+                "hal_nrf_address_width_t address_width"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>; call after init.",
+                "parameter usage": "hal_nrf_set_address_width(HAL_NRF_AW_5BYTES);",
+                "return value handling": "void: no actions needed."
+            }
+        },
+        {
+            "name": "hal_nrf_get_address_width",
+            "description": "Get address width.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "auto aw = hal_nrf_get_address_width();",
+                "return value handling": "Check if correct width."
+            }
+        },
+        {
+            "name": "hal_nrf_set_address",
+            "description": "Set address.",
+            "parameters": [
+                "const hal_nrf_address_t address",
+                "const uint8_t *addr"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_set_address(HAL_NRF_PIPE0, addr);",
+                "return value handling": "void"
+            }
+        },
+        {
+            "name": "hal_nrf_get_address",
+            "description": "Get address.",
+            "parameters": [
+                "uint8_t address",
+                "uint8_t *addr"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_get_address(HAL_NRF_PIPE0, addr);",
+                "return value handling": "Use returned uint8_t value"
+            }
+        },
+        {
+            "name": "hal_nrf_config_rx_pipe",
+            "description": "Config RX pipe.",
+            "parameters": [
+                "hal_nrf_address_t pipe_num",
+                "const uint8_t *addr",
+                "bool auto_ack",
+                "uint8_t pload_width"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_config_rx_pipe(HAL_NRF_PIPE0, addr, true, NRF_MAX_PL);",
+                "return value handling": "void"
+            }
+        },
+        {
+            "name": "hal_nrf_config_tx",
+            "description": "Config TX settings.",
+            "parameters": [
+                "const uint8_t *addr",
+                "hal_nrf_output_power_t power",
+                "uint8_t retr",
+                "uint16_t delay"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_config_tx(addr, HAL_NRF_0DBM, 3, 500);",
+                "return value handling": "void"
+            }
+        },
+        {
+            "name": "hal_nrf_set_irq_mode",
+            "description": "Set IRQ mode.",
+            "parameters": [
+                "hal_nrf_irq_source_t int_source",
+                "bool irq_state"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_set_irq_mode(HAL_NRF_RX_DR, true);",
+                "return value handling": "void"
+            }
+        },
+        {
+            "name": "hal_nrf_get_irq_mode",
+            "description": "Get IRQ mode.",
+            "parameters": [
+                "hal_nrf_irq_source_t int_source"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "bool irq_mode = hal_nrf_get_irq_mode(HAL_NRF_RX_DR);",
+                "return value handling": "Check bool value"
+            }
+        },
+        {
+            "name": "hal_nrf_get_irq_flags",
+            "description": "Get IRQ flags.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "uint8_t irq_flags = hal_nrf_get_irq_flags();",
+                "return value handling": "Use returned uint8_t value"
+            }
+        },
+        {
+            "name": "hal_nrf_get_clear_irq_flags",
+            "description": "Clear and get IRQ flags.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "uint8_t irq_flags = hal_nrf_get_clear_irq_flags();",
+                "return value handling": "Use returned uint8_t value"
+            }
+        },
+        {
+            "name": "hal_nrf_clear_irq_flags_get_status",
+            "description": "Clear IRQ flags and return status.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "uint8_t status = hal_nrf_clear_irq_flags_get_status();",
+                "return value handling": "Use returned uint8_t value"
+            }
+        },
+        {
+            "name": "hal_nrf_clear_irq_flag",
+            "description": "Clear specific IRQ flag.",
+            "parameters": [
+                "hal_nrf_irq_source_t int_source"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_clear_irq_flag(HAL_NRF_RX_DR);",
+                "return value handling": "void"
+            }
+        },
+        {
+            "name": "hal_nrf_set_power_mode",
+            "description": "Set power mode.",
+            "parameters": [
+                "hal_nrf_pwr_mode_t pwr_mode"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_set_power_mode(HAL_NRF_PWR_UP);",
+                "return value handling": "Not applicable"
+            }
+        },
+        {
+            "name": "hal_nrf_get_power_mode",
+            "description": "Get power mode.",
+            "parameters": [],
+            "return_type": "hal_nrf_pwr_mode_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_pwr_mode_t mode = hal_nrf_get_power_mode();",
+                "return value handling": "Check mode value"
+            }
+        },
+        {
+            "name": "hal_nrf_get_tx_fifo_status",
+            "description": "Get TX FIFO status.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "uint8_t status = hal_nrf_get_tx_fifo_status();",
+                "return value handling": "Check status value"
+            }
+        },
+        {
+            "name": "hal_nrf_tx_fifo_empty",
+            "description": "Check if TX FIFO is empty.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "bool isEmpty = hal_nrf_tx_fifo_empty();",
+                "return value handling": "Check isEmpty flag"
+            }
+        },
+        {
+            "name": "hal_nrf_tx_fifo_full",
+            "description": "Check if TX FIFO is full.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "bool isFull = hal_nrf_tx_fifo_full();",
+                "return value handling": "Check isFull flag"
+            }
+        },
+        {
+            "name": "hal_nrf_get_rx_fifo_status",
+            "description": "Get RX FIFO status.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "uint8_t status = hal_nrf_get_rx_fifo_status();",
+                "return value handling": "Check status value"
+            }
+        },
+        {
+            "name": "hal_nrf_rx_fifo_empty",
+            "description": "Check if RX FIFO is empty.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "bool isEmpty = hal_nrf_rx_fifo_empty();",
+                "return value handling": "Check isEmpty flag"
+            }
+        },
+        {
+            "name": "hal_nrf_rx_fifo_full",
+            "description": "Check if RX FIFO is full.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "bool isFull = hal_nrf_rx_fifo_full();",
+                "return value handling": "Check isFull flag"
+            }
+        },
+        {
+            "name": "hal_nrf_get_fifo_status",
+            "description": "Get FIFO status.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "uint8_t status = hal_nrf_get_fifo_status();",
+                "return value handling": "Check status value"
+            }
+        },
+        {
+            "name": "hal_nrf_get_auto_retr_status",
+            "description": "Get auto retransmission status.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "uint8_t status = hal_nrf_get_auto_retr_status();",
+                "return value handling": "Check status value"
+            }
+        },
+        {
+            "name": "hal_nrf_get_transmit_attempts",
+            "description": "Get transmit attempts.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "uint8_t attempts = hal_nrf_get_transmit_attempts();",
+                "return value handling": "Check if attempts > 0"
+            }
+        },
+        {
+            "name": "hal_nrf_get_packet_lost_ctr",
+            "description": "Get packet loss counter.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "uint8_t lost = hal_nrf_get_packet_lost_ctr();",
+                "return value handling": "Monitor lost in system"
+            }
+        },
+        {
+            "name": "hal_nrf_get_carrier_detect",
+            "description": "Get carrier detect status.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "bool detected = hal_nrf_get_carrier_detect();",
+                "return value handling": "Use detected to debug"
+            }
+        },
+        {
+            "name": "hal_nrf_get_rx_data_source",
+            "description": "Get RX data source.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "uint8_t source = hal_nrf_get_rx_data_source();",
+                "return value handling": "Handle different sources"
+            }
+        },
+        {
+            "name": "hal_nrf_read_rx_payload_width",
+            "description": "Read RX payload width.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "uint8_t width = hal_nrf_read_rx_payload_width();",
+                "return value handling": "Store and use width"
+            }
+        },
+        {
+            "name": "hal_nrf_read_rx_payload",
+            "description": "Read RX payload.",
+            "parameters": [
+                "uint8_t *rx_pload"
+            ],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_read_rx_payload(payload_buffer);",
+                "return value handling": "Validate payload read"
+            }
+        },
+        {
+            "name": "hal_nrf_write_tx_payload",
+            "description": "Write TX payload.",
+            "parameters": [
+                "const uint8_t *tx_pload",
+                "uint8_t length"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_write_tx_payload(data, length);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "hal_nrf_write_tx_payload_noack",
+            "description": "Write TX payload without ACK.",
+            "parameters": [
+                "const uint8_t *tx_pload",
+                "uint8_t length"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_write_tx_payload_noack(data, length);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "hal_nrf_get_reuse_tx_status",
+            "description": "Check if TX reuse is active.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "bool status = hal_nrf_get_reuse_tx_status();",
+                "return value handling": "Check if status true"
+            }
+        },
+        {
+            "name": "hal_nrf_reuse_tx",
+            "description": "Reuse last transmitted payload.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_reuse_tx();",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "hal_nrf_flush_rx",
+            "description": "Flush RX FIFO.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "call directly",
+                "return value handling": "void, no handling needed"
+            }
+        },
+        {
+            "name": "hal_nrf_flush_tx",
+            "description": "Flush TX FIFO.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "call directly",
+                "return value handling": "void, no handling needed"
+            }
+        },
+        {
+            "name": "hal_nrf_nop",
+            "description": "No operation command.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "uint8_t result = hal_nrf_nop();",
+                "return value handling": "check result"
+            }
+        },
+        {
+            "name": "hal_nrf_set_pll_mode",
+            "description": "Set PLL mode.",
+            "parameters": [
+                "bool pll_lock"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_set_pll_mode(true);",
+                "return value handling": "void, no handling needed"
+            }
+        },
+        {
+            "name": "hal_nrf_get_pll_mode",
+            "description": "Get PLL mode.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "bool pll_mode = hal_nrf_get_pll_mode();",
+                "return value handling": "use boolean result"
+            }
+        },
+        {
+            "name": "hal_nrf_enable_continious_wave",
+            "description": "Enable or disable continuous wave.",
+            "parameters": [
+                "bool enable"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_enable_continious_wave(true);",
+                "return value handling": "void, no handling needed"
+            }
+        },
+        {
+            "name": "hal_nrf_is_continious_wave_enabled",
+            "description": "Check if continuous wave is enabled.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "bool enabled = hal_nrf_is_continious_wave_enabled();",
+                "return value handling": "use boolean result"
+            }
+        },
+        {
+            "name": "hal_nrf_save_ctx",
+            "description": "Save context.",
+            "parameters": [
+                "hal_nrf_ctx_t *p_ctx"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "hal_nrf_save_ctx(&ctx);",
+                "return value handling": "void, no handling needed"
+            }
+        },
+        {
+            "name": "hal_nrf_read_reg",
+            "description": "Read register.",
+            "parameters": [
+                "uint8_t reg"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <nrf_hal.h>",
+                "parameter usage": "uint8_t value = hal_nrf_read_reg(0x01);",
+                "return value handling": "check value"
+            }
+        }
+    ]
+}

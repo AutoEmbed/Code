@@ -1,0 +1,14 @@
+{
+    "Temp_lm35.ino": {
+        "Temp_lm35.ino": [
+            {
+                "functionality": "reads temperature data from the LM35 sensor and prints the values in Celsius, Fahrenheit, and Kelvin to the serial port",
+                "API": [
+                    "cel",
+                    "fah",
+                    "kel"
+                ]
+            }
+        ]
+    }
+}

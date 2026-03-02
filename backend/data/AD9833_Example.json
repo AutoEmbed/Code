@@ -1,0 +1,342 @@
+{
+    "AD9833.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the device.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"AD9833.h\", call AD.begin() in setup()",
+                "parameter usage": "AD.begin(); // No parameters needed",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "reset",
+            "description": "Reset the device.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"AD9833.h\", after AD.begin()",
+                "parameter usage": "AD.reset();",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "hardwareReset",
+            "description": "Perform a hardware reset.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"AD9833.h\", call after AD.begin()",
+                "parameter usage": "AD.hardwareReset();",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "setPowerMode",
+            "description": "Set power mode.",
+            "parameters": [
+                "uint8_t mode = 0"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"AD9833.h\", set after AD.begin()",
+                "parameter usage": "AD.setPowerMode(1);",
+                "return value handling": "Check boolean return value"
+            }
+        },
+        {
+            "name": "getPowerMode",
+            "description": "Get current power mode.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"AD9833.h\", after AD.begin()",
+                "parameter usage": "uint8_t mode = AD.getPowerMode();",
+                "return value handling": "Store in uint8_t variable"
+            }
+        },
+        {
+            "name": "setWave",
+            "description": "Set waveform type.",
+            "parameters": [
+                "uint8_t waveform = AD9833_OFF"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"AD9833.h\", call after AD.begin()",
+                "parameter usage": "AD.setWave(AD9833_SINE);",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "getWave",
+            "description": "Get current waveform.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"AD9833.h\", call after AD.setWave()",
+                "parameter usage": "uint8_t wave = AD.getWave();",
+                "return value handling": "Store in uint8_t variable"
+            }
+        },
+        {
+            "name": "setFrequency",
+            "description": "Set frequency for given channel.",
+            "parameters": [
+                "float frequency",
+                "uint8_t channel = 0"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"AD9833.h\", call after AD.begin()",
+                "parameter usage": "AD.setFrequency(1000.0, 0);",
+                "return value handling": "Check float return value"
+            }
+        },
+        {
+            "name": "getFrequency",
+            "description": "Get frequency for a channel.",
+            "parameters": [
+                "uint8_t channel = 0"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"AD9833.h\", call after AD.setFrequency()",
+                "parameter usage": "float freq = AD.getFrequency(0);",
+                "return value handling": "Store in float variable"
+            }
+        },
+        {
+            "name": "getMaxFrequency",
+            "description": "Get maximum frequency.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"AD9833.h\", call after AD.begin()",
+                "parameter usage": "float maxFreq = AD.getMaxFrequency();",
+                "return value handling": "Store in float variable"
+            }
+        },
+        {
+            "name": "setFrequencyChannel",
+            "description": "Set frequency channel.",
+            "parameters": [
+                "uint8_t channel"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"AD9833.h\"\nAD.begin()",
+                "parameter usage": "AD.setFrequencyChannel(0);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setPhase",
+            "description": "Set phase for given channel (degrees).",
+            "parameters": [
+                "float phase",
+                "uint8_t channel = 0"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"AD9833.h\"\nAD.begin()",
+                "parameter usage": "AD.setPhase(90.0, 0);",
+                "return value handling": "phase = AD.setPhase(...)"
+            }
+        },
+        {
+            "name": "getPhase",
+            "description": "Get phase for a channel (degrees).",
+            "parameters": [
+                "uint8_t channel = 0"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"AD9833.h\"\nAD.begin()",
+                "parameter usage": "AD.getPhase(0);",
+                "return value handling": "float phase = AD.getPhase(0);"
+            }
+        },
+        {
+            "name": "getMaxPhase",
+            "description": "Get maximum phase.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"AD9833.h\"\nAD.begin()",
+                "parameter usage": "AD.getMaxPhase();",
+                "return value handling": "float maxPhase = AD.getMaxPhase();"
+            }
+        },
+        {
+            "name": "setPhaseChannel",
+            "description": "Set phase channel.",
+            "parameters": [
+                "uint8_t channel"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"AD9833.h\"\nAD.begin()",
+                "parameter usage": "AD.setPhaseChannel(0);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setPhaseRadians",
+            "description": "Set phase for given channel (radians).",
+            "parameters": [
+                "float phase",
+                "uint8_t channel = 0"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"AD9833.h\"\nAD.begin()",
+                "parameter usage": "AD.setPhaseRadians(3.14, 0);",
+                "return value handling": "phase = AD.setPhaseRadians(...)"
+            }
+        },
+        {
+            "name": "getPhaseRadians",
+            "description": "Get phase for a channel (radians).",
+            "parameters": [
+                "uint8_t channel = 0"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"AD9833.h\"\nAD.begin()",
+                "parameter usage": "AD.getPhaseRadians(0);",
+                "return value handling": "float phase = AD.getPhaseRadians(0);"
+            }
+        },
+        {
+            "name": "setSPIspeed",
+            "description": "Set SPI communication speed in Hz.",
+            "parameters": [
+                "uint32_t speed"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"AD9833.h\"\nAD.begin()",
+                "parameter usage": "AD.setSPIspeed(1000000);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getSPIspeed",
+            "description": "Get current SPI speed in Hz.",
+            "parameters": [],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "#include \"AD9833.h\"\nAD.begin()",
+                "parameter usage": "AD.getSPIspeed();",
+                "return value handling": "uint32_t speed = AD.getSPIspeed();"
+            }
+        },
+        {
+            "name": "usesHWSPI",
+            "description": "Check if hardware SPI is in use.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"AD9833.h\"\nAD.begin()",
+                "parameter usage": "AD.usesHWSPI();",
+                "return value handling": "bool hwSPI = AD.usesHWSPI();"
+            }
+        },
+        {
+            "name": "writeControlRegister",
+            "description": "Write to control register.",
+            "parameters": [
+                "uint16_t value"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"AD9833.h\", AD.begin()",
+                "parameter usage": "writeControlRegister(0x2000);",
+                "return value handling": "None"
+            }
+        },
+        {
+            "name": "writeFrequencyRegister",
+            "description": "Write to frequency register.",
+            "parameters": [
+                "uint8_t channel",
+                "uint32_t freq"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"AD9833.h\", AD.begin()",
+                "parameter usage": "writeFrequencyRegister(0, 1000);",
+                "return value handling": "None"
+            }
+        },
+        {
+            "name": "writePhaseRegister",
+            "description": "Write to phase register.",
+            "parameters": [
+                "uint8_t channel",
+                "uint16_t value"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"AD9833.h\", AD.begin()",
+                "parameter usage": "writePhaseRegister(0, 0xC000);",
+                "return value handling": "None"
+            }
+        },
+        {
+            "name": "setCrystalFrequency",
+            "description": "Set crystal frequency.",
+            "parameters": [
+                "float crystalFrequency = 25000000"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"AD9833.h\", AD.begin()",
+                "parameter usage": "setCrystalFrequency(25000000);",
+                "return value handling": "None"
+            }
+        },
+        {
+            "name": "getCrystalFrequency",
+            "description": "Get crystal frequency.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"AD9833.h\", AD.begin()",
+                "parameter usage": "float freq = getCrystalFrequency();",
+                "return value handling": "check freq usage"
+            }
+        },
+        {
+            "name": "writeFrequencyRegisterLSB",
+            "description": "Write LSB to frequency register.",
+            "parameters": [
+                "uint8_t channel",
+                "uint16_t LSB"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"AD9833.h\", AD.begin()",
+                "parameter usage": "writeFrequencyRegisterLSB(0, 0xACDC);",
+                "return value handling": "None"
+            }
+        },
+        {
+            "name": "writeFrequencyRegisterMSB",
+            "description": "Write MSB to frequency register.",
+            "parameters": [
+                "uint8_t channel",
+                "uint16_t MSB"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"AD9833.h\", AD.begin()",
+                "parameter usage": "writeFrequencyRegisterMSB(0, 0x1234);",
+                "return value handling": "None"
+            }
+        }
+    ]
+}

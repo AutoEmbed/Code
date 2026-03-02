@@ -1,0 +1,54 @@
+{
+    "Adafruit_HMC5883_U.h": [
+        {
+            "name": "begin",
+            "description": "Checks sensor connection",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <Adafruit_HMC5883_U.h>",
+                "parameter usage": "if (mag.begin()) {...}",
+                "return value handling": "Check return for true"
+            }
+        },
+        {
+            "name": "setMagGain",
+            "description": "Sets the magnetometer gain",
+            "parameters": [
+                "hmc5883MagGain gain"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Wire.h>",
+                "parameter usage": "mag.setMagGain(HMC5883_MAGGAIN_1_3);",
+                "return value handling": "Void, no check needed"
+            }
+        },
+        {
+            "name": "getEvent",
+            "description": "Fetches the latest sensor event",
+            "parameters": [
+                "sensors_event_t *"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <Adafruit_Sensor.h>",
+                "parameter usage": "sensors_event_t event; mag.getEvent(&event);",
+                "return value handling": "Check return for true"
+            }
+        },
+        {
+            "name": "getSensor",
+            "description": "Gets sensor details",
+            "parameters": [
+                "sensor_t *"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Adafruit_HMC5883_U.h>",
+                "parameter usage": "sensor_t sensor; mag.getSensor(&sensor);",
+                "return value handling": "Void, no check needed"
+            }
+        }
+    ]
+}

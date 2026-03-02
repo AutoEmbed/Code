@@ -1,0 +1,262 @@
+{
+    "Freenove_WS2812B_RGBLED_Controller.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the controller",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"Freenove_WS2812B_RGBLED_Controller.h\"",
+                "parameter usage": "while (!strip.begin());",
+                "return value handling": "Check if initialization succeeded"
+            }
+        },
+        {
+            "name": "setLedCount",
+            "description": "Set the number of LEDs",
+            "parameters": [
+                "u16 n"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call before setting LEDs",
+                "parameter usage": "strip.setLedCount(LEDS_COUNT);",
+                "return value handling": "Verify the return value"
+            }
+        },
+        {
+            "name": "setLedType",
+            "description": "Set the type of LEDs",
+            "parameters": [
+                "LED_TYPE t"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Configure LED type after count",
+                "parameter usage": "strip.setLedType(TYPE_GRB);",
+                "return value handling": "None needed"
+            }
+        },
+        {
+            "name": "setLedColorData",
+            "description": "Set LED color with data",
+            "parameters": [
+                "u8 index",
+                "u32 rgb"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Ensure begin() is called",
+                "parameter usage": "strip.setLedColorData(0, 0xFFFFFF);",
+                "return value handling": "Confirm color setting"
+            }
+        },
+        {
+            "name": "setLedColorData",
+            "description": "Set LED color with RGB values",
+            "parameters": [
+                "u8 index",
+                "u8 r",
+                "u8 g",
+                "u8 b"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Ensure begin() is called",
+                "parameter usage": "strip.setLedColorData(0, 255, 0, 0);",
+                "return value handling": "Check the return status"
+            }
+        },
+        {
+            "name": "setLedColor",
+            "description": "Set LED color",
+            "parameters": [
+                "u8 index",
+                "u32 rgb"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Use after initialization",
+                "parameter usage": "strip.setLedColor(0, 0xFFFFFF);",
+                "return value handling": "Validate the success flag"
+            }
+        },
+        {
+            "name": "setLedColor",
+            "description": "Set LED color with RGB",
+            "parameters": [
+                "u8 index",
+                "u8 r",
+                "u8 g",
+                "u8 b"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Use after initialization",
+                "parameter usage": "strip.setLedColor(0, 255, 0, 0);",
+                "return value handling": "Check if the color was set"
+            }
+        },
+        {
+            "name": "setAllLedsColorData",
+            "description": "Set all LEDs color with data",
+            "parameters": [
+                "u32 rgb"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Initialize first",
+                "parameter usage": "strip.setAllLedsColorData(0xFFFFFF);",
+                "return value handling": "Ensure method success"
+            }
+        },
+        {
+            "name": "setAllLedsColorData",
+            "description": "Set all LEDs color with RGB",
+            "parameters": [
+                "u8 r",
+                "u8 g",
+                "u8 b"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Initialize first",
+                "parameter usage": "strip.setAllLedsColorData(255, 0, 0);",
+                "return value handling": "Verify the return status"
+            }
+        },
+        {
+            "name": "setAllLedsColor",
+            "description": "Set all LEDs color",
+            "parameters": [
+                "u32 rgb"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Initialize first",
+                "parameter usage": "strip.setAllLedsColor(0xFFFFFF);",
+                "return value handling": "Check if all LEDs updated"
+            }
+        },
+        {
+            "name": "setAllLedsColor",
+            "description": "Set all LEDs color with RGB",
+            "parameters": [
+                "u8 r",
+                "u8 g",
+                "u8 b"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"Freenove_WS2812B_RGBLED_Controller.h\"\nwhile (!strip.begin());",
+                "parameter usage": "strip.setAllLedsColor(255, 0, 0);",
+                "return value handling": "bool success = strip.setAllLedsColor(255, 0, 0);"
+            }
+        },
+        {
+            "name": "show",
+            "description": "Update LED to show color",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call after setting LED colors.",
+                "parameter usage": "strip.show();",
+                "return value handling": "bool success = strip.show();"
+            }
+        },
+        {
+            "name": "getLedsCountFromController",
+            "description": "Get number of LEDs",
+            "parameters": [],
+            "return_type": "u8",
+            "practices": {
+                "API order": "Initialize strip before calling.",
+                "parameter usage": "u8 count = strip.getLedsCountFromController();",
+                "return value handling": "u8 count = strip.getLedsCountFromController();"
+            }
+        },
+        {
+            "name": "getI2CAddress",
+            "description": "Get the I2C address",
+            "parameters": [],
+            "return_type": "u8",
+            "practices": {
+                "API order": "Initialize strip before calling.",
+                "parameter usage": "u8 address = strip.getI2CAddress();",
+                "return value handling": "u8 address = strip.getI2CAddress();"
+            }
+        },
+        {
+            "name": "getUartBaudrate",
+            "description": "Get UART baud rate",
+            "parameters": [],
+            "return_type": "u32",
+            "practices": {
+                "API order": "Initialize strip before calling.",
+                "parameter usage": "u32 baudrate = strip.getUartBaudrate();",
+                "return value handling": "u32 baudrate = strip.getUartBaudrate();"
+            }
+        },
+        {
+            "name": "setUartBaudrate",
+            "description": "Set UART baud rate",
+            "parameters": [
+                "u32 _baudrate"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Initialize strip before calling.",
+                "parameter usage": "strip.setUartBaudrate(115200);",
+                "return value handling": "bool success = strip.setUartBaudrate(115200);"
+            }
+        },
+        {
+            "name": "setI2CNewAddress",
+            "description": "Set new I2C address",
+            "parameters": [
+                "u8 addr"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Initialize strip before calling.",
+                "parameter usage": "strip.setI2CNewAddress(0x21);",
+                "return value handling": "bool success = strip.setI2CNewAddress(0x21);"
+            }
+        },
+        {
+            "name": "getBrand",
+            "description": "Get the brand name",
+            "parameters": [],
+            "return_type": "String",
+            "practices": {
+                "API order": "Initialize strip before calling.",
+                "parameter usage": "String brand = strip.getBrand();",
+                "return value handling": "String brand = strip.getBrand();"
+            }
+        },
+        {
+            "name": "getFirmwareVersion",
+            "description": "Get firmware version",
+            "parameters": [],
+            "return_type": "String",
+            "practices": {
+                "API order": "Initialize strip before calling.",
+                "parameter usage": "String version = strip.getFirmwareVersion();",
+                "return value handling": "String version = strip.getFirmwareVersion();"
+            }
+        },
+        {
+            "name": "Wheel",
+            "description": "Generate color wheel",
+            "parameters": [
+                "byte pos"
+            ],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "Initialize strip before calling.",
+                "parameter usage": "uint32_t color = strip.Wheel(128);",
+                "return value handling": "uint32_t color = strip.Wheel(128);"
+            }
+        }
+    ]
+}
