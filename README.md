@@ -196,7 +196,7 @@ npm run build:mac    # macOS
 @inproceedings{yang2026autoembed,
   title={AutoEmbed: Towards Automated Software Development for Generic Embedded IoT Systems via LLMs},
   author={Yang, Huanqi and Li, Mingzhe and Han, Mingda and Li, Zhenjiang and Xu, Weitao},
-  booktitle={Proceedings of the 24th ACM Conference on Embedded Networked Sensor Systems (SenSys)},
+  booktitle={Proceedings of the ACM International Conference on Embedded Artificial Intelligence and Sensing Systems (SenSys)},
   year={2026}
 }
 ```
