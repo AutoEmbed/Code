@@ -1,111 +1,88 @@
+<div align="center">
+
 # AutoEmbed
 
 **Towards Automated Software Development for Generic Embedded IoT Systems via LLMs**
 
-AutoEmbed is the first fully automated software development platform for general-purpose embedded IoT systems. It leverages LLMs and embedded system expertise to automate the entire hardware-in-the-loop development process — from natural language task descriptions to verified, deployed code on real hardware.
+The first fully automated software development platform for general-purpose embedded IoT systems — from natural language to verified code on real hardware.
 
-> **Huanqi Yang**, Mingzhe Li, Mingda Han, Zhenjiang Li, Weitao Xu
->
-> City University of Hong Kong  |  Shandong University
->
-> **ACM SenSys 2026** &nbsp; · &nbsp; [Paper](https://autoembed.github.io) &nbsp; · &nbsp; [Website](https://autoembed.github.io) &nbsp; · &nbsp; [Release](https://github.com/AutoEmbed/AutoEmbed/releases)
+[![SenSys 2026](https://img.shields.io/badge/ACM%20SenSys-2026-blue)](https://autoembed.github.io)
+[![Paper](https://img.shields.io/badge/Paper-PDF-red)](https://autoembed.github.io)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS-green)](https://github.com/AutoEmbed/AutoEmbed/releases)
 
----
+[[Paper]](https://autoembed.github.io)&ensp;
+[[Website]](https://autoembed.github.io)&ensp;
+[[Download]](https://github.com/AutoEmbed/AutoEmbed/releases)&ensp;
+[[BibTeX]](#citation)
 
-## Key Results
+</div>
 
-| Metric | Value |
-|--------|-------|
-| Coding Accuracy | **95.7%** across 355 tasks |
-| End-to-End Success | **86.5%** (compile + flash + runtime verification) |
-| vs. GPT-4 (zero-shot) | **+23.7pp** (72.0% → 95.7%) |
-| vs. Claude (zero-shot) | **+27.7pp** (68.0% → 95.7%) |
-| vs. Gemini (zero-shot) | **+30.7pp** (65.0% → 95.7%) |
-| Hardware Modules Tested | **71** modules across 4 platforms |
-| Platforms | Arduino Uno (AVR), STM32 (ARM), RPi Pico (RP2040), ESP32 (Xtensa) |
+## Highlights
 
-## Features
+- **95.7% coding accuracy** across 355 embedded IoT tasks on 71 hardware modules and 4 platforms
+- **86.5% end-to-end success rate** including compilation, flashing, and runtime verification
+- **+23.7 pp over GPT-4**, +27.7 pp over Claude, +30.7 pp over Gemini in zero-shot comparison
+- **Zero API hallucination** — extracts real APIs from library source code instead of relying on LLM memory
+- **Any Arduino-compatible component** — dynamically discovers from 7,000+ Arduino libraries
 
-- **Natural Language → Deployed Code** — Describe what you want, get compiled and verified Arduino code running on real hardware
-- **71+ Hardware Modules** — Sensors, actuators, displays, communication modules — plus any Arduino-compatible component via dynamic library discovery from 7,000+ Arduino libraries
-- **4-Stage Automated Pipeline** — Library Solving → Knowledge Generation → Selective Memory Injection → Auto-Programming with nested feedback loops
-- **Zero API Hallucination** — Extracts real APIs from library source code instead of relying on LLM memory
-- **Nested Feedback Loops** — Inner loop (compile → fix → recompile) + Outer loop (flash → verify → recode) catches 73% of bugs before deployment
-- **Real-time Progress** — WebSocket-based live updates for each pipeline stage
-- **Built-in Code Editor** — Monaco editor for reviewing and editing generated code
-- **One-Click Compile & Upload** — Integrated Arduino CLI for seamless hardware deployment
-- **4 Platform Support** — Arduino Uno, STM32 Nucleo, Raspberry Pi Pico, ESP32
+## How It Works
 
-## Architecture
+AutoEmbed automates the full hardware-in-the-loop development cycle through a 4-stage pipeline:
 
 ```
-┌─────────────────────────────────────────────────────┐
-│                  Electron Desktop App                │
-│  ┌───────────────────────────────────────────────┐  │
-│  │              React + TypeScript                │  │
-│  │  Settings → TaskConfig → Pipeline → CodeView  │  │
-│  │     Ant Design 5  ·  Zustand  ·  Monaco       │  │
-│  └──────────────────────┬────────────────────────┘  │
-│                    REST / WebSocket                   │
-│  ┌──────────────────────┴────────────────────────┐  │
-│  │           Python FastAPI Backend               │  │
-│  │                                                │  │
-│  │  Stage 1: Library Solving                      │  │
-│  │    arduino-cli search → 3D scoring → install   │  │
-│  │                                                │  │
-│  │  Stage 2: Knowledge Generation                 │  │
-│  │    .h headers → API table                      │  │
-│  │    .ino examples → usage patterns              │  │
-│  │    LLM summary → knowledge base                │  │
-│  │                                                │  │
-│  │  Stage 3: Selective Memory Injection            │  │
-│  │    TF-IDF retrieval → relevant APIs only       │  │
-│  │    26.2% fewer tokens, higher accuracy         │  │
-│  │                                                │  │
-│  │  Stage 4: Auto-Programming                     │  │
-│  │    Generate → Compile → Flash → Verify         │  │
-│  │    (nested feedback loops)                     │  │
-│  │                                                │  │
-│  │       LLM API (OpenAI-compatible)              │  │
-│  │       Arduino CLI · Serial Port                │  │
-│  └───────────────────────────────────────────────┘  │
-└─────────────────────────────────────────────────────┘
+Natural Language Task
+        │
+        ▼
+┌──────────────────┐     ┌──────────────────┐     ┌──────────────────┐     ┌──────────────────┐
+│  Library Solving │ ──▶ │    Knowledge     │ ──▶ │    Selective     │ ──▶ │      Auto-       │
+│                  │     │   Generation     │     │ Memory Injection │     │   Programming    │
+│ arduino-cli      │     │ .h → API table   │     │ TF-IDF retrieval │     │ Generate code    │
+│ search + rank    │     │ .ino → patterns  │     │ relevant APIs    │     │ Compile → Fix    │
+│ auto-install     │     │ LLM summary      │     │ 26.2% fewer      │     │ Flash → Verify   │
+│                  │     │                  │     │ tokens           │     │ (nested loops)   │
+└──────────────────┘     └──────────────────┘     └──────────────────┘     └──────────────────┘
+                                                                                    │
+                                                                                    ▼
+                                                                          Verified Code on
+                                                                           Real Hardware
 ```
 
 ## Quick Start
 
 ### Download
 
-Download the latest installer from the [Releases](https://github.com/AutoEmbed/AutoEmbed/releases) page:
+Download the latest installer from [**Releases**](https://github.com/AutoEmbed/AutoEmbed/releases):
 
 | Platform | File |
 |----------|------|
-| Windows  | `AutoEmbed-Setup-x.x.x.exe` |
+| Windows | `AutoEmbed-Setup-x.x.x.exe` |
 | macOS (Apple Silicon) | `AutoEmbed-x.x.x-mac-arm64.zip` |
 | macOS (Intel) | `AutoEmbed-x.x.x-mac-x64.zip` |
 
-### Prerequisites
-
-- **Arduino CLI** — [Install guide](https://arduino.github.io/arduino-cli/installation/)
-- **USB Driver** — CH340 or CP2102, depending on your board
-- **LLM API Key** — Any OpenAI-compatible API (e.g., OpenAI, Azure, or third-party providers)
+> [!NOTE]
+> **Prerequisites:** [Arduino CLI](https://arduino.github.io/arduino-cli/installation/), USB driver (CH340/CP2102), and any [OpenAI-compatible API](https://platform.openai.com/) key.
 
 ### Setup
 
-1. Install and launch AutoEmbed
-2. Go to **Settings** and configure:
-   - LLM API Key, Base URL, and Model
-   - Arduino CLI path
-   - Serial port and board type
-3. Go to **Task Config**:
-   - Select your components (e.g., DHT11, Servo)
-   - Map pin connections
-   - Describe your task in natural language
-4. Click **Start Pipeline** and watch it work
+1. Launch AutoEmbed and go to **Settings** — configure LLM API key, Arduino CLI path, serial port, and board type
+2. Go to **Task Config** — select components, map pin connections, describe your task in natural language
+3. Click **Start Pipeline** and watch it work
 
-## Supported Hardware
+## Features
 
-**4 Development Platforms:**
+- **Natural Language → Deployed Code** — describe what you want, get compiled and verified Arduino code on real hardware
+- **71+ Hardware Modules** — sensors, actuators, displays, communication modules across 14 categories
+- **4-Stage Automated Pipeline** — Library Solving → Knowledge Generation → Selective Memory Injection → Auto-Programming
+- **Nested Feedback Loops** — inner loop (compile → fix → recompile) + outer loop (flash → verify → recode) catches 73% of bugs before deployment
+- **Real-time Progress** — WebSocket-based live updates for each pipeline stage
+- **Built-in Code Editor** — Monaco editor for reviewing and editing generated code
+- **One-Click Compile & Upload** — integrated Arduino CLI for seamless hardware deployment
+
+<details>
+<summary><b>Supported Hardware (71+ modules across 4 platforms)</b></summary>
+
+### Platforms
 
 | Platform | Architecture | Board |
 |----------|-------------|-------|
@@ -114,7 +91,7 @@ Download the latest installer from the [Releases](https://github.com/AutoEmbed/A
 | Raspberry Pi Pico | RP2040 | Dual-core ARM |
 | ESP32 | Xtensa | Dual-core LX6 |
 
-**71+ Hardware Modules** across categories:
+### Hardware Modules
 
 | Category | Examples |
 |----------|---------|
@@ -135,28 +112,55 @@ Download the latest installer from the [Releases](https://github.com/AutoEmbed/A
 
 > Any Arduino-compatible component works — AutoEmbed dynamically discovers libraries from the 7,000+ Arduino ecosystem and extracts APIs via LLM.
 
+</details>
+
+## Architecture
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    Electron Desktop App                  │
+│  ┌───────────────────────────────────────────────────┐  │
+│  │               React + TypeScript                  │  │
+│  │   Settings → TaskConfig → Pipeline → CodeView     │  │
+│  │      Ant Design 5  ·  Zustand  ·  Monaco          │  │
+│  └────────────────────────┬──────────────────────────┘  │
+│                      REST / WebSocket                    │
+│  ┌────────────────────────┴──────────────────────────┐  │
+│  │             Python FastAPI Backend                 │  │
+│  │                                                    │  │
+│  │   Stage 1: Library Solving                         │  │
+│  │   Stage 2: Knowledge Generation                    │  │
+│  │   Stage 3: Selective Memory Injection               │  │
+│  │   Stage 4: Auto-Programming (nested feedback)      │  │
+│  │                                                    │  │
+│  │        LLM API (OpenAI-compatible)                 │  │
+│  │        Arduino CLI  ·  Serial Port                 │  │
+│  └────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────┘
+```
+
 ## Development
 
 ```bash
-# Clone
 git clone https://github.com/AutoEmbed/AutoEmbed.git
-cd Code
+cd AutoEmbed
 
-# Install frontend dependencies
+# Frontend
 npm install
 
-# Install backend dependencies
+# Backend
 pip install -r backend/requirements.txt
 
-# Run in development mode
+# Dev mode (Electron + Python backend)
 npm run dev
 
-# Build for distribution
+# Build
 npm run build:win    # Windows
 npm run build:mac    # macOS
 ```
 
-### Tech Stack
+<details>
+<summary><b>Tech Stack</b></summary>
 
 | Layer | Technology |
 |-------|-----------|
@@ -167,7 +171,10 @@ npm run build:mac    # macOS
 | Hardware | Arduino CLI, PySerial |
 | Build | electron-vite, electron-builder (NSIS / DMG) |
 
-## Project Structure
+</details>
+
+<details>
+<summary><b>Project Structure</b></summary>
 
 ```
 ├── src/
@@ -190,7 +197,11 @@ npm run build:mac    # macOS
 └── scripts/            # Setup and packaging scripts
 ```
 
+</details>
+
 ## Citation
+
+If you find AutoEmbed useful, please cite our paper:
 
 ```bibtex
 @inproceedings{yang2026autoembed,
@@ -203,4 +214,4 @@ npm run build:mac    # macOS
 
 ## License
 
-[MIT](LICENSE)
+This project is licensed under the [MIT License](LICENSE).
