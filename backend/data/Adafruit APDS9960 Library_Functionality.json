@@ -1,0 +1,43 @@
+{
+    "color_sensor.ino": {
+        "color_sensor.ino": [
+            {
+                "functionality": "reads RGB and clear values from the sensor and prints the values to the serial port",
+                "API": [
+                    "begin",
+                    "enableColor",
+                    "colorDataReady",
+                    "getColorData"
+                ]
+            }
+        ]
+    },
+    "gesture_sensor.ino": {
+        "gesture_sensor.ino": [
+            {
+                "functionality": "detects gestures and prints directional arrows to the serial port based on hand movement",
+                "API": [
+                    "begin",
+                    "enableProximity",
+                    "enableGesture",
+                    "readGesture"
+                ]
+            }
+        ]
+    },
+    "proximity_sensor.ino": {
+        "proximity_sensor.ino": [
+            {
+                "functionality": "puts the Adafruit APDS9960 sensor in proximity mode, enables the interrupt for proximity threshold, reads proximity data, and prints the value to the serial port",
+                "API": [
+                    "begin",
+                    "enableProximity",
+                    "setProximityInterruptThreshold",
+                    "enableProximityInterrupt",
+                    "readProximity",
+                    "clearInterrupt"
+                ]
+            }
+        ]
+    }
+}

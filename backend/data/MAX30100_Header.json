@@ -1,0 +1,80 @@
+{
+    "MAX30100.h": [
+        {
+            "name": "setLEDs",
+            "description": "Sets the LED state",
+            "parameters": [
+                "pulseWidth pw",
+                "ledCurrent red",
+                "ledCurrent ir"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setSPO2",
+            "description": "Setup the SPO2 sensor",
+            "parameters": [
+                "sampleRate sr"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getNumSamp",
+            "description": "Get number of samples",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "readSensor",
+            "description": "Updates the values",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "shutdown",
+            "description": "Instructs device to power-save",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "reset",
+            "description": "Resets the device",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "startup",
+            "description": "Leaves power-save",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "getRevID",
+            "description": "Gets revision ID",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "getPartID",
+            "description": "Gets part ID",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "begin",
+            "description": "Initializes the device",
+            "parameters": [
+                "pulseWidth pw",
+                "ledCurrent ir",
+                "sampleRate sr"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "printRegisters",
+            "description": "Dumps contents of registers for debug",
+            "parameters": [],
+            "return_type": "void"
+        }
+    ]
+}

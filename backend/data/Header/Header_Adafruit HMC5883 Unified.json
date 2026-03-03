@@ -1,0 +1,34 @@
+{
+    "Adafruit_HMC5883_U.h": [
+        {
+            "name": "begin",
+            "description": "Checks sensor connection",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setMagGain",
+            "description": "Sets the magnetometer gain",
+            "parameters": [
+                "hmc5883MagGain gain"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getEvent",
+            "description": "Fetches the latest sensor event",
+            "parameters": [
+                "sensors_event_t *"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "getSensor",
+            "description": "Gets sensor details",
+            "parameters": [
+                "sensor_t *"
+            ],
+            "return_type": "void"
+        }
+    ]
+}

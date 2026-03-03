@@ -1,0 +1,248 @@
+{
+    "Adafruit_TCS34725.h": [
+        {
+            "name": "begin",
+            "description": "Initialize sensor with I2C address",
+            "parameters": [
+                "uint8_t addr",
+                "TwoWire *theWire"
+            ],
+            "return_type": "boolean",
+            "practices": {
+                "API order": "#include \"Adafruit_TCS34725.h\" before use",
+                "parameter usage": "tcs.begin(0x29, &Wire);",
+                "return value handling": "if (!tcs.begin()) { /* handle error */ }"
+            }
+        },
+        {
+            "name": "init",
+            "description": "Initialize hardware configuration",
+            "parameters": [],
+            "return_type": "boolean",
+            "practices": {
+                "API order": "#include \"Adafruit_TCS34725.h\" after begin",
+                "parameter usage": "tcs.init();",
+                "return value handling": "if (!tcs.init()) { /* handle error */ }"
+            }
+        },
+        {
+            "name": "setIntegrationTime",
+            "description": "Sets sensor integration time",
+            "parameters": [
+                "uint8_t it"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include after init",
+                "parameter usage": "tcs.setIntegrationTime(TCS34725_INTEGRATIONTIME_50MS);",
+                "return value handling": "void return type"
+            }
+        },
+        {
+            "name": "setGain",
+            "description": "Sets sensor gain",
+            "parameters": [
+                "tcs34725Gain_t gain"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include after init",
+                "parameter usage": "tcs.setGain(TCS34725_GAIN_4X);",
+                "return value handling": "void return type"
+            }
+        },
+        {
+            "name": "getRawData",
+            "description": "Gets the raw sensor data",
+            "parameters": [
+                "uint16_t *r",
+                "uint16_t *g",
+                "uint16_t *b",
+                "uint16_t *c"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include after setGain",
+                "parameter usage": "tcs.getRawData(&r, &g, &b, &c);",
+                "return value handling": "void return type"
+            }
+        },
+        {
+            "name": "getRGB",
+            "description": "Gets the RGB sensor data",
+            "parameters": [
+                "float *r",
+                "float *g",
+                "float *b"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include after setGain",
+                "parameter usage": "tcs.getRGB(&r, &g, &b);",
+                "return value handling": "void return type"
+            }
+        },
+        {
+            "name": "getRawDataOneShot",
+            "description": "Gets raw sensor data in one-shot mode",
+            "parameters": [
+                "uint16_t *r",
+                "uint16_t *g",
+                "uint16_t *b",
+                "uint16_t *c"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include after setGain",
+                "parameter usage": "tcs.getRawDataOneShot(&r, &g, &b, &c);",
+                "return value handling": "void return type"
+            }
+        },
+        {
+            "name": "calculateColorTemperature",
+            "description": "Calculates color temperature",
+            "parameters": [
+                "uint16_t r",
+                "uint16_t g",
+                "uint16_t b"
+            ],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include after getRawData",
+                "parameter usage": "uint16_t ct = tcs.calculateColorTemperature(r, g, b);",
+                "return value handling": "uint16_t ct; // use ct"
+            }
+        },
+        {
+            "name": "calculateColorTemperature_dn40",
+            "description": "Calculates color temperature with scaling",
+            "parameters": [
+                "uint16_t r",
+                "uint16_t g",
+                "uint16_t b",
+                "uint16_t c"
+            ],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include after getRawData",
+                "parameter usage": "uint16_t ct = tcs.calculateColorTemperature_dn40(r, g, b, c);",
+                "return value handling": "uint16_t ct; // use ct"
+            }
+        },
+        {
+            "name": "calculateLux",
+            "description": "Calculates luminance",
+            "parameters": [
+                "uint16_t r",
+                "uint16_t g",
+                "uint16_t b"
+            ],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include after getRawData",
+                "parameter usage": "uint16_t lux = tcs.calculateLux(r, g, b);",
+                "return value handling": "uint16_t lux; // use lux"
+            }
+        },
+        {
+            "name": "write8",
+            "description": "Writes 8-bit value to register",
+            "parameters": [
+                "uint8_t reg",
+                "uint8_t value"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"Adafruit_TCS34725.h\"",
+                "parameter usage": "tcs.write8(0x01, 0xFF);",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "read8",
+            "description": "Reads 8-bit value from register",
+            "parameters": [
+                "uint8_t reg"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"Adafruit_TCS34725.h\"",
+                "parameter usage": "uint8_t val = tcs.read8(0x01);",
+                "return value handling": "Check val validity"
+            }
+        },
+        {
+            "name": "read16",
+            "description": "Reads 16-bit value from register",
+            "parameters": [
+                "uint8_t reg"
+            ],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include \"Adafruit_TCS34725.h\"",
+                "parameter usage": "uint16_t val = tcs.read16(0x01);",
+                "return value handling": "Check val validity"
+            }
+        },
+        {
+            "name": "setInterrupt",
+            "description": "Enables or disables sensor interrupt",
+            "parameters": [
+                "boolean flag"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"Adafruit_TCS34725.h\"",
+                "parameter usage": "tcs.setInterrupt(true);",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "clearInterrupt",
+            "description": "Clears the interrupt",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"Adafruit_TCS34725.h\"",
+                "parameter usage": "tcs.clearInterrupt();",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "setIntLimits",
+            "description": "Sets limits for interrupt",
+            "parameters": [
+                "uint16_t l",
+                "uint16_t h"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"Adafruit_TCS34725.h\"",
+                "parameter usage": "tcs.setIntLimits(100, 200);",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "enable",
+            "description": "Enables the sensor",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"Adafruit_TCS34725.h\"",
+                "parameter usage": "tcs.enable();",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "disable",
+            "description": "Disables the sensor",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"Adafruit_TCS34725.h\"",
+                "parameter usage": "tcs.disable();",
+                "return value handling": "No return value"
+            }
+        }
+    ]
+}

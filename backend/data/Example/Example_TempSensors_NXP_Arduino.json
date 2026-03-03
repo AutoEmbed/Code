@@ -1,0 +1,500 @@
+{
+    "LM75B.h": [
+        {
+            "name": "initialize",
+            "description": "Initialize the LM75B temperature sensor",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call first to configure hardware.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "readTemperature",
+            "description": "Get the LM75B temperature reading",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after initialize.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Check for NaN to ensure read success."
+            }
+        },
+        {
+            "name": "getError",
+            "description": "Fetch error status",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "Call after a readTemperature call fails.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Interpret error code based on datasheet."
+            }
+        },
+        {
+            "name": "reset",
+            "description": "Reset sensor",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call when sensor misbehavior detected.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "No return value."
+            }
+        }
+    ],
+    "P3T1035.h": [
+        {
+            "name": "initSensor",
+            "description": "initialize the P3T1035 sensor",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call initSensor before others.",
+                "parameter usage": "No parameters.",
+                "return value handling": "Check return value to confirm initialization."
+            }
+        },
+        {
+            "name": "readTemperature",
+            "description": "get P3T1035 temperature reading",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after initSensor.",
+                "parameter usage": "No parameters.",
+                "return value handling": "Handle float return value properly."
+            }
+        },
+        {
+            "name": "setCalibration",
+            "description": "calibrate the P3T1035 sensor",
+            "parameters": [
+                "float offset"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after initSensor.",
+                "parameter usage": "Use accurate offset value.",
+                "return value handling": "No return value handling required."
+            }
+        },
+        {
+            "name": "getMaxTempRecorded",
+            "description": "max recorded temperature",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after initSensor.",
+                "parameter usage": "No parameters.",
+                "return value handling": "Handle float return value properly."
+            }
+        },
+        {
+            "name": "resetMaxTemp",
+            "description": "reset max temperature value",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after initSensor.",
+                "parameter usage": "No parameters.",
+                "return value handling": "No return value handling required."
+            }
+        }
+    ],
+    "P3T1085.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the P3T1085 sensor",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call first to initialize.",
+                "parameter usage": "No parameters required.",
+                "return value handling": "Check return value for success."
+            }
+        },
+        {
+            "name": "readTemperature",
+            "description": "Get current temperature",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after successful initialization.",
+                "parameter usage": "No parameters required.",
+                "return value handling": "Validate temperature range."
+            }
+        },
+        {
+            "name": "setCalibration",
+            "description": "Set calibration value",
+            "parameters": [
+                "float offset"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after initialization.",
+                "parameter usage": "Ensure correct float offset.",
+                "return value handling": "No return value to handle."
+            }
+        },
+        {
+            "name": "getCalibration",
+            "description": "Get calibration value",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after setCalibration.",
+                "parameter usage": "No parameters required.",
+                "return value handling": "Check if calibration is correct."
+            }
+        },
+        {
+            "name": "isConnected",
+            "description": "Check sensor connection",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call to verify connection.",
+                "parameter usage": "No parameters required.",
+                "return value handling": "Handle connection status."
+            }
+        }
+    ],
+    "P3T1755.h": [
+        {
+            "name": "begin",
+            "description": "initialize the P3T1755 sensor",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call first.",
+                "parameter usage": "No parameters.",
+                "return value handling": "Check return."
+            }
+        },
+        {
+            "name": "readTemperature",
+            "description": "get current temperature",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "After begin.",
+                "parameter usage": "No parameters.",
+                "return value handling": "Handle float."
+            }
+        },
+        {
+            "name": "readHumidity",
+            "description": "get current humidity",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "After begin.",
+                "parameter usage": "No parameters.",
+                "return value handling": "Handle float."
+            }
+        },
+        {
+            "name": "setResolution",
+            "description": "set sensor resolution",
+            "parameters": [
+                "int resolution"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "After begin.",
+                "parameter usage": "Check range.",
+                "return value handling": "Void."
+            }
+        },
+        {
+            "name": "getFirmwareVersion",
+            "description": "get firmware version",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "After begin.",
+                "parameter usage": "No parameters.",
+                "return value handling": "Use value."
+            }
+        }
+    ],
+    "P3T2030.h": [
+        {
+            "name": "begin",
+            "description": "initialize P3T2030 sensor",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call first before other functions",
+                "parameter usage": "No parameters needed",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "readTemperature",
+            "description": "get current temperature",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after begin()",
+                "parameter usage": "No parameters needed",
+                "return value handling": "Check if value is valid"
+            }
+        },
+        {
+            "name": "setUnit",
+            "description": "set temperature unit",
+            "parameters": [
+                "char unit"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after begin() to set unit",
+                "parameter usage": "Valid units: 'C', 'F'",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "getUnit",
+            "description": "retrieve temperature unit",
+            "parameters": [],
+            "return_type": "char",
+            "practices": {
+                "API order": "Can be called anytime after begin()",
+                "parameter usage": "No parameters needed",
+                "return value handling": "Verify returned unit"
+            }
+        },
+        {
+            "name": "calibrateSensor",
+            "description": "calibrate the sensor",
+            "parameters": [
+                "float referenceTemp"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after begin() as needed",
+                "parameter usage": "Ensure valid reference temperature",
+                "return value handling": "No return value"
+            }
+        }
+    ],
+    "TempSensor.h": [
+        {
+            "name": "read",
+            "description": "Get temperature value",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Place after setup.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Check for valid float."
+            }
+        },
+        {
+            "name": "temp",
+            "description": "Get temperature value",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Place after initialization.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Validate float result."
+            }
+        },
+        {
+            "name": "thresholds",
+            "description": "Set Tos and Thyst",
+            "parameters": [
+                "float v0",
+                "float v1"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after initialization.",
+                "parameter usage": "Use within sensor limits.",
+                "return value handling": "Not applicable."
+            }
+        },
+        {
+            "name": "os_mode",
+            "description": "Set OS operation mode",
+            "parameters": [
+                "mode flag"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Configure before reads.",
+                "parameter usage": "Use valid mode flag.",
+                "return value handling": "Not applicable."
+            }
+        },
+        {
+            "name": "ping",
+            "description": "Ping the device",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Use during setup.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Handle true/false."
+            }
+        },
+        {
+            "name": "reg_w",
+            "description": "Multiple register write",
+            "parameters": [
+                "uint8_t reg_adr",
+                "const uint8_t *data",
+                "uint16_t size"
+            ],
+            "return_type": "int",
+            "practices": {
+                "API order": "Depends on usage.",
+                "parameter usage": "Ensure correct address.",
+                "return value handling": "Check error codes."
+            }
+        },
+        {
+            "name": "reg_w",
+            "description": "Single register write",
+            "parameters": [
+                "uint8_t reg_adr",
+                "uint8_t data"
+            ],
+            "return_type": "int",
+            "practices": {
+                "API order": "Ensure proper sequence.",
+                "parameter usage": "Use accurate address.",
+                "return value handling": "Validate return code."
+            }
+        },
+        {
+            "name": "reg_r",
+            "description": "Multiple register read",
+            "parameters": [
+                "uint8_t reg_adr",
+                "uint8_t *data",
+                "uint16_t size"
+            ],
+            "return_type": "int",
+            "practices": {
+                "API order": "Call after write.",
+                "parameter usage": "Correct buffer allocation.",
+                "return value handling": "Check read status."
+            }
+        },
+        {
+            "name": "reg_r",
+            "description": "Single register read",
+            "parameters": [
+                "uint8_t reg_adr"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call after write.",
+                "parameter usage": "Provide valid address.",
+                "return value handling": "Utilize received data."
+            }
+        },
+        {
+            "name": "write_r8",
+            "description": "Register write, 8 bit",
+            "parameters": [
+                "uint8_t reg",
+                "uint8_t val"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Configure in setup.",
+                "parameter usage": "Correct register address.",
+                "return value handling": "Not applicable."
+            }
+        },
+        {
+            "name": "write_r16",
+            "description": "Register write, 16 bit",
+            "parameters": [
+                "uint8_t reg",
+                "uint16_t val"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Use after initialization.",
+                "parameter usage": "Ensure valid 16-bit register address.",
+                "return value handling": "Verify operation success."
+            }
+        },
+        {
+            "name": "read_r8",
+            "description": "Register read, 8 bit",
+            "parameters": [
+                "uint8_t reg"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Use after write operations.",
+                "parameter usage": "Ensure valid 8-bit register address.",
+                "return value handling": "Validate returned data."
+            }
+        },
+        {
+            "name": "read_r16",
+            "description": "Register read, 16 bit",
+            "parameters": [
+                "uint8_t reg"
+            ],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "Use after write operations.",
+                "parameter usage": "Ensure valid 16-bit register address.",
+                "return value handling": "Validate returned data."
+            }
+        },
+        {
+            "name": "bit_op8",
+            "description": "Register bit operation, 8 bit",
+            "parameters": [
+                "uint8_t reg",
+                "uint8_t mask",
+                "uint8_t value"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Use after initialization.",
+                "parameter usage": "Verify mask value.",
+                "return value handling": "Ensure operation success."
+            }
+        },
+        {
+            "name": "bit_op16",
+            "description": "Register bit operation, 16 bit",
+            "parameters": [
+                "uint8_t reg",
+                "uint16_t mask",
+                "uint16_t value"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Use after initialization.",
+                "parameter usage": "Verify mask value.",
+                "return value handling": "Ensure operation success."
+            }
+        },
+        {
+            "name": "clear",
+            "description": "Clear ALERT",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Use after error detection.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Check success via boolean."
+            }
+        }
+    ]
+}

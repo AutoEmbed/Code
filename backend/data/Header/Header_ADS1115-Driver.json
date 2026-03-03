@@ -1,0 +1,191 @@
+{
+    "ADS1115-Driver.h": [
+        {
+            "name": "reset",
+            "description": "Resets the device.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "readRegister",
+            "description": "Reads a register value.",
+            "parameters": [
+                "reg_addr_t dataAddress"
+            ],
+            "return_type": "reg_val_t"
+        },
+        {
+            "name": "writeRegister",
+            "description": "Writes a value to a register.",
+            "parameters": [
+                "reg_addr_t dataAddress",
+                "reg_val_t data"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "readRawValue",
+            "description": "Reads the raw measurement value.",
+            "parameters": [],
+            "return_type": "reg_val_t"
+        },
+        {
+            "name": "readConvertedValue",
+            "description": "Reads the converted value.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "startSingleConvertion",
+            "description": "Starts single conversion.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "getOperationalStatus",
+            "description": "Gets the operational status.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setMultiplexer",
+            "description": "Sets the multiplexer.",
+            "parameters": [
+                "uint8_t mux"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getMultiplexer",
+            "description": "Gets the multiplexer.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setPga",
+            "description": "Sets the PGA value.",
+            "parameters": [
+                "uint8_t pga"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getPga",
+            "description": "Gets the PGA value.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setDeviceMode",
+            "description": "Sets the device mode.",
+            "parameters": [
+                "uint8_t mode"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getDeviceMode",
+            "description": "Gets the device mode.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setDataRate",
+            "description": "Sets the data rate.",
+            "parameters": [
+                "uint8_t dataRate"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getDataRate",
+            "description": "Gets the data rate.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setComparatorMode",
+            "description": "Sets comparator mode.",
+            "parameters": [
+                "uint8_t mode"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getComparatorMode",
+            "description": "Gets comparator mode.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setComparatorPolarity",
+            "description": "Sets comparator polarity.",
+            "parameters": [
+                "uint8_t polarity"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getComparatorPolarity",
+            "description": "Gets comparator polarity.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setLatching",
+            "description": "Sets the latching state.",
+            "parameters": [
+                "bool latching"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "isLatching",
+            "description": "Checks if latching.",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setComparatorQueue",
+            "description": "Sets comparator queue.",
+            "parameters": [
+                "uint8_t queue"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getComparatorQueue",
+            "description": "Gets comparator queue.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setLowTreshold",
+            "description": "Sets low threshold.",
+            "parameters": [
+                "reg_val_t lowTreshold"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getLowTreshold",
+            "description": "Gets low threshold.",
+            "parameters": [],
+            "return_type": "reg_val_t"
+        },
+        {
+            "name": "setHighTreshold",
+            "description": "Sets high threshold.",
+            "parameters": [
+                "reg_val_t highTreshold"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getHighTreshold",
+            "description": "Gets high threshold.",
+            "parameters": [],
+            "return_type": "reg_val_t"
+        }
+    ]
+}

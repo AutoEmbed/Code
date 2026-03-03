@@ -1,0 +1,26 @@
+{
+    "Rainbow.ino": {
+        "Rainbow.ino": [
+            {
+                "functionality": "visualizes a rainbow pattern on a strip of WS2812B LEDs",
+                "API": [
+                    "begin",
+                    "setLedColorData",
+                    "Wheel",
+                    "show"
+                ]
+            }
+        ]
+    },
+    "RGBW.ino": {
+        "RGBW.ino": [
+            {
+                "functionality": "controls an array of WS2812 LEDs, cycling through predefined colors with delays",
+                "API": [
+                    "begin",
+                    "setLedColor"
+                ]
+            }
+        ]
+    }
+}

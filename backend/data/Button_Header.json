@@ -1,0 +1,40 @@
+{
+    "Button.h": [
+        {
+            "name": "begin",
+            "description": "initializes the button",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "read",
+            "description": "reads the button state",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "toggled",
+            "description": "checks if button state toggled",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "pressed",
+            "description": "checks if button is pressed",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "released",
+            "description": "checks if button is released",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "has_changed",
+            "description": "checks if button state changed",
+            "parameters": [],
+            "return_type": "bool"
+        }
+    ]
+}

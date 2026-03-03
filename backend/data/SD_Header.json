@@ -1,0 +1,803 @@
+{
+    "SD.h": [
+        {
+            "name": "write",
+            "description": "write single byte",
+            "parameters": [
+                "uint8_t"
+            ],
+            "return_type": "size_t"
+        },
+        {
+            "name": "write",
+            "description": "write buffer",
+            "parameters": [
+                "const uint8_t *buf",
+                "size_t size"
+            ],
+            "return_type": "size_t"
+        },
+        {
+            "name": "availableForWrite",
+            "description": "available bytes for writing",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "read",
+            "description": "read byte",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "peek",
+            "description": "peek byte",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "available",
+            "description": "available bytes to read",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "flush",
+            "description": "flush",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "read",
+            "description": "read buffer",
+            "parameters": [
+                "void *buf",
+                "uint16_t nbyte"
+            ],
+            "return_type": "int"
+        },
+        {
+            "name": "seek",
+            "description": "seek position",
+            "parameters": [
+                "uint32_t pos"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "position",
+            "description": "current position",
+            "parameters": [],
+            "return_type": "uint32_t"
+        },
+        {
+            "name": "size",
+            "description": "file size",
+            "parameters": [],
+            "return_type": "uint32_t"
+        },
+        {
+            "name": "close",
+            "description": "close file",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "operator bool",
+            "description": "check file validity",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "name",
+            "description": "get file name",
+            "parameters": [],
+            "return_type": "char*"
+        },
+        {
+            "name": "isDirectory",
+            "description": "is a directory",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "openNextFile",
+            "description": "open next file",
+            "parameters": [
+                "uint8_t mode = O_RDONLY"
+            ],
+            "return_type": "File"
+        },
+        {
+            "name": "rewindDirectory",
+            "description": "rewind directory",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "begin",
+            "description": "begin with csPin",
+            "parameters": [
+                "uint8_t csPin = SD_CHIP_SELECT_PIN"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "begin",
+            "description": "begin with clock and csPin",
+            "parameters": [
+                "uint32_t clock",
+                "uint8_t csPin"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "end",
+            "description": "end",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "open",
+            "description": "open file",
+            "parameters": [
+                "const char *filename",
+                "uint8_t mode = FILE_READ"
+            ],
+            "return_type": "File"
+        },
+        {
+            "name": "open",
+            "description": "open file",
+            "parameters": [
+                "const String &filename",
+                "uint8_t mode = FILE_READ"
+            ],
+            "return_type": "File"
+        },
+        {
+            "name": "exists",
+            "description": "file path exists",
+            "parameters": [
+                "const char *filepath"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "exists",
+            "description": "file path exists",
+            "parameters": [
+                "const String &filepath"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "mkdir",
+            "description": "make directory",
+            "parameters": [
+                "const char *filepath"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "mkdir",
+            "description": "make directory",
+            "parameters": [
+                "const String &filepath"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "remove",
+            "description": "remove file",
+            "parameters": [
+                "const char *filepath"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "remove",
+            "description": "remove file",
+            "parameters": [
+                "const String &filepath"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "rmdir",
+            "description": "remove directory",
+            "parameters": [
+                "const char *filepath"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "rmdir",
+            "description": "remove directory",
+            "parameters": [
+                "const String &filepath"
+            ],
+            "return_type": "bool"
+        }
+    ],
+    "FatStructs.h": [],
+    "Sd2Card.h": [
+        {
+            "name": "cardSize",
+            "description": "Get card size",
+            "parameters": [],
+            "return_type": "uint32_t"
+        },
+        {
+            "name": "erase",
+            "description": "Erase blocks",
+            "parameters": [
+                "uint32_t firstBlock",
+                "uint32_t lastBlock"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "eraseSingleBlockEnable",
+            "description": "Enable single block erase",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "errorCode",
+            "description": "Get last error code",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "errorData",
+            "description": "Get last error data",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "init",
+            "description": "Default initialization",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "init",
+            "description": "Initialize with clock rate",
+            "parameters": [
+                "uint8_t sckRateID"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "init",
+            "description": "Initialize with clock rate and pin",
+            "parameters": [
+                "uint8_t sckRateID",
+                "uint8_t chipSelectPin"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "partialBlockRead",
+            "description": "Set partial block read",
+            "parameters": [
+                "uint8_t value"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "partialBlockRead",
+            "description": "Get partial block read",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "readBlock",
+            "description": "Read block data",
+            "parameters": [
+                "uint32_t block",
+                "uint8_t* dst"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "readData",
+            "description": "Read data with offset",
+            "parameters": [
+                "uint32_t block",
+                "uint16_t offset",
+                "uint16_t count",
+                "uint8_t* dst"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "readCID",
+            "description": "Read CID register",
+            "parameters": [
+                "cid_t* cid"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "readCSD",
+            "description": "Read CSD register",
+            "parameters": [
+                "csd_t* csd"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "readEnd",
+            "description": "End read operation",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "setSckRate",
+            "description": "Set SCK rate",
+            "parameters": [
+                "uint8_t sckRateID"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "type",
+            "description": "Get card type",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "writeBlock",
+            "description": "Write to block",
+            "parameters": [
+                "uint32_t blockNumber",
+                "const uint8_t* src",
+                "uint8_t blocking"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "writeData",
+            "description": "Write data",
+            "parameters": [
+                "const uint8_t* src"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "writeStart",
+            "description": "Start write operation",
+            "parameters": [
+                "uint32_t blockNumber",
+                "uint32_t eraseCount"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "writeStop",
+            "description": "Stop write operation",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "isBusy",
+            "description": "Check if busy",
+            "parameters": [],
+            "return_type": "uint8_t"
+        }
+    ],
+    "Sd2PinMap.h": [
+        {
+            "name": "getPinMode",
+            "description": "Get pin mode",
+            "parameters": [
+                "uint8_t pin"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setPinMode",
+            "description": "Set pin mode",
+            "parameters": [
+                "uint8_t pin",
+                "uint8_t mode"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "fastDigitalRead",
+            "description": "Fast digital read",
+            "parameters": [
+                "uint8_t pin"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "fastDigitalWrite",
+            "description": "Fast digital write",
+            "parameters": [
+                "uint8_t pin",
+                "uint8_t value"
+            ],
+            "return_type": "void"
+        }
+    ],
+    "SdFat.h": [
+        {
+            "name": "close",
+            "description": "Close the file",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "contiguousRange",
+            "description": "Get contiguous range",
+            "parameters": [
+                "uint32_t* bgnBlock",
+                "uint32_t* endBlock"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "createContiguous",
+            "description": "Create contiguous file",
+            "parameters": [
+                "SdFile* dirFile",
+                "const char* fileName",
+                "uint32_t size"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "dateTimeCallback",
+            "description": "Set date/time callback",
+            "parameters": [
+                "void (*dateTime)(uint16_t* date, uint16_t* time)"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "dateTimeCallbackCancel",
+            "description": "Cancel date/time callback",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "dirEntry",
+            "description": "Get directory entry",
+            "parameters": [
+                "dir_t* dir"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "dirName",
+            "description": "Get directory name",
+            "parameters": [
+                "const dir_t& dir",
+                "char* name"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "ls",
+            "description": "List directory",
+            "parameters": [
+                "uint8_t flags",
+                "uint8_t indent"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "makeDir",
+            "description": "Make directory",
+            "parameters": [
+                "SdFile* dir",
+                "const char* dirName"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "open",
+            "description": "Open file",
+            "parameters": [
+                "SdFile* dirFile",
+                "uint16_t index",
+                "uint8_t oflag"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "openRoot",
+            "description": "Open root directory",
+            "parameters": [
+                "SdVolume* vol"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "printDirName",
+            "description": "Print directory name",
+            "parameters": [
+                "const dir_t& dir",
+                "uint8_t width"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "printFatDate",
+            "description": "Print FAT date",
+            "parameters": [
+                "uint16_t fatDate"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "printFatTime",
+            "description": "Print FAT time",
+            "parameters": [
+                "uint16_t fatTime"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "printTwoDigits",
+            "description": "Print two digits",
+            "parameters": [
+                "uint8_t v"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "read",
+            "description": "Read next byte",
+            "parameters": [],
+            "return_type": "int16_t"
+        },
+        {
+            "name": "read",
+            "description": "Read bytes into buffer",
+            "parameters": [
+                "void* buf",
+                "uint16_t nbyte"
+            ],
+            "return_type": "int16_t"
+        },
+        {
+            "name": "readDir",
+            "description": "Read next directory entry",
+            "parameters": [
+                "dir_t* dir"
+            ],
+            "return_type": "int8_t"
+        },
+        {
+            "name": "remove",
+            "description": "Remove file",
+            "parameters": [
+                "SdFile* dirFile",
+                "const char* fileName"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "rmDir",
+            "description": "Remove directory",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "rmRfStar",
+            "description": "Remove directory recursively",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "seekSet",
+            "description": "Set file position",
+            "parameters": [
+                "uint32_t pos"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setUnbufferedRead",
+            "description": "Enable unbuffered read",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "sync",
+            "description": "Sync file",
+            "parameters": [
+                "uint8_t blocking"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "timestamp",
+            "description": "Set file timestamp",
+            "parameters": [
+                "uint8_t flag",
+                "uint16_t year",
+                "uint8_t month",
+                "uint8_t day",
+                "uint8_t hour",
+                "uint8_t minute",
+                "uint8_t second"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "truncate",
+            "description": "Truncate file",
+            "parameters": [
+                "uint32_t size"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "write",
+            "description": "Write byte",
+            "parameters": [
+                "uint8_t b"
+            ],
+            "return_type": "size_t"
+        },
+        {
+            "name": "write",
+            "description": "Write buffer",
+            "parameters": [
+                "const void* buf",
+                "uint16_t nbyte"
+            ],
+            "return_type": "size_t"
+        },
+        {
+            "name": "write",
+            "description": "Write string",
+            "parameters": [
+                "const char* str"
+            ],
+            "return_type": "size_t"
+        },
+        {
+            "name": "write_P",
+            "description": "Write string from PROGMEM",
+            "parameters": [
+                "PGM_P str"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "writeln_P",
+            "description": "Write line from PROGMEM",
+            "parameters": [
+                "PGM_P str"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "availableForWrite",
+            "description": "Check write availability",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "cacheClear",
+            "description": "Clear cache",
+            "parameters": [],
+            "return_type": "uint8_t*"
+        },
+        {
+            "name": "init",
+            "description": "Initialize volume",
+            "parameters": [
+                "Sd2Card* dev"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "init",
+            "description": "Initialize volume with partition",
+            "parameters": [
+                "Sd2Card* dev",
+                "uint8_t part"
+            ],
+            "return_type": "uint8_t"
+        }
+    ],
+    "SdFatmainpage.h": [
+        {
+            "name": "Sd2Card::init",
+            "description": "initialize SD card",
+            "parameters": [
+                "uint8_t sckRateID"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "SdVolume::init",
+            "description": "initialize volume",
+            "parameters": [
+                "Sd2Card *dev",
+                "uint8_t part"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "SdFile::open",
+            "description": "open a file",
+            "parameters": [
+                "const char *path",
+                "uint8_t oflag"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "SdFile::read",
+            "description": "read from file",
+            "parameters": [
+                "void *buf",
+                "uint16_t nbyte"
+            ],
+            "return_type": "int16_t"
+        },
+        {
+            "name": "SdFile::remove",
+            "description": "remove a file",
+            "parameters": [
+                "const char *path"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "SdFile::write",
+            "description": "write to file",
+            "parameters": [
+                "const void *buf",
+                "uint16_t nbyte"
+            ],
+            "return_type": "int16_t"
+        },
+        {
+            "name": "SdFile::close",
+            "description": "close a file",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "SdFile::sync",
+            "description": "sync file to disk",
+            "parameters": [],
+            "return_type": "bool"
+        }
+    ],
+    "SdFatUtil.h": [
+        {
+            "name": "FreeRam",
+            "description": "Get free RAM bytes",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "SerialPrint_P",
+            "description": "Print flash string",
+            "parameters": [
+                "PGM_P str"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "SerialPrintln_P",
+            "description": "Print flash string with CR/LF",
+            "parameters": [
+                "PGM_P str"
+            ],
+            "return_type": "void"
+        }
+    ],
+    "SdInfo.h": []
+}

@@ -1,0 +1,19 @@
+{
+    "ReadSingleValue.ino": {
+        "ReadSingleValue.ino": [
+            {
+                "functionality": "reads analog values from ADS1115 inputs and prints them to the serial port",
+                "API": [
+                    "setMultiplexer",
+                    "startSingleConvertion",
+                    "getOperationalStatus",
+                    "readConvertedValue",
+                    "reset",
+                    "setDeviceMode",
+                    "setDataRate",
+                    "setPga"
+                ]
+            }
+        ]
+    }
+}

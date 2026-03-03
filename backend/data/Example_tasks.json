@@ -1,0 +1,1873 @@
+{
+  "DS18B20": {
+    "description": "Temperature Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read temperature every 5 seconds, display on serial monitor.",
+          "components": [
+            "DS18B20"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "When temperature exceeds 20°C, display temperature on serial monitor",
+          "components": [
+            "DS18B20"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Record temperature every 5 seconds, store on SD card, LED indicator when recording.",
+          "components": [
+            "DS18B20",
+            "SD"
+          ]
+        },
+        {
+          "task": "Record temperature every 5 seconds, store on SD card, activate an buzzer alarm if temperature exceeds 20°C.",
+          "components": [
+            "DS18B20",
+            "SD"
+          ]
+        },
+        {
+          "task": "Display and graph temperature on an OLED display, updating every 5 seconds.",
+          "components": [
+            "DS18B20",
+            "SSD1306 128 64 OLED"
+          ]
+        }
+      ]
+    }
+  },
+  "LM35": {
+    "description": "Temperature Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read temperature every second, display on serial monitor.",
+          "components": [
+            "LM35"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Record temperature every 5 seconds, activate buzzer if > 20°C.",
+          "components": [
+            "LM35"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Log temperature to SD card every 3 seconds, alert if > 13°C.",
+          "components": [
+            "LM35",
+            "SD"
+          ]
+        },
+        {
+          "task": "Display temperature in celsius and fahrenheit on OLED, update every 2 seconds.",
+          "components": [
+            "LM35",
+            "SSD1306 128 64 OLED"
+          ]
+        },
+        {
+          "task": "Activate Buzzer for 1 second when temperature exceeds 13°C, and display temperature on OLED.",
+          "components": [
+            "LM35",
+            "SSD1306 128 64 OLED"
+          ]
+        }
+      ]
+    }
+  },
+  "LM75": {
+    "description": "Temperature Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read temperature every second, display on serial monitor.",
+          "components": [
+            "LM75B I2C"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Log temperature every 5 seconds, alert the buzzer 2 seconds if > 10°C.",
+          "components": [
+            "LM75B I2C"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Monitor temperature, display on OLED if < 13°C.",
+          "components": [
+            "LM75B I2C",
+            "SSD1306 128 64 OLED"
+          ]
+        },
+        {
+          "task": "Record temperature data to SD card every 4 seconds.",
+          "components": [
+            "LM75B I2C",
+            "SD"
+          ]
+        },
+        {
+          "task": "Activate Buzzer for 1 second when temperature below 13°C, and display temperature on OLED.",
+          "components": [
+            "LM75B I2C",
+            "SSD1306 128 64 OLED"
+          ]
+        }
+      ]
+    }
+  },
+  "MLX90614": {
+    "description": "Non-contact Temperature Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read ambient temperature output to serial monitor.",
+          "components": [
+            "MLX90614"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "If object temperature below 11°C, activate a buzzer.",
+          "components": [
+            "MLX90614"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Log temperature data to an SD card and if object temperature below 11°C, activate a buzzer for 1 second.",
+          "components": [
+            "MLX90614",
+            "SD"
+          ]
+        },
+        {
+          "task": "Log temperature data to an SD card and if object temperature below 11°C, activate a LED for 1 second.",
+          "components": [
+            "MLX90614",
+            "SD"
+          ]
+        },
+        {
+          "task": "If temperature less than 20°C, control Servo rotate 30 degree counterclockwise.",
+          "components": [
+            "MLX90614",
+            "Servo"
+          ]
+        }
+      ]
+    }
+  },
+  "BME280": {
+    "description": "Temperature, Humidity, and Pressure Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Display humidity readings every 5 seconds through serial monitor.",
+          "components": [
+            "BME280"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Log pressure when it drops below 1000 hPa.",
+          "components": [
+            "BME280",
+            "SD"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Trigger an alarm if humidity exceeds 80%.",
+          "components": [
+            "BME280",
+            "Buzzer"
+          ]
+        },
+        {
+          "task": "Adjust fan speed based on temperature readings.",
+          "components": [
+            "BME280",
+            "PWM Fan Controller",
+            "Fan"
+          ]
+        },
+        {
+          "task": "Display all sensor data on an OLED screen, update every 3 seconds.",
+          "components": [
+            "BME280",
+            "SSD1306 128 64 OLED"
+          ]
+        }
+      ]
+    }
+  },
+  "BME680": {
+    "description": "Environmental Sensor (Gas, Humidity, Temperature, Pressure)",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read temperature and display on serial monitor.",
+          "components": [
+            "Adafruit BME680"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Read temperature, Humidity, Pressure and display on serial monitor.",
+          "components": [
+            "Adafruit BME680"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Read temperature, Humidity, Pressure every 5 seconds turn on the LED.",
+          "components": [
+            "Adafruit BME680"
+          ]
+        },
+        {
+          "task": "Record on SD card if humidity exceeds 20% or temperature below 30°C.",
+          "components": [
+            "Adafruit BME680",
+            "SD"
+          ]
+        },
+        {
+          "task": "Alert via LED and control Servo rotate 30 degree counterclockwise if humidity exceeds 20% are detected.",
+          "components": [
+            "Adafruit BME680",
+            "Servo"
+          ]
+        }
+      ]
+    }
+  },
+  "DHT11": {
+    "description": "Temperature and Humidity Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read temperature and humidity every second, display on serial monitor.",
+          "components": [
+            "DHT11"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Read humidity every second, if humidity over 20% turn on LED.",
+          "components": [
+            "DHT11"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Alert via LED and control Servo rotate 30 degree counterclockwise if humidity exceeds 20%.",
+          "components": [
+            "DHT11",
+            "Servo"
+          ]
+        },
+        {
+          "task": "Record temperature and humidity on SD card every 2 seconds and control Servo rotate 20 degree counterclockwise.",
+          "components": [
+            "DHT11",
+            "SD",
+            "Servo"
+          ]
+        },
+        {
+          "task": "Read temperature, if temperature exceeds 10°C show on OLED.",
+          "components": [
+            "DHT11",
+            "SSD1306 128 64 OLED"
+          ]
+        }
+      ]
+    }
+  },
+  "SHT40": {
+    "description": "High Precision Temperature and Humidity Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read temperature and humidity, display on serial monitor.",
+          "components": [
+            "SHT40"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Read humidity every 2 seconds, if humidity over 10% turn on LED.",
+          "components": [
+            "SHT40"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "If humidity > 10%, alert via LED and control Servo rotate 30 degree counterclockwise.",
+          "components": [
+            "SHT40",
+            "Servo"
+          ]
+        },
+        {
+          "task": "Record temperature and humidity on SD card every 2 seconds and turn on LED.",
+          "components": [
+            "SHT40",
+            "SD"
+          ]
+        },
+        {
+          "task": "Read humidity and temperature every second, if temperature exceeds 10°C record to SD card, and if humidity > 10% turn on LED.",
+          "components": [
+            "SHT40",
+            "SD"
+          ]
+        }
+      ]
+    }
+  },
+  "SI7021": {
+    "description": "Temperature and Humidity Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read humidity every 5 seconds, display on serial monitor.",
+          "components": [
+            "SI7021"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Log temperature when humidity exceeds 60% to EEPROM.",
+          "components": [
+            "SI7021",
+            "EEPROM"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Activate a buzzer if humidity drops below 30%.",
+          "components": [
+            "SI7021",
+            "Buzzer"
+          ]
+        },
+        {
+          "task": "Use temperature to control fan speed via PWM signal.",
+          "components": [
+            "SI7021",
+            "PWM Fan Controller"
+          ]
+        },
+        {
+          "task": "Display both temperature and humidity on an OLED screen.",
+          "components": [
+            "SI7021",
+            "SSD1306 128 64 OLED"
+          ]
+        }
+      ]
+    }
+  },
+  "BMP085": {
+    "description": "Pressure and Temperature Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read and display pressure data every 5 seconds.",
+          "components": [
+            "BMP085"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Log pressure over 30 minutes, alert if drops below 1000 hPa.",
+          "components": [
+            "BMP085",
+            "Buzzer"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Display pressure and temperature on OLED; update every 2 seconds.",
+          "components": [
+            "BMP085",
+            "SSD1306 OLED Display"
+          ]
+        },
+        {
+          "task": "Record data when pressure changes by more than 5 hPa, save to SD card.",
+          "components": [
+            "BMP085",
+            "SD"
+          ]
+        },
+        {
+          "task": "Alarm through bluetooth if pressure exceeds 1020 hPa.",
+          "components": [
+            "BMP085",
+            "HC-05 Bluetooth Module"
+          ]
+        }
+      ]
+    }
+  },
+  "BMP280": {
+    "description": "Pressure Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read atmospheric pressure and output to serial monitor.",
+          "components": [
+            "BMP280"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Log pressure data; activate buzzer if pressure drops below 1000 hPa.",
+          "components": [
+            "BMP280",
+            "Buzzer"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Display pressure and temperature on OLED, update every 5 seconds.",
+          "components": [
+            "BMP280",
+            "SSD1306 128 64 OLED"
+          ]
+        },
+        {
+          "task": "If pressure < 1000 hPa, rotate a servo to 30 degree.",
+          "components": [
+            "BMP280",
+            "Servo"
+          ]
+        },
+        {
+          "task": "Record pressure data every minute, save to SD card with timestamp.",
+          "components": [
+            "BMP280",
+            "SD"
+          ]
+        }
+      ]
+    }
+  },
+  "MS5611": {
+    "description": "Precision Pressure and Temperature Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read pressure every second, display on serial monitor.",
+          "components": [
+            "MS5611"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Read pressure and temperature every second, if temperature exceeds 10°C turn on LED.",
+          "components": [
+            "MS5611"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Record pressure and temperature reading every 5 seconds if temperature exceeds 10°C rotate servo 20 degree, and if pressure > 800 mbar turn on LED..",
+          "components": [
+            "MS5611",
+            "Servo"
+          ]
+        },
+        {
+          "task": "Activate a servo rotate 30 degree if pressure drops below 1200 mbar, and if rotate success, turn on LED.",
+          "components": [
+            "MS5611",
+            "Servo"
+          ]
+        },
+        {
+          "task": "Log temperature and pressure to an SD card every 5 seconds and turn on LED.",
+          "components": [
+            "MS5611",
+            "SD"
+          ]
+        }
+      ]
+    }
+  },
+  "BH1750": {
+    "description": "Light Intensity Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read light intensity, output to serial monitor.",
+          "components": [
+            "BH1750"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "If light intensity below 110 lx, activate a buzzer.",
+          "components": [
+            "BH1750",
+            "Buzzer"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Log light intensity to an SD card every 5 seconds.",
+          "components": [
+            "BH1750",
+            "SD"
+          ]
+        },
+        {
+          "task": "Display light intensity on OLED display, update every 5 seconds.",
+          "components": [
+            "BH1750",
+            "SSD1306 128 64 OLED"
+          ]
+        },
+        {
+          "task": "Adjust LED brightness based on current light intensity.",
+          "components": [
+            "BH1750",
+            "LED"
+          ]
+        }
+      ]
+    }
+  },
+  "LTR390": {
+    "description": "UV Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read UV index and print to serial monitor.",
+          "components": [
+            "Adafruit LTR390"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Log UV data only if UV index exceeds 3, every 5 seconds.",
+          "components": [
+            "Adafruit LTR390",
+            "SD"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "If UV index > 5, turn on a warning LED and buzzer.",
+          "components": [
+            "Adafruit LTR390",
+            "LED",
+            "Buzzer"
+          ]
+        },
+        {
+          "task": "Display UV index on an OLED display, update every 2 seconds.",
+          "components": [
+            "Adafruit LTR390",
+            "SSD1306 128 64 OLED"
+          ]
+        },
+        {
+          "task": "Activate a servo to adjust a shield rotate 30 degree if UV > 5.",
+          "components": [
+            "Adafruit LTR390",
+            "Servo"
+          ]
+        }
+      ]
+    }
+  },
+  "VL53L0X": {
+    "description": "Laser Distance Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Measure distance and display on serial monitor every second.",
+          "components": [
+            "VL53L0X"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Measure distance, light up LED if less than 70cm.",
+          "components": [
+            "VL53L0X"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Log distance data to an SD card every 5 seconds.",
+          "components": [
+            "VL53L0X",
+            "SD"
+          ]
+        },
+        {
+          "task": "Measure distance, light up LED if less than 70cm, and record the distance to SD card.",
+          "components": [
+            "VL53L0X",
+            "SD"
+          ]
+        },
+        {
+          "task": "Activate a servo to rotate 30 degree if distance changes less than 10cm.",
+          "components": [
+            "VL53L0X",
+            "Servo"
+          ]
+        }
+      ]
+    }
+  },
+  "HC-SR04": {
+    "description": "Ultrasonic Distance Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Measure distance every second, output to serial monitor.",
+          "components": [
+            "HC-SR04"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Measure distance, if < 10 cm, activate a LED.",
+          "components": [
+            "HC-SR04"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Measure distance, if < 20 cm, display 'Close' on OLED.",
+          "components": [
+            "HC-SR04",
+            "SSD1306 128 64 OLED"
+          ]
+        },
+        {
+          "task": "Log distance to an SD card every 5 seconds.",
+          "components": [
+            "HC-SR04",
+            "SD"
+          ]
+        },
+        {
+          "task": "Control servo angle to 30 degree based on distance measurements.",
+          "components": [
+            "HC-SR04",
+            "Servo"
+          ]
+        }
+      ]
+    }
+  },
+  "PIR HC-SR501": {
+    "description": "Human Infrared Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Measure infrared data every second, output to serial monitor.",
+          "components": [
+            "PIR"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Measure infrared data every second, if detect motion events turn on LED.",
+          "components": [
+            "PIR"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Activate LED and rotate Servo 30 degress when motion detected.",
+          "components": [
+            "PIR",
+            "Servo"
+          ]
+        },
+        {
+          "task": "Show 'Detected' on OLED when motion detected.",
+          "components": [
+            "PIR",
+            "SSD1306 128 64 OLED"
+          ]
+        },
+        {
+          "task": "Log motion detection result to an SD card every 5 seconds.",
+          "components": [
+            "PIR",
+            "SD"
+          ]
+        }
+      ]
+    }
+  },
+  "MPU6050": {
+    "description": "Accelerometer and Gyroscope",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read acceleration data and output to serial monitor.",
+          "components": [
+            "Adafruit MPU6050"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Filter noise from gyroscope data using a Kalman filter.",
+          "components": [
+            "Adafruit MPU6050"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Log gyroscope data to an SD card every 3 seconds.",
+          "components": [
+            "Adafruit MPU6050",
+            "SD"
+          ]
+        },
+        {
+          "task": "If accelerometer data detected changed, control the Servo rotate 30 degree.",
+          "components": [
+            "Adafruit MPU6050",
+            "Servo"
+          ]
+        },
+        {
+          "task": "Display real-time orientation on an OLED based on gyroscope data.",
+          "components": [
+            "Adafruit MPU6050",
+            "SSD1306 128 64 OLED"
+          ]
+        }
+      ]
+    }
+  },
+  "ADXL345": {
+    "description": "Accelerometer",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read acceleration data every second, display on serial monitor.",
+          "components": [
+            "ADXL345_we accelerometer"
+          ]
+        }
+      ],
+      "Difficulty 2": [
+        {
+          "task": "Read acceleration data every second, detect movements, alert via LED.",
+          "components": [
+            "ADXL345_we accelerometer"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Record acceleration data, trigger LED if fall detected, and record on SD card.",
+          "components": [
+            "ADXL345_we accelerometer",
+            "SD"
+          ]
+        },
+        {
+          "task": "Display on OLED the acceleration data upon sudden acceleration changes.",
+          "components": [
+            "ADXL345_we accelerometer",
+            "SSD1306 128 64 OLED"
+          ]
+        },
+        {
+          "task": "Read acceleration data, when changes detected, rotate Servo to 30 degree.",
+          "components": [
+            "ADXL345_we accelerometer",
+            "Servo"
+          ]
+        }
+      ]
+    }
+  },
+  "ADXL362": {
+    "description": "Accelerometer",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read acceleration data every second, output to serial monitor.",
+          "components": [
+            "ADXL362"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Detect free fall, blink an LED when detected.",
+          "components": [
+            "ADXL362",
+            "LED"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Log acceleration data to an SD card every minute.",
+          "components": [
+            "ADXL362",
+            "SD"
+          ]
+        },
+        {
+          "task": "If acceleration exceeds threshold, send signal to buzzer.",
+          "components": [
+            "ADXL362",
+            "Buzzer"
+          ]
+        },
+        {
+          "task": "Display X, Y, Z acceleration on an OLED screen, update every 5 seconds.",
+          "components": [
+            "ADXL362",
+            "SSD1306 128 64 OLED"
+          ]
+        }
+      ]
+    }
+  },
+  "HMC5883L": {
+    "description": "Magnetometer Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read magnetic field strength, display on serial monitor.",
+          "components": [
+            "HMC5883L"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Log magnetic field changes, alert via LED if sudden spikes occur.",
+          "components": [
+            "HMC5883L"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Display magnetic field orientation on an OLED display.",
+          "components": [
+            "HMC5883L",
+            "SSD1306 128 64 OLED"
+          ]
+        },
+        {
+          "task": "Read magnetic field data if sudden spikes occur,  control a servo rotate 20 degree.",
+          "components": [
+            "HMC5883L",
+            "Servo"
+          ]
+        },
+        {
+          "task": "Read magnetic field data and store on SD card.",
+          "components": [
+            "HMC5883L",
+            "SD"
+          ]
+        }
+      ]
+    }
+  },
+  "TCS34725": {
+    "description": "Color Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read color values and display RGB on serial monitor.",
+          "components": [
+            "Adafruit TCS34725"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Flash an LED in detected color using PWM signals.",
+          "components": [
+            "Adafruit TCS34725"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Read color data if red detected, control a servo rotate 20 degree.",
+          "components": [
+            "Adafruit TCS34725",
+            "Servo"
+          ]
+        },
+        {
+          "task": "Log color data with timestamps to an SD card every 5 seconds.",
+          "components": [
+            "Adafruit TCS34725",
+            "SD"
+          ]
+        },
+        {
+          "task": "Display detected color name on an OLED display in real-time.",
+          "components": [
+            "Adafruit TCS34725",
+            "SSD1306 128 64 OLED"
+          ]
+        }
+      ]
+    }
+  },
+  "INA219": {
+    "description": "Current Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read and display current value every second.",
+          "components": [
+            "Adafruit INA219"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Read current if it exceeds 1A, turn on LED.",
+          "components": [
+            "Adafruit INA219"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Monitor current, activate buzzer if over 0.5A.",
+          "components": [
+            "Adafruit INA219"
+          ]
+        },
+        {
+          "task": "Log current if it exceeds 1A, display alert on OLED.",
+          "components": [
+            "Adafruit INA219",
+            "SSD1306 128 64 OLED"
+          ]
+        },
+        {
+          "task": "Rotate servo to 30 degree if current draw drops below 0.5A for 2 seconds.",
+          "components": [
+            "Adafruit INA219",
+            "Servo"
+          ]
+        }
+      ]
+    }
+  },
+  "MQ2": {
+    "description": "Alcohol Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read alcohol concentration and output to serial monitor.",
+          "components": [
+            "MQ2"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Activate buzzer if alcohol concentration exceeds threshold.",
+          "components": [
+            "MQ2",
+            "Buzzer"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Log alcohol readings to SD card every 30 seconds.",
+          "components": [
+            "MQ2",
+            "SD"
+          ]
+        },
+        {
+          "task": "Display alcohol levels on OLED display, updating every 10 seconds.",
+          "components": [
+            "MQ2",
+            "SSD1306 128 64 OLED"
+          ]
+        },
+        {
+          "task": "Use alcohol sensor to control RGB LED color based on concentration levels.",
+          "components": [
+            "MQ2",
+            "RGB LED"
+          ]
+        }
+      ]
+    }
+  },
+  "SGP30": {
+    "description": "VOX Gas Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read VOC index every 5 seconds, display on serial monitor.",
+          "components": [
+            "Adafruit SGP30"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Sample air quality; trigger buzzer if VOC<5 detected.",
+          "components": [
+            "Adafruit SGP30",
+            "Buzzer"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Monitor VOC, activate servo rotate 20 degree if levels exceed 0.",
+          "components": [
+            "Adafruit SGP30",
+            "Servo"
+          ]
+        },
+        {
+          "task": "Log VOC readings to an SD card every minute.",
+          "components": [
+            "Adafruit SGP30",
+            "SD"
+          ]
+        },
+        {
+          "task": "Display current VOC levels on OLED; update every 30 seconds.",
+          "components": [
+            "Adafruit SGP30",
+            "SSD1306 128 64 OLED"
+          ]
+        }
+      ]
+    }
+  },
+  "APDS-9960": {
+    "description": "Gesture Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Detect gestures and output to serial monitor.",
+          "components": [
+            "Adafruit APDS9960"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Detect gestures, if it is down, turn up the LED.",
+          "components": [
+            "Adafruit APDS9960"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Detect gestures and show on an OLED display.",
+          "components": [
+            "Adafruit APDS9960",
+            "SSD1306 128 64 OLED"
+          ]
+        },
+        {
+          "task": "Control a servo direction using left and right gestures.",
+          "components": [
+            "Adafruit APDS9960",
+            "Servo"
+          ]
+        },
+        {
+          "task": "Detect gestures and write to SD card module.",
+          "components": [
+            "Adafruit APDS9960",
+            "SD"
+          ]
+        }
+      ]
+    }
+  },
+  "AS5600": {
+    "description": "Magnetic Encoder",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read angular position and output to serial monitor.",
+          "components": [
+            "AS5600"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Alert via buzzer if rotation exceeds 180 degrees.",
+          "components": [
+            "AS5600",
+            "Buzzer"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Control rotate servo 30 degree on angular position feedback.",
+          "components": [
+            "AS5600",
+            "Servo"
+          ]
+        },
+        {
+          "task": "Display angular position on OLED screen in real-time.",
+          "components": [
+            "AS5600",
+            "SSD1306 128 64 OLED"
+          ]
+        },
+        {
+          "task": "Log rotation data to SD card when position changes.",
+          "components": [
+            "AS5600",
+            "SD"
+          ]
+        }
+      ]
+    }
+  },
+  "DFRobot_moisture": {
+    "description": "Soil Moisture Sensor",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read soil moisture level and print to serial monitor.",
+          "components": [
+            "DFRobot_moisture"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Activate a buzzer if moisture level drops below threshold.",
+          "components": [
+            "DFRobot_moisture",
+            "Buzzer"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Log soil moisture every hour to an SD card.",
+          "components": [
+            "DFRobot_moisture",
+            "SD"
+          ]
+        },
+        {
+          "task": "Display moisture level on OLED; update every 5 minutes.",
+          "components": [
+            "DFRobot_moisture",
+            "SSD1306 128 64 OLED"
+          ]
+        },
+        {
+          "task": "Control servo rotate based on moisture sensor readings.",
+          "components": [
+            "DFRobot_moisture",
+            "Servo"
+          ]
+        }
+      ]
+    }
+  },
+  "MAX7219": {
+    "description": "Dot Matrix Module",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Display a static message 'O' on the dot matrix.",
+          "components": [
+            "MATRIX7219"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Scroll text on dot matrix based on ambient light intensity.",
+          "components": [
+            "MATRIX7219",
+            "BH1750"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Display temperature readings on dot matrix, update every minute.",
+          "components": [
+            "MATRIX7219",
+            "DS18B20 Temperature Sensor"
+          ]
+        },
+        {
+          "task": "Show different messages on dot matrix based on motion detection.",
+          "components": [
+            "MATRIX7219",
+            "HC-SR501 PIR Motion Sensor"
+          ]
+        },
+        {
+          "task": "Cycle through display of humidity and temperature on dot matrix.",
+          "components": [
+            "MATRIX7219",
+            "DHT11 Temperature/Humidity Sensor"
+          ]
+        }
+      ]
+    }
+  },
+  "SX1278": {
+    "description": "LoRa Communication Module",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Transmit a 'Hello World' message using LoRa.",
+          "components": [
+            "LoRa SX1278"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Implement encryption on messages before transmission via LoRa.",
+          "components": [
+            "LoRa SX1278"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Create a network of temperature sensors sending data to a central node.",
+          "components": [
+            "LoRa SX1278",
+            "DS18B20"
+          ]
+        },
+        {
+          "task": "Integrate PIR sensor to transmit PIR status over LoRa.",
+          "components": [
+            "LoRa SX1278",
+            "PIR"
+          ]
+        },
+        {
+          "task": "Create a network of light sensors sending data to a central node.",
+          "components": [
+            "LoRa SX1278",
+            "BH1750"
+          ]
+        }
+      ]
+    }
+  },
+  "CC1101": {
+    "description": "Wireless Transceiver Module",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Transmit a simple 'HELLO' message every 10 seconds.",
+          "components": [
+            "CC1101"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Receive messages and light up an LED if message contains 'ON'.",
+          "components": [
+            "CC1101",
+            "LED"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Send sensor data to a remote display using CC1101 module.",
+          "components": [
+            "CC1101",
+            "DS18B20"
+          ]
+        },
+        {
+          "task": "Create a wireless door alarm system using magnetic sensors.",
+          "components": [
+            "CC1101",
+            "AS5600",
+            "Buzzer"
+          ]
+        },
+        {
+          "task": "Wireless control of RGB LED based on received color commands.",
+          "components": [
+            "CC1101",
+            "RGB LED"
+          ]
+        }
+      ]
+    }
+  },
+  "PN532": {
+    "description": "NFC/RFID Module",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read NFC tag ID and output to serial monitor.",
+          "components": [
+            "PN532"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Check NFC tag against registered IDs, trigger buzzer if unauthorized.",
+          "components": [
+            "PN532",
+            "Buzzer"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Log NFC tag reads to SD card.",
+          "components": [
+            "PN532",
+            "SD"
+          ]
+        },
+        {
+          "task": "Turn on an LED when a NFC tag is detected.",
+          "components": [
+            "PN532",
+            "LED"
+          ]
+        },
+        {
+          "task": "Display ID on an OLED when a NFC tag is detected.",
+          "components": [
+            "PN532",
+            "SSD1306 128 64 OLED"
+          ]
+        }
+      ]
+    }
+  },
+  "nrf24l01": {
+    "description": "Wireless Transceiver Module",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Transmit a 'Hello World' message every 2 seconds.",
+          "components": [
+            "nRF24L01"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Send sensor data, apply simple encryption before transmission.",
+          "components": [
+            "nRF24L01"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Create a wireless sensor network to monitor temperature and humidity.",
+          "components": [
+            "nRF24L01",
+            "DHT11"
+          ]
+        },
+        {
+          "task": "Wirelessly control RGB LEDs based on remote sensor input.",
+          "components": [
+            "nRF24L01",
+            "RGB LED"
+          ]
+        },
+        {
+          "task": "Implement a wireless emergency button that triggers an alarm.",
+          "components": [
+            "nRF24L01",
+            "Buzzer"
+          ]
+        }
+      ]
+    }
+  },
+  "Relay": {
+    "description": "Relay Module",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Turn on a relay and close it 5 seconds a loop.",
+          "components": [
+            "Relay"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Activate relay for 5 seconds every time and show the status on serial.",
+          "components": [
+            "Relay"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Activate relay for 5 seconds every time HC-SR501 detects motion.",
+          "components": [
+            "Relay",
+            "PIR"
+          ]
+        },
+        {
+          "task": "Create a safety shutdown feature using a temperature sensor to trigger the relay.",
+          "components": [
+            "Relay",
+            "DHT11"
+          ]
+        },
+        {
+          "task": "Automate LED lighting with motion detection to activate a relay.",
+          "components": [
+            "Relay",
+            "PIR"
+          ]
+        }
+      ]
+    }
+  },
+  "SG-90": {
+    "description": "Servo",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Rotate the servo to a defined position using a PWM signal.",
+          "components": [
+            "Servo"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Implement a smooth sweeping motion between 0° and 180° with speed control.",
+          "components": [
+            "Servo"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "If temperature bigger than 10C, control servo position rotate to 30 degree.",
+          "components": [
+            "Servo",
+            "DS18B20"
+          ]
+        },
+        {
+          "task": "If humidity bigger than 10%, control servo position rotate to 30 degree.",
+          "components": [
+            "Servo",
+            "DHT11"
+          ]
+        },
+        {
+          "task": "If humidity bigger than 10%, control servo position rotate to 30 degree, and record on SD card.",
+          "components": [
+            "Servo",
+            "SD",
+            "DS18B20"
+          ]
+        }
+      ]
+    }
+  },
+  "DS3231": {
+    "description": "Real-Time Clock Module",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Display current time each minute on serial monitor.",
+          "components": [
+            "DS3231"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Log time stamps when ambient light exceeds a threshold.",
+          "components": [
+            "DS3231",
+            "BH1750"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Record current time and temperature on an SD card.",
+          "components": [
+            "DS3231",
+            "SD"
+          ]
+        },
+        {
+          "task": "Display current time and temperature on an OLED display.",
+          "components": [
+            "DS3231",
+            "SSD1306 OLED Display",
+            "DHT22 Sensor"
+          ]
+        },
+        {
+          "task": "Activate a buzzer at set intervals based on DS3231 alarms.",
+          "components": [
+            "DS3231",
+            "Buzzer"
+          ]
+        }
+      ]
+    }
+  },
+  "ADS1115": {
+    "description": "16-bit AD Converter",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read voltage and output to serial monitor.",
+          "components": [
+            "ADS1115"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Filter noise from a signal and output smoothed data to serial.",
+          "components": [
+            "ADS1115"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Monitor voltage, display status on an OLED when low.",
+          "components": [
+            "ADS1115",
+            "SSD1306 128 64 OLED"
+          ]
+        },
+        {
+          "task": "Monitor voltage, display status on an OLED when high.",
+          "components": [
+            "ADS1115",
+            "SSD1306 128 64 OLED"
+          ]
+        },
+        {
+          "task": "Log voltage readings data to an SD card every 10 seconds.",
+          "components": [
+            "ADS1115",
+            "SD"
+          ]
+        }
+      ]
+    }
+  },
+  "HX711": {
+    "description": "ADC",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Read voltage data and output to serial.",
+          "components": [
+            "HX711"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Filter noise from readings using a moving average.",
+          "components": [
+            "HX711"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Display dynamic voltage changes on an OLED display.",
+          "components": [
+            "HX711",
+            "SSD1306 128 64 OLED"
+          ]
+        },
+        {
+          "task": "Activate a buzzer if voltage exceeds 1V.",
+          "components": [
+            "HX711",
+            "Buzzer"
+          ]
+        },
+        {
+          "task": "Log readings to an SD card every 10 seconds.",
+          "components": [
+            "HX711",
+            "SD"
+          ]
+        }
+      ]
+    }
+  },
+  "AD9833": {
+    "description": "DDS",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Generate a 1 kHz sine wave output from AD9833.",
+          "components": [
+            "AD9833"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Generate a frequency sweep from 1 kHz to 10 kHz on AD9833.",
+          "components": [
+            "AD9833"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Generate a frequency based on ambient light intensity.",
+          "components": [
+            "AD9833",
+            "BH1750"
+          ]
+        },
+        {
+          "task": "Generate a frequency based on huminity readings.",
+          "components": [
+            "AD9833",
+            "DHT11"
+          ]
+        },
+        {
+          "task": "Output various waveforms based on temperature readings.",
+          "components": [
+            "AD9833",
+            "DS18B20"
+          ]
+        }
+      ]
+    }
+  },
+  "MCP4725": {
+    "description": "12-bit DA Converter",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Output a fixed voltage level from the MCP4725.",
+          "components": [
+            "MCP4725"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Generate a sine wave output using the MCP4725.",
+          "components": [
+            "MCP4725"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Generate a sine wave output and record on SD.",
+          "components": [
+            "MCP4725",
+            "SD"
+          ]
+        },
+        {
+          "task": "Generate a sine wave output and display in OLED.",
+          "components": [
+            "MCP4725",
+            "SSD1306 128 64 OLED"
+          ]
+        },
+        {
+          "task": "Output a voltage level and record on SD, if recorded turn on LED.",
+          "components": [
+            "MCP4725",
+            "SD"
+          ]
+        }
+      ]
+    }
+  },
+  "Buzzer": {
+    "description": "Active Buzzer",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Emit a continuous beep for 10 seconds.",
+          "components": [
+            "Buzzer"
+          ]
+        }
+      ],
+      "Difficulty Level 2": [
+        {
+          "task": "Play a simple melody using the buzzer.",
+          "components": [
+            "Buzzer"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Buzzer alerts when motion is detected.",
+          "components": [
+            "Buzzer",
+            "PIR"
+          ]
+        },
+        {
+          "task": "Use buzzer for a countdown timer with display update every second.",
+          "components": [
+            "Buzzer",
+            "SSD1306 128 64 OLED"
+          ]
+        },
+        {
+          "task": "Activate buzzer based on real-time clock alarm setting.",
+          "components": [
+            "Buzzer",
+            "DS3231"
+          ]
+        }
+      ]
+    }
+  },
+  "microSD": {
+    "description": "SPI",
+    "tasks": {
+      "Difficulty Level 1": [
+        {
+          "task": "Save a random text file to microSD card with timestamp.",
+          "components": [
+            "SD"
+          ]
+        }
+      ],
+      "Difficulty Expedite 2": [
+        {
+          "task": "Log temperature sensor data to microSD card.",
+          "components": [
+            "SD",
+            "DHT11"
+          ]
+        }
+      ],
+      "Difficulty Level 3": [
+        {
+          "task": "Capture humidity, save to SD, if humidity>10%, rotate servo 20 degree.",
+          "components": [
+            "SD",
+            "Servo",
+            "BME680"
+          ]
+        },
+        {
+          "task": "Capture humidity, save to SD, display on OLED every 5 seconds.",
+          "components": [
+            "SD",
+            "DHT11",
+            "SSD1306 128 64 OLED"
+          ]
+        },
+        {
+          "task": "Capture pressure data on SD card, trigger recording if motion detected by PIR sensor.",
+          "components": [
+            "SD",
+            "Adafruit BME680",
+            "PIR"
+          ]
+        }
+      ]
+    }
+  }
+}

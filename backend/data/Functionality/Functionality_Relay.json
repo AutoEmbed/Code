@@ -1,0 +1,28 @@
+{
+    "NormallyClosed.ino": {
+        "NormallyClosed.ino": [
+            {
+                "functionality": "controls a relay connected to an Arduino pin, toggling it between on and off states and checking the current state",
+                "API": [
+                    "begin",
+                    "turnOff",
+                    "turnOn",
+                    "getState"
+                ]
+            }
+        ]
+    },
+    "NormallyOpen.ino": {
+        "NormallyOpen.ino": [
+            {
+                "functionality": "controls a relay module to switch a light on and off",
+                "API": [
+                    "begin",
+                    "turnOff",
+                    "turnOn",
+                    "getState"
+                ]
+            }
+        ]
+    }
+}

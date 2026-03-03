@@ -1,0 +1,34 @@
+{
+    "LM35.h": [
+        {
+            "name": "LM35",
+            "description": "Constructor that initializes the LM35 sensor on a specified pin",
+            "parameters": [
+                {
+                    "name": "pin",
+                    "type": "int",
+                    "description": "The pin number where the LM35 sensor is connected"
+                }
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "cel",
+            "description": "Reads the temperature in Celsius",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "fah",
+            "description": "Reads the temperature in Fahrenheit",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "kel",
+            "description": "Reads the temperature in Kelvin",
+            "parameters": [],
+            "return_type": "float"
+        }
+    ]
+}

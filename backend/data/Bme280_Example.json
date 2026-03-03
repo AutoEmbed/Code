@@ -1,0 +1,293 @@
+{
+    "Bme280.h": [
+        {
+            "name": "write8",
+            "description": "Writes an 8-bit value",
+            "parameters": [
+                "uint8_t",
+                "uint8_t"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Bme280.h>",
+                "parameter usage": "sensor.write8(0xF4, 0x2E);",
+                "return value handling": "void return, no handling."
+            }
+        },
+        {
+            "name": "read8",
+            "description": "Reads an 8-bit value",
+            "parameters": [
+                "uint8_t"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <Bme280.h>",
+                "parameter usage": "uint8_t value = sensor.read8(0xD0);",
+                "return value handling": "Check value validity."
+            }
+        },
+        {
+            "name": "read16",
+            "description": "Reads a 16-bit value",
+            "parameters": [
+                "uint8_t"
+            ],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include <Bme280.h>",
+                "parameter usage": "uint16_t value = sensor.read16(0x88);",
+                "return value handling": "Check value validity."
+            }
+        },
+        {
+            "name": "read24",
+            "description": "Reads a 24-bit value",
+            "parameters": [
+                "uint8_t"
+            ],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "#include <Bme280.h>",
+                "parameter usage": "uint32_t value = sensor.read24(0xF7);",
+                "return value handling": "Check value validity."
+            }
+        },
+        {
+            "name": "reset",
+            "description": "Resets the device",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Bme280.h>",
+                "parameter usage": "sensor.reset();",
+                "return value handling": "void return, no handling."
+            }
+        },
+        {
+            "name": "isImUpdate",
+            "description": "Checks if IM is updated",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <Bme280.h>",
+                "parameter usage": "bool update = sensor.isImUpdate();",
+                "return value handling": "Verify boolean state."
+            }
+        },
+        {
+            "name": "readCalibrationData",
+            "description": "Reads calibration data",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Bme280.h>",
+                "parameter usage": "sensor.readCalibrationData();",
+                "return value handling": "void return, no handling."
+            }
+        },
+        {
+            "name": "setSettings",
+            "description": "Sets the device settings",
+            "parameters": [
+                "const Bme280Settings"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Bme280.h>",
+                "parameter usage": "sensor.setSettings(Bme280Settings::indoor());",
+                "return value handling": "void return, no handling."
+            }
+        },
+        {
+            "name": "setup",
+            "description": "Setups the device",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <Bme280.h>",
+                "parameter usage": "bool status = sensor.setup();",
+                "return value handling": "Check status for success."
+            }
+        }
+    ],
+    "Arduino.h": [
+        {
+            "name": "millis",
+            "description": "Get current time in milliseconds",
+            "parameters": [],
+            "return_type": "unsigned long",
+            "practices": {
+                "API order": "#include <Arduino.h>",
+                "parameter usage": "No parameters needed",
+                "return value handling": "unsigned long time = millis();"
+            }
+        },
+        {
+            "name": "delay",
+            "description": "Pause execution for a duration",
+            "parameters": [
+                "unsigned long duration"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Arduino.h>",
+                "parameter usage": "delay(1000); // 1 second",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "pinMode",
+            "description": "Set pin mode",
+            "parameters": [
+                "uint8_t pin",
+                "uint8_t mode"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Arduino.h>",
+                "parameter usage": "pinMode(13, OUTPUT);",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "digitalWrite",
+            "description": "Set pin value",
+            "parameters": [
+                "uint8_t pin",
+                "uint8_t value"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Arduino.h>",
+                "parameter usage": "digitalWrite(13, HIGH);",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "createArduinoMock",
+            "description": "Create a mock Arduino object",
+            "parameters": [],
+            "return_type": "ArduinoMock*",
+            "practices": {
+                "API order": "#include <Arduino.h>",
+                "parameter usage": "ArduinoMock* mock = createArduinoMock();",
+                "return value handling": "Use object to mock functions"
+            }
+        },
+        {
+            "name": "destroyArduinoMock",
+            "description": "Destroy a mock Arduino object",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Arduino.h>",
+                "parameter usage": "destroyArduinoMock(mock);",
+                "return value handling": "No return value"
+            }
+        }
+    ],
+    "SPI.h": [
+        {
+            "name": "beginTransaction",
+            "description": "Start SPI transaction",
+            "parameters": [
+                "SPISettings settings"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <SPI.h>",
+                "parameter usage": "SPI.beginTransaction(SPISettings(14000000, MSBFIRST, SPI_MODE0));",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "endTransaction",
+            "description": "End SPI transaction",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <SPI.h>",
+                "parameter usage": "SPI.endTransaction();",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "transfer",
+            "description": "Transfer data over SPI",
+            "parameters": [
+                "uint8_t data"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <SPI.h>",
+                "parameter usage": "uint8_t response = SPI.transfer(0x42);",
+                "return value handling": "Check returned data"
+            }
+        }
+    ],
+    "Wire.h": [
+        {
+            "name": "beginTransmission",
+            "description": "Starts transmitting data.",
+            "parameters": [
+                "uint8_t address"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Wire.h>; Wire.begin();",
+                "parameter usage": "Wire.beginTransmission(0x48);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "endTransmission",
+            "description": "Ends the transmission.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call after beginTransmission.",
+                "parameter usage": "Wire.endTransmission();",
+                "return value handling": "Check returned status."
+            }
+        },
+        {
+            "name": "requestFrom",
+            "description": "Requests data from a device.",
+            "parameters": [
+                "uint8_t address",
+                "uint8_t quantity"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call after Wire.begin().",
+                "parameter usage": "Wire.requestFrom(0x48, 2);",
+                "return value handling": "Read returned byte count."
+            }
+        },
+        {
+            "name": "write",
+            "description": "Writes data to the bus.",
+            "parameters": [
+                "uint8_t data"
+            ],
+            "return_type": "size_t",
+            "practices": {
+                "API order": "Call after beginTransmission.",
+                "parameter usage": "Wire.write(0x01);",
+                "return value handling": "Check bytes written."
+            }
+        },
+        {
+            "name": "read",
+            "description": "Reads data from the bus.",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "Use after requestFrom.",
+                "parameter usage": "int data = Wire.read();",
+                "return value handling": "Validate isn't -1."
+            }
+        }
+    ]
+}

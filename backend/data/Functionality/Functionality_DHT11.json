@@ -1,0 +1,50 @@
+{
+    "ReadHumidity.ino": {
+        "ReadHumidity.ino": [
+            {
+                "functionality": "reads humidity data and prints the value to the serial port",
+                "API": [
+                    "setDelay",
+                    "readHumidity",
+                    "getErrorString"
+                ]
+            }
+        ]
+    },
+    "ReadPlot.ino": {
+        "ReadPlot.ino": [
+            {
+                "functionality": "reads temperature and humidity data from the DHT11 sensor and prints the values to the Arduino IDE serial plotter",
+                "API": [
+                    "setDelay",
+                    "readTemperatureHumidity",
+                    "getErrorString"
+                ]
+            }
+        ]
+    },
+    "ReadTempAndHumidity.ino": {
+        "ReadTempAndHumidity.ino": [
+            {
+                "functionality": "reads temperature and humidity data from the DHT11 sensor and prints the values to the serial port",
+                "API": [
+                    "setDelay",
+                    "readTemperatureHumidity",
+                    "getErrorString"
+                ]
+            }
+        ]
+    },
+    "ReadTemperature.ino": {
+        "ReadTemperature.ino": [
+            {
+                "functionality": "reads temperature data and prints the value to the serial port, handling potential error states",
+                "API": [
+                    "setDelay",
+                    "readTemperature",
+                    "getErrorString"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,430 @@
+{
+    "HX711.h": [
+        {
+            "name": "begin",
+            "description": "Initialize pins and settings",
+            "parameters": [
+                "uint8_t dataPin",
+                "uint8_t clockPin",
+                "bool fastProcessor = false"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"HX711.h\"; HX711 myScale; myScale.begin(dataPin, clockPin);",
+                "parameter usage": "myScale.begin(6, 7);",
+                "return value handling": "void function, no return."
+            }
+        },
+        {
+            "name": "reset",
+            "description": "Resets the load cell",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"HX711.h\"; HX711 myScale; myScale.reset();",
+                "parameter usage": "myScale.reset();",
+                "return value handling": "void function, no return."
+            }
+        },
+        {
+            "name": "is_ready",
+            "description": "Check if the load cell is ready",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"HX711.h\"; HX711 myScale;",
+                "parameter usage": "myScale.is_ready();",
+                "return value handling": "if(myScale.is_ready()){...}"
+            }
+        },
+        {
+            "name": "wait_ready",
+            "description": "Wait until the load cell is ready",
+            "parameters": [
+                "uint32_t ms = 0"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"HX711.h\"; HX711 myScale;",
+                "parameter usage": "myScale.wait_ready(1000);",
+                "return value handling": "void function, no return."
+            }
+        },
+        {
+            "name": "wait_ready_retry",
+            "description": "Wait until ready with retries",
+            "parameters": [
+                "uint8_t retries = 3",
+                "uint32_t ms = 0"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"HX711.h\"; HX711 myScale;",
+                "parameter usage": "myScale.wait_ready_retry(3, 1000);",
+                "return value handling": "if(myScale.wait_ready_retry(3, 1000)){...}"
+            }
+        },
+        {
+            "name": "wait_ready_timeout",
+            "description": "Wait until ready with timeout",
+            "parameters": [
+                "uint32_t timeout = 1000",
+                "uint32_t ms = 0"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"HX711.h\"; HX711 myScale;",
+                "parameter usage": "myScale.wait_ready_timeout(1000, 100);",
+                "return value handling": "if(myScale.wait_ready_timeout(1000, 100)){...}"
+            }
+        },
+        {
+            "name": "read",
+            "description": "Read raw data from the load cell",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"HX711.h\"; HX711 myScale;",
+                "parameter usage": "float value = myScale.read();",
+                "return value handling": "float value = myScale.read();"
+            }
+        },
+        {
+            "name": "read_average",
+            "description": "Get average of multiple reads",
+            "parameters": [
+                "uint8_t times = 10"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"HX711.h\"; HX711 myScale;",
+                "parameter usage": "float avg = myScale.read_average(10);",
+                "return value handling": "float avg = myScale.read_average(10);"
+            }
+        },
+        {
+            "name": "read_median",
+            "description": "Get median of multiple reads",
+            "parameters": [
+                "uint8_t times = 7"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"HX711.h\"; HX711 myScale;",
+                "parameter usage": "float median = myScale.read_median(7);",
+                "return value handling": "float median = myScale.read_median(7);"
+            }
+        },
+        {
+            "name": "read_medavg",
+            "description": "Get median average of reads",
+            "parameters": [
+                "uint8_t times = 7"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"HX711.h\"; HX711 myScale;",
+                "parameter usage": "float medAvg = myScale.read_medavg(7);",
+                "return value handling": "float medAvg = myScale.read_medavg(7);"
+            }
+        },
+        {
+            "name": "read_runavg",
+            "description": "Get running average of reads",
+            "parameters": [
+                "uint8_t times = 7",
+                "float alpha = 0.5"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "include HX711.h, HX711 myScale;",
+                "parameter usage": "myScale.read_runavg(7, 0.5);",
+                "return value handling": "Store returned value in float"
+            }
+        },
+        {
+            "name": "set_raw_mode",
+            "description": "Set mode to raw data",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "include HX711.h, HX711 myScale;",
+                "parameter usage": "myScale.set_raw_mode();",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "set_average_mode",
+            "description": "Set mode to average",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "include HX711.h, HX711 myScale;",
+                "parameter usage": "myScale.set_average_mode();",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "set_median_mode",
+            "description": "Set mode to median",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "include HX711.h, HX711 myScale;",
+                "parameter usage": "myScale.set_median_mode();",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "set_medavg_mode",
+            "description": "Set mode to median average",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "include HX711.h, HX711 myScale;",
+                "parameter usage": "myScale.set_medavg_mode();",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "set_runavg_mode",
+            "description": "Set mode to running average",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "include HX711.h, HX711 myScale;",
+                "parameter usage": "myScale.set_runavg_mode();",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "get_mode",
+            "description": "Get the current mode",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "include HX711.h, HX711 myScale;",
+                "parameter usage": "uint8_t mode = myScale.get_mode();",
+                "return value handling": "Store returned value in uint8_t"
+            }
+        },
+        {
+            "name": "get_value",
+            "description": "Get corrected value",
+            "parameters": [
+                "uint8_t times = 1"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "include HX711.h, HX711 myScale;",
+                "parameter usage": "float value = myScale.get_value(1);",
+                "return value handling": "Store returned value in float"
+            }
+        },
+        {
+            "name": "get_units",
+            "description": "Get value in units",
+            "parameters": [
+                "uint8_t times = 1"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "include HX711.h, HX711 myScale;",
+                "parameter usage": "float units = myScale.get_units(1);",
+                "return value handling": "Store returned value in float"
+            }
+        },
+        {
+            "name": "tare",
+            "description": "Calibrate zero point",
+            "parameters": [
+                "uint8_t times = 10"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "include HX711.h, HX711 myScale;",
+                "parameter usage": "myScale.tare(10);",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "get_tare",
+            "description": "Get tare value",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"HX711.h\"",
+                "parameter usage": "float tare = myScale.get_tare();",
+                "return value handling": "Check tare validity."
+            }
+        },
+        {
+            "name": "tare_set",
+            "description": "Check if tare is set",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"HX711.h\"",
+                "parameter usage": "bool isTareSet = myScale.tare_set();",
+                "return value handling": "Ensure tare status."
+            }
+        },
+        {
+            "name": "set_gain",
+            "description": "Set the gain of the load cell",
+            "parameters": [
+                "uint8_t gain = HX711_CHANNEL_A_GAIN_128",
+                "bool forced = false"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"HX711.h\"",
+                "parameter usage": "bool gainSet = myScale.set_gain(HX711_CHANNEL_A_GAIN_128, false);",
+                "return value handling": "Verify gain set success."
+            }
+        },
+        {
+            "name": "get_gain",
+            "description": "Get the current gain",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"HX711.h\"",
+                "parameter usage": "uint8_t gain = myScale.get_gain();",
+                "return value handling": "Store and use gain."
+            }
+        },
+        {
+            "name": "set_scale",
+            "description": "Set the scale factor",
+            "parameters": [
+                "float scale = 1.0"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"HX711.h\"",
+                "parameter usage": "bool scaleSet = myScale.set_scale(2.5);",
+                "return value handling": "Check scale set status."
+            }
+        },
+        {
+            "name": "get_scale",
+            "description": "Get the current scale",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"HX711.h\"",
+                "parameter usage": "float scale = myScale.get_scale();",
+                "return value handling": "Store and use scale."
+            }
+        },
+        {
+            "name": "set_offset",
+            "description": "Set the offset value",
+            "parameters": [
+                "long offset = 0"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"HX711.h\"",
+                "parameter usage": "myScale.set_offset(78545);",
+                "return value handling": "Ensure correct offset."
+            }
+        },
+        {
+            "name": "get_offset",
+            "description": "Get the current offset",
+            "parameters": [],
+            "return_type": "long",
+            "practices": {
+                "API order": "#include \"HX711.h\"",
+                "parameter usage": "long offset = myScale.get_offset();",
+                "return value handling": "Store and use offset."
+            }
+        },
+        {
+            "name": "calibrate_scale",
+            "description": "Calibrate with known weight",
+            "parameters": [
+                "uint16_t weight",
+                "uint8_t times = 10"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"HX711.h\"",
+                "parameter usage": "myScale.calibrate_scale(100, 10);",
+                "return value handling": "Validate calibration results."
+            }
+        },
+        {
+            "name": "power_down",
+            "description": "Power down the load cell",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"HX711.h\"",
+                "parameter usage": "myScale.power_down();",
+                "return value handling": "Confirm power down."
+            }
+        },
+        {
+            "name": "power_up",
+            "description": "Power up the load cell",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"HX711.h\"; Initialize via myScale.begin();",
+                "parameter usage": "None",
+                "return value handling": "None"
+            }
+        },
+        {
+            "name": "last_read",
+            "description": "Get time of last read",
+            "parameters": [],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "#include \"HX711.h\"; Initialize via myScale.begin();",
+                "parameter usage": "None",
+                "return value handling": "Use variable to capture uint32_t time."
+            }
+        },
+        {
+            "name": "get_price",
+            "description": "Get the current price",
+            "parameters": [
+                "uint8_t times = 1"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"HX711.h\"; Initialize via myScale.begin();",
+                "parameter usage": "float price = myScale.get_price(10);",
+                "return value handling": "Store in float to use price."
+            }
+        },
+        {
+            "name": "set_unit_price",
+            "description": "Set the price per unit",
+            "parameters": [
+                "float price = 1.0"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"HX711.h\"; Initialize via myScale.begin();",
+                "parameter usage": "myScale.set_unit_price(5.0);",
+                "return value handling": "None"
+            }
+        },
+        {
+            "name": "get_unit_price",
+            "description": "Get the price per unit",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"HX711.h\"; Initialize via myScale.begin();",
+                "parameter usage": "float unitPrice = myScale.get_unit_price();",
+                "return value handling": "Store in float to use price."
+            }
+        }
+    ]
+}

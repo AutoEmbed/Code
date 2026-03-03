@@ -1,0 +1,220 @@
+{
+    "Adafruit_SSD1306.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the display",
+            "parameters": [
+                "uint8_t switchvcc",
+                "uint8_t i2caddr",
+                "bool reset",
+                "bool periphBegin"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "First in setup",
+                "parameter usage": "Use correct values",
+                "return value handling": "Always check return value"
+            }
+        },
+        {
+            "name": "display",
+            "description": "Update the display",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "After rendering",
+                "parameter usage": "No parameters",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "clearDisplay",
+            "description": "Clear the display",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "After display",
+                "parameter usage": "No parameters",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "invertDisplay",
+            "description": "Invert the display",
+            "parameters": [
+                "bool i"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Optional",
+                "parameter usage": "Boolean values",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "dim",
+            "description": "Dim the display",
+            "parameters": [
+                "bool dim"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Optional",
+                "parameter usage": "Boolean values",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "drawPixel",
+            "description": "Draw a single pixel",
+            "parameters": [
+                "int16_t x",
+                "int16_t y",
+                "uint16_t color"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Before display update",
+                "parameter usage": "Ensure bounds",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "drawFastHLine",
+            "description": "Draw a horizontal line",
+            "parameters": [
+                "int16_t x",
+                "int16_t y",
+                "int16_t w",
+                "uint16_t color"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Before display update",
+                "parameter usage": "Ensure bounds",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "drawFastVLine",
+            "description": "Draw a vertical line",
+            "parameters": [
+                "int16_t x",
+                "int16_t y",
+                "int16_t h",
+                "uint16_t color"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Before display update",
+                "parameter usage": "Ensure bounds",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "startscrollright",
+            "description": "Scroll display right",
+            "parameters": [
+                "uint8_t start",
+                "uint8_t stop"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "After initialization",
+                "parameter usage": "Valid range only",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "startscrollleft",
+            "description": "Scroll display left",
+            "parameters": [
+                "uint8_t start",
+                "uint8_t stop"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "After initialization",
+                "parameter usage": "Valid range only",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "startscrolldiagright",
+            "description": "Diagonal scroll right",
+            "parameters": [
+                "uint8_t start",
+                "uint8_t stop"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after initialization.",
+                "parameter usage": "Ensure stop > start.",
+                "return value handling": "No return value to handle."
+            }
+        },
+        {
+            "name": "startscrolldiagleft",
+            "description": "Diagonal scroll left",
+            "parameters": [
+                "uint8_t start",
+                "uint8_t stop"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after initialization.",
+                "parameter usage": "Ensure stop > start.",
+                "return value handling": "No return value to handle."
+            }
+        },
+        {
+            "name": "stopscroll",
+            "description": "Stop scrolling",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call to stop scrolling.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "No return value to handle."
+            }
+        },
+        {
+            "name": "ssd1306_command",
+            "description": "Send command",
+            "parameters": [
+                "uint8_t c"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call anytime after begin.",
+                "parameter usage": "Use valid SSD1306 commands.",
+                "return value handling": "No return value to handle."
+            }
+        },
+        {
+            "name": "getPixel",
+            "description": "Get pixel state",
+            "parameters": [
+                "int16_t x",
+                "int16_t y"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call after display initialization.",
+                "parameter usage": "Use valid x, y coordinates.",
+                "return value handling": "Check pixel state."
+            }
+        },
+        {
+            "name": "getBuffer",
+            "description": "Get display buffer",
+            "parameters": [],
+            "return_type": "uint8_t*",
+            "practices": {
+                "API order": "Call after begin for buffer access.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Handle buffer pointer properly."
+            }
+        }
+    ]
+}

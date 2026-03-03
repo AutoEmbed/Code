@@ -1,0 +1,113 @@
+{
+    "INA219_array.ino": {
+        "INA219_array.ino": [
+            {
+                "functionality": "demonstrates the use of an array of INA219 sensors for voltage, shunt voltage, current, power measurements, and status flags readings",
+                "API": [
+                    "begin",
+                    "setMaxCurrentShunt",
+                    "getBusVoltageRange",
+                    "getBusVoltage",
+                    "getShuntVoltage_mV",
+                    "getCurrent_mA",
+                    "getPower_mW",
+                    "getMathOverflowFlag",
+                    "getConversionFlag"
+                ]
+            }
+        ]
+    },
+    "INA219_connected.ino": {
+        "INA219_connected.ino": [
+            {
+                "functionality": "demonstrate array of INA219 sensors setup and connection status printing",
+                "API": [
+                    "begin",
+                    "getAddress",
+                    "getAddress"
+                ]
+            }
+        ]
+    },
+    "INA219_demo.ino": {
+        "INA219_demo.ino": [
+            {
+                "functionality": "demonstrates usage of the INA219 sensor to measure voltage, current, and power and displays the values",
+                "API": [
+                    "begin",
+                    "setMaxCurrentShunt",
+                    "getBusVoltageRange",
+                    "getBusVoltage",
+                    "getShuntVoltage_mV",
+                    "getCurrent_mA",
+                    "getPower_mW",
+                    "getMathOverflowFlag",
+                    "getConversionFlag"
+                ]
+            }
+        ]
+    },
+    "INA219_get_settings.ino": {
+        "INA219_get_settings.ino": [
+            {
+                "functionality": "checks reading and writing configuration for the INA219 component",
+                "API": [
+                    "begin",
+                    "isCalibrated",
+                    "getCurrentLSB",
+                    "getShunt",
+                    "getMaxCurrent",
+                    "setMaxCurrentShunt",
+                    "isCalibrated",
+                    "getCurrentLSB",
+                    "getShunt",
+                    "getMaxCurrent",
+                    "setBusVoltageRange",
+                    "getBusVoltageRange",
+                    "setBusVoltageRange",
+                    "getBusVoltageRange",
+                    "setGain",
+                    "getGain",
+                    "setGain",
+                    "getGain",
+                    "setGain",
+                    "getGain",
+                    "setGain",
+                    "getGain",
+                    "setBusADC",
+                    "getBusADC",
+                    "setBusADC",
+                    "setShuntADC",
+                    "getShuntADC",
+                    "setShuntADC",
+                    "setMode",
+                    "getMode",
+                    "setMode"
+                ]
+            }
+        ]
+    },
+    "INA219_minimal.ino": {
+        "INA219_minimal.ino": [
+            {
+                "functionality": "demonstrates reading voltage and shunt voltage with INA219 sensor and printing values to the serial port",
+                "API": [
+                    "begin",
+                    "getBusVoltage",
+                    "getShuntVoltage_mV"
+                ]
+            }
+        ]
+    },
+    "INA219_test_I2C.ino": {
+        "INA219_test_I2C.ino": [
+            {
+                "functionality": "tests I2C speed with an INA219 device and prints the results to the serial port",
+                "API": [
+                    "begin",
+                    "getMode"
+                ]
+            }
+        ]
+    }
+}

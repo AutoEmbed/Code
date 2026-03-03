@@ -1,0 +1,172 @@
+{
+    "MATRIX7219.h": [
+        {
+            "name": "getMatrixCount",
+            "description": "Get number of matrices",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"MATRIX7219.h\"",
+                "parameter usage": "uint8_t matrixCount = mx.getMatrixCount();",
+                "return value handling": "Use matrix count for iteration"
+            }
+        },
+        {
+            "name": "begin",
+            "description": "Initialize the matrix",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"MATRIX7219.h\". Call in setup()",
+                "parameter usage": "mx.begin();",
+                "return value handling": "No return value to handle"
+            }
+        },
+        {
+            "name": "setBrightness",
+            "description": "Set LED brightness",
+            "parameters": [
+                "uint8_t bright = 2"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after mx.begin()",
+                "parameter usage": "mx.setBrightness(5);",
+                "return value handling": "No return value to handle"
+            }
+        },
+        {
+            "name": "displayOff",
+            "description": "Turn off the display",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call when display not needed",
+                "parameter usage": "mx.displayOff();",
+                "return value handling": "No return value to handle"
+            }
+        },
+        {
+            "name": "displayOn",
+            "description": "Turn on the display",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after mx.displayOff()",
+                "parameter usage": "mx.displayOn();",
+                "return value handling": "No return value to handle"
+            }
+        },
+        {
+            "name": "displayTest",
+            "description": "Run display test",
+            "parameters": [
+                "bool on = false"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Use for testing LEDs",
+                "parameter usage": "mx.displayTest(true);",
+                "return value handling": "No return value to handle"
+            }
+        },
+        {
+            "name": "clear",
+            "description": "Clear the display",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call to clear matrix",
+                "parameter usage": "mx.clear();",
+                "return value handling": "No return value to handle"
+            }
+        },
+        {
+            "name": "setRow",
+            "description": "Set row value",
+            "parameters": [
+                "uint8_t row",
+                "uint8_t value",
+                "uint8_t matrix"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Ensure matrix initialized",
+                "parameter usage": "mx.setRow(1, 0xFF, 0);",
+                "return value handling": "No return value to handle"
+            }
+        },
+        {
+            "name": "setInvert",
+            "description": "Invert the display",
+            "parameters": [
+                "bool invert"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call to invert before displaying",
+                "parameter usage": "mx.setInvert(true);",
+                "return value handling": "No return value to handle"
+            }
+        },
+        {
+            "name": "getInvert",
+            "description": "Get invert status",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Can be called anytime",
+                "parameter usage": "bool inv = mx.getInvert();",
+                "return value handling": "Store return in bool variable"
+            }
+        },
+        {
+            "name": "setReverse",
+            "description": "Reverse display",
+            "parameters": [
+                "bool reverse"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"MATRIX7219.h\", mx.begin()",
+                "parameter usage": "mx.setReverse(true)",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getReverse",
+            "description": "Get reverse status",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"MATRIX7219.h\", mx.begin()",
+                "parameter usage": "bool status = mx.getReverse()",
+                "return value handling": "Use status to check"
+            }
+        },
+        {
+            "name": "setSwap",
+            "description": "Swap the display",
+            "parameters": [
+                "bool swap"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"MATRIX7219.h\", mx.begin()",
+                "parameter usage": "mx.setSwap(true)",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getSwap",
+            "description": "Get swap status",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"MATRIX7219.h\", mx.begin()",
+                "parameter usage": "bool status = mx.getSwap()",
+                "return value handling": "Use status to check"
+            }
+        }
+    ]
+}

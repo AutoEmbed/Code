@@ -1,0 +1,313 @@
+{
+    "MQUnifiedsensor.h": [
+        {
+            "name": "init",
+            "description": "Initialize the sensor",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <MQUnifiedsensor.h>",
+                "parameter usage": "MQ9.init();",
+                "return value handling": ""
+            }
+        },
+        {
+            "name": "update",
+            "description": "Update sensor readings",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after init()",
+                "parameter usage": "MQ9.update();",
+                "return value handling": ""
+            }
+        },
+        {
+            "name": "externalADCUpdate",
+            "description": "Update using external ADC value",
+            "parameters": [
+                "float volt"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after init()",
+                "parameter usage": "MQ9.externalADCUpdate(volt);",
+                "return value handling": ""
+            }
+        },
+        {
+            "name": "setR0",
+            "description": "Set the R0 value",
+            "parameters": [
+                "float R0 = 10"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after init()",
+                "parameter usage": "MQ9.setR0(10);",
+                "return value handling": ""
+            }
+        },
+        {
+            "name": "setRL",
+            "description": "Set the RL value",
+            "parameters": [
+                "float RL = 10"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after init()",
+                "parameter usage": "MQ9.setRL(10);",
+                "return value handling": ""
+            }
+        },
+        {
+            "name": "setA",
+            "description": "Set the coefficient a",
+            "parameters": [
+                "float a"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after init()",
+                "parameter usage": "MQ9.setA(1000.5);",
+                "return value handling": ""
+            }
+        },
+        {
+            "name": "setB",
+            "description": "Set the coefficient b",
+            "parameters": [
+                "float b"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after init()",
+                "parameter usage": "MQ9.setB(-2.244);",
+                "return value handling": ""
+            }
+        },
+        {
+            "name": "setRegressionMethod",
+            "description": "Set regression method",
+            "parameters": [
+                "int regressionMethod"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call before setA()",
+                "parameter usage": "MQ9.setRegressionMethod(1);",
+                "return value handling": ""
+            }
+        },
+        {
+            "name": "setVoltResolution",
+            "description": "Set voltage resolution",
+            "parameters": [
+                "float voltage_resolution = 5"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after init()",
+                "parameter usage": "MQ9.setVoltResolution(5);",
+                "return value handling": ""
+            }
+        },
+        {
+            "name": "serialDebug",
+            "description": "Enable/Disable serial debug",
+            "parameters": [
+                "bool onSetup = false"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call before init()",
+                "parameter usage": "MQ9.serialDebug(true);",
+                "return value handling": ""
+            }
+        },
+        {
+            "name": "setADC",
+            "description": "Set ADC value",
+            "parameters": [
+                "int value"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <MQUnifiedsensor.h>",
+                "parameter usage": "object.setADC(10);",
+                "return value handling": "No return"
+            }
+        },
+        {
+            "name": "calibrate",
+            "description": "Calibrate the sensor",
+            "parameters": [
+                "float ratioInCleanAir"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <MQUnifiedsensor.h>",
+                "parameter usage": "float r0 = object.calibrate(9.83);",
+                "return value handling": "if (isinf(r0)) handle error;"
+            }
+        },
+        {
+            "name": "readSensor",
+            "description": "Read sensor value",
+            "parameters": [
+                "bool isMQ303A = false",
+                "float correctionFactor = 0.0",
+                "bool injected = false"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <MQUnifiedsensor.h>",
+                "parameter usage": "float value = object.readSensor();",
+                "return value handling": "if (value < 0) handle error;"
+            }
+        },
+        {
+            "name": "readSensorR0Rs",
+            "description": "Read sensor R0 to Rs",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <MQUnifiedsensor.h>",
+                "parameter usage": "float value = object.readSensorR0Rs();",
+                "return value handling": "if (value < 0) handle error;"
+            }
+        },
+        {
+            "name": "validateEcuation",
+            "description": "Validate using ratio input",
+            "parameters": [
+                "float ratioInput = 0"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <MQUnifiedsensor.h>",
+                "parameter usage": "float validation = object.validateEcuation(1.2);",
+                "return value handling": "if (isnan(validation)) handle error;"
+            }
+        },
+        {
+            "name": "getA",
+            "description": "Get coefficient a",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <MQUnifiedsensor.h>",
+                "parameter usage": "float a = object.getA();",
+                "return value handling": "Use the value directly."
+            }
+        },
+        {
+            "name": "getB",
+            "description": "Get coefficient b",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <MQUnifiedsensor.h>",
+                "parameter usage": "float b = object.getB();",
+                "return value handling": "Use the value directly."
+            }
+        },
+        {
+            "name": "getR0",
+            "description": "Get R0 value",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <MQUnifiedsensor.h>",
+                "parameter usage": "float r0 = object.getR0();",
+                "return value handling": "Use for sensor calibration."
+            }
+        },
+        {
+            "name": "getRL",
+            "description": "Get RL value",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <MQUnifiedsensor.h>",
+                "parameter usage": "float rl = object.getRL();",
+                "return value handling": "Use for load resistance."
+            }
+        },
+        {
+            "name": "getVoltResolution",
+            "description": "Get voltage resolution",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <MQUnifiedsensor.h>",
+                "parameter usage": "float res = object.getVoltResolution();",
+                "return value handling": "Ensure proper voltage handling."
+            }
+        },
+        {
+            "name": "getRegressionMethod",
+            "description": "Get regression method",
+            "parameters": [],
+            "return_type": "String",
+            "practices": {
+                "API order": "#include <MQUnifiedsensor.h>",
+                "parameter usage": "N/A",
+                "return value handling": "String method = getRegressionMethod();"
+            }
+        },
+        {
+            "name": "getVoltage",
+            "description": "Get voltage value",
+            "parameters": [
+                "bool read = true",
+                "bool injected = false",
+                "int value = 0"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <MQUnifiedsensor.h>",
+                "parameter usage": "float voltage = MQ3.getVoltage();",
+                "return value handling": "Validate float value."
+            }
+        },
+        {
+            "name": "stringTofloat",
+            "description": "Convert string to float",
+            "parameters": [
+                "String &str"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <MQUnifiedsensor.h>",
+                "parameter usage": "float val = stringTofloat(\"123.45\");",
+                "return value handling": "Check for conversion errors."
+            }
+        },
+        {
+            "name": "getRS",
+            "description": "Get RS value",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <MQUnifiedsensor.h>",
+                "parameter usage": "float rs = MQ3.getRS();",
+                "return value handling": "Ensure RS value is within expected range."
+            }
+        },
+        {
+            "name": "setRsR0RatioGetPPM",
+            "description": "Set Rs/R0 ratio to get PPM",
+            "parameters": [
+                "float value"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <MQUnifiedsensor.h>",
+                "parameter usage": "float ppm = MQ3.setRsR0RatioGetPPM(1.0);",
+                "return value handling": "Verify the PPM values."
+            }
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+{
+    "colorview.ino": {
+        "colorview.ino": [
+            {
+                "functionality": "reads color data from the TCS34725 sensor and displays the values using an RGB LED",
+                "API": [
+                    "begin",
+                    "setInterrupt",
+                    "getRGB",
+                    "setInterrupt"
+                ]
+            }
+        ]
+    },
+    "integration_time.ino": {
+        "integration_time.ino": [
+            {
+                "functionality": "configures and reads color data from the Adafruit TCS34725 sensor adjusting the integration time",
+                "API": [
+                    "begin",
+                    "setIntegrationTime",
+                    "getRawData",
+                    "setIntegrationTime",
+                    "getRawData",
+                    "setIntegrationTime",
+                    "getRawData"
+                ]
+            }
+        ]
+    },
+    "interrupt.ino": {
+        "interrupt.ino": [
+            {
+                "functionality": "handles an interrupt-driven process for reading and displaying color data using the Adafruit TCS34725 sensor",
+                "API": [
+                    "begin",
+                    "read16",
+                    "write8",
+                    "setInterrupt",
+                    "calculateColorTemperature",
+                    "calculateLux",
+                    "clearInterrupt"
+                ]
+            }
+        ]
+    },
+    "tcs34725.ino": {
+        "tcs34725.ino": [
+            {
+                "functionality": "reads RGB color data and ambient light, calculates color temperature and lux, and prints the values to the serial port",
+                "API": [
+                    "begin",
+                    "getRawData",
+                    "calculateColorTemperature_dn40",
+                    "calculateLux"
+                ]
+            }
+        ]
+    },
+    "tcs34725autorange.ino": {
+        "tcs34725autorange.ino": [
+            {
+                "functionality": "handles automatic gain control for the TCS34725 color sensor and prints sensor data to the serial port",
+                "API": [
+                    "begin",
+                    "setGainTime",
+                    "getRawData"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,225 @@
+{
+    "MS5611.h": [
+        {
+            "name": "begin",
+            "description": "Initializes the sensor.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <Wire.h>",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Check for sensor connection."
+            }
+        },
+        {
+            "name": "isConnected",
+            "description": "Checks if the sensor is connected.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call after begin.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Verify return is true."
+            }
+        },
+        {
+            "name": "reset",
+            "description": "Resets the sensor.",
+            "parameters": [
+                "uint8_t mathMode = 0"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call before read.",
+                "parameter usage": "Use mathMode=1 for adjusted math.",
+                "return value handling": "Check if true for success."
+            }
+        },
+        {
+            "name": "read",
+            "description": "Reads sensor data.",
+            "parameters": [
+                "uint8_t bits"
+            ],
+            "return_type": "int",
+            "practices": {
+                "API order": "Ensure sensor initialized.",
+                "parameter usage": "Pass resolution, e.g. 16.",
+                "return value handling": "Compare with MS5611_READ_OK."
+            }
+        },
+        {
+            "name": "setOversampling",
+            "description": "Sets oversampling rate.",
+            "parameters": [
+                "osr_t samplingRate"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Set before read.",
+                "parameter usage": "Use constants, e.g. OSR_ULTRA_LOW.",
+                "return value handling": "No return value to handle."
+            }
+        },
+        {
+            "name": "getOversampling",
+            "description": "Gets oversampling rate.",
+            "parameters": [],
+            "return_type": "osr_t",
+            "practices": {
+                "API order": "Call after setOversampling.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Store to check current setting."
+            }
+        },
+        {
+            "name": "getTemperature",
+            "description": "Gets temperature in °C.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after read.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Format to 2 decimal places."
+            }
+        },
+        {
+            "name": "getPressure",
+            "description": "Gets pressure in mBar.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after read.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Format to 2 decimal places."
+            }
+        },
+        {
+            "name": "setPressureOffset",
+            "description": "Sets pressure offset.",
+            "parameters": [
+                "float offset = 0"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Set before getPressure.",
+                "parameter usage": "Use offset value.",
+                "return value handling": "No return value to handle."
+            }
+        },
+        {
+            "name": "getPressureOffset",
+            "description": "Gets pressure offset.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Check existing offset.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Store for comparison."
+            }
+        },
+        {
+            "name": "setTemperatureOffset",
+            "description": "Sets temperature offset.",
+            "parameters": [
+                "float offset = 0"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"MS5611.h\"",
+                "parameter usage": "Use meaningful offset, e.g., sensor.setTemperatureOffset(5.0).",
+                "return value handling": "No return value to handle."
+            }
+        },
+        {
+            "name": "getTemperatureOffset",
+            "description": "Gets temperature offset.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"MS5611.h\"",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Store return, e.g., float offset = sensor.getTemperatureOffset()."
+            }
+        },
+        {
+            "name": "getLastResult",
+            "description": "Gets last result code.",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "#include \"MS5611.h\"",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Check for errors, e.g., if (sensor.getLastResult() != 0)."
+            }
+        },
+        {
+            "name": "lastRead",
+            "description": "Gets last read time.",
+            "parameters": [],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "#include \"MS5611.h\"",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Store timestamp, e.g., uint32_t lastTime = sensor.lastRead()."
+            }
+        },
+        {
+            "name": "getDeviceID",
+            "description": "Gets unique device ID.",
+            "parameters": [],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "#include \"MS5611.h\"",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Store ID, e.g., uint32_t deviceID = sensor.getDeviceID()."
+            }
+        },
+        {
+            "name": "setCompensation",
+            "description": "Sets compensation flag.",
+            "parameters": [
+                "bool flag = true"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"MS5611.h\"",
+                "parameter usage": "Set flag as needed, e.g., sensor.setCompensation(true).",
+                "return value handling": "No return value to handle."
+            }
+        },
+        {
+            "name": "getCompensation",
+            "description": "Gets compensation flag.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"MS5611.h\"",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Store flag, e.g., bool comp = sensor.getCompensation()."
+            }
+        },
+        {
+            "name": "getManufacturer",
+            "description": "Gets manufacturer code.",
+            "parameters": [],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include \"MS5611.h\"",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Store code, e.g., uint16_t mfgCode = sensor.getManufacturer()."
+            }
+        },
+        {
+            "name": "getSerialCode",
+            "description": "Gets serial code.",
+            "parameters": [],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include \"MS5611.h\"",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Store code, e.g., uint16_t serialCode = sensor.getSerialCode()."
+            }
+        }
+    ]
+}

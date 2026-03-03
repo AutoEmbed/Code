@@ -1,0 +1,255 @@
+{
+    "HX711.h": [
+        {
+            "name": "begin",
+            "description": "Initialize pins and settings",
+            "parameters": [
+                "uint8_t dataPin",
+                "uint8_t clockPin",
+                "bool fastProcessor = false"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "reset",
+            "description": "Resets the load cell",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "is_ready",
+            "description": "Check if the load cell is ready",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "wait_ready",
+            "description": "Wait until the load cell is ready",
+            "parameters": [
+                "uint32_t ms = 0"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "wait_ready_retry",
+            "description": "Wait until ready with retries",
+            "parameters": [
+                "uint8_t retries = 3",
+                "uint32_t ms = 0"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "wait_ready_timeout",
+            "description": "Wait until ready with timeout",
+            "parameters": [
+                "uint32_t timeout = 1000",
+                "uint32_t ms = 0"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "read",
+            "description": "Read raw data from the load cell",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "read_average",
+            "description": "Get average of multiple reads",
+            "parameters": [
+                "uint8_t times = 10"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "read_median",
+            "description": "Get median of multiple reads",
+            "parameters": [
+                "uint8_t times = 7"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "read_medavg",
+            "description": "Get median average of reads",
+            "parameters": [
+                "uint8_t times = 7"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "read_runavg",
+            "description": "Get running average of reads",
+            "parameters": [
+                "uint8_t times = 7",
+                "float alpha = 0.5"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "set_raw_mode",
+            "description": "Set mode to raw data",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "set_average_mode",
+            "description": "Set mode to average",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "set_median_mode",
+            "description": "Set mode to median",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "set_medavg_mode",
+            "description": "Set mode to median average",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "set_runavg_mode",
+            "description": "Set mode to running average",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "get_mode",
+            "description": "Get the current mode",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "get_value",
+            "description": "Get corrected value",
+            "parameters": [
+                "uint8_t times = 1"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "get_units",
+            "description": "Get value in units",
+            "parameters": [
+                "uint8_t times = 1"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "tare",
+            "description": "Calibrate zero point",
+            "parameters": [
+                "uint8_t times = 10"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "get_tare",
+            "description": "Get tare value",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "tare_set",
+            "description": "Check if tare is set",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "set_gain",
+            "description": "Set the gain of the load cell",
+            "parameters": [
+                "uint8_t gain = HX711_CHANNEL_A_GAIN_128",
+                "bool forced = false"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "get_gain",
+            "description": "Get the current gain",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "set_scale",
+            "description": "Set the scale factor",
+            "parameters": [
+                "float scale = 1.0"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "get_scale",
+            "description": "Get the current scale",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "set_offset",
+            "description": "Set the offset value",
+            "parameters": [
+                "long offset = 0"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "get_offset",
+            "description": "Get the current offset",
+            "parameters": [],
+            "return_type": "long"
+        },
+        {
+            "name": "calibrate_scale",
+            "description": "Calibrate with known weight",
+            "parameters": [
+                "uint16_t weight",
+                "uint8_t times = 10"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "power_down",
+            "description": "Power down the load cell",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "power_up",
+            "description": "Power up the load cell",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "last_read",
+            "description": "Get time of last read",
+            "parameters": [],
+            "return_type": "uint32_t"
+        },
+        {
+            "name": "get_price",
+            "description": "Get the current price",
+            "parameters": [
+                "uint8_t times = 1"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "set_unit_price",
+            "description": "Set the price per unit",
+            "parameters": [
+                "float price = 1.0"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "get_unit_price",
+            "description": "Get the price per unit",
+            "parameters": [],
+            "return_type": "float"
+        }
+    ]
+}

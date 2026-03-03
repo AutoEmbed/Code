@@ -1,0 +1,14 @@
+{
+    "testBMP280.ino": {
+        "testBMP280.ino": [
+            {
+                "functionality": "tests the getPressure functions and prints temperature and pressure values to the serial port",
+                "API": [
+                    "begin",
+                    "getPressure",
+                    "getTemperature"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,770 @@
+{
+    "ELECHOUSE_CC1101_SRC_DRV.h": [
+        {
+            "name": "Init",
+            "description": "Initialize the CC1101 module.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.Init();",
+                "return value handling": "void, no handling"
+            }
+        },
+        {
+            "name": "SpiReadStatus",
+            "description": "Read status register.",
+            "parameters": [
+                "byte addr"
+            ],
+            "return_type": "byte",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "byte status = SpiReadStatus(addr);",
+                "return value handling": "Check expected status"
+            }
+        },
+        {
+            "name": "setSpiPin",
+            "description": "Set SPI pin configuration.",
+            "parameters": [
+                "byte sck",
+                "byte miso",
+                "byte mosi",
+                "byte ss"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setSpiPin(10, 11, 12, 13);",
+                "return value handling": "void, no handling"
+            }
+        },
+        {
+            "name": "addSpiPin",
+            "description": "Add SPI pin configuration with module.",
+            "parameters": [
+                "byte sck",
+                "byte miso",
+                "byte mosi",
+                "byte ss",
+                "byte modul"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.addSpiPin(10, 11, 12, 13, 0);",
+                "return value handling": "void, no handling"
+            }
+        },
+        {
+            "name": "setGDO",
+            "description": "Set GDO pin configuration.",
+            "parameters": [
+                "byte gdo0",
+                "byte gdo2"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setGDO(2, 3);",
+                "return value handling": "void, no handling"
+            }
+        },
+        {
+            "name": "setGDO0",
+            "description": "Set GDO0 pin configuration.",
+            "parameters": [
+                "byte gdo0"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setGDO0(2);",
+                "return value handling": "void, no handling"
+            }
+        },
+        {
+            "name": "addGDO",
+            "description": "Add GDO pin configuration with module.",
+            "parameters": [
+                "byte gdo0",
+                "byte gdo2",
+                "byte modul"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.addGDO(2, 3, 0);",
+                "return value handling": "void, no handling"
+            }
+        },
+        {
+            "name": "addGDO0",
+            "description": "Add GDO0 pin configuration with module.",
+            "parameters": [
+                "byte gdo0",
+                "byte modul"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.addGDO0(2, 0);",
+                "return value handling": "void, no handling"
+            }
+        },
+        {
+            "name": "setModul",
+            "description": "Set module.",
+            "parameters": [
+                "byte modul"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setModul(1);",
+                "return value handling": "void, no handling"
+            }
+        },
+        {
+            "name": "setCCMode",
+            "description": "Set CC mode.",
+            "parameters": [
+                "bool s"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setCCMode(1);",
+                "return value handling": "void, no handling"
+            }
+        },
+        {
+            "name": "setModulation",
+            "description": "Set modulation type.",
+            "parameters": [
+                "byte m"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setModulation(0);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "setPA",
+            "description": "Set power amplifier level.",
+            "parameters": [
+                "int p"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setPA(10);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "setMHZ",
+            "description": "Set frequency in MHz.",
+            "parameters": [
+                "float mhz"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setMHZ(433.92);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "setChannel",
+            "description": "Set communication channel.",
+            "parameters": [
+                "byte chnl"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setChannel(0);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "setChsp",
+            "description": "Set channel spacing.",
+            "parameters": [
+                "float f"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setChsp(199.95);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "setRxBW",
+            "description": "Set receiver bandwidth.",
+            "parameters": [
+                "float f"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setRxBW(812.50);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "setDRate",
+            "description": "Set data rate.",
+            "parameters": [
+                "float d"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setDRate(99.97);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "setDeviation",
+            "description": "Set frequency deviation.",
+            "parameters": [
+                "float d"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setDeviation(47.60);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "SetTx",
+            "description": "Set to transmit mode.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.SetTx();",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "SetRx",
+            "description": "Set to receive mode.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.SetRx();",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "SetTx",
+            "description": "Set to transmit mode with MHz.",
+            "parameters": [
+                "float mhz"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.SetTx(433.92);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "SetRx",
+            "description": "Set to receive mode with MHz.",
+            "parameters": [
+                "float mhz"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.SetRx(433.92);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getRssi",
+            "description": "Get RSSI value.",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "int rssi = ELECHOUSE_cc1101.getRssi();",
+                "return value handling": "Use variable to check RSSI."
+            }
+        },
+        {
+            "name": "getLqi",
+            "description": "Get LQI value.",
+            "parameters": [],
+            "return_type": "byte",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "byte lqi = ELECHOUSE_cc1101.getLqi();",
+                "return value handling": "Use variable to check LQI."
+            }
+        },
+        {
+            "name": "setSres",
+            "description": "Send reset strobe.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setSres();",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setSidle",
+            "description": "Send idle strobe.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setSidle();",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "goSleep",
+            "description": "Enter sleep mode.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.goSleep();",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "SendData",
+            "description": "Send data buffer.",
+            "parameters": [
+                "byte *txBuffer",
+                "byte size"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.SendData(buffer, size);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "SendData",
+            "description": "Send data string.",
+            "parameters": [
+                "char *txchar"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.SendData((char *)buffer);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "SendData",
+            "description": "Send data buffer with timeout.",
+            "parameters": [
+                "byte *txBuffer",
+                "byte size",
+                "int t"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.SendData(buffer, size, timeout);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "SendData",
+            "description": "Send data string with timeout.",
+            "parameters": [
+                "char *txchar",
+                "int t"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "SendData('message', 1000);",
+                "return value handling": "void, no handling needed"
+            }
+        },
+        {
+            "name": "CheckReceiveFlag",
+            "description": "Check receive flag.",
+            "parameters": [],
+            "return_type": "byte",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "byte flag = CheckReceiveFlag();",
+                "return value handling": "if(flag) { ... }"
+            }
+        },
+        {
+            "name": "ReceiveData",
+            "description": "Receive data into buffer.",
+            "parameters": [
+                "byte *rxBuffer"
+            ],
+            "return_type": "byte",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "byte length = ReceiveData(buffer);",
+                "return value handling": "buffer[length] = '\\0';"
+            }
+        },
+        {
+            "name": "CheckCRC",
+            "description": "Check CRC validity.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "bool valid = CheckCRC();",
+                "return value handling": "if(valid) { ... }"
+            }
+        },
+        {
+            "name": "SpiStrobe",
+            "description": "Send SPI strobe command.",
+            "parameters": [
+                "byte strobe"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "SpiStrobe(0x30);",
+                "return value handling": "void, no handling needed"
+            }
+        },
+        {
+            "name": "SpiWriteReg",
+            "description": "Write to SPI register.",
+            "parameters": [
+                "byte addr",
+                "byte value"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "SpiWriteReg(0x01, 0xFF);",
+                "return value handling": "void, no handling needed"
+            }
+        },
+        {
+            "name": "SpiWriteBurstReg",
+            "description": "Write burst data to SPI register.",
+            "parameters": [
+                "byte addr",
+                "byte *buffer",
+                "byte num"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "SpiWriteBurstReg(0x01, data, 3);",
+                "return value handling": "void, no handling needed"
+            }
+        },
+        {
+            "name": "SpiReadReg",
+            "description": "Read from SPI register.",
+            "parameters": [
+                "byte addr"
+            ],
+            "return_type": "byte",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "byte value = SpiReadReg(0x01);",
+                "return value handling": "return value is register data"
+            }
+        },
+        {
+            "name": "SpiReadBurstReg",
+            "description": "Read burst data from SPI register.",
+            "parameters": [
+                "byte addr",
+                "byte *buffer",
+                "byte num"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "SpiReadBurstReg(0x01, buffer, 3);",
+                "return value handling": "void, no handling needed"
+            }
+        },
+        {
+            "name": "setClb",
+            "description": "Set calibration values.",
+            "parameters": [
+                "byte b",
+                "byte s",
+                "byte e"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "setClb(0x01, 0x02, 0x03);",
+                "return value handling": "void, no handling needed"
+            }
+        },
+        {
+            "name": "getCC1101",
+            "description": "Get CC1101 status.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "No parameters required.",
+                "return value handling": "Use if-else to check status."
+            }
+        },
+        {
+            "name": "getMode",
+            "description": "Get current mode.",
+            "parameters": [],
+            "return_type": "byte",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "No parameters required.",
+                "return value handling": "Store in a byte variable."
+            }
+        },
+        {
+            "name": "setSyncWord",
+            "description": "Set sync word.",
+            "parameters": [
+                "byte sh",
+                "byte sl"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setSyncWord(211, 145);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "setAddr",
+            "description": "Set device address.",
+            "parameters": [
+                "byte v"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setAddr(0);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "setWhiteData",
+            "description": "Set data whitening.",
+            "parameters": [
+                "bool v"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setWhiteData(0);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "setPktFormat",
+            "description": "Set packet format mode.",
+            "parameters": [
+                "byte v"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setPktFormat(0);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "setCrc",
+            "description": "Enable or disable CRC.",
+            "parameters": [
+                "bool v"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setCrc(1);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "setLengthConfig",
+            "description": "Configure packet length.",
+            "parameters": [
+                "byte v"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setLengthConfig(1);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "setPacketLength",
+            "description": "Set the packet length.",
+            "parameters": [
+                "byte v"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setPacketLength(0);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "setDcFilterOff",
+            "description": "Enable or disable DC filter.",
+            "parameters": [
+                "bool v"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setDcFilterOff(0);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "setManchester",
+            "description": "Enable or disable Manchester encoding.",
+            "parameters": [
+                "bool v"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setManchester(true);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setSyncMode",
+            "description": "Configure synchronization mode.",
+            "parameters": [
+                "byte v"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setSyncMode(2);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setFEC",
+            "description": "Enable or disable FEC.",
+            "parameters": [
+                "bool v"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setFEC(true);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setPRE",
+            "description": "Set preamble length.",
+            "parameters": [
+                "byte v"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setPRE(3);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setPQT",
+            "description": "Set PQT threshold.",
+            "parameters": [
+                "byte v"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setPQT(4);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setCRC_AF",
+            "description": "Enable or disable CRC autoflush.",
+            "parameters": [
+                "bool v"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setCRC_AF(true);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setAppendStatus",
+            "description": "Enable or disable append status.",
+            "parameters": [
+                "bool v"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setAppendStatus(true);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setAdrChk",
+            "description": "Set address check mode.",
+            "parameters": [
+                "byte v"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "ELECHOUSE_cc1101.setAdrChk(2);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "CheckRxFifo",
+            "description": "Check RX FIFO with timeout.",
+            "parameters": [
+                "int t"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <ELECHOUSE_CC1101_SRC_DRV.h>",
+                "parameter usage": "if (ELECHOUSE_cc1101.CheckRxFifo(100))",
+                "return value handling": "Use in conditional statement"
+            }
+        }
+    ]
+}

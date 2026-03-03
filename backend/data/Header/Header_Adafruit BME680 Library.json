@@ -1,0 +1,243 @@
+{
+    "Adafruit_BME680.h": [
+        {
+            "name": "begin",
+            "description": "Initializes sensor",
+            "parameters": [
+                "uint8_t addr = BME68X_DEFAULT_ADDRESS",
+                "bool initSettings = true"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "readTemperature",
+            "description": "Reads temperature",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "readPressure",
+            "description": "Reads barometric pressure",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "readHumidity",
+            "description": "Reads humidity",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "readGas",
+            "description": "Reads gas resistance",
+            "parameters": [],
+            "return_type": "uint32_t"
+        },
+        {
+            "name": "readAltitude",
+            "description": "Reads altitude",
+            "parameters": [
+                "float seaLevel"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "setTemperatureOversampling",
+            "description": "Sets temperature oversampling",
+            "parameters": [
+                "uint8_t os"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setPressureOversampling",
+            "description": "Sets pressure oversampling",
+            "parameters": [
+                "uint8_t os"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setHumidityOversampling",
+            "description": "Sets humidity oversampling",
+            "parameters": [
+                "uint8_t os"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setIIRFilterSize",
+            "description": "Sets IIR filter size",
+            "parameters": [
+                "uint8_t fs"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setGasHeater",
+            "description": "Sets gas heater settings",
+            "parameters": [
+                "uint16_t heaterTemp",
+                "uint16_t heaterTime"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setODR",
+            "description": "Sets output data rate",
+            "parameters": [
+                "uint8_t odr"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "performReading",
+            "description": "Performs a blocking read",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "beginReading",
+            "description": "Starts a reading",
+            "parameters": [],
+            "return_type": "uint32_t"
+        },
+        {
+            "name": "endReading",
+            "description": "Ends the reading",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "remainingReadingMillis",
+            "description": "Gets remaining read time",
+            "parameters": [],
+            "return_type": "int"
+        }
+    ],
+    "bme68x.h": [
+        {
+            "name": "bme68x_init",
+            "description": "Initialize the sensor and device structure",
+            "parameters": [
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t"
+        },
+        {
+            "name": "bme68x_set_regs",
+            "description": "Write data to sensor registers",
+            "parameters": [
+                "const uint8_t *reg_addr",
+                "const uint8_t *reg_data",
+                "uint32_t len",
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t"
+        },
+        {
+            "name": "bme68x_get_regs",
+            "description": "Read data from sensor registers",
+            "parameters": [
+                "uint8_t reg_addr",
+                "uint8_t *reg_data",
+                "uint32_t len",
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t"
+        },
+        {
+            "name": "bme68x_soft_reset",
+            "description": "Soft-reset the sensor",
+            "parameters": [
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t"
+        },
+        {
+            "name": "bme68x_set_op_mode",
+            "description": "Set sensor operation mode",
+            "parameters": [
+                "const uint8_t op_mode",
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t"
+        },
+        {
+            "name": "bme68x_get_op_mode",
+            "description": "Get sensor operation mode",
+            "parameters": [
+                "uint8_t *op_mode",
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t"
+        },
+        {
+            "name": "bme68x_get_meas_dur",
+            "description": "Get measurement duration",
+            "parameters": [
+                "const uint8_t op_mode",
+                "struct bme68x_conf *conf",
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "uint32_t"
+        },
+        {
+            "name": "bme68x_get_data",
+            "description": "Read sensor data",
+            "parameters": [
+                "uint8_t op_mode",
+                "struct bme68x_data *data",
+                "uint8_t *n_data",
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t"
+        },
+        {
+            "name": "bme68x_set_conf",
+            "description": "Set sensor configuration",
+            "parameters": [
+                "struct bme68x_conf *conf",
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t"
+        },
+        {
+            "name": "bme68x_get_conf",
+            "description": "Get sensor configuration",
+            "parameters": [
+                "struct bme68x_conf *conf",
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t"
+        },
+        {
+            "name": "bme68x_set_heatr_conf",
+            "description": "Set heating configuration",
+            "parameters": [
+                "uint8_t op_mode",
+                "const struct bme68x_heatr_conf *conf",
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t"
+        },
+        {
+            "name": "bme68x_get_heatr_conf",
+            "description": "Get heating configuration",
+            "parameters": [
+                "const struct bme68x_heatr_conf *conf",
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t"
+        },
+        {
+            "name": "bme68x_low_gas_selftest_check",
+            "description": "Self-test low gas sensor",
+            "parameters": [
+                "const struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t"
+        }
+    ],
+    "bme68x_defs.h": []
+}

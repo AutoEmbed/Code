@@ -1,0 +1,29 @@
+{
+    "getcurrent.ino": {
+        "getcurrent.ino": [
+            {
+                "functionality": "measures voltage, current, and power using the INA219 sensor and prints the values to the serial port",
+                "API": [
+                    "begin",
+                    "getShuntVoltage_mV",
+                    "getBusVoltage_V",
+                    "getCurrent_mA",
+                    "getPower_mW"
+                ]
+            }
+        ]
+    },
+    "ina_poweroled.ino": {
+        "ina_poweroled.ino": [
+            {
+                "functionality": "Monitors and displays power consumption using an INA219 sensor and a monochrome OLED display",
+                "API": [
+                    "begin",
+                    "getShuntVoltage_mV",
+                    "getBusVoltage_V",
+                    "getCurrent_mA"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,600 @@
+{
+    "ADXL345_WE.h": [
+        {
+            "name": "init",
+            "description": "Initializes the sensor",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <ADXL345_WE.h>; ADXL345_WE myAcc",
+                "parameter usage": "if (!myAcc.init()) { Serial.println(\"ADXL345 not connected!\"); }",
+                "return value handling": "Check if init() returns true."
+            }
+        },
+        {
+            "name": "setSPIClockSpeed",
+            "description": "Sets SPI clock speed",
+            "parameters": [
+                "unsigned long clock"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ADXL345_WE.h>",
+                "parameter usage": "myAcc.setSPIClockSpeed(1000000);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setCorrFactors",
+            "description": "Sets correction factors",
+            "parameters": [
+                "float xMin",
+                "float xMax",
+                "float yMin",
+                "float yMax",
+                "float zMin",
+                "float zMax"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ADXL345_WE.h>",
+                "parameter usage": "myAcc.setCorrFactors(-266.0, 285.0, -268.0, 278.0, -291.0, 214.0);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setDataRate",
+            "description": "Sets data rate",
+            "parameters": [
+                "adxl345_dataRate rate"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ADXL345_WE.h>",
+                "parameter usage": "myAcc.setDataRate(ADXL345_DATA_RATE_25);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getDataRate",
+            "description": "Gets current data rate",
+            "parameters": [],
+            "return_type": "adxl345_dataRate",
+            "practices": {
+                "API order": "#include <ADXL345_WE.h>",
+                "parameter usage": "adxl345_dataRate rate = myAcc.getDataRate();",
+                "return value handling": "Store return value."
+            }
+        },
+        {
+            "name": "getDataRateAsString",
+            "description": "Gets data rate as string",
+            "parameters": [],
+            "return_type": "String",
+            "practices": {
+                "API order": "#include <ADXL345_WE.h>",
+                "parameter usage": "String rateStr = myAcc.getDataRateAsString();",
+                "return value handling": "Print or store return value."
+            }
+        },
+        {
+            "name": "getPowerCtlReg",
+            "description": "Gets power control register value",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <ADXL345_WE.h>",
+                "parameter usage": "uint8_t powerCtl = myAcc.getPowerCtlReg();",
+                "return value handling": "Check or store return value."
+            }
+        },
+        {
+            "name": "setRange",
+            "description": "Sets measurement range",
+            "parameters": [
+                "adxl345_range range"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ADXL345_WE.h>",
+                "parameter usage": "myAcc.setRange(ADXL345_RANGE_4G);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getRange",
+            "description": "Gets current measurement range",
+            "parameters": [],
+            "return_type": "adxl345_range",
+            "practices": {
+                "API order": "#include <ADXL345_WE.h>",
+                "parameter usage": "adxl345_range range = myAcc.getRange();",
+                "return value handling": "Store return value."
+            }
+        },
+        {
+            "name": "setFullRes",
+            "description": "Sets full resolution mode",
+            "parameters": [
+                "boolean full"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ADXL345_WE.h>",
+                "parameter usage": "myAcc.setFullRes(true);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getRangeAsString",
+            "description": "Gets range as string",
+            "parameters": [],
+            "return_type": "String",
+            "practices": {
+                "API order": "#include <ADXL345_WE.h>; Wire.begin()",
+                "parameter usage": "N/A",
+                "return value handling": "String range = getRangeAsString();"
+            }
+        },
+        {
+            "name": "getRawValues",
+            "description": "Gets raw x, y, z values",
+            "parameters": [],
+            "return_type": "xyzFloat",
+            "practices": {
+                "API order": "#include <ADXL345_WE.h>; Wire.begin()",
+                "parameter usage": "N/A",
+                "return value handling": "xyzFloat raw = getRawValues();"
+            }
+        },
+        {
+            "name": "getCorrectedRawValues",
+            "description": "Gets corrected raw x, y, z values",
+            "parameters": [],
+            "return_type": "xyzFloat",
+            "practices": {
+                "API order": "#include <ADXL345_WE.h>; Wire.begin()",
+                "parameter usage": "N/A",
+                "return value handling": "xyzFloat correctedRaw = getCorrectedRawValues();"
+            }
+        },
+        {
+            "name": "getGValues",
+            "description": "Gets x, y, z values in g",
+            "parameters": [],
+            "return_type": "xyzFloat",
+            "practices": {
+                "API order": "#include <ADXL345_WE.h>; Wire.begin()",
+                "parameter usage": "N/A",
+                "return value handling": "xyzFloat gValues = getGValues();"
+            }
+        },
+        {
+            "name": "getAngles",
+            "description": "Gets inclination angles",
+            "parameters": [],
+            "return_type": "xyzFloat",
+            "practices": {
+                "API order": "#include <ADXL345_WE.h>; Wire.begin()",
+                "parameter usage": "N/A",
+                "return value handling": "xyzFloat angles = getAngles();"
+            }
+        },
+        {
+            "name": "getCorrAngles",
+            "description": "Gets corrected inclination angles",
+            "parameters": [],
+            "return_type": "xyzFloat",
+            "practices": {
+                "API order": "#include <ADXL345_WE.h>; Wire.begin()",
+                "parameter usage": "N/A",
+                "return value handling": "xyzFloat correctedAngles = getCorrAngles();"
+            }
+        },
+        {
+            "name": "measureAngleOffsets",
+            "description": "Measures and sets angle offsets",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ADXL345_WE.h>; Wire.begin()",
+                "parameter usage": "N/A",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getAngleOffsets",
+            "description": "Gets angle offsets",
+            "parameters": [],
+            "return_type": "xyzFloat",
+            "practices": {
+                "API order": "#include <ADXL345_WE.h>; Wire.begin()",
+                "parameter usage": "N/A",
+                "return value handling": "xyzFloat offsets = getAngleOffsets();"
+            }
+        },
+        {
+            "name": "setAngleOffsets",
+            "description": "Sets angle offsets",
+            "parameters": [
+                "xyzFloat aos"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <ADXL345_WE.h>; Wire.begin()",
+                "parameter usage": "xyzFloat aos = {0, 0, 0};",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getOrientation",
+            "description": "Gets device orientation",
+            "parameters": [],
+            "return_type": "adxl345_orientation",
+            "practices": {
+                "API order": "#include <ADXL345_WE.h>; Wire.begin()",
+                "parameter usage": "N/A",
+                "return value handling": "adxl345_orientation orientation = getOrientation();"
+            }
+        },
+        {
+            "name": "getOrientationAsString",
+            "description": "Gets orientation as string",
+            "parameters": [],
+            "return_type": "String",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h>, ADXL345_WE myAcc;",
+                "parameter usage": "String orientation = myAcc.getOrientationAsString();",
+                "return value handling": "if(!orientation.isEmpty()){ /* handle value */ }"
+            }
+        },
+        {
+            "name": "getPitch",
+            "description": "Gets pitch angle",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h>, ADXL345_WE myAcc;",
+                "parameter usage": "float pitch = myAcc.getPitch();",
+                "return value handling": "if(!isnan(pitch)){ /* handle value */ }"
+            }
+        },
+        {
+            "name": "getRoll",
+            "description": "Gets roll angle",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h>, ADXL345_WE myAcc;",
+                "parameter usage": "float roll = myAcc.getRoll();",
+                "return value handling": "if(!isnan(roll)){ /* handle value */ }"
+            }
+        },
+        {
+            "name": "setMeasureMode",
+            "description": "Sets measurement mode",
+            "parameters": [
+                "bool measure"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h>, ADXL345_WE myAcc;",
+                "parameter usage": "myAcc.setMeasureMode(true);",
+                "return value handling": "/* No return value to handle */"
+            }
+        },
+        {
+            "name": "setSleep",
+            "description": "Sets sleep mode with frequency",
+            "parameters": [
+                "bool sleep",
+                "adxl345_wUpFreq freq"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h>, ADXL345_WE myAcc;",
+                "parameter usage": "myAcc.setSleep(true, ADXL345_WAKE_UP_8HZ);",
+                "return value handling": "/* No return value to handle */"
+            }
+        },
+        {
+            "name": "setSleep",
+            "description": "Sets sleep mode",
+            "parameters": [
+                "bool sleep"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h>, ADXL345_WE myAcc;",
+                "parameter usage": "myAcc.setSleep(true);",
+                "return value handling": "/* No return value to handle */"
+            }
+        },
+        {
+            "name": "setAutoSleep",
+            "description": "Sets auto sleep with frequency",
+            "parameters": [
+                "bool autoSleep",
+                "adxl345_wUpFreq freq"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h>, ADXL345_WE myAcc;",
+                "parameter usage": "myAcc.setAutoSleep(true, ADXL345_WAKE_UP_8HZ);",
+                "return value handling": "/* No return value to handle */"
+            }
+        },
+        {
+            "name": "setAutoSleep",
+            "description": "Sets auto sleep",
+            "parameters": [
+                "bool autoSleep"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h>, ADXL345_WE myAcc;",
+                "parameter usage": "myAcc.setAutoSleep(true);",
+                "return value handling": "/* No return value to handle */"
+            }
+        },
+        {
+            "name": "isAsleep",
+            "description": "Checks if device is asleep",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h>, ADXL345_WE myAcc;",
+                "parameter usage": "bool asleep = myAcc.isAsleep();",
+                "return value handling": "if(asleep){ /* handle value */ }"
+            }
+        },
+        {
+            "name": "setLowPower",
+            "description": "Sets low power mode",
+            "parameters": [
+                "bool lowpwr"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h>, ADXL345_WE myAcc;",
+                "parameter usage": "myAcc.setLowPower(true);",
+                "return value handling": "/* No return value to handle */"
+            }
+        },
+        {
+            "name": "isLowPower",
+            "description": "Checks if device is in low power",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h> before setup()",
+                "parameter usage": "isLowPower();",
+                "return value handling": "bool lowPowerMode = isLowPower();"
+            }
+        },
+        {
+            "name": "setInterrupt",
+            "description": "Configures an interrupt",
+            "parameters": [
+                "adxl345_int type",
+                "uint8_t pin"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h> before setup()",
+                "parameter usage": "setInterrupt(ADXL345_ACTIVITY, INT_PIN_2);",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "setInterruptPolarity",
+            "description": "Sets interrupt polarity",
+            "parameters": [
+                "uint8_t pol"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h> before setup()",
+                "parameter usage": "setInterruptPolarity(HIGH);",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "deleteInterrupt",
+            "description": "Deletes an interrupt",
+            "parameters": [
+                "adxl345_int type"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h> before setup()",
+                "parameter usage": "deleteInterrupt(ADXL345_ACTIVITY);",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "readAndClearInterrupts",
+            "description": "Reads and clears interrupts",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h> before setup()",
+                "parameter usage": "readAndClearInterrupts();",
+                "return value handling": "uint8_t intStatus = readAndClearInterrupts();"
+            }
+        },
+        {
+            "name": "checkInterrupt",
+            "description": "Checks specific interrupt",
+            "parameters": [
+                "uint8_t source",
+                "adxl345_int type"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h> before setup()",
+                "parameter usage": "checkInterrupt(source, ADXL345_ACTIVITY);",
+                "return value handling": "bool isActivity = checkInterrupt(source, ADXL345_ACTIVITY);"
+            }
+        },
+        {
+            "name": "setLinkBit",
+            "description": "Sets the link bit",
+            "parameters": [
+                "bool link"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h> before setup()",
+                "parameter usage": "setLinkBit(true);",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "setFreeFallThresholds",
+            "description": "Configures free fall thresholds",
+            "parameters": [
+                "float ffg",
+                "float fft"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h> before setup()",
+                "parameter usage": "setFreeFallThresholds(0.3, 0.5);",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "setActivityParameters",
+            "description": "Sets activity parameters",
+            "parameters": [
+                "adxl345_dcAcMode mode",
+                "adxl345_actTapSet axes",
+                "float threshold"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h> before setup()",
+                "parameter usage": "setActivityParameters(ADXL345_DC_MODE, ADXL345_XY0, 0.5);",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "setInactivityParameters",
+            "description": "Sets inactivity parameters",
+            "parameters": [
+                "adxl345_dcAcMode mode",
+                "adxl345_actTapSet axes",
+                "float threshold",
+                "uint8_t inactTime"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h> before setup()",
+                "parameter usage": "setInactivityParameters(ADXL345_DC_MODE, ADXL345_XY0, 0.5, 10);",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "setGeneralTapParameters",
+            "description": "Sets general tap parameters",
+            "parameters": [
+                "adxl345_actTapSet axes",
+                "float threshold",
+                "float duration",
+                "float latent"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h>;myAcc.init();",
+                "parameter usage": "myAcc.setGeneralTapParameters(ADXL345_XYZ, 0.5, 0.2, 0.1);",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "setAdditionalDoubleTapParameters",
+            "description": "Sets double tap parameters",
+            "parameters": [
+                "bool suppress",
+                "float window"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h>;myAcc.init();",
+                "parameter usage": "myAcc.setAdditionalDoubleTapParameters(false, 0.1);",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "getActTapStatus",
+            "description": "Gets activity/tap status",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h>;myAcc.init();",
+                "parameter usage": "uint8_t status = myAcc.getActTapStatus();",
+                "return value handling": "if (status) {/* handle status */}"
+            }
+        },
+        {
+            "name": "getActTapStatusAsString",
+            "description": "Gets status as string",
+            "parameters": [],
+            "return_type": "String",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h>;myAcc.init();",
+                "parameter usage": "String statusString = myAcc.getActTapStatusAsString();",
+                "return value handling": "if (!statusString.isEmpty()) {/* handle string */}"
+            }
+        },
+        {
+            "name": "setFifoParameters",
+            "description": "Configures FIFO parameters",
+            "parameters": [
+                "adxl345_triggerInt intNumber",
+                "uint8_t samples"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h>;myAcc.init();",
+                "parameter usage": "myAcc.setFifoParameters(ADXL345_TRIGGER1, 32);",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "setFifoMode",
+            "description": "Sets FIFO mode",
+            "parameters": [
+                "adxl345_fifoMode mode"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h>;myAcc.init();",
+                "parameter usage": "myAcc.setFifoMode(ADXL345_STREAM_MODE);",
+                "return value handling": "No return value"
+            }
+        },
+        {
+            "name": "getFifoStatus",
+            "description": "Gets FIFO status",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h>;myAcc.init();",
+                "parameter usage": "uint8_t fifoStatus = myAcc.getFifoStatus();",
+                "return value handling": "if (fifoStatus) {/* handle status */}"
+            }
+        },
+        {
+            "name": "resetTrigger",
+            "description": "Resets FIFO trigger",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include<ADXL345_WE.h>;myAcc.init();",
+                "parameter usage": "myAcc.resetTrigger();",
+                "return value handling": "No return value"
+            }
+        }
+    ]
+}

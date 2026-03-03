@@ -1,0 +1,135 @@
+{
+    "MAX30100.h": [
+        {
+            "name": "setLEDs",
+            "description": "Sets the LED state",
+            "parameters": [
+                "pulseWidth pw",
+                "ledCurrent red",
+                "ledCurrent ir"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"MAX30100.h\"",
+                "parameter usage": "sensor.setLEDs(pw1600, i50, i50);",
+                "return value handling": "void function; no return value"
+            }
+        },
+        {
+            "name": "setSPO2",
+            "description": "Setup the SPO2 sensor",
+            "parameters": [
+                "sampleRate sr"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"MAX30100.h\"",
+                "parameter usage": "sensor.setSPO2(sr100);",
+                "return value handling": "void function; no return value"
+            }
+        },
+        {
+            "name": "getNumSamp",
+            "description": "Get number of samples",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "#include \"MAX30100.h\"",
+                "parameter usage": "numSamples = sensor.getNumSamp();",
+                "return value handling": "check if value>=0"
+            }
+        },
+        {
+            "name": "readSensor",
+            "description": "Updates the values",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"MAX30100.h\"",
+                "parameter usage": "sensor.readSensor();",
+                "return value handling": "void function; no return value"
+            }
+        },
+        {
+            "name": "shutdown",
+            "description": "Instructs device to power-save",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"MAX30100.h\"",
+                "parameter usage": "sensor.shutdown();",
+                "return value handling": "void function; no return value"
+            }
+        },
+        {
+            "name": "reset",
+            "description": "Resets the device",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"MAX30100.h\"",
+                "parameter usage": "sensor.reset();",
+                "return value handling": "void function; no return value"
+            }
+        },
+        {
+            "name": "startup",
+            "description": "Leaves power-save",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"MAX30100.h\"",
+                "parameter usage": "sensor.startup();",
+                "return value handling": "void function; no return value"
+            }
+        },
+        {
+            "name": "getRevID",
+            "description": "Gets revision ID",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "#include \"MAX30100.h\"",
+                "parameter usage": "revID = sensor.getRevID();",
+                "return value handling": "verify revID >=0"
+            }
+        },
+        {
+            "name": "getPartID",
+            "description": "Gets part ID",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "#include \"MAX30100.h\"",
+                "parameter usage": "partID = sensor.getPartID();",
+                "return value handling": "verify partID >=0"
+            }
+        },
+        {
+            "name": "begin",
+            "description": "Initializes the device",
+            "parameters": [
+                "pulseWidth pw",
+                "ledCurrent ir",
+                "sampleRate sr"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"MAX30100.h\"",
+                "parameter usage": "sensor.begin(pw1600, i50, sr100);",
+                "return value handling": "void function; no return value"
+            }
+        },
+        {
+            "name": "printRegisters",
+            "description": "Dumps contents of registers for debug",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"MAX30100.h\", Wire.begin(), sensor.begin()",
+                "parameter usage": "No parameters required",
+                "return value handling": "Handle internally, no return value"
+            }
+        }
+    ]
+}

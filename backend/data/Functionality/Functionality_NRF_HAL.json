@@ -1,0 +1,97 @@
+{
+    "nrf_rx.ino": {
+        "nrf_rx.ino": [
+            {
+                "functionality": "Sets up and manages the reception of data using an nRF24L01 module, with LED indications and serial output for debugging",
+                "API": [
+                    "hal_nrf_set_cs_pin",
+                    "restart_rx",
+                    "hal_nrf_get_address",
+                    "hal_nrf_get_clear_irq_flags",
+                    "hal_nrf_rx_fifo_empty",
+                    "hal_nrf_read_rx_payload",
+                    "restart_rx",
+                    "hal_nrf_flush_rx",
+                    "hal_nrf_flush_tx",
+                    "hal_nrf_enable_dynamic_payload",
+                    "hal_nrf_enable_ack_payload",
+                    "hal_nrf_enable_dynamic_ack",
+                    "hal_nrf_set_rf_channel",
+                    "hal_nrf_set_datarate",
+                    "hal_nrf_set_crc_mode",
+                    "hal_nrf_set_operation_mode",
+                    "hal_nrf_close_pipe",
+                    "hal_nrf_config_rx_pipe",
+                    "hal_nrf_set_output_power",
+                    "hal_nrf_set_power_mode",
+                    "init_rx",
+                    "hal_nrf_set_power_mode"
+                ]
+            }
+        ]
+    },
+    "nrf_scan.ino": {
+        "nrf_scan.ino": [
+            {
+                "functionality": "Simple 2.4GHz channels scanning example using nRF24L01 and NRF_HAL library",
+                "API": [
+                    "hal_nrf_set_cs_pin",
+                    "hal_nrf_set_power_mode",
+                    "hal_nrf_set_operation_mode",
+                    "hal_nrf_set_rf_channel",
+                    "hal_nrf_get_rf_channel",
+                    "hal_nrf_get_carrier_detect"
+                ]
+            }
+        ]
+    },
+    "nrf_tx.ino": {
+        "nrf_tx.ino": [
+            {
+                "functionality": "transmits data using the nRF24L01 module and prints status messages to the serial port",
+                "API": [
+                    "hal_nrf_set_cs_pin",
+                    "hal_nrf_get_address",
+                    "hal_nrf_get_address",
+                    "hal_nrf_set_power_mode",
+                    "init_tx",
+                    "hal_nrf_write_tx_payload",
+                    "hal_nrf_get_clear_irq_flags",
+                    "hal_nrf_get_clear_irq_flags",
+                    "hal_nrf_flush_tx",
+                    "hal_nrf_set_power_mode",
+                    "hal_nrf_flush_rx",
+                    "hal_nrf_flush_tx",
+                    "hal_nrf_enable_dynamic_payload",
+                    "hal_nrf_enable_ack_payload",
+                    "hal_nrf_enable_dynamic_ack",
+                    "hal_nrf_set_rf_channel",
+                    "hal_nrf_set_datarate",
+                    "hal_nrf_set_crc_mode",
+                    "hal_nrf_set_operation_mode",
+                    "hal_nrf_config_tx"
+                ]
+            }
+        ]
+    },
+    "nrf_tx_car.ino": {
+        "nrf_tx_car.ino": [
+            {
+                "functionality": "transmits a carrier on the specified channel and provides optional serial output for progress monitoring",
+                "API": [
+                    "hal_nrf_set_cs_pin",
+                    "hal_nrf_set_power_mode",
+                    "hal_nrf_set_operation_mode",
+                    "hal_nrf_enable_continious_wave",
+                    "hal_nrf_set_pll_mode",
+                    "hal_nrf_set_output_power",
+                    "hal_nrf_set_rf_channel",
+                    "hal_nrf_is_continious_wave_enabled",
+                    "hal_nrf_get_pll_mode",
+                    "hal_nrf_get_output_power",
+                    "hal_nrf_get_rf_channel"
+                ]
+            }
+        ]
+    }
+}

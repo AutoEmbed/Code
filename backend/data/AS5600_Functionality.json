@@ -1,0 +1,342 @@
+{
+    "AS5600L_set_address.ino": {
+        "AS5600L_set_address.ino": [
+            {
+                "functionality": "demo setup and loop for reading angles with configurable I2C address for AS5600 sensor",
+                "API": [
+                    "begin",
+                    "setDirection",
+                    "isConnected",
+                    "getAddress",
+                    "setAddress",
+                    "getAddress",
+                    "readAngle",
+                    "rawAngle"
+                ]
+            }
+        ]
+    },
+    "AS5600_angular_speed.ino": {
+        "AS5600_angular_speed.ino": [
+            {
+                "functionality": "demonstrates reading the angular speed from the AS5600 sensor",
+                "API": [
+                    "begin",
+                    "setDirection",
+                    "getAddress",
+                    "isConnected",
+                    "getAngularSpeed"
+                ]
+            }
+        ]
+    },
+    "AS5600_angular_speed_RPM.ino": {
+        "AS5600_angular_speed_RPM.ino": [
+            {
+                "functionality": "reads the angular speed in RPM and prints the values to the serial port",
+                "API": [
+                    "begin",
+                    "setDirection",
+                    "getAddress",
+                    "isConnected",
+                    "getAngularSpeed"
+                ]
+            }
+        ]
+    },
+    "AS5600_burn_conf_mang.ino": {
+        "AS5600_burn_conf_mang.ino": [
+            {
+                "functionality": "burns configuration settings into AS5600 sensor and verifies the correct settings",
+                "API": [
+                    "begin",
+                    "setDirection",
+                    "isConnected",
+                    "setPowerMode",
+                    "getPowerMode",
+                    "setHysteresis",
+                    "getHysteresis",
+                    "setOutputMode",
+                    "getOutputMode",
+                    "setPWMFrequency",
+                    "getPWMFrequency",
+                    "setSlowFilter",
+                    "getSlowFilter",
+                    "setFastFilter",
+                    "getFastFilter",
+                    "setWatchDog",
+                    "getWatchDog",
+                    "setMaxAngle",
+                    "getMaxAngle"
+                ]
+            }
+        ]
+    },
+    "AS5600_burn_zpos.ino": {
+        "AS5600_burn_zpos.ino": [
+            {
+                "functionality": "example to burn zpos position to the AS5600 component, after user confirmation and with appropriate warning, includes initial connection setup and validation.",
+                "API": [
+                    "begin",
+                    "setDirection",
+                    "isConnected",
+                    "setZPosition",
+                    "getZPosition"
+                ]
+            }
+        ]
+    },
+    "AS5600_demo.ino": {
+        "AS5600_demo.ino": [
+            {
+                "functionality": "The example demonstrates reading the angle from an AS5600 sensor, initializes the sensor, sets its direction, checks connection status, and then continuously reads and prints the angle values.",
+                "API": [
+                    "begin",
+                    "setDirection",
+                    "isConnected",
+                    "readAngle",
+                    "rawAngle"
+                ]
+            }
+        ]
+    },
+    "AS5600_demo_ESP32.ino": {
+        "AS5600_demo_ESP32.ino": [
+            {
+                "functionality": "demo",
+                "API": [
+                    "begin",
+                    "setDirection",
+                    "isConnected",
+                    "readAngle",
+                    "rawAngle"
+                ]
+            }
+        ]
+    },
+    "AS5600_demo_offset.ino": {
+        "AS5600_demo_offset.ino": [
+            {
+                "functionality": "demonstrates setting and reading offset angles with AS5600 sensor and serially prints the results",
+                "API": [
+                    "begin",
+                    "setDirection",
+                    "setOffset",
+                    "getOffset",
+                    "readAngle",
+                    "rawAngle"
+                ]
+            }
+        ]
+    },
+    "AS5600_demo_radians.ino": {
+        "AS5600_demo_radians.ino": [
+            {
+                "functionality": "demonstrates reading and printing the angle in radians using the AS5600 sensor",
+                "API": [
+                    "begin",
+                    "setDirection",
+                    "readAngle",
+                    "rawAngle"
+                ]
+            }
+        ]
+    },
+    "AS5600_demo_RP2040.ino": {
+        "AS5600_demo_RP2040.ino": [
+            {
+                "functionality": "demonstrates the usage of the AS5600L sensor by initializing it, setting its direction, checking connection, and reading angle values to print them on the serial monitor",
+                "API": [
+                    "begin",
+                    "setDirection",
+                    "isConnected",
+                    "readAngle",
+                    "rawAngle"
+                ]
+            }
+        ]
+    },
+    "AS5600_demo_software_direction.ino": {
+        "AS5600_demo_software_direction.ino": [
+            {
+                "functionality": "demos software direction control for AS5600 sensor and toggles direction every 10 reads",
+                "API": [
+                    "begin",
+                    "setDirection",
+                    "setDirection",
+                    "setDirection",
+                    "setDirection",
+                    "getDirection",
+                    "readAngle",
+                    "rawAngle"
+                ]
+            }
+        ]
+    },
+    "AS5600_demo_status.ino": {
+        "AS5600_demo_status.ino": [
+            {
+                "functionality": "demonstrates interfacing with the AS5600 sensor to read various sensor statuses and configurations, then prints the values to the serial port",
+                "API": [
+                    "begin",
+                    "setDirection",
+                    "readStatus",
+                    "getConfigure",
+                    "readAGC",
+                    "readMagnitude",
+                    "detectMagnet",
+                    "magnetTooStrong",
+                    "magnetTooWeak"
+                ]
+            }
+        ]
+    },
+    "AS5600_demo_STM32.ino": {
+        "AS5600_demo_STM32.ino": [
+            {
+                "functionality": "demonstrates initial setup, connection check, reading and printing angle values from AS5600 sensor using AS5600 library",
+                "API": [
+                    "begin",
+                    "setDirection",
+                    "isConnected",
+                    "readAngle",
+                    "rawAngle"
+                ]
+            }
+        ]
+    },
+    "AS5600_demo_two_I2C.ino": {
+        "AS5600_demo_two_I2C.ino": [
+            {
+                "functionality": "demonstrates using two AS5600 devices on different I2C buses and reading their angles",
+                "API": [
+                    "begin",
+                    "setDirection",
+                    "isConnected",
+                    "begin",
+                    "setDirection",
+                    "isConnected",
+                    "readAngle",
+                    "readAngle"
+                ]
+            }
+        ]
+    },
+    "AS5600_I2C_frequency.ino": {
+        "AS5600_I2C_frequency.ino": [
+            {
+                "functionality": "demonstrates the use of the AS5600 sensor to read angle and raw angle data periodically while adjusting the I2C clock frequency",
+                "API": [
+                    "begin",
+                    "setDirection",
+                    "isConnected",
+                    "readAngle",
+                    "rawAngle"
+                ]
+            }
+        ]
+    },
+    "AS5600_outmode_analog_100.ino": {
+        "AS5600_outmode_analog_100.ino": [
+            {
+                "functionality": "experimental demo to read angle from AS5600 and print via serial",
+                "API": [
+                    "begin",
+                    "setDirection",
+                    "setOutputMode",
+                    "readAngle"
+                ]
+            }
+        ]
+    },
+    "AS5600_outmode_analog_90.ino": {
+        "AS5600_outmode_analog_90.ino": [
+            {
+                "functionality": "demonstrates how to set up and use the AS5600 sensor to read angles and produce an analog output",
+                "API": [
+                    "begin",
+                    "setDirection",
+                    "setOutputMode",
+                    "readAngle"
+                ]
+            }
+        ]
+    },
+    "AS5600_outmode_analog_pwm.ino": {
+        "AS5600_outmode_analog_pwm.ino": [
+            {
+                "functionality": "reads angular position data from AS5600 sensor and prints the value along with an analog reading to the serial port",
+                "API": [
+                    "begin",
+                    "setDirection",
+                    "setOutputMode",
+                    "setPWMFrequency",
+                    "readAngle"
+                ]
+            }
+        ]
+    },
+    "AS5600_outmode_pwm_interrupt.ino": {
+        "AS5600_outmode_pwm_interrupt.ino": [
+            {
+                "functionality": "demo for AS5600 sensor that sets output mode to PWM and captures PWM signal duration",
+                "API": [
+                    "begin",
+                    "setOutputMode",
+                    "setPWMFrequency",
+                    "readAngle",
+                    "rawAngle"
+                ]
+            }
+        ]
+    },
+    "AS5600_plus_AS5600L.ino": {
+        "AS5600_plus_AS5600L.ino": [
+            {
+                "functionality": "showing working of a AS5600 and AS5600L side by side",
+                "API": [
+                    "begin",
+                    "setDirection",
+                    "getAddress",
+                    "isConnected",
+                    "resetPosition",
+                    "getCumulativePosition",
+                    "getRevolutions"
+                ]
+            }
+        ]
+    },
+    "AS5600_position.ino": {
+        "AS5600_position.ino": [
+            {
+                "functionality": "demonstrates usage of the AS5600 library, initializes the device, reads positions, and prints data to the serial port",
+                "API": [
+                    "begin",
+                    "setDirection",
+                    "getAddress",
+                    "isConnected",
+                    "getCumulativePosition",
+                    "getCumulativePosition",
+                    "getRevolutions",
+                    "getRevolutions",
+                    "resetPosition"
+                ]
+            }
+        ]
+    },
+    "AS5600_resetCumulativeCounter.ino": {
+        "AS5600_resetCumulativeCounter.ino": [
+            {
+                "functionality": "resets the cumulative counter and prints the cumulative position to the serial port periodically",
+                "API": [
+                    "begin",
+                    "setAddress",
+                    "setDirection",
+                    "resetCumulativePosition",
+                    "getCumulativePosition",
+                    "getCumulativePosition"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "MAX30100.ino": {
+        "MAX30100.ino": [
+            {
+                "functionality": "reads sensor data from MAX30100 and prints mean difference to the serial port",
+                "API": [
+                    "begin",
+                    "readSensor"
+                ]
+            }
+        ]
+    }
+}

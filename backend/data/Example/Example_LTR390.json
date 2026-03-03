@@ -1,0 +1,233 @@
+{
+    "LTR390.h": [
+        {
+            "name": "init",
+            "description": "Initialize the sensor",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <LTR390.h> in setup",
+                "parameter usage": "bool success = ltr390.init();",
+                "return value handling": "Check if success is true"
+            }
+        },
+        {
+            "name": "reset",
+            "description": "Reset the sensor",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <LTR390.h> in setup",
+                "parameter usage": "bool resetStatus = ltr390.reset();",
+                "return value handling": "Verify resetStatus"
+            }
+        },
+        {
+            "name": "enable",
+            "description": "Enable or disable the sensor",
+            "parameters": [
+                "bool en"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <LTR390.h> in setup",
+                "parameter usage": "ltr390.enable(true);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "enabled",
+            "description": "Check if the sensor is enabled",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <LTR390.h> in setup",
+                "parameter usage": "bool isEnabled = ltr390.enabled();",
+                "return value handling": "Check if isEnabled is true"
+            }
+        },
+        {
+            "name": "setMode",
+            "description": "Set the measurement mode",
+            "parameters": [
+                "ltr390_mode_t mode"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <LTR390.h> in setup",
+                "parameter usage": "ltr390.setMode(LTR390_MODE_ALS);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getMode",
+            "description": "Get the current measurement mode",
+            "parameters": [],
+            "return_type": "ltr390_mode_t",
+            "practices": {
+                "API order": "#include <LTR390.h> in setup",
+                "parameter usage": "ltr390_mode_t mode = ltr390.getMode();",
+                "return value handling": "Use mode as needed"
+            }
+        },
+        {
+            "name": "setGain",
+            "description": "Set the sensor gain",
+            "parameters": [
+                "ltr390_gain_t gain"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <LTR390.h> in setup",
+                "parameter usage": "ltr390.setGain(LTR390_GAIN_3);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getGain",
+            "description": "Get the current sensor gain",
+            "parameters": [],
+            "return_type": "ltr390_gain_t",
+            "practices": {
+                "API order": "#include <LTR390.h> in setup",
+                "parameter usage": "ltr390_gain_t gain = ltr390.getGain();",
+                "return value handling": "Use gain as needed"
+            }
+        },
+        {
+            "name": "setResolution",
+            "description": "Set the measurement resolution",
+            "parameters": [
+                "ltr390_resolution_t res"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <LTR390.h> in setup",
+                "parameter usage": "ltr390.setResolution(LTR390_RESOLUTION_18BIT);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getResolution",
+            "description": "Get the current measurement resolution",
+            "parameters": [],
+            "return_type": "ltr390_resolution_t",
+            "practices": {
+                "API order": "#include <LTR390.h> in setup",
+                "parameter usage": "ltr390_resolution_t res = ltr390.getResolution();",
+                "return value handling": "Use res as needed"
+            }
+        },
+        {
+            "name": "setThresholds",
+            "description": "Set the upper and lower thresholds",
+            "parameters": [
+                "uint32_t lower",
+                "uint32_t higher"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <LTR390.h>, ltr390.init()",
+                "parameter usage": "setThresholds(100, 1000);",
+                "return value handling": "none"
+            }
+        },
+        {
+            "name": "configInterrupt",
+            "description": "Configure the interrupt settings",
+            "parameters": [
+                "bool enable",
+                "ltr390_mode_t source",
+                "uint8_t persistance = 0"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <LTR390.h>, ltr390.init()",
+                "parameter usage": "configInterrupt(true, LTR390_MODE_UVS, 0);",
+                "return value handling": "none"
+            }
+        },
+        {
+            "name": "newDataAvailable",
+            "description": "Check if new data is available",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <LTR390.h>, ltr390.init()",
+                "parameter usage": "if (newDataAvailable()) {}",
+                "return value handling": "if (newDataAvailable()) { ... }"
+            }
+        },
+        {
+            "name": "readUVS",
+            "description": "Read UV sensor data",
+            "parameters": [],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "#include <LTR390.h>, ltr390.init()",
+                "parameter usage": "uint32_t uv_data = readUVS();",
+                "return value handling": "uint32_t uvData = readUVS();"
+            }
+        },
+        {
+            "name": "readALS",
+            "description": "Read ambient light sensor data",
+            "parameters": [],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "#include <LTR390.h>, ltr390.init()",
+                "parameter usage": "uint32_t light_data = readALS();",
+                "return value handling": "uint32_t lightData = readALS();"
+            }
+        },
+        {
+            "name": "getLux",
+            "description": "Calculate and get Lux value",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <LTR390.h>, ltr390.init()",
+                "parameter usage": "float lux = getLux();",
+                "return value handling": "float lux = getLux();"
+            }
+        },
+        {
+            "name": "getUVI",
+            "description": "Calculate and get UV index",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <LTR390.h>, ltr390.init()",
+                "parameter usage": "float uvi = getUVI();",
+                "return value handling": "float uvi = getUVI();"
+            }
+        },
+        {
+            "name": "writeRegister",
+            "description": "Write value to a register",
+            "parameters": [
+                "uint8_t reg",
+                "uint8_t val"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <LTR390.h>, ltr390.init()",
+                "parameter usage": "uint8_t result = writeRegister(0x01, 0xFF);",
+                "return value handling": "uint8_t status = writeRegister(0x01, 0xFF);"
+            }
+        },
+        {
+            "name": "readRegister",
+            "description": "Read value from a register",
+            "parameters": [
+                "uint8_t reg"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <LTR390.h>, ltr390.init()",
+                "parameter usage": "uint8_t value = readRegister(0x01);",
+                "return value handling": "uint8_t regVal = readRegister(0x01);"
+            }
+        }
+    ]
+}

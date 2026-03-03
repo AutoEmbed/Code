@@ -1,0 +1,117 @@
+{
+    "LM75B_simple.ino": {
+        "LM75B_simple.ino": [
+            {
+                "functionality": "reads temperature data from the LM75B sensor and prints the value to the serial port",
+                "API": [
+                    "temp"
+                ]
+            }
+        ]
+    },
+    "P3T1035_simple.ino": {
+        "P3T1035_simple.ino": [
+            {
+                "functionality": "sample code demonstrating the operation of the P3T1035 temperature sensor; reads temperature data and prints the value to the serial port",
+                "API": [
+                    "begin",
+                    "temp"
+                ]
+            }
+        ]
+    },
+    "P3T1085_interrupt.ino": {
+        "P3T1085_interrupt.ino": [
+            {
+                "functionality": "sets up and reads from the P3T1085 temperature sensor, handling interrupts and printing temperature values to the serial port",
+                "API": [
+                    "temp",
+                    "clear",
+                    "thresholds",
+                    "os_mode",
+                    "clear",
+                    "temp"
+                ]
+            }
+        ]
+    },
+    "P3T1085_simple.ino": {
+        "P3T1085_simple.ino": [
+            {
+                "functionality": "reads temperature data from the P3T1085 sensor and prints the value to the serial port",
+                "API": [
+                    "begin",
+                    "temp",
+                    "println",
+                    "delay"
+                ]
+            }
+        ]
+    },
+    "P3T1085_simple_on_Arduino_Due.ino": {
+        "P3T1085_simple_on_Arduino_Due.ino": [
+            {
+                "functionality": "reads temperature data from P3T1085 sensor and prints the value to the serial port",
+                "API": [
+                    "temp"
+                ]
+            }
+        ]
+    },
+    "P3T1755_interrupt.ino": {
+        "P3T1755_interrupt.ino": [
+            {
+                "functionality": "shows P3T1755 temperature sensor operation with interrupt and timer readout",
+                "API": [
+                    "temp",
+                    "thresholds",
+                    "os_mode"
+                ]
+            }
+        ]
+    },
+    "P3T1755_simple.ino": {
+        "P3T1755_simple.ino": [
+            {
+                "functionality": "reads temperature from the P3T1755 sensor and prints the value to the serial port",
+                "API": [
+                    "temp"
+                ]
+            }
+        ]
+    },
+    "P3T2030_simple.ino": {
+        "P3T2030_simple.ino": [
+            {
+                "functionality": "reads temperature data from P3T2030 sensor and prints the value to the serial port",
+                "API": [
+                    "temp"
+                ]
+            }
+        ]
+    },
+    "PCT2075DP-ARD_interrupt_by_Tos_Thyst.ino": {
+        "PCT2075DP-ARD_interrupt_by_Tos_Thyst.ino": [
+            {
+                "functionality": "operates PCT2075 temperature sensor with interrupt to manage heater control",
+                "API": [
+                    "temp()",
+                    "thresholds(temp + 1, temp + 2)",
+                    "os_mode(PCT2075::INTERRUPT)",
+                    "temp()",
+                    "temp()"
+                ]
+            }
+        ]
+    },
+    "PCT2075_simple.ino": {
+        "PCT2075_simple.ino": [
+            {
+                "functionality": "reads temperature data from PCT2075 sensor and prints the value to the serial port",
+                "API": [
+                    "temp"
+                ]
+            }
+        ]
+    }
+}

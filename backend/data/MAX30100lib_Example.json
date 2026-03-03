@@ -1,0 +1,583 @@
+{
+    "CircularBuffer.h": [
+        {
+            "name": "unshift",
+            "description": "Adds element to the beginning.",
+            "parameters": [
+                "T value"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"CircularBuffer.h\"",
+                "parameter usage": "buffer.unshift(value);",
+                "return value handling": "if(!result){/*handle error*/}"
+            }
+        },
+        {
+            "name": "push",
+            "description": "Adds element to the end.",
+            "parameters": [
+                "T value"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"CircularBuffer.h\"",
+                "parameter usage": "buffer.push(value);",
+                "return value handling": "if(!result){/*handle error*/}"
+            }
+        },
+        {
+            "name": "shift",
+            "description": "Removes element from the beginning.",
+            "parameters": [],
+            "return_type": "T",
+            "practices": {
+                "API order": "#include \"CircularBuffer.h\"",
+                "parameter usage": "auto element = buffer.shift();",
+                "return value handling": "if(element == default(T)){/*handle error*/}"
+            }
+        },
+        {
+            "name": "pop",
+            "description": "Removes element from the end.",
+            "parameters": [],
+            "return_type": "T",
+            "practices": {
+                "API order": "#include \"CircularBuffer.h\"",
+                "parameter usage": "auto element = buffer.pop();",
+                "return value handling": "if(element == default(T)){/*handle error*/}"
+            }
+        },
+        {
+            "name": "first",
+            "description": "Returns the first element.",
+            "parameters": [],
+            "return_type": "T",
+            "practices": {
+                "API order": "#include \"CircularBuffer.h\"",
+                "parameter usage": "auto firstElement = buffer.first();",
+                "return value handling": "if(firstElement == default(T)){/*handle error*/}"
+            }
+        },
+        {
+            "name": "last",
+            "description": "Returns the last element.",
+            "parameters": [],
+            "return_type": "T",
+            "practices": {
+                "API order": "#include \"CircularBuffer.h\"",
+                "parameter usage": "auto lastElement = buffer.last();",
+                "return value handling": "if(lastElement == default(T)){/*handle error*/}"
+            }
+        },
+        {
+            "name": "operator[]",
+            "description": "Array-like access to buffer.",
+            "parameters": [
+                "__CB_ST__ index"
+            ],
+            "return_type": "T",
+            "practices": {
+                "API order": "#include \"CircularBuffer.h\"",
+                "parameter usage": "auto element = buffer[index];",
+                "return value handling": "if(element == default(T)){/*handle error*/}"
+            }
+        },
+        {
+            "name": "size",
+            "description": "Returns elements stored count.",
+            "parameters": [],
+            "return_type": "__CB_ST__",
+            "practices": {
+                "API order": "#include \"CircularBuffer.h\"",
+                "parameter usage": "auto count = buffer.size();",
+                "return value handling": "if(count == 0){/*handle error*/}"
+            }
+        },
+        {
+            "name": "available",
+            "description": "Returns available space.",
+            "parameters": [],
+            "return_type": "__CB_ST__",
+            "practices": {
+                "API order": "#include \"CircularBuffer.h\"",
+                "parameter usage": "auto space = buffer.available();",
+                "return value handling": "if(space == 0){/*handle error*/}"
+            }
+        },
+        {
+            "name": "capacity",
+            "description": "Returns potential storage capacity.",
+            "parameters": [],
+            "return_type": "__CB_ST__",
+            "practices": {
+                "API order": "#include \"CircularBuffer.h\"",
+                "parameter usage": "auto cap = buffer.capacity();",
+                "return value handling": "if(cap == 0){/*handle error*/}"
+            }
+        },
+        {
+            "name": "isEmpty",
+            "description": "Checks if buffer is empty.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"CircularBuffer.h\"",
+                "parameter usage": "isEmpty();",
+                "return value handling": "bool empty = isEmpty();"
+            }
+        },
+        {
+            "name": "isFull",
+            "description": "Checks if buffer is full.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"CircularBuffer.h\"",
+                "parameter usage": "isFull();",
+                "return value handling": "bool full = isFull();"
+            }
+        },
+        {
+            "name": "clear",
+            "description": "Resets buffer to clean status.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"CircularBuffer.h\"",
+                "parameter usage": "clear();",
+                "return value handling": "clear();"
+            }
+        },
+        {
+            "name": "debug",
+            "description": "Outputs buffer to Print object.",
+            "parameters": [
+                "Print* out"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"CircularBuffer.h\"",
+                "parameter usage": "debug(&Serial);",
+                "return value handling": "debug(&Serial);"
+            }
+        },
+        {
+            "name": "debugFn",
+            "description": "Debugs buffer with a print function.",
+            "parameters": [
+                "Print* out",
+                "void (*printFunction)(Print*, T)"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"CircularBuffer.h\"",
+                "parameter usage": "debugFn(&Serial, printFunc);",
+                "return value handling": "debugFn(&Serial, printFunc);"
+            }
+        }
+    ],
+    "MAX30100.h": [
+        {
+            "name": "begin",
+            "description": "Initializes the sensor",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <MAX30100.h>, begin() first",
+                "parameter usage": "pox.begin()",
+                "return value handling": "if (!begin()) { handleError(); }"
+            }
+        },
+        {
+            "name": "setMode",
+            "description": "Sets operating mode",
+            "parameters": [
+                "Mode mode"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "after begin()",
+                "parameter usage": "pox.setMode(MODE_OXIMETER);",
+                "return value handling": "void return, no handling"
+            }
+        },
+        {
+            "name": "setLedsPulseWidth",
+            "description": "Sets LED pulse width",
+            "parameters": [
+                "LEDPulseWidth ledPulseWidth"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "after begin()",
+                "parameter usage": "pox.setLedsPulseWidth(PULSE_WIDTH_1600);",
+                "return value handling": "void return, no handling"
+            }
+        },
+        {
+            "name": "setSamplingRate",
+            "description": "Sets data sampling rate",
+            "parameters": [
+                "SamplingRate samplingRate"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "after begin()",
+                "parameter usage": "pox.setSamplingRate(SAMPLING_RATE_100);",
+                "return value handling": "void return, no handling"
+            }
+        },
+        {
+            "name": "setLedsCurrent",
+            "description": "Sets LED currents",
+            "parameters": [
+                "LEDCurrent irLedCurrent",
+                "LEDCurrent redLedCurrent"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "after begin()",
+                "parameter usage": "pox.setLedsCurrent(LED_CURRENT_24_50MA, LED_CURRENT_27_1MA);",
+                "return value handling": "void return, no handling"
+            }
+        },
+        {
+            "name": "setHighresModeEnabled",
+            "description": "Enables/Disables high-res mode",
+            "parameters": [
+                "bool enabled"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "after begin()",
+                "parameter usage": "pox.setHighresModeEnabled(true);",
+                "return value handling": "void return, no handling"
+            }
+        },
+        {
+            "name": "update",
+            "description": "Updates sensor data",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "frequently within loop()",
+                "parameter usage": "pox.update();",
+                "return value handling": "void return, no handling"
+            }
+        },
+        {
+            "name": "getRawValues",
+            "description": "Gets raw IR and red values",
+            "parameters": [
+                "uint16_t *ir",
+                "uint16_t *red"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "after update()",
+                "parameter usage": "uint16_t ir, red; pox.getRawValues(&ir, &red);",
+                "return value handling": "if (pox.getRawValues(&ir, &red)) { useValues(ir, red); }"
+            }
+        },
+        {
+            "name": "resetFifo",
+            "description": "Resets the FIFO buffer",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "after begin()",
+                "parameter usage": "pox.resetFifo();",
+                "return value handling": "void return, no handling"
+            }
+        },
+        {
+            "name": "startTemperatureSampling",
+            "description": "Starts temperature sampling",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "after begin()",
+                "parameter usage": "pox.startTemperatureSampling();",
+                "return value handling": "void return, no handling"
+            }
+        },
+        {
+            "name": "isTemperatureReady",
+            "description": "Checks if temperature is ready",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"MAX30100.h\"",
+                "parameter usage": "No parameters needed",
+                "return value handling": "Store return value in bool"
+            }
+        },
+        {
+            "name": "retrieveTemperature",
+            "description": "Retrieves the temperature",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"MAX30100.h\"",
+                "parameter usage": "No parameters needed",
+                "return value handling": "Store return value in float"
+            }
+        },
+        {
+            "name": "shutdown",
+            "description": "Shuts down the sensor",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"MAX30100.h\"",
+                "parameter usage": "No parameters needed",
+                "return value handling": "No return value to handle"
+            }
+        },
+        {
+            "name": "resume",
+            "description": "Resumes sensor operation",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"MAX30100.h\"",
+                "parameter usage": "No parameters needed",
+                "return value handling": "No return value to handle"
+            }
+        },
+        {
+            "name": "getPartId",
+            "description": "Gets the part ID",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"MAX30100.h\"",
+                "parameter usage": "No parameters needed",
+                "return value handling": "Store return value in uint8_t"
+            }
+        }
+    ],
+    "MAX30100_BeatDetector.h": [
+        {
+            "name": "addSample",
+            "description": "Adds a sample for beat detection",
+            "parameters": [
+                "float sample"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"MAX30100_BeatDetector.h\"; init in setup()",
+                "parameter usage": "addSample(0.5);",
+                "return value handling": "if (result) { ... }"
+            }
+        },
+        {
+            "name": "getRate",
+            "description": "Gets the current heart rate",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"MAX30100_BeatDetector.h\"; init in setup()",
+                "parameter usage": "float rate = getRate();",
+                "return value handling": "if (rate > 0) { ... }"
+            }
+        },
+        {
+            "name": "getCurrentThreshold",
+            "description": "Gets the current threshold value",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"MAX30100_BeatDetector.h\"; init in setup()",
+                "parameter usage": "float threshold = getCurrentThreshold();",
+                "return value handling": "if (threshold > 0) { ... }"
+            }
+        }
+    ],
+    "MAX30100_Filters.h": [
+        {
+            "name": "FilterBuLp1::step",
+            "description": "Low pass filter step calculation",
+            "parameters": [
+                "float x"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include 'MAX30100_Filters.h'",
+                "parameter usage": "float output = FilterBuLp1.step(input);",
+                "return value handling": "Check for valid float value"
+            }
+        },
+        {
+            "name": "DCRemover::step",
+            "description": "Remove DC component from signal",
+            "parameters": [
+                "float x"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include 'MAX30100_Filters.h'",
+                "parameter usage": "float output = DCRemover.step(input);",
+                "return value handling": "Check for valid float value"
+            }
+        },
+        {
+            "name": "DCRemover::getDCW",
+            "description": "Get current DC weight",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include 'MAX30100_Filters.h'",
+                "parameter usage": "float dcw = DCRemover.getDCW();",
+                "return value handling": "Check for valid float value"
+            }
+        }
+    ],
+    "MAX30100_PulseOximeter.h": [
+        {
+            "name": "begin",
+            "description": "Initialize sensor",
+            "parameters": [
+                "PulseOximeterDebuggingMode debuggingMode_=PULSEOXIMETER_DEBUGGINGMODE_NONE"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"MAX30100_PulseOximeter.h\"; pox.begin();",
+                "parameter usage": "pox.begin(PULSEOXIMETER_DEBUGGINGMODE_PULSEDETECT);",
+                "return value handling": "if (!pox.begin(...)) { handleError(); }"
+            }
+        },
+        {
+            "name": "update",
+            "description": "Update sensor readings",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "pox.update() in loop();",
+                "parameter usage": "pox.update();",
+                "return value handling": "Not applicable"
+            }
+        },
+        {
+            "name": "getHeartRate",
+            "description": "Get current heart rate",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after pox.update();",
+                "parameter usage": "float hr = pox.getHeartRate();",
+                "return value handling": "if (hr == 0) { handleInvalid(); }"
+            }
+        },
+        {
+            "name": "getSpO2",
+            "description": "Get current SpO2 level",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call after pox.update();",
+                "parameter usage": "uint8_t spo2 = pox.getSpO2();",
+                "return value handling": "if (spo2 == 0) { handleInvalid(); }"
+            }
+        },
+        {
+            "name": "getRedLedCurrentBias",
+            "description": "Get red LED current bias",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Not specified",
+                "parameter usage": "uint8_t bias = pox.getRedLedCurrentBias();",
+                "return value handling": "Process uint8_t value"
+            }
+        },
+        {
+            "name": "setOnBeatDetectedCallback",
+            "description": "Set beat detected callback function",
+            "parameters": [
+                "void (*cb)()"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after pox.begin();",
+                "parameter usage": "pox.setOnBeatDetectedCallback(onBeatDetected);",
+                "return value handling": "Not applicable"
+            }
+        },
+        {
+            "name": "setIRLedCurrent",
+            "description": "Set IR LED current",
+            "parameters": [
+                "LEDCurrent irLedCurrent"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "pox.setIRLedCurrent(...) after pox.begin();",
+                "parameter usage": "pox.setIRLedCurrent(VALUE);",
+                "return value handling": "Not applicable"
+            }
+        },
+        {
+            "name": "shutdown",
+            "description": "Shutdown the sensor",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "pox.shutdown() safely",
+                "parameter usage": "pox.shutdown();",
+                "return value handling": "Not applicable"
+            }
+        },
+        {
+            "name": "resume",
+            "description": "Resume the sensor",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "pox.resume() after shutdown",
+                "parameter usage": "pox.resume();",
+                "return value handling": "Not applicable"
+            }
+        }
+    ],
+    "MAX30100_SpO2Calculator.h": [
+        {
+            "name": "update",
+            "description": "Updates SpO2 calculation",
+            "parameters": [
+                "float irACValue",
+                "float redACValue",
+                "bool beatDetected"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"MAX30100_SpO2Calculator.h\"",
+                "parameter usage": "update(0.123, 0.456, true);",
+                "return value handling": "void type, no return handling"
+            }
+        },
+        {
+            "name": "reset",
+            "description": "Resets SpO2 calculator",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"MAX30100_SpO2Calculator.h\"",
+                "parameter usage": "reset();",
+                "return value handling": "void type, no return handling"
+            }
+        },
+        {
+            "name": "getSpO2",
+            "description": "Returns calculated SpO2",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"MAX30100_SpO2Calculator.h\"",
+                "parameter usage": "uint8_t spo2 = getSpO2();",
+                "return value handling": "Check if return is valid (non-zero)"
+            }
+        }
+    ]
+}

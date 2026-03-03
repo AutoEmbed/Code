@@ -1,0 +1,297 @@
+{
+    "VL53L0X.h": [
+        {
+            "name": "setAddress",
+            "description": "Sets sensor I2C address",
+            "parameters": [
+                "uint8_t new_addr"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include VL53L0X.h after Wire.h",
+                "parameter usage": "new_addr should be unique.",
+                "return value handling": "No return value handling needed."
+            }
+        },
+        {
+            "name": "init",
+            "description": "Initializes the sensor",
+            "parameters": [
+                "bool io_2v8 = true"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call init before other sensor methods.",
+                "parameter usage": "io_2v8 = true for 2.8V logic.",
+                "return value handling": "Check return value for successful init."
+            }
+        },
+        {
+            "name": "writeReg",
+            "description": "Writes 8-bit value to register",
+            "parameters": [
+                "uint8_t reg",
+                "uint8_t value"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after sensor initialization.",
+                "parameter usage": "reg is the register address.",
+                "return value handling": "No return value handling needed."
+            }
+        },
+        {
+            "name": "writeReg16Bit",
+            "description": "Writes 16-bit value to register",
+            "parameters": [
+                "uint8_t reg",
+                "uint16_t value"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after sensor initialization.",
+                "parameter usage": "Ensure correct reg address.",
+                "return value handling": "No return value handling needed."
+            }
+        },
+        {
+            "name": "writeReg32Bit",
+            "description": "Writes 32-bit value to register",
+            "parameters": [
+                "uint8_t reg",
+                "uint32_t value"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after sensor initialization.",
+                "parameter usage": "Double-check reg address.",
+                "return value handling": "No return value handling needed."
+            }
+        },
+        {
+            "name": "readReg",
+            "description": "Reads 8-bit value from register",
+            "parameters": [
+                "uint8_t reg"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call after sensor initialization.",
+                "parameter usage": "reg is the register address.",
+                "return value handling": "Check return value for validity."
+            }
+        },
+        {
+            "name": "readReg16Bit",
+            "description": "Reads 16-bit value from register",
+            "parameters": [
+                "uint8_t reg"
+            ],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "Call after sensor initialization.",
+                "parameter usage": "Ensure correct reg address.",
+                "return value handling": "Validate return value."
+            }
+        },
+        {
+            "name": "readReg32Bit",
+            "description": "Reads 32-bit value from register",
+            "parameters": [
+                "uint8_t reg"
+            ],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "Call after sensor initialization.",
+                "parameter usage": "Double-check reg address.",
+                "return value handling": "Validate return value accurately."
+            }
+        },
+        {
+            "name": "writeMulti",
+            "description": "Writes multiple bytes to register",
+            "parameters": [
+                "uint8_t reg",
+                "uint8_t const * src",
+                "uint8_t count"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after sensor initialization.",
+                "parameter usage": "reg, src, count must be set correctly.",
+                "return value handling": "No return value handling needed."
+            }
+        },
+        {
+            "name": "readMulti",
+            "description": "Reads multiple bytes from register",
+            "parameters": [
+                "uint8_t reg",
+                "uint8_t * dst",
+                "uint8_t count"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after sensor initialization.",
+                "parameter usage": "Ensure reg, dst, count set correctly.",
+                "return value handling": "Validate data in dst."
+            }
+        },
+        {
+            "name": "setSignalRateLimit",
+            "description": "Sets signal rate limit",
+            "parameters": [
+                "float limit_Mcps"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <VL53L0X.h>",
+                "parameter usage": "Ensure limit_Mcps is between 0 and 0.25",
+                "return value handling": "Check for 'true' to confirm success."
+            }
+        },
+        {
+            "name": "getSignalRateLimit",
+            "description": "Gets signal rate limit",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <VL53L0X.h>",
+                "parameter usage": "No parameters needed for this call.",
+                "return value handling": "Store float value for later use."
+            }
+        },
+        {
+            "name": "setMeasurementTimingBudget",
+            "description": "Sets measurement timing budget",
+            "parameters": [
+                "uint32_t budget_us"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <VL53L0X.h>",
+                "parameter usage": "Ensure budget_us is within the sensor's range.",
+                "return value handling": "Check for 'true' to confirm success."
+            }
+        },
+        {
+            "name": "getMeasurementTimingBudget",
+            "description": "Gets measurement timing budget",
+            "parameters": [],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "#include <VL53L0X.h>",
+                "parameter usage": "No parameters needed for this call.",
+                "return value handling": "Store uint32_t value for later use."
+            }
+        },
+        {
+            "name": "setVcselPulsePeriod",
+            "description": "Sets VCSEL pulse period",
+            "parameters": [
+                "vcselPeriodType type",
+                "uint8_t period_pclks"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <VL53L0X.h>",
+                "parameter usage": "Ensure period_pclks is within valid range.",
+                "return value handling": "Check for 'true' to confirm success."
+            }
+        },
+        {
+            "name": "getVcselPulsePeriod",
+            "description": "Gets VCSEL pulse period",
+            "parameters": [
+                "vcselPeriodType type"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <VL53L0X.h>",
+                "parameter usage": "Set correct 'type' value.",
+                "return value handling": "Store uint8_t value for later use."
+            }
+        },
+        {
+            "name": "startContinuous",
+            "description": "Starts continuous ranging",
+            "parameters": [
+                "uint32_t period_ms = 0"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <VL53L0X.h>",
+                "parameter usage": "Use appropriate period_ms for timing mode.",
+                "return value handling": "No return value to handle."
+            }
+        },
+        {
+            "name": "stopContinuous",
+            "description": "Stops continuous ranging",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <VL53L0X.h>",
+                "parameter usage": "No parameters needed for this call.",
+                "return value handling": "No return value to handle."
+            }
+        },
+        {
+            "name": "readRangeContinuousMillimeters",
+            "description": "Reads continuous range in mm",
+            "parameters": [],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include <VL53L0X.h>",
+                "parameter usage": "No parameters needed for this call.",
+                "return value handling": "Validate uint16_t range value."
+            }
+        },
+        {
+            "name": "readRangeSingleMillimeters",
+            "description": "Reads single range in mm",
+            "parameters": [],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include <VL53L0X.h>",
+                "parameter usage": "No parameters needed for this call.",
+                "return value handling": "Validate uint16_t range value."
+            }
+        },
+        {
+            "name": "setTimeout",
+            "description": "Sets I2C timeout",
+            "parameters": [
+                "uint16_t timeout"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <VL53L0X.h>",
+                "parameter usage": "sensor.setTimeout(500);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getTimeout",
+            "description": "Gets I2C timeout",
+            "parameters": [],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include <VL53L0X.h>",
+                "parameter usage": "uint16_t timeout = sensor.getTimeout();",
+                "return value handling": "Check if timeout value matches"
+            }
+        },
+        {
+            "name": "timeoutOccurred",
+            "description": "Checks if timeout occurred",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <VL53L0X.h>",
+                "parameter usage": "if (sensor.timeoutOccurred()) {",
+                "return value handling": "Handle timeout in code logic"
+            }
+        }
+    ]
+}

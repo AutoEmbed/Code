@@ -1,0 +1,326 @@
+{
+    "ADS1115-Driver.h": [
+        {
+            "name": "reset",
+            "description": "Resets the device.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "",
+                "return value handling": ""
+            }
+        },
+        {
+            "name": "readRegister",
+            "description": "Reads a register value.",
+            "parameters": [
+                "reg_addr_t dataAddress"
+            ],
+            "return_type": "reg_val_t",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "ads1115.readRegister(REGISTER_ADDR)",
+                "return value handling": "store return in variable"
+            }
+        },
+        {
+            "name": "writeRegister",
+            "description": "Writes a value to a register.",
+            "parameters": [
+                "reg_addr_t dataAddress",
+                "reg_val_t data"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "ads1115.writeRegister(REGISTER_ADDR, DATA)",
+                "return value handling": ""
+            }
+        },
+        {
+            "name": "readRawValue",
+            "description": "Reads the raw measurement value.",
+            "parameters": [],
+            "return_type": "reg_val_t",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "ads1115.readRawValue()",
+                "return value handling": "store return in variable"
+            }
+        },
+        {
+            "name": "readConvertedValue",
+            "description": "Reads the converted value.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "ads1115.readConvertedValue()",
+                "return value handling": "store return in variable"
+            }
+        },
+        {
+            "name": "startSingleConvertion",
+            "description": "Starts single conversion.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "ads1115.startSingleConvertion()",
+                "return value handling": ""
+            }
+        },
+        {
+            "name": "getOperationalStatus",
+            "description": "Gets the operational status.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "ads1115.getOperationalStatus()",
+                "return value handling": "check if return is 0"
+            }
+        },
+        {
+            "name": "setMultiplexer",
+            "description": "Sets the multiplexer.",
+            "parameters": [
+                "uint8_t mux"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "ads1115.setMultiplexer(MUX_INPUT)",
+                "return value handling": ""
+            }
+        },
+        {
+            "name": "getMultiplexer",
+            "description": "Gets the multiplexer.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "ads1115.getMultiplexer()",
+                "return value handling": "store return in variable"
+            }
+        },
+        {
+            "name": "setPga",
+            "description": "Sets the PGA value.",
+            "parameters": [
+                "uint8_t pga"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "ads1115.setPga(PGA_VALUE)",
+                "return value handling": ""
+            }
+        },
+        {
+            "name": "getPga",
+            "description": "Gets the PGA value.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "Usage: uint8_t pga = ads1115.getPga();",
+                "return value handling": "Check if pga value within expected range."
+            }
+        },
+        {
+            "name": "setDeviceMode",
+            "description": "Sets the device mode.",
+            "parameters": [
+                "uint8_t mode"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after initializing ADS1115.",
+                "parameter usage": "ads1115.setDeviceMode(ADS1115_MODE_SINGLE);",
+                "return value handling": "No return to handle, ensure mode is valid."
+            }
+        },
+        {
+            "name": "getDeviceMode",
+            "description": "Gets the device mode.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "Usage: uint8_t mode = ads1115.getDeviceMode();",
+                "return value handling": "Validate mode before use."
+            }
+        },
+        {
+            "name": "setDataRate",
+            "description": "Sets the data rate.",
+            "parameters": [
+                "uint8_t dataRate"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after device mode setup.",
+                "parameter usage": "ads1115.setDataRate(ADS1115_DR_250_SPS);",
+                "return value handling": "No return to handle, ensure dataRate is valid."
+            }
+        },
+        {
+            "name": "getDataRate",
+            "description": "Gets the data rate.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "Usage: uint8_t dataRate = ads1115.getDataRate();",
+                "return value handling": "Validate dataRate before use."
+            }
+        },
+        {
+            "name": "setComparatorMode",
+            "description": "Sets comparator mode.",
+            "parameters": [
+                "uint8_t mode"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Configure after initialization.",
+                "parameter usage": "ads1115.setComparatorMode(MODE);",
+                "return value handling": "No return to handle, ensure mode correctness."
+            }
+        },
+        {
+            "name": "getComparatorMode",
+            "description": "Gets comparator mode.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "Usage: uint8_t mode = ads1115.getComparatorMode();",
+                "return value handling": "Validate mode value before use."
+            }
+        },
+        {
+            "name": "setComparatorPolarity",
+            "description": "Sets comparator polarity.",
+            "parameters": [
+                "uint8_t polarity"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Set after comparator mode.",
+                "parameter usage": "ads1115.setComparatorPolarity(POLARITY);",
+                "return value handling": "No return to handle, validate polarity."
+            }
+        },
+        {
+            "name": "getComparatorPolarity",
+            "description": "Gets comparator polarity.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "Usage: uint8_t polarity = ads1115.getComparatorPolarity();",
+                "return value handling": "Ensure polarity is in correct state."
+            }
+        },
+        {
+            "name": "setLatching",
+            "description": "Sets the latching state.",
+            "parameters": [
+                "bool latching"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Set after comparator configuration.",
+                "parameter usage": "ads1115.setLatching(true);",
+                "return value handling": "No return to handle, ensure latching is boolean."
+            }
+        },
+        {
+            "name": "isLatching",
+            "description": "Checks if latching.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "ads1115.isLatching()",
+                "return value handling": "bool latching = ads1115.isLatching()"
+            }
+        },
+        {
+            "name": "setComparatorQueue",
+            "description": "Sets comparator queue.",
+            "parameters": [
+                "uint8_t queue"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "ads1115.setComparatorQueue(3)",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getComparatorQueue",
+            "description": "Gets comparator queue.",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "ads1115.getComparatorQueue()",
+                "return value handling": "uint8_t queue = ads1115.getComparatorQueue()"
+            }
+        },
+        {
+            "name": "setLowTreshold",
+            "description": "Sets low threshold.",
+            "parameters": [
+                "reg_val_t lowTreshold"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "ads1115.setLowTreshold(0x0000)",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getLowTreshold",
+            "description": "Gets low threshold.",
+            "parameters": [],
+            "return_type": "reg_val_t",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "ads1115.getLowTreshold()",
+                "return value handling": "reg_val_t low = ads1115.getLowTreshold()"
+            }
+        },
+        {
+            "name": "setHighTreshold",
+            "description": "Sets high threshold.",
+            "parameters": [
+                "reg_val_t highTreshold"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "ads1115.setHighTreshold(0x8000)",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getHighTreshold",
+            "description": "Gets high threshold.",
+            "parameters": [],
+            "return_type": "reg_val_t",
+            "practices": {
+                "API order": "#include \"ADS1115-Driver.h\"",
+                "parameter usage": "ads1115.getHighTreshold()",
+                "return value handling": "reg_val_t high = ads1115.getHighTreshold()"
+            }
+        }
+    ]
+}

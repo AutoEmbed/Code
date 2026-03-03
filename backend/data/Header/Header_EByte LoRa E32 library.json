@@ -1,0 +1,304 @@
+{
+    "EByte_LoRa_E32_library.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the E32 module",
+            "parameters": [
+                "HardwareSerial* serial",
+                "uint32_t baudRate",
+                "uint8_t auxPin",
+                "uint8_t m0Pin",
+                "uint8_t m1Pin"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "available",
+            "description": "Check if data is available",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "readByte",
+            "description": "Read a single byte",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "writeByte",
+            "description": "Write a single byte",
+            "parameters": [
+                "uint8_t data"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "sendMessage",
+            "description": "Send a message",
+            "parameters": [
+                "uint8_t* data",
+                "uint8_t size"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "receiveMessage",
+            "description": "Receive a message",
+            "parameters": [
+                "uint8_t* buffer",
+                "uint8_t size"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setMode",
+            "description": "Set the module mode",
+            "parameters": [
+                "uint8_t mode"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getModuleInfo",
+            "description": "Get module information",
+            "parameters": [
+                "ModuleInformation& info"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setAddress",
+            "description": "Set the module address",
+            "parameters": [
+                "uint16_t address"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setChannel",
+            "description": "Set the communication channel",
+            "parameters": [
+                "uint8_t channel"
+            ],
+            "return_type": "void"
+        }
+    ],
+    "LoRa_E32.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the module",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setMode",
+            "description": "Set the operating mode",
+            "parameters": [
+                "MODE_TYPE mode"
+            ],
+            "return_type": "Status"
+        },
+        {
+            "name": "getMode",
+            "description": "Get the current mode",
+            "parameters": [],
+            "return_type": "MODE_TYPE"
+        },
+        {
+            "name": "getConfiguration",
+            "description": "Retrieve module configuration",
+            "parameters": [],
+            "return_type": "ResponseStructContainer"
+        },
+        {
+            "name": "setConfiguration",
+            "description": "Set module configuration",
+            "parameters": [
+                "Configuration configuration",
+                "PROGRAM_COMMAND saveType = WRITE_CFG_PWR_DWN_LOSE"
+            ],
+            "return_type": "ResponseStatus"
+        },
+        {
+            "name": "getModuleInformation",
+            "description": "Get module information",
+            "parameters": [],
+            "return_type": "ResponseStructContainer"
+        },
+        {
+            "name": "resetModule",
+            "description": "Reset the module",
+            "parameters": [],
+            "return_type": "ResponseStatus"
+        },
+        {
+            "name": "sendMessage",
+            "description": "Send a message",
+            "parameters": [
+                "const void *message",
+                "const uint8_t size"
+            ],
+            "return_type": "ResponseStatus"
+        },
+        {
+            "name": "receiveMessageUntil",
+            "description": "Receive message until delimiter",
+            "parameters": [
+                "char delimiter = '\\0'"
+            ],
+            "return_type": "ResponseContainer"
+        },
+        {
+            "name": "receiveMessage",
+            "description": "Receive a message",
+            "parameters": [
+                "const uint8_t size"
+            ],
+            "return_type": "ResponseStructContainer"
+        },
+        {
+            "name": "sendMessage",
+            "description": "Send a message",
+            "parameters": [
+                "const String message"
+            ],
+            "return_type": "ResponseStatus"
+        },
+        {
+            "name": "receiveMessage",
+            "description": "Receive a message",
+            "parameters": [],
+            "return_type": "ResponseContainer"
+        },
+        {
+            "name": "sendFixedMessage",
+            "description": "Send a fixed message",
+            "parameters": [
+                "byte ADDH",
+                "byte ADDL",
+                "byte CHAN",
+                "const String message"
+            ],
+            "return_type": "ResponseStatus"
+        },
+        {
+            "name": "sendFixedMessage",
+            "description": "Send a fixed message",
+            "parameters": [
+                "byte ADDH",
+                "byte ADDL",
+                "byte CHAN",
+                "const void *message",
+                "const uint8_t size"
+            ],
+            "return_type": "ResponseStatus"
+        },
+        {
+            "name": "sendBroadcastFixedMessage",
+            "description": "Send a broadcast message",
+            "parameters": [
+                "byte CHAN",
+                "const void *message",
+                "const uint8_t size"
+            ],
+            "return_type": "ResponseStatus"
+        },
+        {
+            "name": "sendBroadcastFixedMessage",
+            "description": "Send a broadcast message",
+            "parameters": [
+                "byte CHAN",
+                "const String message"
+            ],
+            "return_type": "ResponseStatus"
+        },
+        {
+            "name": "receiveInitialMessage",
+            "description": "Receive an initial message",
+            "parameters": [
+                "const uint8_t size"
+            ],
+            "return_type": "ResponseContainer"
+        },
+        {
+            "name": "available",
+            "description": "Check available bytes",
+            "parameters": [],
+            "return_type": "int"
+        }
+    ],
+    "statesNaming.h": [
+        {
+            "name": "getResponseDescriptionByParams",
+            "description": "Get response status description.",
+            "parameters": [
+                "byte status"
+            ],
+            "return_type": "String"
+        },
+        {
+            "name": "getUARTParityDescriptionByParams",
+            "description": "Get UART parity description.",
+            "parameters": [
+                "byte uartParity"
+            ],
+            "return_type": "String"
+        },
+        {
+            "name": "getUARTBaudRateDescriptionByParams",
+            "description": "Get UART baud rate description.",
+            "parameters": [
+                "byte uartBaudRate"
+            ],
+            "return_type": "String"
+        },
+        {
+            "name": "getAirDataRateDescriptionByParams",
+            "description": "Get air data rate description.",
+            "parameters": [
+                "byte airDataRate"
+            ],
+            "return_type": "String"
+        },
+        {
+            "name": "getFixedTransmissionDescriptionByParams",
+            "description": "Get fixed transmission description.",
+            "parameters": [
+                "byte fixedTransmission"
+            ],
+            "return_type": "String"
+        },
+        {
+            "name": "getIODriveModeDescriptionDescriptionByParams",
+            "description": "Get IO drive mode description.",
+            "parameters": [
+                "byte ioDriveMode"
+            ],
+            "return_type": "String"
+        },
+        {
+            "name": "getWirelessWakeUPTimeDescriptionByParams",
+            "description": "Get wireless wake-up time description.",
+            "parameters": [
+                "byte wirelessWakeUPTime"
+            ],
+            "return_type": "String"
+        },
+        {
+            "name": "getFECDescriptionByParams",
+            "description": "Get FEC (Forward Error Correction) description.",
+            "parameters": [
+                "byte fec"
+            ],
+            "return_type": "String"
+        },
+        {
+            "name": "getTransmissionPowerDescriptionByParams",
+            "description": "Get transmission power description.",
+            "parameters": [
+                "byte transmissionPower"
+            ],
+            "return_type": "String"
+        }
+    ]
+}

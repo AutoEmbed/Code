@@ -1,0 +1,28 @@
+{
+    "Relay.h": [
+        {
+            "name": "begin",
+            "description": "Initializes the relay.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "getState",
+            "description": "Gets the current state.",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "turnOn",
+            "description": "Turns the relay on.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "turnOff",
+            "description": "Turns the relay off.",
+            "parameters": [],
+            "return_type": "void"
+        }
+    ]
+}

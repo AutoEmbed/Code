@@ -1,0 +1,63 @@
+{
+    "Adafruit_SGP30.h": [
+        {
+            "name": "begin",
+            "description": "Initializes the sensor.",
+            "parameters": [
+                "TwoWire *theWire = &Wire",
+                "boolean initSensor = true"
+            ],
+            "return_type": "boolean"
+        },
+        {
+            "name": "softReset",
+            "description": "Performs a soft reset.",
+            "parameters": [],
+            "return_type": "boolean"
+        },
+        {
+            "name": "IAQinit",
+            "description": "Initializes IAQ algorithm.",
+            "parameters": [],
+            "return_type": "boolean"
+        },
+        {
+            "name": "IAQmeasure",
+            "description": "Performs IAQ measurement.",
+            "parameters": [],
+            "return_type": "boolean"
+        },
+        {
+            "name": "IAQmeasureRaw",
+            "description": "Measures raw gas signals.",
+            "parameters": [],
+            "return_type": "boolean"
+        },
+        {
+            "name": "getIAQBaseline",
+            "description": "Gets IAQ baseline values.",
+            "parameters": [
+                "uint16_t *eco2_base",
+                "uint16_t *tvoc_base"
+            ],
+            "return_type": "boolean"
+        },
+        {
+            "name": "setIAQBaseline",
+            "description": "Sets IAQ baseline values.",
+            "parameters": [
+                "uint16_t eco2_base",
+                "uint16_t tvoc_base"
+            ],
+            "return_type": "boolean"
+        },
+        {
+            "name": "setHumidity",
+            "description": "Sets absolute humidity.",
+            "parameters": [
+                "uint32_t absolute_humidity"
+            ],
+            "return_type": "boolean"
+        }
+    ]
+}

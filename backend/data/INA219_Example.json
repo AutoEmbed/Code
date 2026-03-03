@@ -1,0 +1,478 @@
+{
+    "INA219.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the sensor",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"INA219.h\", INA219.begin()",
+                "parameter usage": "INA219 ina; ina.begin();",
+                "return value handling": "if (!ina.begin()) { handleError(); }"
+            }
+        },
+        {
+            "name": "isConnected",
+            "description": "Check if the sensor is connected",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "After INA219.begin()",
+                "parameter usage": "bool connected = ina.isConnected();",
+                "return value handling": "if (!ina.isConnected()) { reconnect(); }"
+            }
+        },
+        {
+            "name": "getAddress",
+            "description": "Get the I2C address of the sensor",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "After INA219.begin()",
+                "parameter usage": "uint8_t addr = ina.getAddress();",
+                "return value handling": "address = ina.getAddress(); check(address);"
+            }
+        },
+        {
+            "name": "getShuntVoltage",
+            "description": "Get the shunt voltage",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "After INA219.begin()",
+                "parameter usage": "float voltage = ina.getShuntVoltage();",
+                "return value handling": "voltage = ina.getShuntVoltage(); handle(voltage);"
+            }
+        },
+        {
+            "name": "getBusVoltage",
+            "description": "Get the bus voltage",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "After INA219.begin()",
+                "parameter usage": "float voltage = ina.getBusVoltage();",
+                "return value handling": "voltage = ina.getBusVoltage(); handle(voltage);"
+            }
+        },
+        {
+            "name": "getPower",
+            "description": "Get the power",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "After INA219.begin()",
+                "parameter usage": "float power = ina.getPower();",
+                "return value handling": "power = ina.getPower(); handle(power);"
+            }
+        },
+        {
+            "name": "getCurrent",
+            "description": "Get the current",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "After INA219.begin()",
+                "parameter usage": "float current = ina.getCurrent();",
+                "return value handling": "current = ina.getCurrent(); handle(current);"
+            }
+        },
+        {
+            "name": "getMathOverflowFlag",
+            "description": "Check if math overflow flag is set",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "After INA219.begin()",
+                "parameter usage": "bool flag = ina.getMathOverflowFlag();",
+                "return value handling": "if (ina.getMathOverflowFlag()) { handleOverflow(); }"
+            }
+        },
+        {
+            "name": "getConversionFlag",
+            "description": "Check if conversion flag is set",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "After INA219.begin()",
+                "parameter usage": "bool conversionDone = ina.getConversionFlag();",
+                "return value handling": "if (ina.getConversionFlag()) { handleConversion(); }"
+            }
+        },
+        {
+            "name": "reset",
+            "description": "Reset the sensor",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "After INA219.begin()",
+                "parameter usage": "ina.reset();",
+                "return value handling": "if (!ina.reset()) { handleResetError(); }"
+            }
+        },
+        {
+            "name": "setBusVoltageRange",
+            "description": "Set the bus voltage range",
+            "parameters": [
+                "uint8_t voltage"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"INA219.h\"",
+                "parameter usage": "INA.setBusVoltageRange(16);",
+                "return value handling": "bool success = INA.setBusVoltageRange(16);"
+            }
+        },
+        {
+            "name": "getBusVoltageRange",
+            "description": "Get the bus voltage range",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"INA219.h\"",
+                "parameter usage": "uint8_t range = INA.getBusVoltageRange();",
+                "return value handling": "uint8_t range = INA.getBusVoltageRange();"
+            }
+        },
+        {
+            "name": "setGain",
+            "description": "Set the gain factor",
+            "parameters": [
+                "uint8_t factor"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"INA219.h\"",
+                "parameter usage": "INA.setGain(3);",
+                "return value handling": "bool success = INA.setGain(3);"
+            }
+        },
+        {
+            "name": "getGain",
+            "description": "Get the gain factor",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"INA219.h\"",
+                "parameter usage": "uint8_t gain = INA.getGain();",
+                "return value handling": "uint8_t gain = INA.getGain();"
+            }
+        },
+        {
+            "name": "getMaxShuntVoltage",
+            "description": "Get the max shunt voltage",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "#include \"INA219.h\"",
+                "parameter usage": "int voltage = INA.getMaxShuntVoltage();",
+                "return value handling": "int voltage = INA.getMaxShuntVoltage();"
+            }
+        },
+        {
+            "name": "setBusResolution",
+            "description": "Set the bus resolution",
+            "parameters": [
+                "uint8_t bits"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"INA219.h\"",
+                "parameter usage": "INA.setBusResolution(12);",
+                "return value handling": "bool success = INA.setBusResolution(12);"
+            }
+        },
+        {
+            "name": "setBusSamples",
+            "description": "Set the bus samples",
+            "parameters": [
+                "uint8_t value"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"INA219.h\"",
+                "parameter usage": "INA.setBusSamples(8);",
+                "return value handling": "bool success = INA.setBusSamples(8);"
+            }
+        },
+        {
+            "name": "setBusADC",
+            "description": "Set the bus ADC using mask",
+            "parameters": [
+                "uint8_t mask"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"INA219.h\"",
+                "parameter usage": "INA.setBusADC(15);",
+                "return value handling": "bool success = INA.setBusADC(15);"
+            }
+        },
+        {
+            "name": "getBusADC",
+            "description": "Get the bus ADC setting",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"INA219.h\"",
+                "parameter usage": "uint8_t adc = INA.getBusADC();",
+                "return value handling": "uint8_t adc = INA.getBusADC();"
+            }
+        },
+        {
+            "name": "setShuntResolution",
+            "description": "Set the shunt resolution",
+            "parameters": [
+                "uint8_t bits"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"INA219.h\"",
+                "parameter usage": "INA.setShuntResolution(12);",
+                "return value handling": "bool success = INA.setShuntResolution(12);"
+            }
+        },
+        {
+            "name": "setShuntSamples",
+            "description": "Set the shunt samples",
+            "parameters": [
+                "uint8_t value"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"INA219.h\". Initialize with INA219::begin()",
+                "parameter usage": "INA219.setShuntSamples(0x03);",
+                "return value handling": "if(setShuntSamples(...)) { ... }"
+            }
+        },
+        {
+            "name": "setShuntADC",
+            "description": "Set the shunt ADC using mask",
+            "parameters": [
+                "uint8_t mask"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"INA219.h\". Initialize with INA219::begin()",
+                "parameter usage": "INA219.setShuntADC(0x1F);",
+                "return value handling": "if(setShuntADC(...)) { ... }"
+            }
+        },
+        {
+            "name": "getShuntADC",
+            "description": "Get the shunt ADC setting",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"INA219.h\". Initialize with INA219::begin()",
+                "parameter usage": "uint8_t adcSetting = INA219.getShuntADC();",
+                "return value handling": "uint8_t result = getShuntADC();"
+            }
+        },
+        {
+            "name": "setMaxCurrentShunt",
+            "description": "Set the max current and shunt",
+            "parameters": [
+                "float maxCurrent",
+                "float shunt"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"INA219.h\". Initialize with INA219::begin()",
+                "parameter usage": "INA219.setMaxCurrentShunt(5.0, 0.002);",
+                "return value handling": "if(setMaxCurrentShunt(...)) { ... }"
+            }
+        },
+        {
+            "name": "isCalibrated",
+            "description": "Check if the sensor is calibrated",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"INA219.h\". Initialize with INA219::begin()",
+                "parameter usage": "bool calibrated = INA219.isCalibrated();",
+                "return value handling": "if(isCalibrated()) { ... }"
+            }
+        },
+        {
+            "name": "getCurrentLSB",
+            "description": "Get the current LSB",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"INA219.h\". Initialize with INA219::begin()",
+                "parameter usage": "float lsb = INA219.getCurrentLSB();",
+                "return value handling": "float result = getCurrentLSB();"
+            }
+        },
+        {
+            "name": "getCurrentLSB_mA",
+            "description": "Get the current LSB in mA",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"INA219.h\". Initialize with INA219::begin()",
+                "parameter usage": "float lsb_mA = INA219.getCurrentLSB_mA();",
+                "return value handling": "float result = getCurrentLSB_mA();"
+            }
+        },
+        {
+            "name": "getCurrentLSB_uA",
+            "description": "Get the current LSB in uA",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"INA219.h\". Initialize with INA219::begin()",
+                "parameter usage": "float lsb_uA = INA219.getCurrentLSB_uA();",
+                "return value handling": "float result = getCurrentLSB_uA();"
+            }
+        },
+        {
+            "name": "getShunt",
+            "description": "Get the shunt value",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"INA219.h\". Initialize with INA219::begin()",
+                "parameter usage": "float shunt = INA219.getShunt();",
+                "return value handling": "float result = getShunt();"
+            }
+        },
+        {
+            "name": "getMaxCurrent",
+            "description": "Get the max current",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include \"INA219.h\". Initialize with INA219::begin()",
+                "parameter usage": "float maxCurrent = INA219.getMaxCurrent();",
+                "return value handling": "float result = getMaxCurrent();"
+            }
+        },
+        {
+            "name": "setMode",
+            "description": "Set the operating mode",
+            "parameters": [
+                "uint8_t mode"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"INA219.h\", INA219 INA(0x40);",
+                "parameter usage": "INA.setMode(0x01);",
+                "return value handling": "if (INA.setMode(0x01)) {}"
+            }
+        },
+        {
+            "name": "getMode",
+            "description": "Get the operating mode",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"INA219.h\", INA219 INA(0x40);",
+                "parameter usage": "uint8_t mode = INA.getMode();",
+                "return value handling": "Serial.print(mode);"
+            }
+        },
+        {
+            "name": "shutDown",
+            "description": "Shutdown the sensor",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"INA219.h\", INA219 INA(0x40);",
+                "parameter usage": "INA.shutDown();",
+                "return value handling": "if (INA.shutDown()) {}"
+            }
+        },
+        {
+            "name": "setModeShuntTrigger",
+            "description": "Set mode to shunt trigger",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"INA219.h\", INA219 INA(0x40);",
+                "parameter usage": "INA.setModeShuntTrigger();",
+                "return value handling": "if (INA.setModeShuntTrigger()) {}"
+            }
+        },
+        {
+            "name": "setModeBusTrigger",
+            "description": "Set mode to bus trigger",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"INA219.h\", INA219 INA(0x40);",
+                "parameter usage": "INA.setModeBusTrigger();",
+                "return value handling": "if (INA.setModeBusTrigger()) {}"
+            }
+        },
+        {
+            "name": "setModeShuntBusTrigger",
+            "description": "Set mode to shunt bus trigger",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"INA219.h\", INA219 INA(0x40);",
+                "parameter usage": "INA.setModeShuntBusTrigger();",
+                "return value handling": "if (INA.setModeShuntBusTrigger()) {}"
+            }
+        },
+        {
+            "name": "setModeADCOff",
+            "description": "Set mode to ADC off",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"INA219.h\", INA219 INA(0x40);",
+                "parameter usage": "INA.setModeADCOff();",
+                "return value handling": "if (INA.setModeADCOff()) {}"
+            }
+        },
+        {
+            "name": "setModeShuntContinuous",
+            "description": "Set mode to shunt continuous",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"INA219.h\", INA219 INA(0x40);",
+                "parameter usage": "INA.setModeShuntContinuous();",
+                "return value handling": "if (INA.setModeShuntContinuous()) {}"
+            }
+        },
+        {
+            "name": "setModeBusContinuous",
+            "description": "Set mode to bus continuous",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"INA219.h\", INA219 INA(0x40);",
+                "parameter usage": "INA.setModeBusContinuous();",
+                "return value handling": "if (INA.setModeBusContinuous()) {}"
+            }
+        },
+        {
+            "name": "setModeShuntBusContinuous",
+            "description": "Set mode to shunt bus continuous",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"INA219.h\", INA219 INA(0x40);",
+                "parameter usage": "INA.setModeShuntBusContinuous();",
+                "return value handling": "if (INA.setModeShuntBusContinuous()) {}"
+            }
+        },
+        {
+            "name": "getRegister",
+            "description": "Get a register value",
+            "parameters": [
+                "uint8_t reg"
+            ],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include \"INA219.h\"\nINA219 INA(0x40);",
+                "parameter usage": "INA.getRegister(0x02);",
+                "return value handling": "uint16_t regValue = INA.getRegister(0x02);"
+            }
+        }
+    ]
+}

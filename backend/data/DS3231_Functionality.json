@@ -1,0 +1,205 @@
+{
+    "AdvanceAlarm.ino": {
+        "AdvanceAlarm.ino": [
+            {
+                "functionality": "sets up recurring alarm intervals on a DS3231 RTC module to toggle an LED and handles clearing and resetting the alarm",
+                "API": [
+                    "setClockMode",
+                    "setEpoch",
+                    "getDate",
+                    "getHour",
+                    "getMinute",
+                    "turnOffAlarm",
+                    "setA1Time",
+                    "checkIfAlarm",
+                    "turnOnAlarm",
+                    "setA2Time",
+                    "turnOffAlarm",
+                    "checkIfAlarm",
+                    "turnOffAlarm",
+                    "checkIfAlarm",
+                    "setA1Time",
+                    "turnOnAlarm",
+                    "checkIfAlarm"
+                ]
+            }
+        ]
+    },
+    "AlarmInterrupt.ino": {
+        "AlarmInterrupt.ino": [
+            {
+                "functionality": "uses interrupts with DS3231 alarms to control an LED",
+                "API": [
+                    "turnOffAlarm",
+                    "setA1Time",
+                    "turnOnAlarm",
+                    "checkIfAlarm",
+                    "setA2Time",
+                    "turnOffAlarm",
+                    "checkIfAlarm",
+                    "checkIfAlarm"
+                ]
+            }
+        ]
+    },
+    "AlarmPolling.ino": {
+        "AlarmPolling.ino": [
+            {
+                "functionality": "example on using DS3231 alarms with polling and checking if an alarm has triggered",
+                "API": [
+                    "turnOffAlarm",
+                    "setA1Time",
+                    "turnOnAlarm",
+                    "checkIfAlarm",
+                    "checkIfAlarm",
+                    "checkIfAlarm"
+                ]
+            }
+        ]
+    },
+    "DS3231_oscillator_test.ino": {
+        "DS3231_oscillator_test.ino": [
+            {
+                "functionality": "tests and demonstrates oscillator routines for a DS3231 RTC, cycling through different frequencies and inverting the state of the 32kHz oscillator",
+                "API": [
+                    "enable32kHz",
+                    "enableOscillator"
+                ]
+            }
+        ]
+    },
+    "DS3231_set.ino": {
+        "DS3231_set.ino": [
+            {
+                "functionality": "sets the time on a DS3231 RTC based on serial input and configures alarms",
+                "API": [
+                    "setClockMode",
+                    "setYear",
+                    "setMonth",
+                    "setDate",
+                    "setDoW",
+                    "setHour",
+                    "setMinute",
+                    "setSecond",
+                    "setA1Time",
+                    "setA2Time",
+                    "turnOnAlarm"
+                ]
+            }
+        ]
+    },
+    "DS3231_test.ino": {
+        "DS3231_test.ino": [
+            {
+                "functionality": "Test/demo of read routines for a DS3231 RTC. Displays current date, time, temperature, and alarm information on a serial monitor",
+                "API": [
+                    "getYear",
+                    "getMonth",
+                    "getDate",
+                    "getDoW",
+                    "getHour",
+                    "getMinute",
+                    "getSecond",
+                    "getTemperature",
+                    "oscillatorCheck",
+                    "checkIfAlarm",
+                    "getA1Time",
+                    "checkAlarmEnabled",
+                    "getA2Time"
+                ]
+            }
+        ]
+    },
+    "echo_time.ino": {
+        "echo_time.ino": [
+            {
+                "functionality": "prints time stamps for 5 seconds using getXXX functions",
+                "API": [
+                    "getYear",
+                    "getMonth",
+                    "getDate",
+                    "getHour",
+                    "getMinute",
+                    "getSecond"
+                ]
+            }
+        ]
+    },
+    "now.ino": {
+        "now.ino": [
+            {
+                "functionality": "prints a snapshot of the current date and time along with the UNIX time",
+                "API": [
+                    "now",
+                    "year",
+                    "month",
+                    "day",
+                    "hour",
+                    "minute",
+                    "second",
+                    "unixtime"
+                ]
+            }
+        ]
+    },
+    "setEpoch.ino": {
+        "setEpoch.ino": [
+            {
+                "functionality": "Sets the DS3231 RTC according to a specific Unix timestamp and prints the set date-time",
+                "API": [
+                    "setEpoch",
+                    "setClockMode",
+                    "getYear",
+                    "getMonth",
+                    "getDate",
+                    "getHour",
+                    "getMinute",
+                    "getSecond",
+                    "getDoW"
+                ]
+            }
+        ]
+    },
+    "set_echo.ino": {
+        "set_echo.ino": [
+            {
+                "functionality": "Sets the time from input and prints back time stamps for 5 seconds",
+                "API": [
+                    "setClockMode",
+                    "setYear",
+                    "setMonth",
+                    "setDate",
+                    "setDoW",
+                    "setHour",
+                    "setMinute",
+                    "setSecond",
+                    "getYear",
+                    "getMonth",
+                    "getDate",
+                    "getHour",
+                    "getMinute",
+                    "getSecond"
+                ]
+            }
+        ]
+    },
+    "getAXTimeTest.ino": {
+        "getAXTimeTest.ino": [
+            {
+                "functionality": "tests setting and getting alarm times on the DS3231 RTC module and prints status to the serial monitor",
+                "API": [
+                    "turnOffAlarm",
+                    "setA1Time",
+                    "checkIfAlarm",
+                    "turnOffAlarm",
+                    "setA2Time",
+                    "checkIfAlarm",
+                    "getA1Time",
+                    "getA2Time",
+                    "getA1Time",
+                    "getA2Time"
+                ]
+            }
+        ]
+    }
+}

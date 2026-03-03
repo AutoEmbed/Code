@@ -1,0 +1,13 @@
+{
+    "basic.ino": {
+        "basic.ino": [
+            {
+                "functionality": "initializes the Gravity Soil Moisture Sensor and reads the moisture value periodically, printing it to the serial port",
+                "API": [
+                    "Setup",
+                    "Read"
+                ]
+            }
+        ]
+    }
+}

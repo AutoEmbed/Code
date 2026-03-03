@@ -1,0 +1,186 @@
+{
+    "eHaJo_LM75.h": [
+        {
+            "name": "EHAJO_LM75",
+            "description": "Constructor for the LM75 sensor class.",
+            "parameters": [],
+            "practices": {
+                "API order": "Call this to create an instance of the sensor class.",
+                "parameter usage": "None",
+                "return value handling": "None"
+            }
+        },
+        {
+            "name": "setAddress",
+            "description": "Sets the I2C address of the sensor.",
+            "parameters": [
+                {
+                    "name": "bit_A0",
+                    "type": "uint8_t",
+                    "description": "Value of address bit A0."
+                },
+                {
+                    "name": "bit_A1",
+                    "type": "uint8_t",
+                    "description": "Value of address bit A1."
+                },
+                {
+                    "name": "bit_A2",
+                    "type": "uint8_t",
+                    "description": "Value of address bit A2."
+                }
+            ],
+            "practices": {
+                "API order": "Call after instantiating the sensor class and before any other operations.",
+                "parameter usage": "Ensure the address values match the sensor configuration.",
+                "return value handling": "None"
+            }
+        },
+        {
+            "name": "getTemp",
+            "description": "Gets the current temperature in Celsius.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after initializing and configuring the sensor.",
+                "parameter usage": "None",
+                "return value handling": "Check the returned float value for validity."
+            }
+        },
+        {
+            "name": "CtoF",
+            "description": "Converts a temperature from Celsius to Fahrenheit.",
+            "parameters": [
+                {
+                    "name": "temperatureC",
+                    "type": "float",
+                    "description": "Temperature in Celsius."
+                }
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "Use when a temperature conversion is needed.",
+                "parameter usage": "Ensure the input temperature is in valid Celsius format.",
+                "return value handling": "Check the returned float value for validity."
+            }
+        },
+        {
+            "name": "getTOS",
+            "description": "Gets the overtemperature shutdown (TOS) value.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after initializing and configuring the sensor.",
+                "parameter usage": "None",
+                "return value handling": "Check the returned float value for validity."
+            }
+        },
+        {
+            "name": "setTOS",
+            "description": "Sets the overtemperature shutdown (TOS) value.",
+            "parameters": [
+                {
+                    "name": "temperature",
+                    "type": "float",
+                    "description": "Temperature value to set as TOS."
+                }
+            ],
+            "practices": {
+                "API order": "Call after initializing the sensor and before critical temperature monitoring.",
+                "parameter usage": "Ensure the temperature value is within the sensor's operational range.",
+                "return value handling": "None"
+            }
+        },
+        {
+            "name": "getHyst",
+            "description": "Gets the hysteresis value.",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after initializing and configuring the sensor.",
+                "parameter usage": "None",
+                "return value handling": "Check the returned float value for validity."
+            }
+        },
+        {
+            "name": "setHyst",
+            "description": "Sets the hysteresis value.",
+            "parameters": [
+                {
+                    "name": "temperature",
+                    "type": "float",
+                    "description": "Temperature value to set as hysteresis."
+                }
+            ],
+            "practices": {
+                "API order": "Call after initializing the sensor and before critical temperature monitoring.",
+                "parameter usage": "Ensure the temperature value is within the sensor's operational range.",
+                "return value handling": "None"
+            }
+        },
+        {
+            "name": "setOSFaultQueue",
+            "description": "Sets the OS fault queue.",
+            "parameters": [
+                {
+                    "name": "numberfaults",
+                    "type": "LM75_OS_Fault_queue",
+                    "description": "Number of faults to set."
+                }
+            ],
+            "practices": {
+                "API order": "Call after initializing the sensor and before critical temperature monitoring.",
+                "parameter usage": "Ensure the fault queue value is appropriate for the application's fault tolerance.",
+                "return value handling": "None"
+            }
+        },
+        {
+            "name": "setMode",
+            "description": "Sets the operating mode of the sensor.",
+            "parameters": [
+                {
+                    "name": "opmode",
+                    "type": "LM75_opmode",
+                    "description": "Operating mode to set."
+                }
+            ],
+            "practices": {
+                "API order": "Call after initializing the sensor and before any other operations.",
+                "parameter usage": "Ensure the operating mode is valid for the sensor.",
+                "return value handling": "None"
+            }
+        },
+        {
+            "name": "setOSMode",
+            "description": "Sets the OS mode of the sensor.",
+            "parameters": [
+                {
+                    "name": "opmode",
+                    "type": "LM75_OS_opmode",
+                    "description": "OS mode to set."
+                }
+            ],
+            "practices": {
+                "API order": "Call after initializing the sensor and before critical temperature monitoring.",
+                "parameter usage": "Ensure the OS mode is valid for the sensor.",
+                "return value handling": "None"
+            }
+        },
+        {
+            "name": "setTOSPolarity",
+            "description": "Sets the TOS polarity of the sensor.",
+            "parameters": [
+                {
+                    "name": "polarity",
+                    "type": "LM75_TOSPolarity",
+                    "description": "TOS polarity to set."
+                }
+            ],
+            "practices": {
+                "API order": "Call after initializing the sensor and before critical temperature monitoring.",
+                "parameter usage": "Ensure the polarity value is appropriate for the application.",
+                "return value handling": "None"
+            }
+        }
+    ]
+}

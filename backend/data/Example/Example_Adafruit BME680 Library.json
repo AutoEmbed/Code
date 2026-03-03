@@ -1,0 +1,387 @@
+{
+    "Adafruit_BME680.h": [
+        {
+            "name": "begin",
+            "description": "Initializes sensor",
+            "parameters": [
+                "uint8_t addr = BME68X_DEFAULT_ADDRESS",
+                "bool initSettings = true"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call first to initialize sensor.",
+                "parameter usage": "Use default or set custom address.",
+                "return value handling": "Check for true to confirm initialization."
+            }
+        },
+        {
+            "name": "readTemperature",
+            "description": "Reads temperature",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after initializing sensor.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Store and use returned temperature."
+            }
+        },
+        {
+            "name": "readPressure",
+            "description": "Reads barometric pressure",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after initializing sensor.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Store and use returned pressure."
+            }
+        },
+        {
+            "name": "readHumidity",
+            "description": "Reads humidity",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after initializing sensor.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Store and use returned humidity."
+            }
+        },
+        {
+            "name": "readGas",
+            "description": "Reads gas resistance",
+            "parameters": [],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "Call after initializing sensor.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Store and use returned gas resistance."
+            }
+        },
+        {
+            "name": "readAltitude",
+            "description": "Reads altitude",
+            "parameters": [
+                "float seaLevel"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after initializing sensor.",
+                "parameter usage": "Pass current sea level pressure.",
+                "return value handling": "Store and use returned altitude."
+            }
+        },
+        {
+            "name": "setTemperatureOversampling",
+            "description": "Sets temperature oversampling",
+            "parameters": [
+                "uint8_t os"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call after begin and before reading.",
+                "parameter usage": "Pass desired oversampling setting.",
+                "return value handling": "Check for true to confirm setting."
+            }
+        },
+        {
+            "name": "setPressureOversampling",
+            "description": "Sets pressure oversampling",
+            "parameters": [
+                "uint8_t os"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call after begin and before reading.",
+                "parameter usage": "Pass desired oversampling setting.",
+                "return value handling": "Check for true to confirm setting."
+            }
+        },
+        {
+            "name": "setHumidityOversampling",
+            "description": "Sets humidity oversampling",
+            "parameters": [
+                "uint8_t os"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call after begin and before reading.",
+                "parameter usage": "Pass desired oversampling setting.",
+                "return value handling": "Check for true to confirm setting."
+            }
+        },
+        {
+            "name": "setIIRFilterSize",
+            "description": "Sets IIR filter size",
+            "parameters": [
+                "uint8_t fs"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call after begin and before reading.",
+                "parameter usage": "Pass desired filter size setting.",
+                "return value handling": "Check for true to confirm setting."
+            }
+        },
+        {
+            "name": "setGasHeater",
+            "description": "Sets gas heater settings",
+            "parameters": [
+                "uint16_t heaterTemp",
+                "uint16_t heaterTime"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call begin() first",
+                "parameter usage": "Valid heaterTemp & heaterTime",
+                "return value handling": "Check return for success"
+            }
+        },
+        {
+            "name": "setODR",
+            "description": "Sets output data rate",
+            "parameters": [
+                "uint8_t odr"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call set before readings",
+                "parameter usage": "Ensure valid odr value",
+                "return value handling": "Check return for error"
+            }
+        },
+        {
+            "name": "performReading",
+            "description": "Performs a blocking read",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Use after setup configurations",
+                "parameter usage": "No parameters",
+                "return value handling": "Check return for success"
+            }
+        },
+        {
+            "name": "beginReading",
+            "description": "Starts a reading",
+            "parameters": [],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "Use before endReading",
+                "parameter usage": "No parameters",
+                "return value handling": "Check if return > 0"
+            }
+        },
+        {
+            "name": "endReading",
+            "description": "Ends the reading",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Use after beginReading",
+                "parameter usage": "No parameters",
+                "return value handling": "Check return for completion"
+            }
+        },
+        {
+            "name": "remainingReadingMillis",
+            "description": "Gets remaining read time",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "Use during pending read",
+                "parameter usage": "No parameters",
+                "return value handling": "Check if return > 0"
+            }
+        }
+    ],
+    "bme68x.h": [
+        {
+            "name": "bme68x_init",
+            "description": "Initialize the sensor and device structure",
+            "parameters": [
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t",
+            "practices": {
+                "API order": "Call first to initialize device.",
+                "parameter usage": "Pass a non-null device structure.",
+                "return value handling": "Check for non-zero return value."
+            }
+        },
+        {
+            "name": "bme68x_set_regs",
+            "description": "Write data to sensor registers",
+            "parameters": [
+                "const uint8_t *reg_addr",
+                "const uint8_t *reg_data",
+                "uint32_t len",
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t",
+            "practices": {
+                "API order": "Call after initialization.",
+                "parameter usage": "Ensure reg_addr and reg_data are valid.",
+                "return value handling": "Check for non-zero return value."
+            }
+        },
+        {
+            "name": "bme68x_get_regs",
+            "description": "Read data from sensor registers",
+            "parameters": [
+                "uint8_t reg_addr",
+                "uint8_t *reg_data",
+                "uint32_t len",
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t",
+            "practices": {
+                "API order": "Call after set_regs for verification.",
+                "parameter usage": "Provide a valid reg_addr and buffer.",
+                "return value handling": "Verify successful read with zero return."
+            }
+        },
+        {
+            "name": "bme68x_soft_reset",
+            "description": "Soft-reset the sensor",
+            "parameters": [
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t",
+            "practices": {
+                "API order": "Use before reconfiguration.",
+                "parameter usage": "Reset the initialized device.",
+                "return value handling": "Check for successful reset with zero."
+            }
+        },
+        {
+            "name": "bme68x_set_op_mode",
+            "description": "Set sensor operation mode",
+            "parameters": [
+                "const uint8_t op_mode",
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t",
+            "practices": {
+                "API order": "Call after initialization and soft-reset.",
+                "parameter usage": "Ensure valid operating mode.",
+                "return value handling": "Confirm with zero return value."
+            }
+        },
+        {
+            "name": "bme68x_get_op_mode",
+            "description": "Get sensor operation mode",
+            "parameters": [
+                "uint8_t *op_mode",
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t",
+            "practices": {
+                "API order": "Call post setting operation mode.",
+                "parameter usage": "Pass buffer to store mode.",
+                "return value handling": "Verify operation mode fetched successfully."
+            }
+        },
+        {
+            "name": "bme68x_get_meas_dur",
+            "description": "Get measurement duration",
+            "parameters": [
+                "const uint8_t op_mode",
+                "struct bme68x_conf *conf",
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "Call post mode and config setup.",
+                "parameter usage": "Ensure valid op_mode and config.",
+                "return value handling": "Duration used to time measurements."
+            }
+        },
+        {
+            "name": "bme68x_get_data",
+            "description": "Read sensor data",
+            "parameters": [
+                "uint8_t op_mode",
+                "struct bme68x_data *data",
+                "uint8_t *n_data",
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t",
+            "practices": {
+                "API order": "Call in operation mode.",
+                "parameter usage": "Ensure data buffer is adequate.",
+                "return value handling": "Check data presence with zero return."
+            }
+        },
+        {
+            "name": "bme68x_set_conf",
+            "description": "Set sensor configuration",
+            "parameters": [
+                "struct bme68x_conf *conf",
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t",
+            "practices": {
+                "API order": "Call after initialization and set mode.",
+                "parameter usage": "Provide valid configuration structure.",
+                "return value handling": "Ensure configuration success with zero."
+            }
+        },
+        {
+            "name": "bme68x_get_conf",
+            "description": "Get sensor configuration",
+            "parameters": [
+                "struct bme68x_conf *conf",
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t",
+            "practices": {
+                "API order": "Call post set configuration.",
+                "parameter usage": "Pass buffer to store configuration.",
+                "return value handling": "Verify correctness of configuration."
+            }
+        },
+        {
+            "name": "bme68x_set_heatr_conf",
+            "description": "Set heating configuration",
+            "parameters": [
+                "uint8_t op_mode",
+                "const struct bme68x_heatr_conf *conf",
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t",
+            "practices": {
+                "API order": "Verify ops mode before setting config",
+                "parameter usage": "Pass valid bme68x_heatr_conf structure",
+                "return value handling": "Check return value for error handling"
+            }
+        },
+        {
+            "name": "bme68x_get_heatr_conf",
+            "description": "Get heating configuration",
+            "parameters": [
+                "const struct bme68x_heatr_conf *conf",
+                "struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t",
+            "practices": {
+                "API order": "Ensure device initialized before calling",
+                "parameter usage": "Ensure conf pointer isn't null",
+                "return value handling": "Handle return value to detect errors"
+            }
+        },
+        {
+            "name": "bme68x_low_gas_selftest_check",
+            "description": "Self-test low gas sensor",
+            "parameters": [
+                "const struct bme68x_dev *dev"
+            ],
+            "return_type": "int8_t",
+            "practices": {
+                "API order": "Call after initialization",
+                "parameter usage": "Ensure valid bme68x_dev structure",
+                "return value handling": "Check return value for test outcome"
+            }
+        }
+    ]
+}

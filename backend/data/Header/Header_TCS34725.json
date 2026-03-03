@@ -1,0 +1,137 @@
+{
+    "TCS34725.h": [
+        {
+            "name": "attach",
+            "description": "Attach and initialize sensor",
+            "parameters": [
+                "WireType& w = Wire"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "power",
+            "description": "Power on or off the sensor",
+            "parameters": [
+                "bool b"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "enableColorTempAndLuxCalculation",
+            "description": "Enable or disable lux calculation",
+            "parameters": [
+                "bool b"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "integrationTime",
+            "description": "Set integration time for sensor",
+            "parameters": [
+                "float ms"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "gain",
+            "description": "Set sensor gain",
+            "parameters": [
+                "Gain g"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "scale",
+            "description": "Set scaling factor for color values",
+            "parameters": [
+                "float s"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "glassAttenuation",
+            "description": "Set glass attenuation factor",
+            "parameters": [
+                "float v"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "persistence",
+            "description": "Set persistence register",
+            "parameters": [
+                "uint16_t data"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "available",
+            "description": "Check if new data is available",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "color",
+            "description": "Get the RGB color values",
+            "parameters": [],
+            "return_type": "Color"
+        },
+        {
+            "name": "raw",
+            "description": "Get raw sensor data",
+            "parameters": [],
+            "return_type": "const RawData&"
+        },
+        {
+            "name": "lux",
+            "description": "Get calculated lux value",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "colorTemperature",
+            "description": "Get calculated color temperature",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "interrupt",
+            "description": "Enable or disable interrupts",
+            "parameters": [
+                "bool b"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "clearInterrupt",
+            "description": "Clear the interrupt flag",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "write8",
+            "description": "Write 8-bit value to register",
+            "parameters": [
+                "Reg reg",
+                "uint8_t value"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "read8",
+            "description": "Read 8-bit value from register",
+            "parameters": [
+                "Reg reg"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "read16",
+            "description": "Read 16-bit value from register",
+            "parameters": [
+                "Reg reg"
+            ],
+            "return_type": "uint16_t"
+        }
+    ]
+}

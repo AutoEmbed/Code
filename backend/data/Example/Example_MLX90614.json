@@ -1,0 +1,88 @@
+{
+    "MLX90614.h": [
+        {
+            "name": "convertToCentiK",
+            "description": "Convert raw data to centiKelvin.",
+            "parameters": [
+                "uint16_t data"
+            ],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "Call after reading data.",
+                "parameter usage": "Ensure valid uint16_t data.",
+                "return value handling": "Check range for centiKelvin."
+            }
+        },
+        {
+            "name": "convertToCentiC",
+            "description": "Convert raw data to centiCelsius.",
+            "parameters": [
+                "uint16_t data"
+            ],
+            "return_type": "int16_t",
+            "practices": {
+                "API order": "Call after reading data.",
+                "parameter usage": "Ensure valid uint16_t data.",
+                "return value handling": "Check range for centiCelsius."
+            }
+        },
+        {
+            "name": "initialise",
+            "description": "Initialise the sensor without pin details.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call once in setup.",
+                "parameter usage": "Call without parameters.",
+                "return value handling": "Check boolean for success."
+            }
+        },
+        {
+            "name": "start",
+            "description": "Start sampling and power-up if needed.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call before process.",
+                "parameter usage": "Call without parameters.",
+                "return value handling": "No return to handle."
+            }
+        },
+        {
+            "name": "process",
+            "description": "Process the state machine.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call frequently in loop.",
+                "parameter usage": "Call without parameters.",
+                "return value handling": "No return to handle."
+            }
+        },
+        {
+            "name": "finish",
+            "description": "Force completion and power-down.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after process ends.",
+                "parameter usage": "Call without parameters.",
+                "return value handling": "No return to handle."
+            }
+        },
+        {
+            "name": "read",
+            "description": "Read a value from a given address.",
+            "parameters": [
+                "uint8_t address",
+                "uint16_t &value"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Call post-initialization.",
+                "parameter usage": "Use correct address.",
+                "return value handling": "Check boolean for success."
+            }
+        }
+    ]
+}

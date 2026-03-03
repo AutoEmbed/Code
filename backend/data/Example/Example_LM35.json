@@ -1,0 +1,54 @@
+{
+    "LM35.h": [
+        {
+            "name": "LM35",
+            "description": "Constructor that initializes the LM35 sensor on a specified pin",
+            "parameters": [
+                {
+                    "name": "pin",
+                    "type": "int",
+                    "description": "The pin number where the LM35 sensor is connected"
+                }
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Initialize LM35 before calling temperature reading functions.",
+                "parameter usage": "Ensure valid pin number for accurate sensor initialization.",
+                "return value handling": "No return value; ensure proper sensor setup before readings."
+            }
+        },
+        {
+            "name": "cel",
+            "description": "Reads the temperature in Celsius",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call cel() after initializing LM35.",
+                "parameter usage": "No parameters needed; call directly on LM35 instance.",
+                "return value handling": "Handle float return carefully for temperature comparisons."
+            }
+        },
+        {
+            "name": "fah",
+            "description": "Reads the temperature in Fahrenheit",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call fah() following cel() for consistent readings.",
+                "parameter usage": "No parameters needed; call directly on LM35 instance.",
+                "return value handling": "Check for valid float return; process for display."
+            }
+        },
+        {
+            "name": "kel",
+            "description": "Reads the temperature in Kelvin",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call kel() after other temperature reads if needed.",
+                "parameter usage": "No parameters needed; call directly on LM35 instance.",
+                "return value handling": "Store Kelvin value as float; validate before usage."
+            }
+        }
+    ]
+}

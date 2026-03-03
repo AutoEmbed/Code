@@ -1,0 +1,301 @@
+{
+    "LM75B.h": [
+        {
+            "name": "initialize",
+            "description": "Initialize sensor",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "readTemperature",
+            "description": "Get temperature reading",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getError",
+            "description": "Fetch error status",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "reset",
+            "description": "Reset sensor",
+            "parameters": [],
+            "return_type": "void"
+        }
+    ],
+    "P3T1035.h": [
+        {
+            "name": "initSensor",
+            "description": "initialize the sensor",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "readTemperature",
+            "description": "get temperature reading",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "setCalibration",
+            "description": "calibrate the sensor",
+            "parameters": [
+                "float offset"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getMaxTempRecorded",
+            "description": "max recorded temperature",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "resetMaxTemp",
+            "description": "reset max temperature value",
+            "parameters": [],
+            "return_type": "void"
+        }
+    ],
+    "P3T1085.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the sensor",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "readTemperature",
+            "description": "Get current temperature",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "setCalibration",
+            "description": "Set calibration value",
+            "parameters": [
+                "float offset"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getCalibration",
+            "description": "Get calibration value",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "isConnected",
+            "description": "Check sensor connection",
+            "parameters": [],
+            "return_type": "bool"
+        }
+    ],
+    "P3T1755.h": [
+        {
+            "name": "begin",
+            "description": "initialize the sensor",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "readTemperature",
+            "description": "get current temperature",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "readHumidity",
+            "description": "get current humidity",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "setResolution",
+            "description": "set sensor resolution",
+            "parameters": [
+                "int resolution"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getFirmwareVersion",
+            "description": "get firmware version",
+            "parameters": [],
+            "return_type": "int"
+        }
+    ],
+    "P3T2030.h": [
+        {
+            "name": "begin",
+            "description": "initialize sensor",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "readTemperature",
+            "description": "get current temperature",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "setUnit",
+            "description": "set temperature unit",
+            "parameters": [
+                "char unit"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getUnit",
+            "description": "retrieve temperature unit",
+            "parameters": [],
+            "return_type": "char"
+        },
+        {
+            "name": "calibrateSensor",
+            "description": "calibrate the sensor",
+            "parameters": [
+                "float referenceTemp"
+            ],
+            "return_type": "void"
+        }
+    ],
+    "PCT2075.h": [],
+    "TempSensor.h": [
+        {
+            "name": "read",
+            "description": "Get temperature value",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "temp",
+            "description": "Get temperature value",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "thresholds",
+            "description": "Set Tos and Thyst",
+            "parameters": [
+                "float v0",
+                "float v1"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "os_mode",
+            "description": "Set OS operation mode",
+            "parameters": [
+                "mode flag"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "ping",
+            "description": "Ping the device",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "reg_w",
+            "description": "Multiple register write",
+            "parameters": [
+                "uint8_t reg_adr",
+                "const uint8_t *data",
+                "uint16_t size"
+            ],
+            "return_type": "int"
+        },
+        {
+            "name": "reg_w",
+            "description": "Single register write",
+            "parameters": [
+                "uint8_t reg_adr",
+                "uint8_t data"
+            ],
+            "return_type": "int"
+        },
+        {
+            "name": "reg_r",
+            "description": "Multiple register read",
+            "parameters": [
+                "uint8_t reg_adr",
+                "uint8_t *data",
+                "uint16_t size"
+            ],
+            "return_type": "int"
+        },
+        {
+            "name": "reg_r",
+            "description": "Single register read",
+            "parameters": [
+                "uint8_t reg_adr"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "write_r8",
+            "description": "Register write, 8 bit",
+            "parameters": [
+                "uint8_t reg",
+                "uint8_t val"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "write_r16",
+            "description": "Register write, 16 bit",
+            "parameters": [
+                "uint8_t reg",
+                "uint16_t val"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "read_r8",
+            "description": "Register read, 8 bit",
+            "parameters": [
+                "uint8_t reg"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "read_r16",
+            "description": "Register read, 16 bit",
+            "parameters": [
+                "uint8_t reg"
+            ],
+            "return_type": "uint16_t"
+        },
+        {
+            "name": "bit_op8",
+            "description": "Register bit operation, 8 bit",
+            "parameters": [
+                "uint8_t reg",
+                "uint8_t mask",
+                "uint8_t value"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "bit_op16",
+            "description": "Register bit operation, 16 bit",
+            "parameters": [
+                "uint8_t reg",
+                "uint16_t mask",
+                "uint16_t value"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "clear",
+            "description": "Clear ALERT",
+            "parameters": [],
+            "return_type": "bool"
+        }
+    ]
+}

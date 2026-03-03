@@ -1,0 +1,34 @@
+{
+    "ADXL345_demo_code.ino": {
+        "ADXL345_demo_code.ino": [
+            {
+                "functionality": "Gets the accelerometer data for X/Y/Z axis and prints them on the serial monitor.",
+                "API": [
+                    "powerOn",
+                    "setActivityThreshold",
+                    "setInactivityThreshold",
+                    "setTimeInactivity",
+                    "setActivityX",
+                    "setActivityY",
+                    "setActivityZ",
+                    "setInactivityX",
+                    "setInactivityY",
+                    "setInactivityZ",
+                    "setTapDetectionOnX",
+                    "setTapDetectionOnY",
+                    "setTapDetectionOnZ",
+                    "setTapThreshold",
+                    "setTapDuration",
+                    "setDoubleTapLatency",
+                    "setDoubleTapWindow",
+                    "setFreeFallThreshold",
+                    "setFreeFallDuration",
+                    "setInterruptMapping",
+                    "setInterrupt",
+                    "readXYZ",
+                    "getAcceleration"
+                ]
+            }
+        ]
+    }
+}

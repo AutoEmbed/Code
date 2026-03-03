@@ -1,0 +1,68 @@
+{
+    "MAX30100_Debug.ino": {
+        "MAX30100_Debug.ino": [
+            {
+                "functionality": "measures heart rate and SpO2 levels using the MAX30100 sensor and reports the data via serial port",
+                "API": [
+                    "begin",
+                    "setOnBeatDetectedCallback",
+                    "update",
+                    "getHeartRate",
+                    "getSpO2"
+                ]
+            }
+        ]
+    },
+    "MAX30100_Minimal.ino": {
+        "MAX30100_Minimal.ino": [
+            {
+                "functionality": "initializes the MAX30100 pulse oximeter sensor, detects heartbeats, and prints heart rate and SpO2 levels to the serial monitor",
+                "API": [
+                    "begin",
+                    "setOnBeatDetectedCallback",
+                    "update",
+                    "getHeartRate",
+                    "getSpO2"
+                ]
+            }
+        ]
+    },
+    "MAX30100_RawData.ino": {
+        "MAX30100_RawData.ino": [
+            {
+                "functionality": "retrieves raw values from the MAX30100 sensor and prints them using serial communication",
+                "API": [
+                    "begin",
+                    "setMode",
+                    "setLedsCurrent",
+                    "setLedsPulseWidth",
+                    "setSamplingRate",
+                    "setHighresModeEnabled",
+                    "update",
+                    "getRawValues"
+                ]
+            }
+        ]
+    },
+    "MAX30100_Tester.ino": {
+        "MAX30100_Tester.ino": [
+            {
+                "functionality": "tests connectivity and operation of the MAX30100 oximetry and heart rate sensor, performs configuration and sampling, and prints the results to the serial port",
+                "API": [
+                    "begin",
+                    "getPartId",
+                    "setMode",
+                    "setLedsCurrent",
+                    "shutdown",
+                    "resume",
+                    "startTemperatureSampling",
+                    "isTemperatureReady",
+                    "retrieveTemperature",
+                    "resetFifo",
+                    "update",
+                    "getRawValues"
+                ]
+            }
+        ]
+    }
+}

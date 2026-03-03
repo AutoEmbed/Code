@@ -1,0 +1,475 @@
+{
+    "ELECHOUSE_CC1101_SRC_DRV.h": [
+        {
+            "name": "Init",
+            "description": "Initialize the CC1101 module.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "SpiReadStatus",
+            "description": "Read status register.",
+            "parameters": [
+                "byte addr"
+            ],
+            "return_type": "byte"
+        },
+        {
+            "name": "setSpiPin",
+            "description": "Set SPI pin configuration.",
+            "parameters": [
+                "byte sck",
+                "byte miso",
+                "byte mosi",
+                "byte ss"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "addSpiPin",
+            "description": "Add SPI pin configuration with module.",
+            "parameters": [
+                "byte sck",
+                "byte miso",
+                "byte mosi",
+                "byte ss",
+                "byte modul"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setGDO",
+            "description": "Set GDO pin configuration.",
+            "parameters": [
+                "byte gdo0",
+                "byte gdo2"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setGDO0",
+            "description": "Set GDO0 pin configuration.",
+            "parameters": [
+                "byte gdo0"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "addGDO",
+            "description": "Add GDO pin configuration with module.",
+            "parameters": [
+                "byte gdo0",
+                "byte gdo2",
+                "byte modul"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "addGDO0",
+            "description": "Add GDO0 pin configuration with module.",
+            "parameters": [
+                "byte gdo0",
+                "byte modul"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setModul",
+            "description": "Set module.",
+            "parameters": [
+                "byte modul"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setCCMode",
+            "description": "Set CC mode.",
+            "parameters": [
+                "bool s"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setModulation",
+            "description": "Set modulation type.",
+            "parameters": [
+                "byte m"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setPA",
+            "description": "Set power amplifier level.",
+            "parameters": [
+                "int p"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setMHZ",
+            "description": "Set frequency in MHz.",
+            "parameters": [
+                "float mhz"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setChannel",
+            "description": "Set communication channel.",
+            "parameters": [
+                "byte chnl"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setChsp",
+            "description": "Set channel spacing.",
+            "parameters": [
+                "float f"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setRxBW",
+            "description": "Set receiver bandwidth.",
+            "parameters": [
+                "float f"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setDRate",
+            "description": "Set data rate.",
+            "parameters": [
+                "float d"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setDeviation",
+            "description": "Set frequency deviation.",
+            "parameters": [
+                "float d"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "SetTx",
+            "description": "Set to transmit mode.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "SetRx",
+            "description": "Set to receive mode.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "SetTx",
+            "description": "Set to transmit mode with MHz.",
+            "parameters": [
+                "float mhz"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "SetRx",
+            "description": "Set to receive mode with MHz.",
+            "parameters": [
+                "float mhz"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getRssi",
+            "description": "Get RSSI value.",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "getLqi",
+            "description": "Get LQI value.",
+            "parameters": [],
+            "return_type": "byte"
+        },
+        {
+            "name": "setSres",
+            "description": "Send reset strobe.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "setSidle",
+            "description": "Send idle strobe.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "goSleep",
+            "description": "Enter sleep mode.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "SendData",
+            "description": "Send data buffer.",
+            "parameters": [
+                "byte *txBuffer",
+                "byte size"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "SendData",
+            "description": "Send data string.",
+            "parameters": [
+                "char *txchar"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "SendData",
+            "description": "Send data buffer with timeout.",
+            "parameters": [
+                "byte *txBuffer",
+                "byte size",
+                "int t"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "SendData",
+            "description": "Send data string with timeout.",
+            "parameters": [
+                "char *txchar",
+                "int t"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "CheckReceiveFlag",
+            "description": "Check receive flag.",
+            "parameters": [],
+            "return_type": "byte"
+        },
+        {
+            "name": "ReceiveData",
+            "description": "Receive data into buffer.",
+            "parameters": [
+                "byte *rxBuffer"
+            ],
+            "return_type": "byte"
+        },
+        {
+            "name": "CheckCRC",
+            "description": "Check CRC validity.",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "SpiStrobe",
+            "description": "Send SPI strobe command.",
+            "parameters": [
+                "byte strobe"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "SpiWriteReg",
+            "description": "Write to SPI register.",
+            "parameters": [
+                "byte addr",
+                "byte value"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "SpiWriteBurstReg",
+            "description": "Write burst data to SPI register.",
+            "parameters": [
+                "byte addr",
+                "byte *buffer",
+                "byte num"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "SpiReadReg",
+            "description": "Read from SPI register.",
+            "parameters": [
+                "byte addr"
+            ],
+            "return_type": "byte"
+        },
+        {
+            "name": "SpiReadBurstReg",
+            "description": "Read burst data from SPI register.",
+            "parameters": [
+                "byte addr",
+                "byte *buffer",
+                "byte num"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setClb",
+            "description": "Set calibration values.",
+            "parameters": [
+                "byte b",
+                "byte s",
+                "byte e"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getCC1101",
+            "description": "Get CC1101 status.",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "getMode",
+            "description": "Get current mode.",
+            "parameters": [],
+            "return_type": "byte"
+        },
+        {
+            "name": "setSyncWord",
+            "description": "Set sync word.",
+            "parameters": [
+                "byte sh",
+                "byte sl"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setAddr",
+            "description": "Set device address.",
+            "parameters": [
+                "byte v"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setWhiteData",
+            "description": "Set data whitening.",
+            "parameters": [
+                "bool v"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setPktFormat",
+            "description": "Set packet format mode.",
+            "parameters": [
+                "byte v"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setCrc",
+            "description": "Enable or disable CRC.",
+            "parameters": [
+                "bool v"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setLengthConfig",
+            "description": "Configure packet length.",
+            "parameters": [
+                "byte v"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setPacketLength",
+            "description": "Set the packet length.",
+            "parameters": [
+                "byte v"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setDcFilterOff",
+            "description": "Enable or disable DC filter.",
+            "parameters": [
+                "bool v"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setManchester",
+            "description": "Enable or disable Manchester encoding.",
+            "parameters": [
+                "bool v"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setSyncMode",
+            "description": "Configure synchronization mode.",
+            "parameters": [
+                "byte v"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setFEC",
+            "description": "Enable or disable FEC.",
+            "parameters": [
+                "bool v"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setPRE",
+            "description": "Set preamble length.",
+            "parameters": [
+                "byte v"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setPQT",
+            "description": "Set PQT threshold.",
+            "parameters": [
+                "byte v"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setCRC_AF",
+            "description": "Enable or disable CRC autoflush.",
+            "parameters": [
+                "bool v"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setAppendStatus",
+            "description": "Enable or disable append status.",
+            "parameters": [
+                "bool v"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setAdrChk",
+            "description": "Set address check mode.",
+            "parameters": [
+                "byte v"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "CheckRxFifo",
+            "description": "Check RX FIFO with timeout.",
+            "parameters": [
+                "int t"
+            ],
+            "return_type": "bool"
+        }
+    ]
+}

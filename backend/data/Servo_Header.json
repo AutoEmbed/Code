@@ -1,0 +1,114 @@
+{
+    "Servo.h": [
+        {
+            "name": "attach",
+            "description": "Attach a servo to a pin.",
+            "parameters": [
+                "int pin"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "attach",
+            "description": "Attach a servo to a pin with min and max values.",
+            "parameters": [
+                "int pin",
+                "int min",
+                "int max"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "detach",
+            "description": "Stops attached servo from pulsing.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "write",
+            "description": "Set the servo angle in degrees or pulse width.",
+            "parameters": [
+                "int value"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "writeMicroseconds",
+            "description": "Set the servo pulse width.",
+            "parameters": [
+                "int value"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "read",
+            "description": "Get the last written servo angle.",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "readMicroseconds",
+            "description": "Get the last written pulse width.",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "attached",
+            "description": "Check if the servo is attached.",
+            "parameters": [],
+            "return_type": "bool"
+        }
+    ],
+    "ServoTimers.h": [
+        {
+            "name": "attach",
+            "description": "Associate instance with a servomotor",
+            "parameters": [
+                "uint8_t pin",
+                "uint16_t min = MIN_ANGLE",
+                "uint16_t max = MAX_ANGLE"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "detach",
+            "description": "Stop driving the servo pulse train",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "write",
+            "description": "Set target angle in degrees",
+            "parameters": [
+                "int value"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "writeMicroseconds",
+            "description": "Set pulse width in microseconds",
+            "parameters": [
+                "int value"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "read",
+            "description": "Get current angle in degrees",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "readMicroseconds",
+            "description": "Get current pulse width in microseconds",
+            "parameters": [],
+            "return_type": "int"
+        },
+        {
+            "name": "attached",
+            "description": "Check if instance is attached to a servo",
+            "parameters": [],
+            "return_type": "bool"
+        }
+    ]
+}

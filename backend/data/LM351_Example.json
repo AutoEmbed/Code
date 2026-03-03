@@ -1,0 +1,54 @@
+{
+    "LM35.h": [
+        {
+            "name": "LM35",
+            "description": "Constructor that initializes the LM35 sensor on a specified pin",
+            "parameters": [
+                {
+                    "name": "pin",
+                    "type": "int",
+                    "description": "The pin number where the LM35 sensor is connected"
+                }
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call this first to initialize.",
+                "parameter usage": "Ensure the correct pin number",
+                "return value handling": "None"
+            }
+        },
+        {
+            "name": "cel",
+            "description": "Reads the temperature in Celsius",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after initialization.",
+                "parameter usage": "No parameters required",
+                "return value handling": "Store or print the returned float value"
+            }
+        },
+        {
+            "name": "fah",
+            "description": "Reads the temperature in Fahrenheit",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after initialization.",
+                "parameter usage": "No parameters required",
+                "return value handling": "Store or print the returned float value"
+            }
+        },
+        {
+            "name": "kel",
+            "description": "Reads the temperature in Kelvin",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after initialization.",
+                "parameter usage": "No parameters required",
+                "return value handling": "Store or print the returned float value"
+            }
+        }
+    ]
+}

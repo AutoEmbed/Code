@@ -1,0 +1,162 @@
+{
+    "Freenove_WS2812B_RGBLED_Controller.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the controller",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setLedCount",
+            "description": "Set the number of LEDs",
+            "parameters": [
+                "u16 n"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setLedType",
+            "description": "Set the type of LEDs",
+            "parameters": [
+                "LED_TYPE t"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setLedColorData",
+            "description": "Set LED color with data",
+            "parameters": [
+                "u8 index",
+                "u32 rgb"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setLedColorData",
+            "description": "Set LED color with RGB values",
+            "parameters": [
+                "u8 index",
+                "u8 r",
+                "u8 g",
+                "u8 b"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setLedColor",
+            "description": "Set LED color",
+            "parameters": [
+                "u8 index",
+                "u32 rgb"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setLedColor",
+            "description": "Set LED color with RGB",
+            "parameters": [
+                "u8 index",
+                "u8 r",
+                "u8 g",
+                "u8 b"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setAllLedsColorData",
+            "description": "Set all LEDs color with data",
+            "parameters": [
+                "u32 rgb"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setAllLedsColorData",
+            "description": "Set all LEDs color with RGB",
+            "parameters": [
+                "u8 r",
+                "u8 g",
+                "u8 b"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setAllLedsColor",
+            "description": "Set all LEDs color",
+            "parameters": [
+                "u32 rgb"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setAllLedsColor",
+            "description": "Set all LEDs color with RGB",
+            "parameters": [
+                "u8 r",
+                "u8 g",
+                "u8 b"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "show",
+            "description": "Update LED to show color",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "getLedsCountFromController",
+            "description": "Get number of LEDs",
+            "parameters": [],
+            "return_type": "u8"
+        },
+        {
+            "name": "getI2CAddress",
+            "description": "Get the I2C address",
+            "parameters": [],
+            "return_type": "u8"
+        },
+        {
+            "name": "getUartBaudrate",
+            "description": "Get UART baud rate",
+            "parameters": [],
+            "return_type": "u32"
+        },
+        {
+            "name": "setUartBaudrate",
+            "description": "Set UART baud rate",
+            "parameters": [
+                "u32 _baudrate"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setI2CNewAddress",
+            "description": "Set new I2C address",
+            "parameters": [
+                "u8 addr"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "getBrand",
+            "description": "Get the brand name",
+            "parameters": [],
+            "return_type": "String"
+        },
+        {
+            "name": "getFirmwareVersion",
+            "description": "Get firmware version",
+            "parameters": [],
+            "return_type": "String"
+        },
+        {
+            "name": "Wheel",
+            "description": "Generate color wheel",
+            "parameters": [
+                "byte pos"
+            ],
+            "return_type": "uint32_t"
+        }
+    ]
+}

@@ -1,0 +1,360 @@
+{
+    "ADXL345_WE.h": [
+        {
+            "name": "init",
+            "description": "Initializes the sensor",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setSPIClockSpeed",
+            "description": "Sets SPI clock speed",
+            "parameters": [
+                "unsigned long clock"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setCorrFactors",
+            "description": "Sets correction factors",
+            "parameters": [
+                "float xMin",
+                "float xMax",
+                "float yMin",
+                "float yMax",
+                "float zMin",
+                "float zMax"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setDataRate",
+            "description": "Sets data rate",
+            "parameters": [
+                "adxl345_dataRate rate"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getDataRate",
+            "description": "Gets current data rate",
+            "parameters": [],
+            "return_type": "adxl345_dataRate"
+        },
+        {
+            "name": "getDataRateAsString",
+            "description": "Gets data rate as string",
+            "parameters": [],
+            "return_type": "String"
+        },
+        {
+            "name": "getPowerCtlReg",
+            "description": "Gets power control register value",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setRange",
+            "description": "Sets measurement range",
+            "parameters": [
+                "adxl345_range range"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getRange",
+            "description": "Gets current measurement range",
+            "parameters": [],
+            "return_type": "adxl345_range"
+        },
+        {
+            "name": "setFullRes",
+            "description": "Sets full resolution mode",
+            "parameters": [
+                "boolean full"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getRangeAsString",
+            "description": "Gets range as string",
+            "parameters": [],
+            "return_type": "String"
+        },
+        {
+            "name": "getRawValues",
+            "description": "Gets raw x, y, z values",
+            "parameters": [],
+            "return_type": "xyzFloat"
+        },
+        {
+            "name": "getCorrectedRawValues",
+            "description": "Gets corrected raw x, y, z values",
+            "parameters": [],
+            "return_type": "xyzFloat"
+        },
+        {
+            "name": "getGValues",
+            "description": "Gets x, y, z values in g",
+            "parameters": [],
+            "return_type": "xyzFloat"
+        },
+        {
+            "name": "getAngles",
+            "description": "Gets inclination angles",
+            "parameters": [],
+            "return_type": "xyzFloat"
+        },
+        {
+            "name": "getCorrAngles",
+            "description": "Gets corrected inclination angles",
+            "parameters": [],
+            "return_type": "xyzFloat"
+        },
+        {
+            "name": "measureAngleOffsets",
+            "description": "Measures and sets angle offsets",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "getAngleOffsets",
+            "description": "Gets angle offsets",
+            "parameters": [],
+            "return_type": "xyzFloat"
+        },
+        {
+            "name": "setAngleOffsets",
+            "description": "Sets angle offsets",
+            "parameters": [
+                "xyzFloat aos"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getOrientation",
+            "description": "Gets device orientation",
+            "parameters": [],
+            "return_type": "adxl345_orientation"
+        },
+        {
+            "name": "getOrientationAsString",
+            "description": "Gets orientation as string",
+            "parameters": [],
+            "return_type": "String"
+        },
+        {
+            "name": "getPitch",
+            "description": "Gets pitch angle",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getRoll",
+            "description": "Gets roll angle",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "setMeasureMode",
+            "description": "Sets measurement mode",
+            "parameters": [
+                "bool measure"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setSleep",
+            "description": "Sets sleep mode with frequency",
+            "parameters": [
+                "bool sleep",
+                "adxl345_wUpFreq freq"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setSleep",
+            "description": "Sets sleep mode",
+            "parameters": [
+                "bool sleep"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setAutoSleep",
+            "description": "Sets auto sleep with frequency",
+            "parameters": [
+                "bool autoSleep",
+                "adxl345_wUpFreq freq"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setAutoSleep",
+            "description": "Sets auto sleep",
+            "parameters": [
+                "bool autoSleep"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "isAsleep",
+            "description": "Checks if device is asleep",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setLowPower",
+            "description": "Sets low power mode",
+            "parameters": [
+                "bool lowpwr"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "isLowPower",
+            "description": "Checks if device is in low power",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setInterrupt",
+            "description": "Configures an interrupt",
+            "parameters": [
+                "adxl345_int type",
+                "uint8_t pin"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setInterruptPolarity",
+            "description": "Sets interrupt polarity",
+            "parameters": [
+                "uint8_t pol"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "deleteInterrupt",
+            "description": "Deletes an interrupt",
+            "parameters": [
+                "adxl345_int type"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "readAndClearInterrupts",
+            "description": "Reads and clears interrupts",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "checkInterrupt",
+            "description": "Checks specific interrupt",
+            "parameters": [
+                "uint8_t source",
+                "adxl345_int type"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "setLinkBit",
+            "description": "Sets the link bit",
+            "parameters": [
+                "bool link"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setFreeFallThresholds",
+            "description": "Configures free fall thresholds",
+            "parameters": [
+                "float ffg",
+                "float fft"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setActivityParameters",
+            "description": "Sets activity parameters",
+            "parameters": [
+                "adxl345_dcAcMode mode",
+                "adxl345_actTapSet axes",
+                "float threshold"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setInactivityParameters",
+            "description": "Sets inactivity parameters",
+            "parameters": [
+                "adxl345_dcAcMode mode",
+                "adxl345_actTapSet axes",
+                "float threshold",
+                "uint8_t inactTime"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setGeneralTapParameters",
+            "description": "Sets general tap parameters",
+            "parameters": [
+                "adxl345_actTapSet axes",
+                "float threshold",
+                "float duration",
+                "float latent"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setAdditionalDoubleTapParameters",
+            "description": "Sets double tap parameters",
+            "parameters": [
+                "bool suppress",
+                "float window"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getActTapStatus",
+            "description": "Gets activity/tap status",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "getActTapStatusAsString",
+            "description": "Gets status as string",
+            "parameters": [],
+            "return_type": "String"
+        },
+        {
+            "name": "setFifoParameters",
+            "description": "Configures FIFO parameters",
+            "parameters": [
+                "adxl345_triggerInt intNumber",
+                "uint8_t samples"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setFifoMode",
+            "description": "Sets FIFO mode",
+            "parameters": [
+                "adxl345_fifoMode mode"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getFifoStatus",
+            "description": "Gets FIFO status",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "resetTrigger",
+            "description": "Resets FIFO trigger",
+            "parameters": [],
+            "return_type": "void"
+        }
+    ]
+}

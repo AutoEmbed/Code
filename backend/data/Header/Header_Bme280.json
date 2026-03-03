@@ -1,0 +1,182 @@
+{
+    "Bme280.h": [
+        {
+            "name": "write8",
+            "description": "Writes an 8-bit value",
+            "parameters": [
+                "uint8_t",
+                "uint8_t"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "read8",
+            "description": "Reads an 8-bit value",
+            "parameters": [
+                "uint8_t"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "read16",
+            "description": "Reads a 16-bit value",
+            "parameters": [
+                "uint8_t"
+            ],
+            "return_type": "uint16_t"
+        },
+        {
+            "name": "read24",
+            "description": "Reads a 24-bit value",
+            "parameters": [
+                "uint8_t"
+            ],
+            "return_type": "uint32_t"
+        },
+        {
+            "name": "reset",
+            "description": "Resets the device",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "isImUpdate",
+            "description": "Checks if IM is updated",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "readCalibrationData",
+            "description": "Reads calibration data",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "setSettings",
+            "description": "Sets the device settings",
+            "parameters": [
+                "const Bme280Settings"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setup",
+            "description": "Setups the device",
+            "parameters": [],
+            "return_type": "bool"
+        }
+    ],
+    "AbstractBme280Test.h": [],
+    "Bme280FourWireTest.h": [],
+    "Bme280TwoWireTest.h": [],
+    "Arduino.h": [
+        {
+            "name": "millis",
+            "description": "Get current time in milliseconds",
+            "parameters": [],
+            "return_type": "unsigned long"
+        },
+        {
+            "name": "delay",
+            "description": "Pause execution for a duration",
+            "parameters": [
+                "unsigned long duration"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "pinMode",
+            "description": "Set pin mode",
+            "parameters": [
+                "uint8_t pin",
+                "uint8_t mode"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "digitalWrite",
+            "description": "Set pin value",
+            "parameters": [
+                "uint8_t pin",
+                "uint8_t value"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "createArduinoMock",
+            "description": "Create a mock Arduino object",
+            "parameters": [],
+            "return_type": "ArduinoMock*"
+        },
+        {
+            "name": "destroyArduinoMock",
+            "description": "Destroy a mock Arduino object",
+            "parameters": [],
+            "return_type": "void"
+        }
+    ],
+    "SPI.h": [
+        {
+            "name": "beginTransaction",
+            "description": "Start SPI transaction",
+            "parameters": [
+                "SPISettings settings"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "endTransaction",
+            "description": "End SPI transaction",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "transfer",
+            "description": "Transfer data over SPI",
+            "parameters": [
+                "uint8_t data"
+            ],
+            "return_type": "uint8_t"
+        }
+    ],
+    "Wire.h": [
+        {
+            "name": "beginTransmission",
+            "description": "Starts transmitting data.",
+            "parameters": [
+                "uint8_t address"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "endTransmission",
+            "description": "Ends the transmission.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "requestFrom",
+            "description": "Requests data from a device.",
+            "parameters": [
+                "uint8_t address",
+                "uint8_t quantity"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "write",
+            "description": "Writes data to the bus.",
+            "parameters": [
+                "uint8_t data"
+            ],
+            "return_type": "size_t"
+        },
+        {
+            "name": "read",
+            "description": "Reads data from the bus.",
+            "parameters": [],
+            "return_type": "int"
+        }
+    ],
+    "Communication.h": []
+}

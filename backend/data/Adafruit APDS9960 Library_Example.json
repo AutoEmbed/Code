@@ -1,0 +1,436 @@
+{
+    "Adafruit_APDS9960.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the sensor",
+            "parameters": [
+                "uint16_t iTimeMS",
+                "apds9960AGain_t",
+                "uint8_t addr",
+                "TwoWire *theWire"
+            ],
+            "return_type": "boolean",
+            "practices": {
+                "API order": "#include Adafruit_APDS9960.h",
+                "parameter usage": "apds.begin(50, APDS9960_AGAIN_4X, 0x39, &Wire)",
+                "return value handling": "if (!apds.begin()) { Serial.println(\"Initialization failed\"); }"
+            }
+        },
+        {
+            "name": "setADCIntegrationTime",
+            "description": "Set ADC integration time",
+            "parameters": [
+                "uint16_t iTimeMS"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "After begin()",
+                "parameter usage": "apds.setADCIntegrationTime(50)",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getADCIntegrationTime",
+            "description": "Get ADC integration time",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "After setADCIntegrationTime()",
+                "parameter usage": "float time = apds.getADCIntegrationTime()",
+                "return value handling": "float time = apds.getADCIntegrationTime()"
+            }
+        },
+        {
+            "name": "setADCGain",
+            "description": "Set ADC gain",
+            "parameters": [
+                "apds9960AGain_t gain"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "After begin()",
+                "parameter usage": "apds.setADCGain(APDS9960_AGAIN_4X)",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getADCGain",
+            "description": "Get ADC gain",
+            "parameters": [],
+            "return_type": "apds9960AGain_t",
+            "practices": {
+                "API order": "After setADCGain()",
+                "parameter usage": "apds9960AGain_t gain = apds.getADCGain()",
+                "return value handling": "apds9960AGain_t gain = apds.getADCGain()"
+            }
+        },
+        {
+            "name": "setLED",
+            "description": "Set LED drive and boost",
+            "parameters": [
+                "apds9960LedDrive_t drive",
+                "apds9960LedBoost_t boost"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "After begin()",
+                "parameter usage": "apds.setLED(APDS9960_LED_DRIVE_100MA, APDS9960_LED_BOOST_300)",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "enableProximity",
+            "description": "Enable or disable proximity",
+            "parameters": [
+                "boolean en"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "After begin()",
+                "parameter usage": "apds.enableProximity(true)",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setProxGain",
+            "description": "Set proximity gain",
+            "parameters": [
+                "apds9960PGain_t gain"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "After enableProximity()",
+                "parameter usage": "apds.setProxGain(APDS9960_PGAIN_2X)",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getProxGain",
+            "description": "Get proximity gain",
+            "parameters": [],
+            "return_type": "apds9960PGain_t",
+            "practices": {
+                "API order": "After setProxGain()",
+                "parameter usage": "apds9960PGain_t gain = apds.getProxGain()",
+                "return value handling": "apds9960PGain_t gain = apds.getProxGain()"
+            }
+        },
+        {
+            "name": "setProxPulse",
+            "description": "Set proximity pulse length",
+            "parameters": [
+                "apds9960PPulseLen_t pLen",
+                "uint8_t pulses"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "After enableProximity()",
+                "parameter usage": "apds.setProxPulse(APDS9960_PPULSE_LEN_32US, 8)",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "enableProximityInterrupt",
+            "description": "Enable proximity interrupt",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"Adafruit_APDS9960.h\"; apds.begin();",
+                "parameter usage": "apds.enableProximityInterrupt();",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "disableProximityInterrupt",
+            "description": "Disable proximity interrupt",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"Adafruit_APDS9960.h\"; apds.begin();",
+                "parameter usage": "apds.disableProximityInterrupt();",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "readProximity",
+            "description": "Read proximity data",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include \"Adafruit_APDS9960.h\"; apds.begin();",
+                "parameter usage": "uint8_t prox = apds.readProximity();",
+                "return value handling": "Process prox value if needed"
+            }
+        },
+        {
+            "name": "setProximityInterruptThreshold",
+            "description": "Set proximity interrupt threshold",
+            "parameters": [
+                "uint8_t low",
+                "uint8_t high",
+                "uint8_t persistence"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"Adafruit_APDS9960.h\"; apds.begin();",
+                "parameter usage": "apds.setProximityInterruptThreshold(10, 20, 1);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "getProximityInterrupt",
+            "description": "Get proximity interrupt status",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"Adafruit_APDS9960.h\"; apds.begin();",
+                "parameter usage": "bool interrupt = apds.getProximityInterrupt();",
+                "return value handling": "Check if proximity interrupt occurred"
+            }
+        },
+        {
+            "name": "enableGesture",
+            "description": "Enable or disable gesture",
+            "parameters": [
+                "boolean en"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"Adafruit_APDS9960.h\"; apds.begin();",
+                "parameter usage": "apds.enableGesture(true);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "gestureValid",
+            "description": "Check if gesture data is valid",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include \"Adafruit_APDS9960.h\"; apds.begin();",
+                "parameter usage": "bool valid = apds.gestureValid();",
+                "return value handling": "Check if gesture data is valid"
+            }
+        },
+        {
+            "name": "setGestureDimensions",
+            "description": "Set gesture dimensions",
+            "parameters": [
+                "uint8_t dims"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"Adafruit_APDS9960.h\"; apds.begin();",
+                "parameter usage": "apds.setGestureDimensions(3);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setGestureFIFOThreshold",
+            "description": "Set gesture FIFO threshold",
+            "parameters": [
+                "uint8_t thresh"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"Adafruit_APDS9960.h\"; apds.begin();",
+                "parameter usage": "apds.setGestureFIFOThreshold(7);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setGestureGain",
+            "description": "Set gesture gain",
+            "parameters": [
+                "uint8_t gain"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include \"Adafruit_APDS9960.h\"; apds.begin();",
+                "parameter usage": "apds.setGestureGain(2);",
+                "return value handling": "N/A"
+            }
+        },
+        {
+            "name": "setGestureProximityThreshold",
+            "description": "Set gesture proximity threshold",
+            "parameters": [
+                "uint8_t thresh"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include Adafruit_APDS9960.h",
+                "parameter usage": "apds.setGestureProximityThreshold(10);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "setGestureOffset",
+            "description": "Set gesture offset",
+            "parameters": [
+                "uint8_t offset_up",
+                "uint8_t offset_down",
+                "uint8_t offset_left",
+                "uint8_t offset_right"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include Adafruit_APDS9960.h",
+                "parameter usage": "apds.setGestureOffset(1, 1, 1, 1);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "readGesture",
+            "description": "Read gesture data",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include Adafruit_APDS9960.h",
+                "parameter usage": "uint8_t gesture = apds.readGesture();",
+                "return value handling": "Check gesture for a value."
+            }
+        },
+        {
+            "name": "resetCounts",
+            "description": "Reset gesture counters",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include Adafruit_APDS9960.h",
+                "parameter usage": "apds.resetCounts();",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "enableColor",
+            "description": "Enable or disable color sensing",
+            "parameters": [
+                "boolean en"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include Adafruit_APDS9960.h",
+                "parameter usage": "apds.enableColor(true);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "colorDataReady",
+            "description": "Check if color data is ready",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include Adafruit_APDS9960.h",
+                "parameter usage": "if(apds.colorDataReady())",
+                "return value handling": "Handle boolean return."
+            }
+        },
+        {
+            "name": "getColorData",
+            "description": "Get color data",
+            "parameters": [
+                "uint16_t *r",
+                "uint16_t *g",
+                "uint16_t *b",
+                "uint16_t *c"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include Adafruit_APDS9960.h",
+                "parameter usage": "apds.getColorData(&r, &g, &b, &c);",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "calculateColorTemperature",
+            "description": "Calculate color temperature",
+            "parameters": [
+                "uint16_t r",
+                "uint16_t g",
+                "uint16_t b"
+            ],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include Adafruit_APDS9960.h",
+                "parameter usage": "uint16_t colorTemp = apds.calculateColorTemperature(r, g, b);",
+                "return value handling": "Handle uint16_t return."
+            }
+        },
+        {
+            "name": "calculateLux",
+            "description": "Calculate light intensity",
+            "parameters": [
+                "uint16_t r",
+                "uint16_t g",
+                "uint16_t b"
+            ],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "#include Adafruit_APDS9960.h",
+                "parameter usage": "uint16_t lux = apds.calculateLux(r, g, b);",
+                "return value handling": "Handle uint16_t return."
+            }
+        },
+        {
+            "name": "enableColorInterrupt",
+            "description": "Enable color interrupt",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include Adafruit_APDS9960.h",
+                "parameter usage": "apds.enableColorInterrupt();",
+                "return value handling": "No return value."
+            }
+        },
+        {
+            "name": "disableColorInterrupt",
+            "description": "Disable color interrupt",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include 'Adafruit_APDS9960.h'",
+                "parameter usage": "apds.disableColorInterrupt();",
+                "return value handling": "not applicable"
+            }
+        },
+        {
+            "name": "clearInterrupt",
+            "description": "Clear all interrupts",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include 'Adafruit_APDS9960.h'",
+                "parameter usage": "apds.clearInterrupt();",
+                "return value handling": "not applicable"
+            }
+        },
+        {
+            "name": "setIntLimits",
+            "description": "Set interrupt limits",
+            "parameters": [
+                "uint16_t l",
+                "uint16_t h"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include 'Adafruit_APDS9960.h'",
+                "parameter usage": "apds.setIntLimits(10, 100);",
+                "return value handling": "not applicable"
+            }
+        },
+        {
+            "name": "enable",
+            "description": "Enable or disable the sensor",
+            "parameters": [
+                "boolean en"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include 'Adafruit_APDS9960.h'",
+                "parameter usage": "apds.enable(true);",
+                "return value handling": "not applicable"
+            }
+        }
+    ]
+}

@@ -1,0 +1,337 @@
+{
+    "arduinoGetConfiguration.ino": {
+        "arduinoGetConfiguration.ino": [
+            {
+                "functionality": "gets configuration and module information of the LoRa E32 device, then prints this information to the serial port",
+                "API": [
+                    "begin",
+                    "getConfiguration",
+                    "getModuleInformation",
+                    "close",
+                    "close"
+                ]
+            }
+        ]
+    },
+    "arduinoSetConfiguration.ino": {
+        "arduinoSetConfiguration.ino": [
+            {
+                "functionality": "sets and prints the configuration of the LoRa E32 module, then updates the configuration with new parameters and prints the updated configuration",
+                "API": [
+                    "begin",
+                    "getConfiguration",
+                    "setConfiguration"
+                ]
+            }
+        ]
+    },
+    "esp32_e32_web_manager_gateway.ino": {
+        "esp32_e32_web_manager_gateway.ino": [
+            {
+                "functionality": "Manages LoRa E32 communication and provides an HTTP and WebSocket server for configuration and messaging",
+                "API": [
+                    "begin",
+                    "available",
+                    "getConfiguration",
+                    "getModuleInformation",
+                    "resetModule",
+                    "setConfiguration",
+                    "sendMessage",
+                    "receiveMessageUntil",
+                    "receiveMessage",
+                    "sendFixedMessage",
+                    "sendBroadcastFixedMessage"
+                ]
+            }
+        ]
+    },
+    "esp8266_e32_web_manager_gateway.ino": {
+        "esp8266_e32_web_manager_gateway.ino": [
+            {
+                "functionality": "Manages EByte LoRa E32 connections and provides a web interface for configuration and data management",
+                "API": [
+                    "begin",
+                    "available",
+                    "getConfiguration",
+                    "getModuleInformation",
+                    "resetModule",
+                    "setConfiguration",
+                    "sendTransparentMessage",
+                    "sendFixedMessage",
+                    "sendBroadcastFixedMessage",
+                    "receiveMessageUntil",
+                    "receiveMessage"
+                ]
+            }
+        ]
+    },
+    "arduinoWakeUPFromWOR.ino": {
+        "arduinoWakeUPFromWOR.ino": [
+            {
+                "functionality": "receives fixed transmission messages on a channel and processes them, includes power-saving mode with wake-on-radio functionality",
+                "API": [
+                    "begin",
+                    "setMode",
+                    "available",
+                    "receiveMessage"
+                ]
+            }
+        ]
+    },
+    "esp32_e32_wake_up_from_WOR_deep_sleep.ino": {
+        "esp32_e32_wake_up_from_WOR_deep_sleep.ino": [
+            {
+                "functionality": "stays in sleep mode and wakes up on a WOR message",
+                "API": [
+                    "begin",
+                    "getConfiguration",
+                    "setConfiguration",
+                    "setMode",
+                    "sendFixedMessage",
+                    "available",
+                    "receiveMessage"
+                ]
+            }
+        ]
+    },
+    "esp32_e32_wake_up_from_WOR_light_sleep.ino": {
+        "esp32_e32_wake_up_from_WOR_light_sleep.ino": [
+            {
+                "functionality": "configures the LoRa-E32 module and ESP32 for receiving fixed transmission messages and wakes the ESP32 from light sleep upon reception",
+                "API": [
+                    "begin",
+                    "setMode",
+                    "getConfiguration",
+                    "setConfiguration",
+                    "available",
+                    "receiveMessage"
+                ]
+            }
+        ]
+    },
+    "esp8266WakeUPFromWOR.ino": {
+        "esp8266WakeUPFromWOR.ino": [
+            {
+                "functionality": "Configures and operates a LoRa E32 module, then puts ESP8266 into light sleep mode before listening to received messages",
+                "API": [
+                    "begin",
+                    "setMode",
+                    "getConfiguration",
+                    "setConfiguration",
+                    "close",
+                    "available",
+                    "receiveMessage"
+                ]
+            }
+        ]
+    },
+    "stm32_wake_up_from_WOR_sleep.ino": {
+        "stm32_wake_up_from_WOR_sleep.ino": [
+            {
+                "functionality": "stays in sleep mode and waits for a wake-up WOR message",
+                "API": [
+                    "begin",
+                    "getConfiguration",
+                    "setConfiguration",
+                    "setMode",
+                    "available",
+                    "receiveMessage",
+                    "sendFixedMessage"
+                ]
+            }
+        ]
+    },
+    "raspberryPiPicoGetConfiguration.ino": {
+        "raspberryPiPicoGetConfiguration.ino": [
+            {
+                "functionality": "gets and prints configuration and module information of the LoRa E32 module connected to Raspberry Pi Pico",
+                "API": [
+                    "begin",
+                    "getConfiguration",
+                    "getResponseDescription",
+                    "getModuleInformation",
+                    "getResponseDescription",
+                    "close",
+                    "close"
+                ]
+            }
+        ]
+    },
+    "raspberryPiPicoSetConfiguration.ino": {
+        "raspberryPiPicoSetConfiguration.ino": [
+            {
+                "functionality": "Sets the configuration for E32-TTL-100 module on Raspberry Pi Pico",
+                "API": [
+                    "begin",
+                    "getConfiguration",
+                    "setConfiguration"
+                ]
+            }
+        ]
+    },
+    "sendFixedTransmissionBroadcast.ino": {
+        "sendFixedTransmissionBroadcast.ino": [
+            {
+                "functionality": "sends a fixed broadcast message to a specified channel",
+                "API": [
+                    "begin",
+                    "getConfiguration",
+                    "setConfiguration",
+                    "sendBroadcastFixedMessage"
+                ]
+            }
+        ]
+    },
+    "receiveFixedTransmissionStruct.ino": {
+        "receiveFixedTransmissionStruct.ino": [
+            {
+                "functionality": "This example sets up and configures an E32-TTL-100 LoRa module to receive fixed transmission messages, prints the received messages, and their details to the serial port.",
+                "API": [
+                    "begin",
+                    "getConfiguration",
+                    "setConfiguration",
+                    "setMode",
+                    "available",
+                    "receiveMessage"
+                ]
+            }
+        ]
+    },
+    "sendFixedTransmissionStruct.ino": {
+        "sendFixedTransmissionStruct.ino": [
+            {
+                "functionality": "sends fixed transmission structured message to a specified point",
+                "API": [
+                    "begin",
+                    "getConfiguration",
+                    "setConfiguration",
+                    "sendFixedMessage"
+                ]
+            }
+        ]
+    },
+    "receiveFixedTransmission.ino": {
+        "receiveFixedTransmission.ino": [
+            {
+                "functionality": "receives fixed transmission message from LoRa E32 module and prints the value to the serial port",
+                "API": [
+                    "begin",
+                    "available",
+                    "receiveMessage"
+                ]
+            }
+        ]
+    },
+    "sendFixedTransmission.ino": {
+        "sendFixedTransmission.ino": [
+            {
+                "functionality": "sends a fixed broadcast message to a specified channel using LoRa E32-TTL-100",
+                "API": [
+                    "begin",
+                    "sendFixedMessage"
+                ]
+            }
+        ]
+    },
+    "stm32_sendFixedTransmission.ino": {
+        "stm32_sendFixedTransmission.ino": [
+            {
+                "functionality": "sends a fixed broadcast message to a specified channel using the LoRa SX1278 module",
+                "API": [
+                    "begin",
+                    "setMode",
+                    "sendFixedMessage"
+                ]
+            }
+        ]
+    },
+    "sendFixedTransmissionWakeUP.ino": {
+        "sendFixedTransmissionWakeUP.ino": [
+            {
+                "functionality": "sends a fixed transmission message to a specified point and prints configuration parameters as well as sending the status to the serial port",
+                "API": [
+                    "begin",
+                    "setMode",
+                    "getConfiguration",
+                    "setConfiguration",
+                    "sendFixedMessage"
+                ]
+            }
+        ]
+    },
+    "receiveFixedTransmissionMultipleStruct.ino": {
+        "receiveFixedTransmissionMultipleStruct.ino": [
+            {
+                "functionality": "receives fixed transmission messages on a LoRa channel, processes incoming messages, and prints data for temperature or humidity to the serial port",
+                "API": [
+                    "begin",
+                    "getConfiguration",
+                    "setConfiguration",
+                    "setMode",
+                    "available",
+                    "receiveInitialMessage",
+                    "receiveMessage",
+                    "close"
+                ]
+            }
+        ]
+    },
+    "sendFixedTransmissionStructHum.ino": {
+        "sendFixedTransmissionStructHum.ino": [
+            {
+                "functionality": "send a fixed transmission structured humidity message to a specified point",
+                "API": [
+                    "begin",
+                    "getConfiguration",
+                    "setConfiguration",
+                    "sendFixedMessage"
+                ]
+            }
+        ]
+    },
+    "sendFixedTransmissionStructTemp.ino": {
+        "sendFixedTransmissionStructTemp.ino": [
+            {
+                "functionality": "sends a structured temperature message to a specified point using LoRa E32-TTL-100",
+                "API": [
+                    "begin",
+                    "getConfiguration",
+                    "setConfiguration",
+                    "close",
+                    "sendFixedMessage",
+                    "getResponseDescription"
+                ]
+            }
+        ]
+    },
+    "sendReceiveTransparentTransmissionE32_TTL_1W.ino": {
+        "sendReceiveTransparentTransmissionE32_TTL_1W.ino": [
+            {
+                "functionality": "configures and uses LoRa SX1278 to send and receive messages in transparent transmission mode",
+                "API": [
+                    "begin",
+                    "getConfiguration",
+                    "setConfiguration",
+                    "sendMessage",
+                    "getResponseDescription",
+                    "available",
+                    "receiveMessage",
+                    "sendMessage"
+                ]
+            }
+        ]
+    },
+    "sendReceiveTransparentTransmissionMessage.ino": {
+        "sendReceiveTransparentTransmissionMessage.ino": [
+            {
+                "functionality": "sends and receives messages using LoRa E32 in transparent transmission mode",
+                "API": [
+                    "begin",
+                    "sendMessage",
+                    "available",
+                    "receiveMessage"
+                ]
+            }
+        ]
+    }
+}

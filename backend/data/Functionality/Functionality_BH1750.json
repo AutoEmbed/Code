@@ -1,0 +1,66 @@
+{
+    "BH1750advanced.ino": {
+        "BH1750advanced.ino": [
+            {
+                "functionality": "reads light level data and prints the value to the serial port",
+                "API": [
+                    "begin",
+                    "measurementReady",
+                    "readLightLevel"
+                ]
+            }
+        ]
+    },
+    "BH1750autoadjust.ino": {
+        "BH1750autoadjust.ino": [
+            {
+                "functionality": "initializes the BH1750 sensor, makes light level readings every five seconds, and adjusts MTreg value according to the light intensity",
+                "API": [
+                    "begin",
+                    "measurementReady",
+                    "readLightLevel",
+                    "setMTreg"
+                ]
+            }
+        ]
+    },
+    "BH1750onetime.ino": {
+        "BH1750onetime.ino": [
+            {
+                "functionality": "initializes BH1750 in high resolution one-time mode, reads light level every second, and prints the value to the serial port",
+                "API": [
+                    "begin",
+                    "measurementReady",
+                    "readLightLevel",
+                    "configure"
+                ]
+            }
+        ]
+    },
+    "BH1750test.ino": {
+        "BH1750test.ino": [
+            {
+                "functionality": "initializes the BH1750 object in high resolution continuous mode and reads light level every second",
+                "API": [
+                    "begin",
+                    "readLightLevel"
+                ]
+            }
+        ]
+    },
+    "BH1750two_i2c.ino": {
+        "BH1750two_i2c.ino": [
+            {
+                "functionality": "initializes two BH1750 objects using different TwoWire instances for light level reading every second and counts error occurrences",
+                "API": [
+                    "begin",
+                    "begin",
+                    "measurementReady",
+                    "readLightLevel",
+                    "measurementReady",
+                    "readLightLevel"
+                ]
+            }
+        ]
+    }
+}

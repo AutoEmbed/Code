@@ -1,0 +1,189 @@
+{
+    "Servo.h": [
+        {
+            "name": "attach",
+            "description": "Attach a servo to a pin.",
+            "parameters": [
+                "int pin"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call before write or read.",
+                "parameter usage": "Use valid pin range values. Example: attach(9)",
+                "return value handling": "Handle return to check success."
+            }
+        },
+        {
+            "name": "attach",
+            "description": "Attach a servo to a pin with min and max values.",
+            "parameters": [
+                "int pin",
+                "int min",
+                "int max"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call before write or read.",
+                "parameter usage": "Set min and max in microseconds. Example: attach(9, 544, 2400)",
+                "return value handling": "Handle return to check success."
+            }
+        },
+        {
+            "name": "detach",
+            "description": "Stops attached servo from pulsing.",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call to release resources.",
+                "parameter usage": "No parameters required.",
+                "return value handling": "No handling needed."
+            }
+        },
+        {
+            "name": "write",
+            "description": "Set the servo angle in degrees or pulse width.",
+            "parameters": [
+                "int value"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after attach.",
+                "parameter usage": "Use angle in degrees. Example: write(90)",
+                "return value handling": "No handling needed."
+            }
+        },
+        {
+            "name": "writeMicroseconds",
+            "description": "Set the servo pulse width.",
+            "parameters": [
+                "int value"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Call after attach.",
+                "parameter usage": "Use microseconds. Example: writeMicroseconds(1500)",
+                "return value handling": "No handling needed."
+            }
+        },
+        {
+            "name": "read",
+            "description": "Get the last written servo angle.",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "Call after attach and write.",
+                "parameter usage": "No parameters required.",
+                "return value handling": "Check for valid angle."
+            }
+        },
+        {
+            "name": "readMicroseconds",
+            "description": "Get the last written pulse width.",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "Call after attach and writeMicroseconds.",
+                "parameter usage": "No parameters required.",
+                "return value handling": "Check for valid pulse width."
+            }
+        },
+        {
+            "name": "attached",
+            "description": "Check if the servo is attached.",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Check before write or read.",
+                "parameter usage": "No parameters required.",
+                "return value handling": "Use in conditional logic."
+            }
+        }
+    ],
+    "ServoTimers.h": [
+        {
+            "name": "attach",
+            "description": "Associate instance with a servomotor",
+            "parameters": [
+                "uint8_t pin",
+                "uint16_t min = MIN_ANGLE",
+                "uint16_t max = MAX_ANGLE"
+            ],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "Call attach before any control commands.",
+                "parameter usage": "Use correct pin and angle range.",
+                "return value handling": "Check if return value is success."
+            }
+        },
+        {
+            "name": "detach",
+            "description": "Stop driving the servo pulse train",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "Use detach when control is no longer needed.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "No return value to handle."
+            }
+        },
+        {
+            "name": "write",
+            "description": "Set target angle in degrees",
+            "parameters": [
+                "int value"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Attach before writing angle.",
+                "parameter usage": "Ensure value is within 0-180 degrees.",
+                "return value handling": "No return value to handle."
+            }
+        },
+        {
+            "name": "writeMicroseconds",
+            "description": "Set pulse width in microseconds",
+            "parameters": [
+                "int value"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "Attach before setting pulse width.",
+                "parameter usage": "Ensure valid microseconds value.",
+                "return value handling": "No return value to handle."
+            }
+        },
+        {
+            "name": "read",
+            "description": "Get current angle in degrees",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "Use read after attaching.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Use return value for current angle."
+            }
+        },
+        {
+            "name": "readMicroseconds",
+            "description": "Get current pulse width in microseconds",
+            "parameters": [],
+            "return_type": "int",
+            "practices": {
+                "API order": "Read after writing pulse width.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Use return value for pulse width."
+            }
+        },
+        {
+            "name": "attached",
+            "description": "Check if instance is attached to a servo",
+            "parameters": [],
+            "return_type": "bool",
+            "practices": {
+                "API order": "Check attached status before writing.",
+                "parameter usage": "No parameters needed.",
+                "return value handling": "Use return value to confirm attachment."
+            }
+        }
+    ]
+}

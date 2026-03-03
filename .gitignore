@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+
+# Build output
+out/
+dist/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+python-env/
+venv/
+.venv/
+
+# Runtime data
+backend/data/history.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local dev config
+CLAUDE.md
+.claude/
+debug-guide.txt
+docs/plans/
+
+# Bundled Python environment
+resources/python-env/
+
+# Env / secrets
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Packages
+*.tar.gz
+*.zip

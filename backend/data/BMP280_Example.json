@@ -1,0 +1,127 @@
+{
+    "BMP280.h": [
+        {
+            "name": "begin",
+            "description": "Sensor begin",
+            "parameters": [],
+            "return_type": "uint8_t",
+            "practices": {
+                "API order": "#include <BMP280.h>, bmp280.begin()",
+                "parameter usage": "bmp280.begin()",
+                "return value handling": "if (!bmp280.begin()) { handleError(); }"
+            }
+        },
+        {
+            "name": "getTemperature",
+            "description": "Get temperature",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "#include <BMP280.h>, bmp280.begin()",
+                "parameter usage": "float temperature = bmp280.getTemperature()",
+                "return value handling": "check if temperature is within the expected range"
+            }
+        },
+        {
+            "name": "getPressure",
+            "description": "Get pressure",
+            "parameters": [],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "#include <BMP280.h>, bmp280.begin()",
+                "parameter usage": "uint32_t pressure = bmp280.getPressure()",
+                "return value handling": "check if pressure is within the expected range"
+            }
+        },
+        {
+            "name": "calAltitude",
+            "description": "Calculate altitude",
+            "parameters": [
+                "uint32_t pressure",
+                "float seaLevelPressure = 1013.0"
+            ],
+            "return_type": "int16_t",
+            "practices": {
+                "API order": "#include <BMP280.h>, bmp280.begin()",
+                "parameter usage": "int16_t altitude = bmp280.calAltitude(pressure, 1013.0)",
+                "return value handling": "check if altitude is within the expected range"
+            }
+        },
+        {
+            "name": "reset",
+            "description": "Reset sensor",
+            "parameters": [],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <BMP280.h>, bmp280.begin()",
+                "parameter usage": "bmp280.reset()",
+                "return value handling": "no return value, handle any errors separately"
+            }
+        },
+        {
+            "name": "setCtrlMeasMode",
+            "description": "Set control measure mode",
+            "parameters": [
+                "eCtrlMeasMode_t eMode"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <BMP280.h>, bmp280.begin()",
+                "parameter usage": "bmp280.setCtrlMeasMode(MODE)",
+                "return value handling": "no return value, handle any errors separately"
+            }
+        },
+        {
+            "name": "setCtrlMeasSamplingTemp",
+            "description": "Set temperature oversampling",
+            "parameters": [
+                "eSampling_t eSampling"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <BMP280.h>, bmp280.begin()",
+                "parameter usage": "bmp280.setCtrlMeasSamplingTemp(SAMPLING)",
+                "return value handling": "no return value, handle any errors separately"
+            }
+        },
+        {
+            "name": "setCtrlMeasSamplingPress",
+            "description": "Set pressure oversampling",
+            "parameters": [
+                "eSampling_t eSampling"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <BMP280.h>, bmp280.begin()",
+                "parameter usage": "bmp280.setCtrlMeasSamplingPress(SAMPLING)",
+                "return value handling": "no return value, handle any errors separately"
+            }
+        },
+        {
+            "name": "setConfigFilter",
+            "description": "Set config filter",
+            "parameters": [
+                "eConfigFilter_t eFilter"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <BMP280.h>, bmp280.begin()",
+                "parameter usage": "bmp280.setConfigFilter(FILTER)",
+                "return value handling": "no return value, handle any errors separately"
+            }
+        },
+        {
+            "name": "setConfigTStandby",
+            "description": "Set config standby time",
+            "parameters": [
+                "eConfigTStandby_t eT"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <BMP280.h>, bmp280.begin()",
+                "parameter usage": "bmp280.setConfigTStandby(TIME)",
+                "return value handling": "no return value, handle any errors separately"
+            }
+        }
+    ]
+}

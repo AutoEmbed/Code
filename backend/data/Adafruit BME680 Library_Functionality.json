@@ -1,0 +1,53 @@
+{
+    "bme680async.ino": {
+        "bme680async.ino": [
+            {
+                "functionality": "reads temperature, pressure, humidity, gas resistance, and altitude data and prints the values to the serial port",
+                "API": [
+                    "begin",
+                    "setTemperatureOversampling",
+                    "setHumidityOversampling",
+                    "setPressureOversampling",
+                    "setIIRFilterSize",
+                    "setGasHeater",
+                    "beginReading",
+                    "endReading",
+                    "readAltitude"
+                ]
+            }
+        ]
+    },
+    "bme680oled.ino": {
+        "bme680oled.ino": [
+            {
+                "functionality": "reads temperature, pressure, humidity, and gas resistance from BME680 sensor and displays the values on an OLED display",
+                "API": [
+                    "begin",
+                    "setTemperatureOversampling",
+                    "setHumidityOversampling",
+                    "setPressureOversampling",
+                    "setIIRFilterSize",
+                    "setGasHeater",
+                    "performReading"
+                ]
+            }
+        ]
+    },
+    "bme680test.ino": {
+        "bme680test.ino": [
+            {
+                "functionality": "reads gas, humidity, temperature, and pressure data, then prints the values to the serial port",
+                "API": [
+                    "begin",
+                    "setTemperatureOversampling",
+                    "setHumidityOversampling",
+                    "setPressureOversampling",
+                    "setIIRFilterSize",
+                    "setGasHeater",
+                    "performReading",
+                    "readAltitude"
+                ]
+            }
+        ]
+    }
+}

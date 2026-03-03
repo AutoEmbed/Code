@@ -1,0 +1,45 @@
+{
+    "FourWire.ino": {
+        "FourWire.ino": [
+            {
+                "functionality": "Reads temperature, pressure, and humidity data using BME280 sensor and prints the values to the serial port",
+                "API": [
+                    "begin",
+                    "setSettings",
+                    "getTemperature",
+                    "getPressure",
+                    "getHumidity"
+                ]
+            }
+        ]
+    },
+    "Settings.ino": {
+        "Settings.ino": [
+            {
+                "functionality": "configures the BME280 sensor with different settings and initializes serial communication",
+                "API": [
+                    "begin",
+                    "setSettings",
+                    "setSettings",
+                    "setSettings",
+                    "setSettings",
+                    "setSettings"
+                ]
+            }
+        ]
+    },
+    "TwoWire.ino": {
+        "TwoWire.ino": [
+            {
+                "functionality": "initialize the BME280 sensor with I2C communication and print temperature, pressure, and humidity data to the serial port",
+                "API": [
+                    "begin",
+                    "setSettings",
+                    "getTemperature",
+                    "getPressure",
+                    "getHumidity"
+                ]
+            }
+        ]
+    }
+}

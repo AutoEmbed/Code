@@ -1,0 +1,37 @@
+{
+    "MLX90614_demo.ino": {
+        "MLX90614_demo.ino": [
+            {
+                "functionality": "reads temperature data from the MLX90614 sensor and prints the values to the serial port",
+                "API": [
+                    "initialise",
+                    "getSoftWire().setDelay_us",
+                    "isSampling",
+                    "start",
+                    "process",
+                    "isFinished",
+                    "getAmbient",
+                    "getObject1",
+                    "isDualSensor",
+                    "getObject2"
+                ]
+            }
+        ]
+    },
+    "MLX90614_read_config.ino": {
+        "MLX90614_read_config.ino": [
+            {
+                "functionality": "Reads and prints the configuration and status of the MLX90614 sensor",
+                "API": [
+                    "initialise",
+                    "getSoftWire().setDelay_us",
+                    "start",
+                    "process",
+                    "read",
+                    "read",
+                    "read"
+                ]
+            }
+        ]
+    }
+}

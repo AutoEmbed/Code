@@ -1,0 +1,242 @@
+{
+    "Distortion.ino": {
+        "Distortion.ino": [
+            {
+                "functionality": "plays a series of distorted sounds using the buzzer",
+                "API": [
+                    "begin",
+                    "distortion",
+                    "distortion",
+                    "end"
+                ]
+            }
+        ]
+    },
+    "FastDistortion.ino": {
+        "FastDistortion.ino": [
+            {
+                "functionality": "cycles through fast distortion sound effects for the buzzer component",
+                "API": [
+                    "begin",
+                    "fastDistortion",
+                    "fastDistortion",
+                    "end"
+                ]
+            }
+        ]
+    },
+    "SlowDistortion.ino": {
+        "SlowDistortion.ino": [
+            {
+                "functionality": "produces slow distortion sound effects by varying frequencies between two notes",
+                "API": [
+                    "begin",
+                    "slowDistortion",
+                    "slowDistortion",
+                    "end"
+                ]
+            }
+        ]
+    },
+    "Theme-JingleBells.ino": {
+        "Theme-JingleBells.ino": [
+            {
+                "functionality": "plays the 'Jingle Bells' theme using a buzzer",
+                "API": [
+                    "begin",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "end"
+                ]
+            }
+        ]
+    },
+    "Theme-StarWars.ino": {
+        "Theme-StarWars.ino": [
+            {
+                "functionality": "plays the Star Wars theme using the Buzzer component",
+                "API": [
+                    "begin",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "end"
+                ]
+            }
+        ]
+    },
+    "Theme-SuperMario.ino": {
+        "Theme-SuperMario.ino": [
+            {
+                "functionality": "plays the Super Mario theme song using a buzzer",
+                "API": [
+                    "begin",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "sound",
+                    "end"
+                ]
+            }
+        ]
+    }
+}

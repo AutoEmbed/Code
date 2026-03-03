@@ -1,0 +1,138 @@
+{
+    "LTR390.h": [
+        {
+            "name": "init",
+            "description": "Initialize the sensor",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "reset",
+            "description": "Reset the sensor",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "enable",
+            "description": "Enable or disable the sensor",
+            "parameters": [
+                "bool en"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "enabled",
+            "description": "Check if the sensor is enabled",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setMode",
+            "description": "Set the measurement mode",
+            "parameters": [
+                "ltr390_mode_t mode"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getMode",
+            "description": "Get the current measurement mode",
+            "parameters": [],
+            "return_type": "ltr390_mode_t"
+        },
+        {
+            "name": "setGain",
+            "description": "Set the sensor gain",
+            "parameters": [
+                "ltr390_gain_t gain"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getGain",
+            "description": "Get the current sensor gain",
+            "parameters": [],
+            "return_type": "ltr390_gain_t"
+        },
+        {
+            "name": "setResolution",
+            "description": "Set the measurement resolution",
+            "parameters": [
+                "ltr390_resolution_t res"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getResolution",
+            "description": "Get the current measurement resolution",
+            "parameters": [],
+            "return_type": "ltr390_resolution_t"
+        },
+        {
+            "name": "setThresholds",
+            "description": "Set the upper and lower thresholds",
+            "parameters": [
+                "uint32_t lower",
+                "uint32_t higher"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "configInterrupt",
+            "description": "Configure the interrupt settings",
+            "parameters": [
+                "bool enable",
+                "ltr390_mode_t source",
+                "uint8_t persistance = 0"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "newDataAvailable",
+            "description": "Check if new data is available",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "readUVS",
+            "description": "Read UV sensor data",
+            "parameters": [],
+            "return_type": "uint32_t"
+        },
+        {
+            "name": "readALS",
+            "description": "Read ambient light sensor data",
+            "parameters": [],
+            "return_type": "uint32_t"
+        },
+        {
+            "name": "getLux",
+            "description": "Calculate and get Lux value",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getUVI",
+            "description": "Calculate and get UV index",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "writeRegister",
+            "description": "Write value to a register",
+            "parameters": [
+                "uint8_t reg",
+                "uint8_t val"
+            ],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "readRegister",
+            "description": "Read value from a register",
+            "parameters": [
+                "uint8_t reg"
+            ],
+            "return_type": "uint8_t"
+        }
+    ]
+}

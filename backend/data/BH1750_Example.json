@@ -1,0 +1,69 @@
+{
+    "BH1750.h": [
+        {
+            "name": "begin",
+            "description": "Initializes the sensor",
+            "parameters": [
+                "Mode mode",
+                "byte addr",
+                "TwoWire* i2c"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <BH1750.h>",
+                "parameter usage": "example: lightMeter.begin(BH1750::CONTINUOUS_HIGH_RES_MODE, 0x23, &Wire);",
+                "return value handling": "check if true for success"
+            }
+        },
+        {
+            "name": "configure",
+            "description": "Configures the measurement mode",
+            "parameters": [
+                "Mode mode"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "call begin() before",
+                "parameter usage": "example: lightMeter.configure(BH1750::ONE_TIME_HIGH_RES_MODE);",
+                "return value handling": "check if true for success"
+            }
+        },
+        {
+            "name": "setMTreg",
+            "description": "Sets measurement time register",
+            "parameters": [
+                "byte MTreg"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "call begin() before",
+                "parameter usage": "example: lightMeter.setMTreg(69);",
+                "return value handling": "check if true for success"
+            }
+        },
+        {
+            "name": "measurementReady",
+            "description": "Checks if measurement is ready",
+            "parameters": [
+                "bool maxWait"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "call begin() before",
+                "parameter usage": "example: lightMeter.measurementReady(true);",
+                "return value handling": "use to trigger read"
+            }
+        },
+        {
+            "name": "readLightLevel",
+            "description": "Reads light level in lux",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "call measurementReady() before",
+                "parameter usage": "example: float lux = lightMeter.readLightLevel();",
+                "return value handling": "store or print the value"
+            }
+        }
+    ]
+}

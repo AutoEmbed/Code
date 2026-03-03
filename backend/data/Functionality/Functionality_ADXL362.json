@@ -1,0 +1,71 @@
+{
+    "ADXL362_MotionActivatedSleep.ino": {
+        "ADXL362_MotionActivatedSleep.ino": [
+            {
+                "functionality": "Arduino sleeps when motionless, wakes up on motion. The ADXL362 accelerometer handles the motion detection.",
+                "API": [
+                    "begin",
+                    "setupDCActivityInterrupt",
+                    "setupDCInactivityInterrupt",
+                    "SPIwriteOneRegister",
+                    "SPIwriteOneRegister",
+                    "SPIreadOneRegister",
+                    "SPIwriteOneRegister",
+                    "beginMeasure",
+                    "checkAllControlRegs",
+                    "readXYZTData"
+                ]
+            }
+        ]
+    },
+    "ADXL362_PRELIMDatasheet_AutoMotionSwitch.ino": {
+        "ADXL362_PRELIMDatasheet_AutoMotionSwitch.ino": [
+            {
+                "functionality": "automates the motion switch using ADXL362 and reads axis data",
+                "API": [
+                    "readXYZTData"
+                ]
+            }
+        ]
+    },
+    "ADXL362_PRELIMDatasheet_FreeFall.ino": {
+        "ADXL362_PRELIMDatasheet_FreeFall.ino": [
+            {
+                "functionality": "configures and reads acceleration and temperature data from the ADXL362 accelerometer, checking for free fall conditions and displaying measurements on the serial monitor",
+                "API": [
+                    "readXYZTData"
+                ]
+            }
+        ]
+    },
+    "ADXL362_SimpleRead.ino": {
+        "ADXL362_SimpleRead.ino": [
+            {
+                "functionality": "Simple XYZ axis reading example for Analog Devices ADXL362 - Micropower 3-axis accelerometer",
+                "API": [
+                    "begin",
+                    "beginMeasure",
+                    "readXYZTData"
+                ]
+            }
+        ]
+    },
+    "ADXL362_TiltOnOff.ino": {
+        "ADXL362_TiltOnOff.ino": [
+            {
+                "functionality": "The sketch configures the ADXL362 accelerometer to put the Arduino into sleep mode when the device is laid flat and wake it up when tilted. It also reads accelerometer data and reports it to the Serial Monitor.",
+                "API": [
+                    "begin",
+                    "setupDCActivityInterrupt",
+                    "setupDCInactivityInterrupt",
+                    "SPIwriteOneRegister",
+                    "SPIreadOneRegister",
+                    "SPIwriteOneRegister",
+                    "beginMeasure",
+                    "checkAllControlRegs",
+                    "readXYZTData"
+                ]
+            }
+        ]
+    }
+}

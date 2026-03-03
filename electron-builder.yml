@@ -1,0 +1,44 @@
+appId: com.autoembed.gui
+productName: AutoEmbed
+directories:
+  output: dist
+  buildResources: resources
+
+files:
+  - out/**/*
+  - backend/**/*
+  - "!backend/**/__pycache__"
+  - "!backend/data/history.json"
+
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  artifactName: "${productName}-Setup-${version}.${ext}"
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  include: resources/installer.nsh
+
+mac:
+  target:
+    - target: zip
+      arch:
+        - x64
+        - arm64
+  artifactName: "${productName}-${version}-mac-${arch}.${ext}"
+  category: public.app-category.developer-tools
+
+extraResources:
+  - from: backend
+    to: backend
+    filter:
+      - "**/*"
+      - "!**/__pycache__"
+  - from: resources/python-env
+    to: python-env
+    filter:
+      - "**/*"

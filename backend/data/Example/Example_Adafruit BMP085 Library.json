@@ -1,0 +1,88 @@
+{
+    "Adafruit_BMP085.h": [
+        {
+            "name": "begin",
+            "description": "Starts I2C connection",
+            "parameters": [
+                "uint8_t mode = BMP085_ULTRAHIGHRES",
+                "TwoWire *wire = &Wire"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include <Adafruit_BMP085.h>; bmp.begin() in setup()",
+                "parameter usage": "bmp.begin(BMP085_ULTRAHIGHRES, &Wire);",
+                "return value handling": "if (!bmp.begin()) { /* handle error */ }"
+            }
+        },
+        {
+            "name": "readTemperature",
+            "description": "Gets the temperature over I2C",
+            "parameters": [],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after bmp.begin()",
+                "parameter usage": "float temp = bmp.readTemperature();",
+                "return value handling": "Check for valid float value"
+            }
+        },
+        {
+            "name": "readPressure",
+            "description": "Gets the pressure over I2C",
+            "parameters": [],
+            "return_type": "int32_t",
+            "practices": {
+                "API order": "Call after bmp.begin()",
+                "parameter usage": "int32_t pressure = bmp.readPressure();",
+                "return value handling": "Check for valid int32_t value"
+            }
+        },
+        {
+            "name": "readSealevelPressure",
+            "description": "Calculates pressure at sea level",
+            "parameters": [
+                "float altitude_meters = 0"
+            ],
+            "return_type": "int32_t",
+            "practices": {
+                "API order": "Call after bmp.begin()",
+                "parameter usage": "int32_t sealevel_press = bmp.readSealevelPressure(0);",
+                "return value handling": "Check for valid int32_t value"
+            }
+        },
+        {
+            "name": "readAltitude",
+            "description": "Reads the altitude",
+            "parameters": [
+                "float sealevelPressure = 101325"
+            ],
+            "return_type": "float",
+            "practices": {
+                "API order": "Call after bmp.begin()",
+                "parameter usage": "float altitude = bmp.readAltitude(101325);",
+                "return value handling": "Check for valid float value"
+            }
+        },
+        {
+            "name": "readRawTemperature",
+            "description": "Reads the raw temperature",
+            "parameters": [],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "Call after bmp.begin()",
+                "parameter usage": "uint16_t rawTemp = bmp.readRawTemperature();",
+                "return value handling": "Process raw temperature data"
+            }
+        },
+        {
+            "name": "readRawPressure",
+            "description": "Reads the raw pressure",
+            "parameters": [],
+            "return_type": "uint32_t",
+            "practices": {
+                "API order": "Call after bmp.begin()",
+                "parameter usage": "uint32_t rawPress = bmp.readRawPressure();",
+                "return value handling": "Process raw pressure data"
+            }
+        }
+    ]
+}

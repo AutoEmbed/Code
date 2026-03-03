@@ -1,0 +1,102 @@
+{
+    "MATRIX7219.h": [
+        {
+            "name": "getMatrixCount",
+            "description": "Get number of matrices",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "begin",
+            "description": "Initialize the matrix",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "setBrightness",
+            "description": "Set LED brightness",
+            "parameters": [
+                "uint8_t bright = 2"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "displayOff",
+            "description": "Turn off the display",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "displayOn",
+            "description": "Turn on the display",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "displayTest",
+            "description": "Run display test",
+            "parameters": [
+                "bool on = false"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "clear",
+            "description": "Clear the display",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "setRow",
+            "description": "Set row value",
+            "parameters": [
+                "uint8_t row",
+                "uint8_t value",
+                "uint8_t matrix"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setInvert",
+            "description": "Invert the display",
+            "parameters": [
+                "bool invert"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getInvert",
+            "description": "Get invert status",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setReverse",
+            "description": "Reverse display",
+            "parameters": [
+                "bool reverse"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getReverse",
+            "description": "Get reverse status",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setSwap",
+            "description": "Swap the display",
+            "parameters": [
+                "bool swap"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getSwap",
+            "description": "Get swap status",
+            "parameters": [],
+            "return_type": "bool"
+        }
+    ]
+}

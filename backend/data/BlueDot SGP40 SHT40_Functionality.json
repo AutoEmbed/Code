@@ -1,0 +1,18 @@
+{
+    "SGP40_SHT40_Test.ino": {
+        "SGP40_SHT40_Test.ino": [
+            {
+                "functionality": "Example for the SGP40+SHT40 board, including SHT40 setup and VOC measurements",
+                "API": [
+                    "setPrecision",
+                    "getPrecision",
+                    "setHeater",
+                    "getHeater",
+                    "begin",
+                    "readSerial",
+                    "getEvent"
+                ]
+            }
+        ]
+    }
+}

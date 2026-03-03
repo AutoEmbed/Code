@@ -1,0 +1,344 @@
+{
+    "CircularBuffer.h": [
+        {
+            "name": "unshift",
+            "description": "Adds element to the beginning.",
+            "parameters": [
+                "T value"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "push",
+            "description": "Adds element to the end.",
+            "parameters": [
+                "T value"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "shift",
+            "description": "Removes element from the beginning.",
+            "parameters": [],
+            "return_type": "T"
+        },
+        {
+            "name": "pop",
+            "description": "Removes element from the end.",
+            "parameters": [],
+            "return_type": "T"
+        },
+        {
+            "name": "first",
+            "description": "Returns the first element.",
+            "parameters": [],
+            "return_type": "T"
+        },
+        {
+            "name": "last",
+            "description": "Returns the last element.",
+            "parameters": [],
+            "return_type": "T"
+        },
+        {
+            "name": "operator[]",
+            "description": "Array-like access to buffer.",
+            "parameters": [
+                "__CB_ST__ index"
+            ],
+            "return_type": "T"
+        },
+        {
+            "name": "size",
+            "description": "Returns elements stored count.",
+            "parameters": [],
+            "return_type": "__CB_ST__"
+        },
+        {
+            "name": "available",
+            "description": "Returns available space.",
+            "parameters": [],
+            "return_type": "__CB_ST__"
+        },
+        {
+            "name": "capacity",
+            "description": "Returns potential storage capacity.",
+            "parameters": [],
+            "return_type": "__CB_ST__"
+        },
+        {
+            "name": "isEmpty",
+            "description": "Checks if buffer is empty.",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "isFull",
+            "description": "Checks if buffer is full.",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "clear",
+            "description": "Resets buffer to clean status.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "debug",
+            "description": "Outputs buffer to Print object.",
+            "parameters": [
+                "Print* out"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "debugFn",
+            "description": "Debugs buffer with a print function.",
+            "parameters": [
+                "Print* out",
+                "void (*printFunction)(Print*, T)"
+            ],
+            "return_type": "void"
+        }
+    ],
+    "MAX30100.h": [
+        {
+            "name": "begin",
+            "description": "Initializes the sensor",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "setMode",
+            "description": "Sets operating mode",
+            "parameters": [
+                "Mode mode"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setLedsPulseWidth",
+            "description": "Sets LED pulse width",
+            "parameters": [
+                "LEDPulseWidth ledPulseWidth"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setSamplingRate",
+            "description": "Sets data sampling rate",
+            "parameters": [
+                "SamplingRate samplingRate"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setLedsCurrent",
+            "description": "Sets LED currents",
+            "parameters": [
+                "LEDCurrent irLedCurrent",
+                "LEDCurrent redLedCurrent"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setHighresModeEnabled",
+            "description": "Enables/Disables high-res mode",
+            "parameters": [
+                "bool enabled"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "update",
+            "description": "Updates sensor data",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "getRawValues",
+            "description": "Gets raw IR and red values",
+            "parameters": [
+                "uint16_t *ir",
+                "uint16_t *red"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "resetFifo",
+            "description": "Resets the FIFO buffer",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "startTemperatureSampling",
+            "description": "Starts temperature sampling",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "isTemperatureReady",
+            "description": "Checks if temperature is ready",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "retrieveTemperature",
+            "description": "Retrieves the temperature",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "shutdown",
+            "description": "Shuts down the sensor",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "resume",
+            "description": "Resumes sensor operation",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "getPartId",
+            "description": "Gets the part ID",
+            "parameters": [],
+            "return_type": "uint8_t"
+        }
+    ],
+    "MAX30100_BeatDetector.h": [
+        {
+            "name": "addSample",
+            "description": "Adds a sample for beat detection",
+            "parameters": [
+                "float sample"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "getRate",
+            "description": "Gets the current heart rate",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getCurrentThreshold",
+            "description": "Gets the current threshold value",
+            "parameters": [],
+            "return_type": "float"
+        }
+    ],
+    "MAX30100_Filters.h": [
+        {
+            "name": "FilterBuLp1::step",
+            "description": "Low pass filter step calculation",
+            "parameters": [
+                "float x"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "DCRemover::step",
+            "description": "Remove DC component from signal",
+            "parameters": [
+                "float x"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "DCRemover::getDCW",
+            "description": "Get current DC weight",
+            "parameters": [],
+            "return_type": "float"
+        }
+    ],
+    "MAX30100_PulseOximeter.h": [
+        {
+            "name": "begin",
+            "description": "Initialize sensor",
+            "parameters": [
+                "PulseOximeterDebuggingMode debuggingMode_=PULSEOXIMETER_DEBUGGINGMODE_NONE"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "update",
+            "description": "Update sensor readings",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "getHeartRate",
+            "description": "Get current heart rate",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "getSpO2",
+            "description": "Get current SpO2 level",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "getRedLedCurrentBias",
+            "description": "Get red LED current bias",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setOnBeatDetectedCallback",
+            "description": "Set beat detected callback function",
+            "parameters": [
+                "void (*cb)()"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setIRLedCurrent",
+            "description": "Set IR LED current",
+            "parameters": [
+                "LEDCurrent irLedCurrent"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "shutdown",
+            "description": "Shutdown the sensor",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "resume",
+            "description": "Resume the sensor",
+            "parameters": [],
+            "return_type": "void"
+        }
+    ],
+    "MAX30100_Registers.h": [],
+    "MAX30100_SpO2Calculator.h": [
+        {
+            "name": "update",
+            "description": "Updates SpO2 calculation",
+            "parameters": [
+                "float irACValue",
+                "float redACValue",
+                "bool beatDetected"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "reset",
+            "description": "Resets SpO2 calculator",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "getSpO2",
+            "description": "Returns calculated SpO2",
+            "parameters": [],
+            "return_type": "uint8_t"
+        }
+    ]
+}

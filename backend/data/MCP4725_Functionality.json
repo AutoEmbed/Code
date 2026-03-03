@@ -1,0 +1,153 @@
+{
+    "mcp4725_isConnected.ino": {
+        "mcp4725_isConnected.ino": [
+            {
+                "functionality": "tests MCP4725 library with behavior when sensor is not connected and reconnected",
+                "API": [
+                    "begin",
+                    "isConnected",
+                    "isConnected"
+                ]
+            }
+        ]
+    },
+    "mcp4725_keypad.ino": {
+        "mcp4725_keypad.ino": [
+            {
+                "functionality": "tests MCP4725 library using keypad input to set DAC values",
+                "API": [
+                    "begin",
+                    "setValue",
+                    "begin",
+                    "setValue"
+                ]
+            }
+        ]
+    },
+    "MCP4725_minimal.ino": {
+        "MCP4725_minimal.ino": [
+            {
+                "functionality": "sets up the MCP4725 DAC and adjusts the output value based on a button press",
+                "API": [
+                    "begin",
+                    "setValue",
+                    "setValue"
+                ]
+            }
+        ]
+    },
+    "mcp4725_multiple.ino": {
+        "mcp4725_multiple.ino": [
+            {
+                "functionality": "controls four MCP4725 devices over a single I2C bus by selecting them with address pins",
+                "API": [
+                    "begin",
+                    "setValue"
+                ]
+            }
+        ]
+    },
+    "mcp4725_multiple_minimal.ino": {
+        "mcp4725_multiple_minimal.ino": [
+            {
+                "functionality": "controls multiple MCP4725 devices on one I2C bus using a single MCP4725 object and A0 address pin as selection",
+                "API": [
+                    "begin",
+                    "setValue"
+                ]
+            }
+        ]
+    },
+    "mcp4725_test.ino": {
+        "mcp4725_test.ino": [
+            {
+                "functionality": "test mcp4725 lib",
+                "API": [
+                    "begin",
+                    "getValue",
+                    "setValue",
+                    "writeDAC",
+                    "readDAC",
+                    "readEEPROM",
+                    "writePowerDownMode",
+                    "readPowerDownModeEEPROM",
+                    "powerOnReset",
+                    "readPowerDownModeDAC",
+                    "powerOnWakeUp",
+                    "ready"
+                ]
+            }
+        ]
+    },
+    "mcp4725_voltage.ino": {
+        "mcp4725_voltage.ino": [
+            {
+                "functionality": "tests MCP4725 library by generating and setting voltage values, and printing voltage readings",
+                "API": [
+                    "begin",
+                    "setMaxVoltage",
+                    "getVoltage",
+                    "setVoltage",
+                    "getVoltage",
+                    "setVoltage",
+                    "setVoltage"
+                ]
+            }
+        ]
+    },
+    "MCP4725_wave_generator.ino": {
+        "MCP4725_wave_generator.ino": [
+            {
+                "functionality": "generates different waveforms using the MCP4725 DAC based on user input frequency or mode, and handles communication via I2C",
+                "API": [
+                    "begin",
+                    "setValue",
+                    "isConnected",
+                    "setValue",
+                    "setValue",
+                    "setValue",
+                    "setValue",
+                    "setValue",
+                    "setValue",
+                    "setValue"
+                ]
+            }
+        ]
+    },
+    "MCP4725_wave_generator_RP2040.ino": {
+        "MCP4725_wave_generator_RP2040.ino": [
+            {
+                "functionality": "Generates various waveforms using MCP4725 DAC based on user input for frequency and waveform type, and prints the current frequency to the serial monitor.",
+                "API": [
+                    "begin",
+                    "setValue",
+                    "isConnected",
+                    "setValue",
+                    "setValue",
+                    "setValue",
+                    "setValue",
+                    "setValue",
+                    "setValue",
+                    "setValue"
+                ]
+            }
+        ]
+    },
+    "smooth2Value.ino": {
+        "smooth2Value.ino": [
+            {
+                "functionality": "tests MCP4725 library's ability to set DAC values smoothly",
+                "API": [
+                    "begin",
+                    "getValue",
+                    "getValue",
+                    "getValue",
+                    "getValue",
+                    "setValue",
+                    "getValue",
+                    "setValue"
+                ]
+            }
+        ]
+    }
+}

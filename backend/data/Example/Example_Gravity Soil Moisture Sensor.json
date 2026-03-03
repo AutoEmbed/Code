@@ -1,0 +1,31 @@
+{
+    "gravity_soil_moisture_sensor.h": [
+        {
+            "name": "Setup",
+            "description": "Initialize the sensor pin",
+            "parameters": [
+                "const uint8_t analog_pin"
+            ],
+            "return_type": "bool",
+            "practices": {
+                "API order": "#include gravity_soil_moisture_sensor.h first",
+                "parameter usage": "Setup(0);",
+                "return value handling": "Check return before proceeding"
+            }
+        },
+        {
+            "name": "Read",
+            "description": "Read moisture value",
+            "parameters": [
+                "uint16_t samples = 128",
+                "uint16_t delay_ms = 1"
+            ],
+            "return_type": "uint16_t",
+            "practices": {
+                "API order": "Initialize with Setup() first",
+                "parameter usage": "Read(128, 1);",
+                "return value handling": "Store and use the return value"
+            }
+        }
+    ]
+}

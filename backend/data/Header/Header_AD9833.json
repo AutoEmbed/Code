@@ -1,0 +1,207 @@
+{
+    "AD9833.h": [
+        {
+            "name": "begin",
+            "description": "Initialize the device.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "reset",
+            "description": "Reset the device.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "hardwareReset",
+            "description": "Perform a hardware reset.",
+            "parameters": [],
+            "return_type": "void"
+        },
+        {
+            "name": "setPowerMode",
+            "description": "Set power mode.",
+            "parameters": [
+                "uint8_t mode = 0"
+            ],
+            "return_type": "bool"
+        },
+        {
+            "name": "getPowerMode",
+            "description": "Get current power mode.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setWave",
+            "description": "Set waveform type.",
+            "parameters": [
+                "uint8_t waveform = AD9833_OFF"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getWave",
+            "description": "Get current waveform.",
+            "parameters": [],
+            "return_type": "uint8_t"
+        },
+        {
+            "name": "setFrequency",
+            "description": "Set frequency for given channel.",
+            "parameters": [
+                "float frequency",
+                "uint8_t channel = 0"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "getFrequency",
+            "description": "Get frequency for a channel.",
+            "parameters": [
+                "uint8_t channel = 0"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "getMaxFrequency",
+            "description": "Get maximum frequency.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "setFrequencyChannel",
+            "description": "Set frequency channel.",
+            "parameters": [
+                "uint8_t channel"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setPhase",
+            "description": "Set phase for given channel (degrees).",
+            "parameters": [
+                "float phase",
+                "uint8_t channel = 0"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "getPhase",
+            "description": "Get phase for a channel (degrees).",
+            "parameters": [
+                "uint8_t channel = 0"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "getMaxPhase",
+            "description": "Get maximum phase.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "setPhaseChannel",
+            "description": "Set phase channel.",
+            "parameters": [
+                "uint8_t channel"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setPhaseRadians",
+            "description": "Set phase for given channel (radians).",
+            "parameters": [
+                "float phase",
+                "uint8_t channel = 0"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "getPhaseRadians",
+            "description": "Get phase for a channel (radians).",
+            "parameters": [
+                "uint8_t channel = 0"
+            ],
+            "return_type": "float"
+        },
+        {
+            "name": "setSPIspeed",
+            "description": "Set SPI communication speed in Hz.",
+            "parameters": [
+                "uint32_t speed"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getSPIspeed",
+            "description": "Get current SPI speed in Hz.",
+            "parameters": [],
+            "return_type": "uint32_t"
+        },
+        {
+            "name": "usesHWSPI",
+            "description": "Check if hardware SPI is in use.",
+            "parameters": [],
+            "return_type": "bool"
+        },
+        {
+            "name": "writeControlRegister",
+            "description": "Write to control register.",
+            "parameters": [
+                "uint16_t value"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "writeFrequencyRegister",
+            "description": "Write to frequency register.",
+            "parameters": [
+                "uint8_t channel",
+                "uint32_t freq"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "writePhaseRegister",
+            "description": "Write to phase register.",
+            "parameters": [
+                "uint8_t channel",
+                "uint16_t value"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "setCrystalFrequency",
+            "description": "Set crystal frequency.",
+            "parameters": [
+                "float crystalFrequency = 25000000"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "getCrystalFrequency",
+            "description": "Get crystal frequency.",
+            "parameters": [],
+            "return_type": "float"
+        },
+        {
+            "name": "writeFrequencyRegisterLSB",
+            "description": "Write LSB to frequency register.",
+            "parameters": [
+                "uint8_t channel",
+                "uint16_t LSB"
+            ],
+            "return_type": "void"
+        },
+        {
+            "name": "writeFrequencyRegisterMSB",
+            "description": "Write MSB to frequency register.",
+            "parameters": [
+                "uint8_t channel",
+                "uint16_t MSB"
+            ],
+            "return_type": "void"
+        }
+    ]
+}

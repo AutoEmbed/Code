@@ -1,0 +1,19 @@
+{
+    "ReadXYZ.ino": {
+        "ReadXYZ.ino": [
+            {
+                "functionality": "reads accelerometer data from ADXL345 and prints XYZ values to the serial port",
+                "API": [
+                    "readDeviceID",
+                    "writeRate",
+                    "writeRange",
+                    "start",
+                    "update",
+                    "getX",
+                    "getY",
+                    "getZ"
+                ]
+            }
+        ]
+    }
+}

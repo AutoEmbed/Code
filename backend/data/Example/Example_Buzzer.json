@@ -1,0 +1,97 @@
+{
+    "Buzzer.h": [
+        {
+            "name": "begin",
+            "description": "Initialize buzzer.",
+            "parameters": [
+                "int pin"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "#include <Buzzer.h>; call begin first",
+                "parameter usage": "buzzer.begin(11);",
+                "return value handling": "void"
+            }
+        },
+        {
+            "name": "end",
+            "description": "Stop buzzer.",
+            "parameters": [
+                "int pin"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "call end last",
+                "parameter usage": "buzzer.end(11);",
+                "return value handling": "void"
+            }
+        },
+        {
+            "name": "sound",
+            "description": "Emit sound.",
+            "parameters": [
+                "int frequency",
+                "int duration"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "call after begin",
+                "parameter usage": "buzzer.sound(440, 1000);",
+                "return value handling": "void"
+            }
+        },
+        {
+            "name": "slowDistortion",
+            "description": "Generate slow distortion sound.",
+            "parameters": [
+                "int frequency",
+                "int duration"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "call after begin",
+                "parameter usage": "buzzer.slowDistortion(440, 1000);",
+                "return value handling": "void"
+            }
+        },
+        {
+            "name": "distortion",
+            "description": "Generate distortion sound.",
+            "parameters": [
+                "int frequency",
+                "int duration"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "call after begin",
+                "parameter usage": "buzzer.distortion(440, 1000);",
+                "return value handling": "void"
+            }
+        },
+        {
+            "name": "fastDistortion",
+            "description": "Generate fast distortion sound.",
+            "parameters": [
+                "int frequency",
+                "int duration"
+            ],
+            "return_type": "void",
+            "practices": {
+                "API order": "call after begin",
+                "parameter usage": "buzzer.fastDistortion(440, 1000);",
+                "return value handling": "void"
+            }
+        },
+        {
+            "name": "toString",
+            "description": "Return buzzer details.",
+            "parameters": [],
+            "return_type": "String",
+            "practices": {
+                "API order": "call anytime",
+                "parameter usage": "String details = buzzer.toString();",
+                "return value handling": "String"
+            }
+        }
+    ]
+}
