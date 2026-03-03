@@ -29,11 +29,19 @@ class TaskDecompositionStage(BaseStage):
         try:
             if "```json" in raw_response:
                 json_block = raw_response.split("```json", 1)[1].split("```", 1)[0].strip()
-                subtasks = json.loads(json_block)
+                parsed = json.loads(json_block)
             else:
-                subtasks = json.loads(raw_response)
+                parsed = json.loads(raw_response)
         except (json.JSONDecodeError, IndexError) as exc:
             raise RuntimeError(f"Failed to parse subtasks from LLM response: {exc}") from exc
+
+        # Normalize: LLM may return a dict with "Subtasks" key, a plain list, or other shapes
+        if isinstance(parsed, dict):
+            subtasks = parsed
+        elif isinstance(parsed, list):
+            subtasks = {"Task": task_config.task_description, "Subtasks": parsed}
+        else:
+            subtasks = {"Task": task_config.task_description, "Subtasks": [str(parsed)]}
 
         logger.info(f"Generated {len(subtasks.get('Subtasks', []))} subtasks")
 

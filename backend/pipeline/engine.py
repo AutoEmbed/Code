@@ -200,8 +200,12 @@ class PipelineEngine:
             return f"Extracted {total_apis} APIs from {len(h)} components", detail
 
         if stage_name == "Task Decomposition":
-            subtasks = context.get("subtasks", {}).get("Subtasks", [])
-            names = [s.get("task_name", s.get("name", "?")) for s in subtasks]
+            raw = context.get("subtasks", {})
+            subtask_list = raw.get("Subtasks", []) if isinstance(raw, dict) else raw if isinstance(raw, list) else []
+            names = [
+                s.get("task_name", s.get("name", str(s))) if isinstance(s, dict) else str(s)
+                for s in subtask_list
+            ]
             detail = {"subtasks": names, "count": len(names)}
             return f"Decomposed into {len(names)} subtasks", detail
 
