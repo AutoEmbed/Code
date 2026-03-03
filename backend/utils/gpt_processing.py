@@ -324,11 +324,13 @@ If everything is correct, respond with "pass". If discrepancies are found, respo
     response = llm_client.send_request(prompt)
 
     # Parse the response to determine if it's a pass or feedback
-    if "pass" in response.lower():
+    # Use word-boundary matching to avoid false positives from "compass", "bypass", etc.
+    stripped = response.strip().lower()
+    if re.match(r'^pass\b', stripped):
         return "pass"
     else:
         # Extract feedback
-        feedback = response.replace("feedback:", "").strip()
+        feedback = response.replace("feedback:", "").replace("Feedback:", "").strip()
         return f"feedback: {feedback}"
 
 
@@ -354,7 +356,9 @@ Here is the code:
     if cleaned_code_match:
         cleaned_code = cleaned_code_match.group(1).strip()
     else:
-        raise ValueError("Failed to extract cleaned code from the LLM response.")
+        # LLM didn't wrap in ```cpp — use the raw response as cleaned code
+        logger.warning("No ```cpp block in clean_code response; using raw response")
+        cleaned_code = response.strip()
 
     return cleaned_code
 

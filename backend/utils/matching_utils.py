@@ -4,17 +4,17 @@ import numpy as np
 
 
 def vectorize_texts(vectorizer, texts):
-    return vectorizer.fit_transform(texts).toarray()
+    return vectorizer.transform(texts).toarray()
 
 
 def match_subtasks_with_functionalities(subtasks, functionalities):
     vectorizer = TfidfVectorizer()
 
-    all_texts = subtasks + [func['functionality'] for file_dict in functionalities.values() for func_list in file_dict.values() for func in func_list]
+    all_texts = subtasks + [func.get('functionality', str(func)) if isinstance(func, dict) else str(func) for file_dict in functionalities.values() for func_list in file_dict.values() for func in func_list]
     vectorizer.fit(all_texts)
 
     subtask_vectors = vectorize_texts(vectorizer, subtasks)
-    functionality_descriptions = [func['functionality'] for file_dict in functionalities.values() for func_list in file_dict.values() for func in func_list]
+    functionality_descriptions = [func.get('functionality', str(func)) if isinstance(func, dict) else str(func) for file_dict in functionalities.values() for func_list in file_dict.values() for func in func_list]
     functionality_vectors = vectorize_texts(vectorizer, functionality_descriptions)
 
     print(f"Subtask vectors shape: {subtask_vectors.shape}")
@@ -43,12 +43,18 @@ def extract_functionalities(functionalities):
     for ino_file, file_contents in functionalities.items():
         for file_name, functions in file_contents.items():
             for function in functions:
-                functionality_list.append(function['functionality'])
+                func_desc = function.get('functionality', '') if isinstance(function, dict) else str(function)
+                if func_desc:
+                    functionality_list.append(func_desc)
     return functionality_list
 
 
 def extract_subtasks(subtasks):
-    return subtasks['Subtasks']
+    if isinstance(subtasks, dict):
+        return subtasks.get('Subtasks', [])
+    elif isinstance(subtasks, list):
+        return subtasks
+    return []
 
 
 def get_top_n_similarities_and_apis(subtasks, functionalities, functionalities_dict, top_n=1):
@@ -73,13 +79,16 @@ def get_top_n_similarities_and_apis(subtasks, functionalities, functionalities_d
             for file_dict in functionalities_dict.values():
                 for func_list in file_dict.values():
                     for func in func_list:
-                        if func['functionality'] == functionality:
+                        if not isinstance(func, dict):
+                            continue
+                        if func.get('functionality', '') == functionality:
+                            apis = func.get('API', [])
                             top_funcs.append({
                                 "functionality": functionality,
                                 "similarity": similarity,
-                                "APIs": func['API']
+                                "APIs": apis
                             })
-                            api_set.update(func['API'])
+                            api_set.update(apis)
                             break
 
         top_similarities_and_apis.append({
@@ -99,9 +108,9 @@ def match_apis(api_set, API_table):
             if api['name'] in api_set:
                 matched_apis[header_file].append({
                     "name": api['name'],
-                    "description": api['description'],
-                    "parameters": api['parameters'],
-                    "practices": api['practices']
+                    "description": api.get('description', ''),
+                    "parameters": api.get('parameters', []),
+                    "practices": api.get('practices', {})
                 })
 
     matched_apis = {k: v for k, v in matched_apis.items() if v}

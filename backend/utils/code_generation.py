@@ -292,7 +292,13 @@ Generate the corrected Arduino sketch code based on the provided information and
     if retries == max_retries:
         logger.warning(f"Max retries reached for {component_name}. The response may still be incomplete.")
 
-    cleaned_code = re.search(r'```cpp(.*?)```', response, re.DOTALL).group(1).strip()
+    code_match = re.search(r'```cpp(.*?)```', response, re.DOTALL)
+    if code_match:
+        cleaned_code = code_match.group(1).strip()
+    else:
+        # LLM didn't wrap in ```cpp — use the raw response as code
+        logger.warning("No ```cpp block in compilation fix response; using raw response")
+        cleaned_code = response.strip()
     logger.info(f"Corrected code:\n{cleaned_code}")
 
     # Save the corrected code to a file
