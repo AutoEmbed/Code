@@ -56,9 +56,9 @@ Download the latest installer from [**Releases**](https://github.com/AutoEmbed/A
 
 | Platform | File | Size |
 |----------|------|------|
-| Windows | [`AutoEmbed-Setup-1.0.0.exe`](https://github.com/AutoEmbed/AutoEmbed/releases/download/v1.0.0/AutoEmbed-Setup-1.0.0.exe) | 101 MB |
-| macOS (Apple Silicon) | [`AutoEmbed-1.0.0-mac-arm64.zip`](https://github.com/AutoEmbed/AutoEmbed/releases/download/v1.0.0/AutoEmbed-1.0.0-mac-arm64.zip) | 120 MB |
-| macOS (Intel) | [`AutoEmbed-1.0.0-mac-x64.zip`](https://github.com/AutoEmbed/AutoEmbed/releases/download/v1.0.0/AutoEmbed-1.0.0-mac-x64.zip) | 124 MB |
+| Windows | [`AutoEmbed-Setup-1.0.1.exe`](https://github.com/AutoEmbed/AutoEmbed/releases/download/v1.0.1/AutoEmbed-Setup-1.0.1.exe) | 101 MB |
+| macOS (Apple Silicon) | [`AutoEmbed-1.0.1-mac-arm64.zip`](https://github.com/AutoEmbed/AutoEmbed/releases/download/v1.0.1/AutoEmbed-1.0.1-mac-arm64.zip) | 120 MB |
+| macOS (Intel) | [`AutoEmbed-1.0.1-mac-x64.zip`](https://github.com/AutoEmbed/AutoEmbed/releases/download/v1.0.1/AutoEmbed-1.0.1-mac-x64.zip) | 124 MB |
 
 > [!NOTE]
 > **Prerequisites:** [Arduino CLI](https://arduino.github.io/arduino-cli/installation/), USB driver (CH340/CP2102), and any [OpenAI-compatible API](https://platform.openai.com/) key.
