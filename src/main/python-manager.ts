@@ -120,12 +120,17 @@ export class PythonManager {
       }
     }
 
-    // Check if fastapi is installed (main dependency)
+    // Check if key dependencies are installed
     const fastapiDir = path.join(sitePackages, 'fastapi')
-    if (!fs.existsSync(fastapiDir)) {
+    const openaiDir = path.join(sitePackages, 'openai')
+    if (!fs.existsSync(fastapiDir) || !fs.existsSync(openaiDir)) {
       const reqPath = path.join(process.resourcesPath, 'backend', 'requirements.txt')
       if (fs.existsSync(reqPath)) {
-        console.log('Installing Python dependencies (first run)...')
+        const missing = [
+          !fs.existsSync(fastapiDir) && 'fastapi',
+          !fs.existsSync(openaiDir) && 'openai',
+        ].filter(Boolean).join(', ')
+        console.log(`Installing Python dependencies (missing: ${missing})...`)
         try {
           await execFileAsync(pythonPath, [
             '-m', 'pip', 'install', '-r', reqPath,

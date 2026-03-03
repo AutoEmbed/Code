@@ -4,11 +4,18 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-try:
+import sys as _sys
+
+def _is_running_as_package():
+    return __spec__ is not None and __spec__.parent
+
+if _is_running_as_package():
     from .api.pipeline_routes import router as pipeline_router
     from .api.settings_routes import router as settings_router
     from .api.history_routes import router as history_router
-except ImportError:
+else:
+    # Direct script execution: add parent dir to path
+    _sys.path.insert(0, _sys.path[0] if _sys.path else '.')
     from api.pipeline_routes import router as pipeline_router
     from api.settings_routes import router as settings_router
     from api.history_routes import router as history_router
