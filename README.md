@@ -8,7 +8,7 @@ AutoEmbed is the first fully automated software development platform for general
 >
 > City University of Hong Kong  |  Shandong University
 >
-> **ACM SenSys 2026** &nbsp; · &nbsp; [Paper](https://autoembed.github.io) &nbsp; · &nbsp; [Website](https://autoembed.github.io) &nbsp; · &nbsp; [Release](https://github.com/AutoEmbed/Code/releases)
+> **ACM SenSys 2026** &nbsp; · &nbsp; [Paper](https://autoembed.github.io) &nbsp; · &nbsp; [Website](https://autoembed.github.io) &nbsp; · &nbsp; [Release](https://github.com/AutoEmbed/AutoEmbed/releases)
 
 ---
 
@@ -76,7 +76,7 @@ AutoEmbed is the first fully automated software development platform for general
 
 ### Download
 
-Download the latest installer from the [Releases](https://github.com/AutoEmbed/Code/releases) page:
+Download the latest installer from the [Releases](https://github.com/AutoEmbed/AutoEmbed/releases) page:
 
 | Platform | File |
 |----------|------|
@@ -139,7 +139,7 @@ Download the latest installer from the [Releases](https://github.com/AutoEmbed/C
 
 ```bash
 # Clone
-git clone https://github.com/AutoEmbed/Code.git
+git clone https://github.com/AutoEmbed/AutoEmbed.git
 cd Code
 
 # Install frontend dependencies
