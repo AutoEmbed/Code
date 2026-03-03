@@ -44,8 +44,14 @@ function formatElapsed(ms: number): string {
 
 function stageDescription(stage: StageInfo): string {
   switch (stage.status) {
-    case 'completed':
-      return `Completed in ${formatElapsed(stage.elapsed_ms)}`;
+    case 'completed': {
+      const time = formatElapsed(stage.elapsed_ms);
+      // Use rich message from backend if available
+      if (stage.message && stage.message !== `Running ${stage.stage_name}...`) {
+        return `${stage.message} (${time})`;
+      }
+      return `Completed in ${time}`;
+    }
     case 'running':
       return stage.message || 'Running...';
     case 'failed':

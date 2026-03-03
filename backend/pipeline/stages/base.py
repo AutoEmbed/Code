@@ -3,6 +3,7 @@
 import time
 import logging
 from abc import ABC, abstractmethod
+from typing import Callable, Optional
 from ..models import AppConfig
 
 logger = logging.getLogger(__name__)
@@ -22,11 +23,13 @@ class BaseStage(ABC):
         self.app_config = app_config
 
     @abstractmethod
-    async def execute(self, context: dict) -> dict:
+    async def execute(self, context: dict, on_progress: Optional[Callable] = None) -> dict:
         """Execute the stage.
 
         Args:
             context: Accumulated results from previous stages plus initial config.
+            on_progress: Optional async callback ``async on_progress(message, fraction)``
+                where *fraction* is 0.0-1.0 indicating intra-stage progress.
 
         Returns:
             Dict of results to merge into context for subsequent stages.

@@ -4,6 +4,7 @@ import asyncio
 import json
 import re
 import logging
+from typing import Callable, Optional
 from .base import BaseStage
 
 logger = logging.getLogger(__name__)
@@ -13,7 +14,7 @@ class CodeGenerationStage(BaseStage):
     name = "Code Generation"
     index = 4
 
-    async def execute(self, context: dict) -> dict:
+    async def execute(self, context: dict, on_progress: Optional[Callable] = None) -> dict:
         from ...utils.code_generation import generate_embedded_code_with_gpt4
 
         task_config = context["task_config"]

@@ -2,6 +2,7 @@
 
 import asyncio
 import logging
+from typing import Callable, Optional
 from .base import BaseStage
 
 logger = logging.getLogger(__name__)
@@ -11,7 +12,7 @@ class SemanticMatchingStage(BaseStage):
     name = "Semantic Matching"
     index = 3
 
-    async def execute(self, context: dict) -> dict:
+    async def execute(self, context: dict, on_progress: Optional[Callable] = None) -> dict:
         from ...utils.matching_utils import (
             extract_functionalities, extract_subtasks,
             get_top_n_similarities_and_apis, match_apis,

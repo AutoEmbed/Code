@@ -22,10 +22,14 @@ import {
   CopyOutlined,
   EyeOutlined,
   LoadingOutlined,
+  CodeOutlined,
 } from '@ant-design/icons';
 import type { ColumnsType } from 'antd/es/table';
 import { useHistoryStore } from '../stores/historyStore';
 import type { HistoryItem } from '../stores/historyStore';
+import { useNavigationStore } from '../stores/navigationStore';
+import { usePipelineStore } from '../stores/pipelineStore';
+import { useTaskStore } from '../stores/taskStore';
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -62,15 +66,22 @@ const cardStyle: React.CSSProperties = {
 export default function History() {
   const { items, loading, error, selectedItem, fetchHistory, selectItem, deleteItem } =
     useHistoryStore();
+  const { navigate } = useNavigationStore();
+  const { loadResult } = usePipelineStore();
+  const { setComponents, setTaskDescription } = useTaskStore();
   const [messageApi, contextHolder] = message.useMessage();
 
   useEffect(() => {
-    fetchHistory();
+    (async () => {
+      const port = (await window.electronAPI?.getBackendPort()) ?? 8765;
+      fetchHistory(port);
+    })();
   }, [fetchHistory]);
 
   const handleDelete = async (taskId: string) => {
     try {
-      await deleteItem(taskId);
+      const port = (await window.electronAPI?.getBackendPort()) ?? 8765;
+      await deleteItem(taskId, port);
     } catch {
       messageApi.error('Failed to delete history item');
     }
@@ -429,6 +440,38 @@ export default function History() {
                 </pre>
               </div>
             )}
+
+            {/* Action Buttons */}
+            <Space style={{ marginTop: 16 }}>
+              <Button
+                type="primary"
+                icon={<CodeOutlined />}
+                disabled={!selectedItem?.code_debug && !selectedItem?.code_clean}
+                onClick={() => {
+                  if (selectedItem) {
+                    loadResult({
+                      code_debug: selectedItem.code_debug,
+                      code_clean: selectedItem.code_clean,
+                    });
+                    navigate('code-view');
+                  }
+                }}
+              >
+                View Code
+              </Button>
+              <Button
+                icon={<ReloadOutlined />}
+                onClick={() => {
+                  if (selectedItem) {
+                    setComponents(selectedItem.components);
+                    setTaskDescription(selectedItem.task_description);
+                    navigate('task-config');
+                  }
+                }}
+              >
+                Re-run
+              </Button>
+            </Space>
           </div>
         )}
       </Drawer>

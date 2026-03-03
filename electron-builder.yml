@@ -8,7 +8,6 @@ files:
   - out/**/*
   - backend/**/*
   - "!backend/**/__pycache__"
-  - "!backend/**/*.pyc"
   - "!backend/data/history.json"
 
 win:
@@ -22,24 +21,16 @@ nsis:
   oneClick: false
   allowToChangeInstallationDirectory: true
   createDesktopShortcut: true
+  include: resources/installer.nsh
 
 mac:
   target:
-    - target: dmg
+    - target: zip
       arch:
         - x64
         - arm64
-  artifactName: "${productName}-${version}-${arch}.${ext}"
+  artifactName: "${productName}-${version}-mac-${arch}.${ext}"
   category: public.app-category.developer-tools
-
-dmg:
-  contents:
-    - x: 130
-      y: 220
-    - x: 410
-      y: 220
-      type: link
-      path: /Applications
 
 extraResources:
   - from: backend
@@ -47,4 +38,7 @@ extraResources:
     filter:
       - "**/*"
       - "!**/__pycache__"
-      - "!**/*.pyc"
+  - from: resources/python-env
+    to: python-env
+    filter:
+      - "**/*"

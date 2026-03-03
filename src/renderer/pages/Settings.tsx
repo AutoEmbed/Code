@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Form,
   Input,
@@ -26,16 +26,15 @@ const boardOptions = [
   { label: 'Arduino Uno', value: 'arduino:avr:uno' },
   { label: 'Arduino Mega', value: 'arduino:avr:mega' },
   { label: 'Arduino Nano', value: 'arduino:avr:nano' },
+  { label: 'Arduino Leonardo', value: 'arduino:avr:leonardo' },
+  { label: 'Arduino Due', value: 'arduino:sam:arduino_due_x_dbg' },
   { label: 'ESP32', value: 'esp32:esp32:esp32' },
   { label: 'ESP32-S3', value: 'esp32:esp32:esp32s3' },
-];
-
-const modelOptions = [
-  { label: 'GPT-4', value: 'gpt-4' },
-  { label: 'GPT-4 Turbo', value: 'gpt-4-turbo' },
-  { label: 'GPT-3.5 Turbo', value: 'gpt-3.5-turbo' },
-  { label: 'GPT-4o', value: 'gpt-4o' },
-  { label: 'GPT-4o Mini', value: 'gpt-4o-mini' },
+  { label: 'ESP32-C3', value: 'esp32:esp32:esp32c3' },
+  { label: 'ESP8266 (NodeMCU)', value: 'esp8266:esp8266:nodemcuv2' },
+  { label: 'STM32 Nucleo-64', value: 'STMicroelectronics:stm32:Nucleo_64' },
+  { label: 'STM32 Blue Pill (F103C8)', value: 'STMicroelectronics:stm32:GenF1' },
+  { label: 'Raspberry Pi Pico', value: 'rp2040:rp2040:rpipico' },
 ];
 
 // Map board FQBN to display name
@@ -43,8 +42,15 @@ const boardFqbnToName: Record<string, string> = {
   'arduino:avr:uno': 'Arduino Uno',
   'arduino:avr:mega': 'Arduino Mega',
   'arduino:avr:nano': 'Arduino Nano',
+  'arduino:avr:leonardo': 'Arduino Leonardo',
+  'arduino:sam:arduino_due_x_dbg': 'Arduino Due',
   'esp32:esp32:esp32': 'ESP32',
   'esp32:esp32:esp32s3': 'ESP32-S3',
+  'esp32:esp32:esp32c3': 'ESP32-C3',
+  'esp8266:esp8266:nodemcuv2': 'ESP8266 (NodeMCU)',
+  'STMicroelectronics:stm32:Nucleo_64': 'STM32 Nucleo-64',
+  'STMicroelectronics:stm32:GenF1': 'STM32 Blue Pill (F103C8)',
+  'rp2040:rp2040:rpipico': 'Raspberry Pi Pico',
 };
 
 const cardStyle: React.CSSProperties = {
@@ -61,7 +67,24 @@ const cardHeadStyle: React.CSSProperties = {
 export default function Settings() {
   const [form] = Form.useForm();
   const [messageApi, contextHolder] = message.useMessage();
+  const [testingApi, setTestingApi] = useState(false);
+  const [ports, setPorts] = useState<Array<{ port: string; desc: string }>>([]);
+  const [loadingPorts, setLoadingPorts] = useState(false);
   const { config, updateConfig, resetConfig } = useConfigStore();
+
+  const fetchPorts = async () => {
+    setLoadingPorts(true);
+    try {
+      const backendPort = (await window.electronAPI?.getBackendPort()) ?? 8765;
+      const res = await fetch(`http://localhost:${backendPort}/api/settings/serial-ports`);
+      const data = await res.json();
+      setPorts(Array.isArray(data) ? data : []);
+    } catch {
+      setPorts([]);
+    } finally {
+      setLoadingPorts(false);
+    }
+  };
 
   // Populate form from store on mount and when config changes
   useEffect(() => {
@@ -181,7 +204,45 @@ export default function Settings() {
             label={<Text style={{ color: '#a6adc8' }}>Model</Text>}
             name="model"
           >
-            <Select options={modelOptions} placeholder="Select model" />
+            <Input placeholder="e.g. gpt-4.1-mini, deepseek-chat, claude-3-5-sonnet..." />
+          </Form.Item>
+
+          <Form.Item wrapperCol={{ offset: 7, span: 17 }}>
+            <Button
+              size="small"
+              loading={testingApi}
+              onClick={async () => {
+                setTestingApi(true);
+                try {
+                  const values = form.getFieldsValue(['apiKey', 'apiBaseUrl', 'model']);
+                  const port = (await window.electronAPI?.getBackendPort()) ?? 8765;
+                  const res = await fetch(
+                    `http://localhost:${port}/api/settings/test-api`,
+                    {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({
+                        api_key: values.apiKey,
+                        api_base_url: values.apiBaseUrl,
+                        model: values.model,
+                      }),
+                    },
+                  );
+                  const data = await res.json();
+                  if (data.ok) {
+                    messageApi.success('API connection successful!');
+                  } else {
+                    messageApi.error(`API test failed: ${data.error}`);
+                  }
+                } catch (e: any) {
+                  messageApi.error(`Connection failed: ${e.message}`);
+                } finally {
+                  setTestingApi(false);
+                }
+              }}
+            >
+              Test Connection
+            </Button>
           </Form.Item>
         </Card>
 
@@ -224,7 +285,21 @@ export default function Settings() {
             label={<Text style={{ color: '#a6adc8' }}>Serial Port</Text>}
             name="serialPort"
           >
-            <Input placeholder="/dev/ttyUSB0 or COM3" />
+            <Select
+              placeholder="Select serial port (click to refresh)"
+              style={{ width: '100%' }}
+              loading={loadingPorts}
+              onDropdownVisibleChange={(open) => {
+                if (open) fetchPorts();
+              }}
+              options={ports.map((p) => ({
+                label: `${p.port} — ${p.desc}`,
+                value: p.port,
+              }))}
+              allowClear
+              showSearch
+              notFoundContent="No serial ports detected"
+            />
           </Form.Item>
 
           <Form.Item

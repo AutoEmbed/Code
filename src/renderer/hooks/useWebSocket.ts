@@ -15,7 +15,7 @@ export function usePipelineWS(
   const reconnectTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const retriesRef = useRef(0);
   const maxRetries = 5;
-  const { updateStage, setResult, setError, isRunning } = usePipelineStore();
+  const { initStages, updateStage, setResult, setError, isRunning } = usePipelineStore();
   const [wsStatus, setWsStatus] = useState<WSStatus>({
     connected: false,
     reconnecting: false,
@@ -41,8 +41,15 @@ export function usePipelineWS(
         if (data.type === 'pipeline_complete') {
           setResult(data.result);
         } else if (data.type === 'pipeline_error') {
+          // Load partial code if available (e.g., code generated before compilation failed)
+          if (data.partial_result) {
+            usePipelineStore.getState().loadResult(data.partial_result);
+          }
           setError(data.error);
-        } else if (data.stage !== undefined) {
+        } else if (data.stage === -1 && data.detail?.total_stages) {
+          // Init message: resize stages array for code-only vs full pipeline
+          initStages(data.detail.total_stages);
+        } else if (data.stage !== undefined && data.stage >= 0) {
           updateStage(data);
         }
       } catch (e) {
@@ -74,7 +81,7 @@ export function usePipelineWS(
         });
       }
     };
-  }, [taskId, backendPort, updateStage, setResult, setError]);
+  }, [taskId, backendPort, initStages, updateStage, setResult, setError]);
 
   useEffect(() => {
     if (!taskId) {

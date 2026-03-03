@@ -30,24 +30,40 @@ export class PythonManager {
       env: { ...process.env }
     })
 
+    let stderrOutput = ''
+
     this.process.stdout?.on('data', (data: Buffer) => {
       console.log(`[Python] ${data.toString().trim()}`)
     })
 
     this.process.stderr?.on('data', (data: Buffer) => {
-      console.error(`[Python] ${data.toString().trim()}`)
+      const text = data.toString()
+      console.error(`[Python] ${text.trim()}`)
+      stderrOutput += text
     })
 
-    this.process.on('error', (err: Error) => {
-      console.error(`Python process error: ${err.message}`)
+    // Detect early crash
+    const earlyExit = new Promise<never>((_, reject) => {
+      this.process!.on('error', (err: Error) => {
+        console.error(`Python process error: ${err.message}`)
+        reject(new Error(`Python process failed to start: ${err.message}`))
+      })
+      this.process!.on('exit', (code: number | null) => {
+        console.log(`Python process exited with code ${code}`)
+        this.isReady = false
+        if (!this.isReady) {
+          const hint = stderrOutput.includes('ModuleNotFoundError')
+            ? '\n\nMissing Python dependencies. Run:\npip install -r backend/requirements.txt'
+            : ''
+          reject(new Error(
+            `Python backend exited with code ${code}${hint}\n\n${stderrOutput.slice(-500)}`
+          ))
+        }
+      })
     })
 
-    this.process.on('exit', (code: number | null) => {
-      console.log(`Python process exited with code ${code}`)
-      this.isReady = false
-    })
-
-    await this.waitForHealth()
+    // Race: health check vs early crash
+    await Promise.race([this.waitForHealth(), earlyExit])
     this.isReady = true
     console.log(`Python backend ready on port ${this.port}`)
     return this.port
@@ -74,11 +90,53 @@ export class PythonManager {
         ? path.join(pythonEnv, 'python.exe')
         : path.join(pythonEnv, 'bin', 'python')
       if (fs.existsSync(candidate)) {
+        await this.ensureDependencies(candidate, pythonEnv)
         return candidate
       }
       console.warn('Bundled python-env not found, searching system Python...')
     }
     return this.findSystemPython()
+  }
+
+  private async ensureDependencies(pythonPath: string, pythonEnv: string): Promise<void> {
+    // Check if pip is bootstrapped by looking for pip in Lib/site-packages
+    const sitePackages = path.join(pythonEnv, 'Lib', 'site-packages')
+    const pipDir = path.join(sitePackages, 'pip')
+
+    if (!fs.existsSync(pipDir)) {
+      // Bootstrap pip using get-pip.py
+      const getPipPath = path.join(pythonEnv, 'get-pip.py')
+      if (fs.existsSync(getPipPath)) {
+        console.log('Bootstrapping pip for bundled Python...')
+        try {
+          await execFileAsync(pythonPath, [getPipPath, '--no-warn-script-location'], {
+            timeout: 120000,
+          })
+          console.log('pip bootstrapped successfully')
+        } catch (e: any) {
+          console.error('Failed to bootstrap pip:', e.message)
+          return
+        }
+      }
+    }
+
+    // Check if fastapi is installed (main dependency)
+    const fastapiDir = path.join(sitePackages, 'fastapi')
+    if (!fs.existsSync(fastapiDir)) {
+      const reqPath = path.join(process.resourcesPath, 'backend', 'requirements.txt')
+      if (fs.existsSync(reqPath)) {
+        console.log('Installing Python dependencies (first run)...')
+        try {
+          await execFileAsync(pythonPath, [
+            '-m', 'pip', 'install', '-r', reqPath,
+            '--no-warn-script-location', '--quiet',
+          ], { timeout: 300000 })
+          console.log('Dependencies installed successfully')
+        } catch (e: any) {
+          console.error('Failed to install dependencies:', e.message)
+        }
+      }
+    }
   }
 
   private getScriptPath(): string {

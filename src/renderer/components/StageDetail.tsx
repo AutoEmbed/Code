@@ -1,4 +1,4 @@
-import { Card, Collapse, Progress, Segmented, Tag, Typography } from 'antd';
+import { Card, Collapse, Progress, Segmented, Tag, Typography, Descriptions } from 'antd';
 import {
   CheckCircleOutlined,
   CloseCircleOutlined,
@@ -190,6 +190,134 @@ function SimpleView() {
   );
 }
 
+function StageDetailContent({ stageName, detail }: { stageName: string; detail: Record<string, any> }) {
+  const boxStyle: React.CSSProperties = {
+    background: '#141422',
+    padding: 12,
+    borderRadius: 6,
+    color: '#cdd6f4',
+    fontSize: 12,
+    margin: 0,
+  };
+
+  if (stageName === 'Library Discovery' && detail.libraries) {
+    const libs = detail.libraries as Record<string, string>;
+    return (
+      <div style={boxStyle}>
+        <Text style={{ color: '#6c7086', fontSize: 11, display: 'block', marginBottom: 6 }}>
+          Discovered Libraries
+        </Text>
+        {Object.entries(libs).map(([comp, lib]) => (
+          <div key={comp} style={{ marginBottom: 2 }}>
+            <Tag color="blue" style={{ fontSize: 11 }}>{comp}</Tag>
+            <span style={{ color: '#a6e3a1' }}>{lib}</span>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  if (stageName === 'API Extraction' && detail.components) {
+    return (
+      <div style={boxStyle}>
+        <Text style={{ color: '#6c7086', fontSize: 11, display: 'block', marginBottom: 6 }}>
+          Extracted APIs
+        </Text>
+        <div style={{ marginBottom: 4 }}>
+          Components: {(detail.components as string[]).map((c) => (
+            <Tag key={c} color="cyan" style={{ fontSize: 11 }}>{c}</Tag>
+          ))}
+        </div>
+        <Text style={{ color: '#cdd6f4', fontSize: 12 }}>
+          Total APIs found: <strong style={{ color: '#00b4d8' }}>{detail.total_apis}</strong>
+        </Text>
+      </div>
+    );
+  }
+
+  if (stageName === 'Task Decomposition' && detail.subtasks) {
+    return (
+      <div style={boxStyle}>
+        <Text style={{ color: '#6c7086', fontSize: 11, display: 'block', marginBottom: 6 }}>
+          Subtasks ({detail.count})
+        </Text>
+        {(detail.subtasks as string[]).map((t, i) => (
+          <div key={i} style={{ marginBottom: 2 }}>
+            <span style={{ color: '#6c7086', marginRight: 6 }}>{i + 1}.</span>
+            <span style={{ color: '#cdd6f4' }}>{t}</span>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  if (stageName === 'Semantic Matching' && detail.top_matches) {
+    return (
+      <div style={boxStyle}>
+        <Text style={{ color: '#6c7086', fontSize: 11, display: 'block', marginBottom: 6 }}>
+          Top Matches ({detail.matched_apis} total APIs matched)
+        </Text>
+        {(detail.top_matches as Array<{ subtask: string; functionality: string; score: number }>).map(
+          (m, i) => (
+            <div key={i} style={{ marginBottom: 4, display: 'flex', gap: 8, alignItems: 'baseline' }}>
+              <Tag color={m.score > 0.5 ? 'green' : 'orange'} style={{ fontSize: 10, minWidth: 48, textAlign: 'center' }}>
+                {(m.score * 100).toFixed(0)}%
+              </Tag>
+              <span style={{ color: '#a6adc8', fontSize: 11 }}>{m.subtask}</span>
+              <span style={{ color: '#6c7086' }}>&rarr;</span>
+              <span style={{ color: '#a6e3a1', fontSize: 11 }}>{m.functionality}</span>
+            </div>
+          ),
+        )}
+      </div>
+    );
+  }
+
+  if (stageName === 'Code Generation') {
+    return (
+      <div style={boxStyle}>
+        <Text style={{ color: '#6c7086', fontSize: 11, display: 'block', marginBottom: 6 }}>
+          Generation Details
+        </Text>
+        <div style={{ display: 'flex', gap: 16 }}>
+          <span>Code length: <strong style={{ color: '#00b4d8' }}>{detail.code_length} chars</strong></span>
+          <span>Baud rate: <strong style={{ color: '#00b4d8' }}>{detail.baud_rate}</strong></span>
+        </div>
+        {detail.libraries && (detail.libraries as string[]).length > 0 && (
+          <div style={{ marginTop: 6 }}>
+            Libraries: {(detail.libraries as string[]).map((l) => (
+              <Tag key={l} color="purple" style={{ fontSize: 11 }}>{l}</Tag>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  if (stageName === 'Validation' && detail.result !== undefined) {
+    return (
+      <div style={boxStyle}>
+        <div style={{ marginBottom: 4 }}>
+          Status: <Tag color={detail.passed ? 'green' : 'orange'}>{detail.passed ? 'PASSED' : 'Needs Review'}</Tag>
+        </div>
+        <div>Serial lines captured: <strong style={{ color: '#00b4d8' }}>{detail.serial_lines}</strong></div>
+        {detail.result && (
+          <pre style={{ color: '#a6adc8', margin: '6px 0 0', whiteSpace: 'pre-wrap', fontSize: 11 }}>
+            {detail.result}
+          </pre>
+        )}
+      </div>
+    );
+  }
+
+  // Fallback: show raw JSON for unknown stage types
+  return (
+    <pre style={{ ...boxStyle, maxHeight: 240, overflow: 'auto' }}>
+      {JSON.stringify(detail, null, 2)}
+    </pre>
+  );
+}
+
 function DetailView() {
   const { stages } = usePipelineStore();
 
@@ -227,22 +355,7 @@ function DetailView() {
               trailColor="#3a3a5c"
             />
           </div>
-          {stage.detail && (
-            <pre
-              style={{
-                background: '#141422',
-                padding: 12,
-                borderRadius: 6,
-                color: '#cdd6f4',
-                fontSize: 12,
-                maxHeight: 240,
-                overflow: 'auto',
-                margin: 0,
-              }}
-            >
-              {JSON.stringify(stage.detail, null, 2)}
-            </pre>
-          )}
+          {stage.detail && <StageDetailContent stageName={stage.stage_name} detail={stage.detail} />}
         </div>
       ),
     }));

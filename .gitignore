@@ -26,6 +26,15 @@ Thumbs.db
 *.swp
 *.swo
 
+# Local dev config
+CLAUDE.md
+.claude/
+debug-guide.txt
+docs/plans/
+
+# Bundled Python environment
+resources/python-env/
+
 # Env / secrets
 .env
 .env.local

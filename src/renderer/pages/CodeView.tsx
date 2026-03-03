@@ -8,9 +8,11 @@ import {
   ClearOutlined,
   ReloadOutlined,
   CloudUploadOutlined,
+  UndoOutlined,
 } from '@ant-design/icons';
 import Editor from '@monaco-editor/react';
 import { usePipelineStore } from '../stores/pipelineStore';
+import { useConfigStore } from '../stores/configStore';
 import SerialMonitor from '../components/SerialMonitor';
 
 const { Title, Text } = Typography;
@@ -19,14 +21,17 @@ type TabKey = 'debug' | 'clean';
 
 export default function CodeView() {
   const [activeTab, setActiveTab] = useState<TabKey>('debug');
+  const [recompiling, setRecompiling] = useState(false);
+  const [reuploading, setReuploading] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
-  const { result } = usePipelineStore();
+  const { result, editedCode, setEditedCode, clearEditedCode } = usePipelineStore();
+  const { config } = useConfigStore();
 
   const codeDebug: string = result?.code_debug ?? '';
   const codeClean: string = result?.code_clean ?? '';
   const serialOutput: string[] = result?.serial_output ?? [];
 
-  const currentCode = activeTab === 'debug' ? codeDebug : codeClean;
+  const currentCode = editedCode?.[activeTab] ?? (activeTab === 'debug' ? codeDebug : codeClean);
 
   const handleCopy = async () => {
     try {
@@ -154,8 +159,13 @@ export default function CodeView() {
           language="cpp"
           theme="vs-dark"
           value={currentCode}
+          onChange={(value) => {
+            if (value !== undefined) {
+              setEditedCode(activeTab, value);
+            }
+          }}
           options={{
-            readOnly: true,
+            readOnly: false,
             minimap: { enabled: false },
             lineNumbers: 'on',
             scrollBeyondLastLine: false,
@@ -192,12 +202,90 @@ export default function CodeView() {
           >
             Download .ino
           </Button>
+          {editedCode && (
+            <Button
+              icon={<UndoOutlined />}
+              onClick={() => clearEditedCode()}
+            >
+              Reset Code
+            </Button>
+          )}
         </Space>
         <Space>
-          <Button icon={<ReloadOutlined />} disabled>
+          <Button
+            icon={<ReloadOutlined />}
+            loading={recompiling}
+            disabled={!currentCode}
+            onClick={async () => {
+              setRecompiling(true);
+              try {
+                const appConfig = {
+                  api_key: config.apiKey,
+                  api_base_url: config.apiBaseUrl,
+                  model: config.model,
+                  arduino_cli_path: config.arduinoCliPath,
+                  serial_port: config.serialPort,
+                  board_fqbn: config.boardFqbn,
+                  board_name: config.boardName,
+                  libraries_dir: config.librariesDir,
+                };
+                const port = (await window.electronAPI?.getBackendPort()) ?? 8765;
+                const res = await fetch(`http://localhost:${port}/api/pipeline/recompile`, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ code: currentCode, app_config: appConfig }),
+                });
+                const data = await res.json();
+                if (data.ok) {
+                  messageApi.success('Compilation successful!');
+                } else {
+                  messageApi.error({ content: `Compilation failed: ${data.error}`, duration: 10 });
+                }
+              } catch (e: any) {
+                messageApi.error(`Error: ${e.message}`);
+              } finally {
+                setRecompiling(false);
+              }
+            }}
+          >
             Re-compile
           </Button>
-          <Button icon={<CloudUploadOutlined />} disabled>
+          <Button
+            icon={<CloudUploadOutlined />}
+            loading={reuploading}
+            disabled={!currentCode}
+            onClick={async () => {
+              setReuploading(true);
+              try {
+                const appConfig = {
+                  api_key: config.apiKey,
+                  api_base_url: config.apiBaseUrl,
+                  model: config.model,
+                  arduino_cli_path: config.arduinoCliPath,
+                  serial_port: config.serialPort,
+                  board_fqbn: config.boardFqbn,
+                  board_name: config.boardName,
+                  libraries_dir: config.librariesDir,
+                };
+                const port = (await window.electronAPI?.getBackendPort()) ?? 8765;
+                const res = await fetch(`http://localhost:${port}/api/pipeline/reupload`, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ code: currentCode, app_config: appConfig }),
+                });
+                const data = await res.json();
+                if (data.ok) {
+                  messageApi.success('Upload successful!');
+                } else {
+                  messageApi.error({ content: data.error, duration: 10 });
+                }
+              } catch (e: any) {
+                messageApi.error(`Error: ${e.message}`);
+              } finally {
+                setReuploading(false);
+              }
+            }}
+          >
             Re-upload
           </Button>
         </Space>

@@ -80,6 +80,10 @@ def find_ino_files(library_name, libraries_dir):
 
 
 def read_ino_file_content(file_path):
-    """Read the content of an .ino sketch file."""
-    with open(file_path, 'r', encoding='utf-8') as file:
-        return file.read()
+    """Read the content of an .ino sketch file, handling encoding issues."""
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            return file.read()
+    except UnicodeDecodeError:
+        with open(file_path, 'r', encoding='ISO-8859-1') as file:
+            return file.read()

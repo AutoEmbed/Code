@@ -3,6 +3,7 @@
 import asyncio
 import subprocess
 import logging
+from typing import Callable, Optional
 from .base import BaseStage
 
 logger = logging.getLogger(__name__)
@@ -14,7 +15,7 @@ class UploadStage(BaseStage):
     name = "Upload"
     index = 6
 
-    async def execute(self, context: dict) -> dict:
+    async def execute(self, context: dict, on_progress: Optional[Callable] = None) -> dict:
         task_config = context["task_config"]
         sketch_path = context["sketch_path"]
         arduino_cli_path = self.app_config.arduino_cli_path

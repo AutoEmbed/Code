@@ -1,22 +1,29 @@
 """Settings API routes — serial ports, arduino-cli validation, presets."""
 
+import asyncio
 import json
 import os
 import subprocess
 import logging
 from fastapi import APIRouter
+from pydantic import BaseModel
 
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/settings")
 
 
+class TestAPIRequest(BaseModel):
+    api_key: str
+    api_base_url: str
+    model: str
+
+
 @router.get("/serial-ports")
 def list_serial_ports():
-    """List available serial ports on the system."""
+    """List available serial ports with descriptions."""
     try:
-        import serial.tools.list_ports
-        ports = serial.tools.list_ports.comports()
-        return [{"device": p.device, "description": p.description} for p in ports]
+        from serial.tools.list_ports import comports
+        return [{"port": p.device, "desc": p.description} for p in comports()]
     except Exception as e:
         logger.error(f"Failed to list serial ports: {e}")
         return []
@@ -52,3 +59,20 @@ def get_presets():
     except Exception as e:
         logger.error(f"Failed to load presets: {e}")
         return {}
+
+
+@router.post("/test-api")
+async def test_api(req: TestAPIRequest):
+    """Test LLM API connectivity with a trivial request."""
+    try:
+        from ..utils.llm_client import LLMClient
+
+        client = LLMClient(
+            api_key=req.api_key, api_base_url=req.api_base_url, model=req.model
+        )
+        resp = await asyncio.to_thread(
+            client.send_request, "Reply with OK", max_retries=1, timeout=30
+        )
+        return {"ok": True, "response": resp[:100] if resp else ""}
+    except Exception as e:
+        return {"ok": False, "error": str(e)[:300]}

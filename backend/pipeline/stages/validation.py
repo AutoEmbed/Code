@@ -2,6 +2,7 @@
 
 import asyncio
 import logging
+from typing import Callable, Optional
 from .base import BaseStage
 
 logger = logging.getLogger(__name__)
@@ -11,7 +12,7 @@ class ValidationStage(BaseStage):
     name = "Validation"
     index = 7
 
-    async def execute(self, context: dict) -> dict:
+    async def execute(self, context: dict, on_progress: Optional[Callable] = None) -> dict:
         from ...utils.code_generation import read_serial_output
         from ...utils.gpt_processing import (
             validate_debug_output_with_gpt, clean_code_of_debug_info,
@@ -33,9 +34,18 @@ class ValidationStage(BaseStage):
         # Read serial output from the Arduino
         baud_rate = context.get('baud_rate', 9600)
         logger.info(f"Reading serial output from {serial_port} at {baud_rate} baud...")
-        output_lines = await asyncio.to_thread(
-            read_serial_output, serial_port, baudrate=baud_rate
-        )
+        try:
+            output_lines = await asyncio.wait_for(
+                asyncio.to_thread(
+                    read_serial_output, serial_port, baudrate=baud_rate
+                ),
+                timeout=30,
+            )
+        except asyncio.TimeoutError:
+            logger.warning("Serial port read timed out after 30s")
+            output_lines = [
+                "[TIMEOUT] Serial port did not respond within 30 seconds"
+            ]
         logger.info(f"Read {len(output_lines)} lines from serial")
 
         # Validate the debug output

@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { Alert, Button, Card, Col, Row, Space, Typography, message } from 'antd';
 import {
   PlayCircleOutlined,
@@ -8,6 +9,7 @@ import {
 } from '@ant-design/icons';
 import { usePipelineStore } from '../stores/pipelineStore';
 import { useNavigationStore } from '../stores/navigationStore';
+import { useTaskStore } from '../stores/taskStore';
 import { usePipelineWS } from '../hooks/useWebSocket';
 import StageTimeline from '../components/StageTimeline';
 import StageDetail from '../components/StageDetail';
@@ -23,9 +25,22 @@ export default function Pipeline() {
   const { taskId, isRunning, stages, currentStage, error, result, reset } =
     usePipelineStore();
   const { navigate } = useNavigationStore();
+  const { codeOnly } = useTaskStore();
   const [messageApi, contextHolder] = message.useMessage();
+  const autoNavigatedRef = useRef(false);
 
   const { wsStatus } = usePipelineWS(taskId);
+
+  // Auto-navigate to CodeView when code-only pipeline completes
+  useEffect(() => {
+    if (codeOnly && result && !error && !autoNavigatedRef.current) {
+      autoNavigatedRef.current = true;
+      navigate('code-view');
+    }
+    if (!result) {
+      autoNavigatedRef.current = false;
+    }
+  }, [codeOnly, result, error, navigate]);
 
   const completedCount = stages.filter((s) => s.status === 'completed').length;
   const totalElapsed = stages.reduce((sum, s) => sum + s.elapsed_ms, 0);
@@ -190,13 +205,21 @@ export default function Pipeline() {
             )}
             {hasFinished && (
               <>
-                {result && (
+                {result && !error && (
                   <Button
                     type="primary"
                     icon={<CodeOutlined />}
                     onClick={() => navigate('code-view')}
                   >
                     View Code
+                  </Button>
+                )}
+                {error && result && (
+                  <Button
+                    icon={<CodeOutlined />}
+                    onClick={() => navigate('code-view')}
+                  >
+                    View Partial Code
                   </Button>
                 )}
                 <Button icon={<ReloadOutlined />} onClick={reset}>

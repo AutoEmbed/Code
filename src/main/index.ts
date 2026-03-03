@@ -1,4 +1,4 @@
-import { app, shell, BrowserWindow } from 'electron'
+import { app, shell, BrowserWindow, dialog } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import { registerIpcHandlers } from './ipc-handlers'
@@ -48,9 +48,12 @@ app.whenReady().then(async () => {
   try {
     const port = await pythonManager.start()
     console.log(`Backend started on port ${port}`)
-  } catch (err) {
+  } catch (err: any) {
     console.error('Failed to start Python backend:', err)
-    // Continue anyway - app can work without backend for UI testing
+    dialog.showErrorBox(
+      'Backend Failed to Start',
+      `Python backend could not start.\n\n${err.message ?? err}\n\nThe app will open but pipeline features won't work.\nCheck the console (Ctrl+Shift+I) for details.`
+    )
   }
 
   // Default open or close DevTools by F12 in development

@@ -2,6 +2,7 @@
 
 import asyncio
 import logging
+from typing import Callable, Optional
 from .base import BaseStage
 
 logger = logging.getLogger(__name__)
@@ -11,7 +12,7 @@ class LibraryDiscoveryStage(BaseStage):
     name = "Library Discovery"
     index = 0
 
-    async def execute(self, context: dict) -> dict:
+    async def execute(self, context: dict, on_progress: Optional[Callable] = None) -> dict:
         from ...utils.api_utils import find_best_library_for_component, download_library
 
         task_config = context["task_config"]
@@ -19,11 +20,17 @@ class LibraryDiscoveryStage(BaseStage):
         libraries_dir = self.app_config.libraries_dir
         target_architecture = self.app_config.target_architecture
         components = task_config.components
+        total = len(components)
 
         selected_libraries = {}  # component_name -> library_info tuple
         component_libraries = {}  # component_name -> folder_name (actual installed name)
 
-        for component in components:
+        for idx, component in enumerate(components):
+            if on_progress:
+                await on_progress(
+                    f"Searching library for {component} ({idx + 1}/{total})...",
+                    idx / total,
+                )
             logger.info(f"Searching library for component: {component}")
 
             best = await asyncio.to_thread(

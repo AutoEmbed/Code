@@ -2,14 +2,18 @@
 
 import asyncio
 import json
+import os
+import subprocess
+import tempfile
 import uuid
 import logging
-from typing import Dict
+from typing import Dict, List
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect
 from pydantic import BaseModel
 
 from ..pipeline.engine import PipelineEngine
 from ..pipeline.models import AppConfig, TaskConfig, StageUpdate
+from ..utils.llm_client import LLMClient
 
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/pipeline")
@@ -34,6 +38,58 @@ runs: Dict[str, PipelineRun] = {}
 class StartRequest(BaseModel):
     task_config: TaskConfig
     app_config: AppConfig
+
+
+@router.post("/preflight")
+async def preflight_check(req: StartRequest):
+    """Run pre-flight checks before starting the pipeline.
+
+    Tests LLM API connectivity and, when not in code-only mode, verifies
+    that the Arduino CLI path exists and a serial port is configured.
+    Returns {"ok": bool, "issues": [{field, message}]}.
+    """
+    issues: List[dict] = []
+
+    # --- 1. Test LLM API connectivity ---
+    try:
+        client = LLMClient(
+            api_key=req.app_config.api_key,
+            api_base_url=req.app_config.api_base_url,
+            model=req.app_config.model,
+        )
+        reply = await asyncio.to_thread(client.send_request, "Reply OK")
+        if reply.startswith("Error:"):
+            issues.append({
+                "field": "api_key",
+                "message": f"LLM API check failed: {reply}",
+            })
+    except Exception as e:
+        issues.append({
+            "field": "api_key",
+            "message": f"LLM API check failed: {e}",
+        })
+
+    # --- 2. Hardware checks (only when not code-only) ---
+    if not req.task_config.code_only:
+        cli_path = req.app_config.arduino_cli_path
+        if not cli_path:
+            issues.append({
+                "field": "arduino_cli_path",
+                "message": "Arduino CLI path is not configured.",
+            })
+        elif not os.path.exists(cli_path):
+            issues.append({
+                "field": "arduino_cli_path",
+                "message": f"Arduino CLI not found at: {cli_path}",
+            })
+
+        if not req.app_config.serial_port:
+            issues.append({
+                "field": "serial_port",
+                "message": "Serial port is not configured.",
+            })
+
+    return {"ok": len(issues) == 0, "issues": issues}
 
 
 @router.post("/start")
@@ -68,10 +124,24 @@ async def start_pipeline(req: StartRequest):
                     pass
         except Exception as e:
             run.status = "failed"
+            # Preserve any generated code as partial result
+            if run.engine and hasattr(run.engine, '_last_context'):
+                ctx = run.engine._last_context
+                code = ctx.get('generated_code')
+                if code:
+                    run.result = {
+                        "code_debug": code,
+                        "code_clean": code,
+                        "partial": True,
+                    }
             logger.error(f"Pipeline {task_id} failed: {e}")
+            # Send both error AND partial result to WS clients
             for ws in list(run.ws_connections):
                 try:
-                    await ws.send_json({"type": "pipeline_error", "error": str(e)})
+                    msg = {"type": "pipeline_error", "error": str(e)}
+                    if run.result:
+                        msg["partial_result"] = run.result
+                    await ws.send_json(msg)
                 except Exception:
                     pass
 
@@ -139,3 +209,81 @@ async def pipeline_ws(websocket: WebSocket, task_id: str):
     except WebSocketDisconnect:
         if websocket in run.ws_connections:
             run.ws_connections.remove(websocket)
+
+
+class RecompileRequest(BaseModel):
+    code: str
+    app_config: AppConfig
+
+
+@router.post("/recompile")
+async def recompile(req: RecompileRequest):
+    """Compile provided code without running the full pipeline."""
+    cli = req.app_config.arduino_cli_path
+    fqbn = req.app_config.board_fqbn
+    if not cli:
+        return {"ok": False, "error": "Arduino CLI path not configured"}
+
+    try:
+        from ..pipeline.stages.compilation import ensure_board_core
+        await asyncio.to_thread(ensure_board_core, cli, fqbn)
+    except Exception as e:
+        return {"ok": False, "error": f"Board core setup failed: {e}"}
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        sketch_dir = os.path.join(tmpdir, "sketch")
+        os.makedirs(sketch_dir)
+        with open(os.path.join(sketch_dir, "sketch.ino"), "w", encoding="utf-8") as f:
+            f.write(req.code)
+
+        result = await asyncio.to_thread(
+            subprocess.run,
+            [cli, "compile", "--fqbn", fqbn, sketch_dir],
+            capture_output=True, text=True, timeout=120,
+        )
+        if result.returncode == 0:
+            return {"ok": True, "output": result.stdout[-500:]}
+        else:
+            return {"ok": False, "error": result.stderr[-1000:]}
+
+
+@router.post("/reupload")
+async def reupload(req: RecompileRequest):
+    """Compile and upload provided code to device."""
+    cli = req.app_config.arduino_cli_path
+    fqbn = req.app_config.board_fqbn
+    port = req.app_config.serial_port
+    if not cli:
+        return {"ok": False, "error": "Arduino CLI path not configured"}
+    if not port:
+        return {"ok": False, "error": "Serial port not configured"}
+
+    try:
+        from ..pipeline.stages.compilation import ensure_board_core
+        await asyncio.to_thread(ensure_board_core, cli, fqbn)
+    except Exception:
+        pass
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        sketch_dir = os.path.join(tmpdir, "sketch")
+        os.makedirs(sketch_dir)
+        with open(os.path.join(sketch_dir, "sketch.ino"), "w", encoding="utf-8") as f:
+            f.write(req.code)
+
+        comp = await asyncio.to_thread(
+            subprocess.run,
+            [cli, "compile", "--fqbn", fqbn, sketch_dir],
+            capture_output=True, text=True, timeout=120,
+        )
+        if comp.returncode != 0:
+            return {"ok": False, "error": f"Compilation failed:\n{comp.stderr[-500:]}"}
+
+        up = await asyncio.to_thread(
+            subprocess.run,
+            [cli, "upload", "-p", port, "--fqbn", fqbn, sketch_dir],
+            capture_output=True, text=True, timeout=120,
+        )
+        if up.returncode == 0:
+            return {"ok": True, "output": up.stdout[-500:]}
+        else:
+            return {"ok": False, "error": f"Upload failed:\n{up.stderr[-500:]}"}

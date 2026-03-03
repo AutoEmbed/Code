@@ -5,12 +5,14 @@ import {
   Input,
   InputNumber,
   Button,
+  Switch,
   Typography,
   Space,
   Divider,
   Drawer,
   List,
   Alert,
+  Modal,
   message,
 } from 'antd';
 import {
@@ -35,20 +37,30 @@ const boardOptions = [
   { label: 'Arduino Uno', value: 'arduino:avr:uno' },
   { label: 'Arduino Mega', value: 'arduino:avr:mega' },
   { label: 'Arduino Nano', value: 'arduino:avr:nano' },
-  { label: 'ESP32', value: 'esp32:esp32:esp32' },
   { label: 'Arduino Leonardo', value: 'arduino:avr:leonardo' },
   { label: 'Arduino Due', value: 'arduino:sam:arduino_due_x_dbg' },
+  { label: 'ESP32', value: 'esp32:esp32:esp32' },
+  { label: 'ESP32-S3', value: 'esp32:esp32:esp32s3' },
+  { label: 'ESP32-C3', value: 'esp32:esp32:esp32c3' },
   { label: 'ESP8266 (NodeMCU)', value: 'esp8266:esp8266:nodemcuv2' },
+  { label: 'STM32 Nucleo-64', value: 'STMicroelectronics:stm32:Nucleo_64' },
+  { label: 'STM32 Blue Pill (F103C8)', value: 'STMicroelectronics:stm32:GenF1' },
+  { label: 'Raspberry Pi Pico', value: 'rp2040:rp2040:rpipico' },
 ];
 
 const boardFqbnToName: Record<string, string> = {
   'arduino:avr:uno': 'Arduino Uno',
   'arduino:avr:mega': 'Arduino Mega',
   'arduino:avr:nano': 'Arduino Nano',
-  'esp32:esp32:esp32': 'ESP32',
   'arduino:avr:leonardo': 'Arduino Leonardo',
   'arduino:sam:arduino_due_x_dbg': 'Arduino Due',
+  'esp32:esp32:esp32': 'ESP32',
+  'esp32:esp32:esp32s3': 'ESP32-S3',
+  'esp32:esp32:esp32c3': 'ESP32-C3',
   'esp8266:esp8266:nodemcuv2': 'ESP8266 (NodeMCU)',
+  'STMicroelectronics:stm32:Nucleo_64': 'STM32 Nucleo-64',
+  'STMicroelectronics:stm32:GenF1': 'STM32 Blue Pill (F103C8)',
+  'rp2040:rp2040:rpipico': 'Raspberry Pi Pico',
 };
 
 const PRESETS = [
@@ -88,11 +100,17 @@ export default function TaskConfig() {
     boardFqbn,
     boardName,
     baudRate,
+    codeOnly,
     setComponents,
     setTaskDescription,
     setBoardName,
     setBoardFqbn,
     setBaudRate,
+    setCodeOnly,
+    templates,
+    saveTemplate,
+    deleteTemplate,
+    loadTemplate,
   } = useTaskStore();
 
   const { reset: resetPipeline, setTaskId, setIsRunning } = usePipelineStore();
@@ -101,6 +119,8 @@ export default function TaskConfig() {
 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [starting, setStarting] = useState(false);
+  const [showSaveTemplate, setShowSaveTemplate] = useState(false);
+  const [templateName, setTemplateName] = useState('');
   const [messageApi, contextHolder] = message.useMessage();
 
   const handleBoardChange = (value: string) => {
@@ -136,18 +156,41 @@ export default function TaskConfig() {
         board_name: boardName,
         board_fqbn: boardFqbn,
         baud_rate: baudRate ?? undefined,
+        code_only: codeOnly,
       },
       app_config: {
         api_key: config.apiKey,
         api_base_url: config.apiBaseUrl,
         model: config.model,
-        arduino_cli_path: config.arduinoCliPath,
-        serial_port: config.serialPort,
+        arduino_cli_path: config.arduinoCliPath || undefined,
+        serial_port: config.serialPort || undefined,
         board_fqbn: boardFqbn,
         board_name: boardName,
         libraries_dir: config.librariesDir,
       },
     };
+
+    // --- Pre-flight checks ---
+    try {
+      const preRes = await fetch(`http://localhost:${backendPort}/api/pipeline/preflight`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+      if (preRes.ok) {
+        const preData = await preRes.json();
+        if (!preData.ok) {
+          const msgs = (preData.issues as { field: string; message: string }[])
+            .map((i) => i.message)
+            .join('\n');
+          messageApi.error(`Pre-flight check failed:\n${msgs}`);
+          setStarting(false);
+          return;
+        }
+      }
+    } catch {
+      // If preflight endpoint is unavailable, continue anyway (backwards compat)
+    }
 
     try {
       const res = await fetch(`http://localhost:${backendPort}/api/pipeline/start`, {
@@ -181,16 +224,12 @@ export default function TaskConfig() {
       {contextHolder}
 
       {/* First-run guidance */}
-      {(!config.apiKey || !config.arduinoCliPath) && (
+      {!config.apiKey && (
         <Alert
           message="Setup Required"
           description={
             <span>
-              Please configure your{' '}
-              {!config.apiKey && <strong>API Key</strong>}
-              {!config.apiKey && !config.arduinoCliPath && ' and '}
-              {!config.arduinoCliPath && <strong>Arduino CLI path</strong>}
-              {' '}in{' '}
+              Please configure your <strong>API Key</strong> in{' '}
               <a
                 style={{ color: '#00b4d8' }}
                 onClick={() => navigate('settings')}
@@ -257,8 +296,8 @@ export default function TaskConfig() {
 
       <Divider style={{ borderColor: 'transparent', margin: '16px 0' }} />
 
-      {/* Pin Mapping — only visible when components are selected */}
-      {components.length > 0 && (
+      {/* Pin Mapping — hidden in code-only mode */}
+      {components.length > 0 && !codeOnly && (
         <>
           <Card
             title={
@@ -316,13 +355,20 @@ export default function TaskConfig() {
           <Button type="dashed" onClick={() => setDrawerOpen(true)}>
             Load Preset
           </Button>
+          <Button onClick={() => setShowSaveTemplate(true)}>
+            Save as Template
+          </Button>
         </div>
       </Card>
 
       <Divider style={{ borderColor: 'transparent', margin: '16px 0' }} />
 
       {/* Start Button */}
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 20 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <Switch checked={codeOnly} onChange={setCodeOnly} />
+          <Text style={{ color: '#a6adc8' }}>Code Only</Text>
+        </div>
         <Button
           type="primary"
           size="large"
@@ -332,7 +378,7 @@ export default function TaskConfig() {
           style={{ minWidth: 220, height: 48, fontSize: 16 }}
           disabled={components.length === 0 || !taskDescription.trim()}
         >
-          Start Pipeline
+          {codeOnly ? 'Generate Code' : 'Start Pipeline'}
         </Button>
       </div>
 
@@ -347,6 +393,39 @@ export default function TaskConfig() {
           body: { padding: 0 },
         }}
       >
+        {templates.length > 0 && (
+          <>
+            <Divider style={{ borderColor: '#3a3a5c', margin: '12px 0' }}>My Templates</Divider>
+            <List
+              dataSource={templates}
+              renderItem={(tpl) => (
+                <List.Item
+                  style={{ cursor: 'pointer', padding: '12px 24px' }}
+                  onClick={() => { loadTemplate(tpl); setDrawerOpen(false); }}
+                  extra={
+                    <Button
+                      size="small"
+                      danger
+                      onClick={(e) => { e.stopPropagation(); deleteTemplate(tpl.name); }}
+                    >
+                      Delete
+                    </Button>
+                  }
+                >
+                  <List.Item.Meta
+                    title={<Text strong style={{ color: '#cdd6f4' }}>{tpl.name}</Text>}
+                    description={
+                      <Text type="secondary" style={{ fontSize: 12 }}>
+                        {tpl.components.join(', ')} | {tpl.boardName}
+                      </Text>
+                    }
+                  />
+                </List.Item>
+              )}
+            />
+          </>
+        )}
+        <Divider style={{ borderColor: '#3a3a5c', margin: '12px 0' }}>Presets</Divider>
         <List
           dataSource={PRESETS}
           renderItem={(preset) => (
@@ -378,6 +457,35 @@ export default function TaskConfig() {
           )}
         />
       </Drawer>
+
+      <Modal
+        title="Save as Template"
+        open={showSaveTemplate}
+        onOk={() => {
+          if (templateName.trim()) {
+            saveTemplate(templateName.trim());
+            setTemplateName('');
+            setShowSaveTemplate(false);
+            messageApi.success('Template saved!');
+          }
+        }}
+        onCancel={() => { setTemplateName(''); setShowSaveTemplate(false); }}
+        okButtonProps={{ disabled: !templateName.trim() }}
+      >
+        <Input
+          placeholder="Template name"
+          value={templateName}
+          onChange={(e) => setTemplateName(e.target.value)}
+          onPressEnter={() => {
+            if (templateName.trim()) {
+              saveTemplate(templateName.trim());
+              setTemplateName('');
+              setShowSaveTemplate(false);
+              messageApi.success('Template saved!');
+            }
+          }}
+        />
+      </Modal>
     </div>
   );
 }

@@ -3,6 +3,7 @@
 import asyncio
 import json
 import logging
+from typing import Callable, Optional
 from .base import BaseStage
 
 logger = logging.getLogger(__name__)
@@ -12,7 +13,7 @@ class TaskDecompositionStage(BaseStage):
     name = "Task Decomposition"
     index = 2
 
-    async def execute(self, context: dict) -> dict:
+    async def execute(self, context: dict, on_progress: Optional[Callable] = None) -> dict:
         from ...utils.gpt_processing import generate_subtasks_with_gpt4
 
         task_config = context["task_config"]

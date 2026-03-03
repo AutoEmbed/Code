@@ -20,7 +20,7 @@ class AppConfig(BaseModel):
     api_key: str
     api_base_url: str = "https://api.openai.com/v1"
     model: str = "gpt-3.5-turbo"
-    arduino_cli_path: str
+    arduino_cli_path: str = ""
     serial_port: str = ""
     board_fqbn: str = "arduino:avr:uno"
     board_name: str = "Arduino Uno"
@@ -65,6 +65,7 @@ class TaskConfig(BaseModel):
     board_name: str = "Arduino Uno"
     board_fqbn: str = "arduino:avr:uno"
     baud_rate: Optional[int] = None  # None = auto-detect from generated code
+    code_only: bool = False  # Skip compilation, upload, validation stages
 
 
 class StageUpdate(BaseModel):
