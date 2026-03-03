@@ -1,6 +1,6 @@
 {
   "name": "autoembed-gui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "AutoEmbed GUI - Neural Network Embedding Optimization Tool",
   "main": "./out/main/index.js",
   "scripts": {
