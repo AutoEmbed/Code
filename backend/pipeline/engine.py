@@ -213,10 +213,24 @@ class PipelineEngine:
             matched = context.get("matched_apis", {})
             total = sum(len(v) for v in matched.values())
             top_sims = context.get("top_similarities", [])[:5]
-            top_list = [
-                {"subtask": s, "functionality": f, "score": round(sc, 3)}
-                for s, f, sc in top_sims
-            ]
+            top_list = []
+            for item in top_sims:
+                if isinstance(item, dict):
+                    subtask = item.get("subtask", "?")
+                    top_funcs = item.get("top_functionalities", [])
+                    if top_funcs:
+                        best = top_funcs[0]
+                        top_list.append({
+                            "subtask": subtask,
+                            "functionality": best.get("functionality", "?"),
+                            "score": round(float(best.get("similarity", 0)), 3),
+                        })
+                elif isinstance(item, (list, tuple)) and len(item) >= 3:
+                    top_list.append({
+                        "subtask": item[0],
+                        "functionality": item[1],
+                        "score": round(float(item[2]), 3),
+                    })
             detail = {"matched_apis": total, "top_matches": top_list}
             return f"Matched {total} APIs to subtasks", detail
 
