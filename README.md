@@ -1,5 +1,7 @@
 <div align="center">
 
+**English | [中文](README_zh.md)**
+
 # AutoEmbed
 
 **Towards Automated Software Development for Generic Embedded IoT Systems via LLMs**
