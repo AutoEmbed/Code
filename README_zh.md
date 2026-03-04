@@ -28,6 +28,18 @@
 - **零 API 幻觉** —— 从库源代码中提取真实 API，而非依赖 LLM 记忆
 - **支持任意 Arduino 兼容组件** —— 从 7,000+ Arduino 库中动态发现
 
+## 界面展示
+
+| 任务配置 | 流水线执行 |
+|:--:|:--:|
+| ![Task Config](screenshots/task-config.png) | ![Pipeline](screenshots/pipeline.png) |
+| 配置组件、引脚映射，用自然语言描述任务 | 8 阶段实时流水线，进度可视化 |
+
+| 生成代码 | 设置 |
+|:--:|:--:|
+| ![Code View](screenshots/code-view.png) | ![Settings](screenshots/settings.png) |
+| 内置 Monaco 编辑器，语法高亮显示 | LLM API 和 Arduino CLI 配置 |
+
 ## 工作原理
 
 AutoEmbed 通过 4 阶段流水线实现全自动硬件在环开发：

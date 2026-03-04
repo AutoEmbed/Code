@@ -28,6 +28,18 @@ The first fully automated software development platform for general-purpose embe
 - **Zero API hallucination** — extracts real APIs from library source code instead of relying on LLM memory
 - **Any Arduino-compatible component** — dynamically discovers from 7,000+ Arduino libraries
 
+## Screenshots
+
+| Task Configuration | Pipeline Execution |
+|:--:|:--:|
+| ![Task Config](screenshots/task-config.png) | ![Pipeline](screenshots/pipeline.png) |
+| Configure components, pins, and describe your task in natural language | Real-time 8-stage pipeline with progress tracking |
+
+| Generated Code | Settings |
+|:--:|:--:|
+| ![Code View](screenshots/code-view.png) | ![Settings](screenshots/settings.png) |
+| Built-in Monaco editor with syntax highlighting | LLM API and Arduino CLI configuration |
+
 ## How It Works
 
 AutoEmbed automates the full hardware-in-the-loop development cycle through a 4-stage pipeline:
